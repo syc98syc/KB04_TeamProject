@@ -4,21 +4,22 @@ import java.util.Date;
 
 public class CardDto {
 	
-	private int cd_num,cd_pw,pay_account,pay_date;
-	private String cd_item,cd_name,cd_ssn,cd_phone,cd_status,pay_bank,mem_id;
+	private int pay_date;
+	private String cd_num,cd_pw,pay_account,cd_item,cd_name,cd_ssn,cd_phone,cd_status,pay_bank,mem_id;
 	private Date end_date,start_date;
 	
 	public CardDto() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CardDto(int cd_num, int cd_pw, int pay_account, int pay_date, String cd_item, String cd_name, String cd_ssn,
-			String cd_phone, String cd_status, String pay_bank, String mem_id, Date end_date, Date start_date) {
+	public CardDto(int pay_date, String cd_num, String cd_pw, String pay_account, String cd_item, String cd_name,
+			String cd_ssn, String cd_phone, String cd_status, String pay_bank, String mem_id, Date end_date,
+			Date start_date) {
 		super();
+		this.pay_date = pay_date;
 		this.cd_num = cd_num;
 		this.cd_pw = cd_pw;
 		this.pay_account = pay_account;
-		this.pay_date = pay_date;
 		this.cd_item = cd_item;
 		this.cd_name = cd_name;
 		this.cd_ssn = cd_ssn;
@@ -30,36 +31,36 @@ public class CardDto {
 		this.start_date = start_date;
 	}
 
-	public int getCd_num() {
-		return cd_num;
-	}
-
-	public void setCd_num(int cd_num) {
-		this.cd_num = cd_num;
-	}
-
-	public int getCd_pw() {
-		return cd_pw;
-	}
-
-	public void setCd_pw(int cd_pw) {
-		this.cd_pw = cd_pw;
-	}
-
-	public int getPay_account() {
-		return pay_account;
-	}
-
-	public void setPay_account(int pay_account) {
-		this.pay_account = pay_account;
-	}
-
 	public int getPay_date() {
 		return pay_date;
 	}
 
 	public void setPay_date(int pay_date) {
 		this.pay_date = pay_date;
+	}
+
+	public String getCd_num() {
+		return cd_num;
+	}
+
+	public void setCd_num(String cd_num) {
+		this.cd_num = cd_num;
+	}
+
+	public String getCd_pw() {
+		return cd_pw;
+	}
+
+	public void setCd_pw(String cd_pw) {
+		this.cd_pw = cd_pw;
+	}
+
+	public String getPay_account() {
+		return pay_account;
+	}
+
+	public void setPay_account(String pay_account) {
+		this.pay_account = pay_account;
 	}
 
 	public String getCd_item() {
@@ -136,13 +137,12 @@ public class CardDto {
 
 	@Override
 	public String toString() {
-		return "cd_num=" + cd_num + ", cd_pw=" + cd_pw + ", pay_account=" + pay_account + ", pay_date="
-				+ pay_date + ", cd_item=" + cd_item + ", cd_name=" + cd_name + ", cd_ssn=" + cd_ssn + ", cd_phone="
+		return "pay_date=" + pay_date + ", cd_num=" + cd_num + ", cd_pw=" + cd_pw + ", pay_account="
+				+ pay_account + ", cd_item=" + cd_item + ", cd_name=" + cd_name + ", cd_ssn=" + cd_ssn + ", cd_phone="
 				+ cd_phone + ", cd_status=" + cd_status + ", pay_bank=" + pay_bank + ", mem_id=" + mem_id
-				+ ", end_date=" + end_date + ", start_date=" + start_date;
+				+ ", end_date=" + end_date + ", start_date=" + start_date ;
 	}
-	
-	
+
 	
 
 }
