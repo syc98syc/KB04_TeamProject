@@ -11,9 +11,11 @@
 <%-- errorMessage 세션 속성이 존재할 때만 alert 창을 띄우도록 코드 작성 --%>
 <c:if test="${not empty sessionScope.errorMessage_pw}">
     <script>
-        alert("${sessionScope.errorMessage_pw}"); // errorMessage를 alert 창에 표시
+        alert("${sessionScope.errorMessage}"); // errorMessage를 alert 창에 표시
     </script>
 </c:if>
+<%-- errorMessage 세션 삭제 --%>
+<c:remove var="errorMessage" scope="session" />
 
 
 </head>
