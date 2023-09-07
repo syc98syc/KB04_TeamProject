@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +63,7 @@ https://templatemo.com/tm-559-zay-shop
                              <li><a class="dropdown-item" href="/jgig/card_issuance">카드 발급</a></li>
                              <li><a class="dropdown-item" href="/jgig/card_list">카드 조회 및 관리</a></li>
                              <hr>
-                             <li><a class="dropdown-item" href="/jgig/certification">공인인증서 발급</a></li>
+                             <li><a class="dropdown-item" href="/jgig/certification">인증서 발급</a></li>
                             
                         	</ul>
                     	</li>
@@ -109,7 +107,8 @@ https://templatemo.com/tm-559-zay-shop
                              <li><a class="dropdown-item" href="#">포인트 전환</a></li>
                         	</ul>
                     	</li>
-    
+                    	
+  
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
@@ -191,45 +190,50 @@ https://templatemo.com/tm-559-zay-shop
 
             <div class="col-lg-2">
             	<div class="sidemenubox">
-                <h2 class="h3 pt-3 ">금융거래연습</h2>
+                <h2 class="h3 pt-3 ">메인메뉴명</h2>
                 <hr>
                 <ul class="list-unstyled ">
                     <li >
-                        <a class="collapsed d-flex justify-content-between text-decoration-none" href="#"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 -->
-                            계좌 개설
+                        <a class="collapsed d-flex justify-content-between text-decoration-none selectsidemenu" href="#"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 -->
+                            하위메뉴
                         </a>
                        
                     </li>
                     <li >
-                        <a class="collapsed d-flex justify-content-between  text-decoration-none" href="#">
-                            계좌 조회 및 이체
+                        <a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
+                            하위메뉴
                         </a>
                        
                     </li>
                     <li >
-                        <a class="collapsed d-flex justify-content-between  text-decoration-none" href="#">
-                            거래 내역 조회
+                        <a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
+                            하위메뉴
                         </a>
                     </li>
                     <hr>
                     <li >
-                        <a class="collapsed d-flex justify-content-between text-decoration-none " href="/jgig/card_issuance">
-                            카드발급
+                        <a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
+                            하위메뉴
                         </a>
                        
                     </li>
                     <li >
-                        <a class="collapsed d-flex justify-content-between text-decoration-none selectsidemenu" href="/jgig/card_list">
-                            카드 조회 및 관리
+                        <a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
+                            하위메뉴
                         </a>
                        
                     </li>
                     <hr>
                    
-                
                     <li >
-                        <a class="collapsed d-flex justify-content-between  text-decoration-none" href="#">
-                            인증서 발급
+                        <a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
+                            하위메뉴
+                        </a>
+                       
+                    </li>
+                    <li >
+                        <a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
+                            하위메뉴
                         </a>
                        
                     </li>
@@ -239,58 +243,27 @@ https://templatemo.com/tm-559-zay-shop
                 </div>
             </div>
 
-			<div class="col-lg-9">
-				<div class="row">
-					<div class="col-md-6">
-						<ul class="list-inline shop-top-menu  pt-5 pl-3">
-							<h2>카드 조회</h2>
-						</ul>
-					</div>
+            <div class="col-lg-9">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-inline shop-top-menu  pt-5 pl-3">
+                            <h2>서비스명</h2>
+                        </ul>
+                    </div>
+                   
+                </div>
+                <div class="row">
+                	<div id="service-content"> 
+                	<!-- 여기에 넣으시며 됩니당 -->
+                	메인콘텐츠
+                	</div>
+                
+                </div>
+                    
+                
+            </div>
 
-				</div>
-				<div class="row">
-					<div id="service-content" class="cardlistcss">
-						<table>
-							<thead>
-								<tr>
-									<th>카드상품</th>
-									<th>카드번호</th>
-									<th>발급일</th>
-									<th>만료일</th>
-									<th>사용가능여부</th>
-									<th></th>
-									<th></th>
-									<th></th>
-								</tr>
-							</thead>
-							<c:forEach items="${card_list}" var="c">
-								<tr>
-									<td>${c.cd_item}</td>
-									<td>${c.cd_num}</td>
-									<td><fmt:formatDate value="${c.start_date}"
-											pattern="yyyy-MM-dd" /></td>
-									<td><fmt:formatDate value="${c.end_date}"
-											pattern="yyyy-MM-dd" /></td>
-									<td>${c.cd_status}</td>
-
-
-									<td><button class="cardlistbtn" type="button"
-											onclick="location.href='/jgig/card_status_form?no=${c.cd_no}'">분실신고/취소</button></td>
-									<td><button class="cardlistbtn" type="button"
-											onclick="location.href='/jgig/card_pw_form?no=${c.cd_no}'">비밀번호
-											변경</button></td>
-									<td><button class="cardlistbtn" type="button"
-											onclick="location.href='/jgig/card_cancellation_form?no=${c.cd_no}'">해지</button></td>
-							</c:forEach>
-						</table>
-					</div>
-
-				</div>
-
-
-			</div>
-
-		</div>
+        </div>
     </div>
     <!-- End Content -->
 
@@ -306,7 +279,7 @@ https://templatemo.com/tm-559-zay-shop
                     <div class="col-12">
                         <p class="text-left text-light">
                             Copyright &copy; 2023 KB IT's Your Life , Ditto
-                           
+                            
                         </p>
                     </div>
                 </div>

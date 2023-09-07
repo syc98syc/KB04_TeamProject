@@ -5,9 +5,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class controller {
-	@GetMapping("/jgig/practice")
-	public String pratcice() {
+	
+	@GetMapping("/jgig/test_main")
+	public String main() {
 		
-		return "practice";
+		return "/bootstrap/main";
+	}
+	
+	@GetMapping("/jgig/test_sidemenu")
+	public String test_sidemenu() {
+		
+		return "/bootstrap/sidemenu";
 	}
 }

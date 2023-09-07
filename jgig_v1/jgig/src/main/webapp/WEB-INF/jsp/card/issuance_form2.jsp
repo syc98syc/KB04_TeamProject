@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>카드 발급</title>
+ 
 </head>
 <body>
 	<h1>카드 발급 입력 폼2</h1>
@@ -13,12 +14,12 @@
 
 	<div class="content">
 		<h2>카드 발급</h2>
-		<form action="card_issuance_action" method="post">
+		<form action="card_issuance_action" method="post" onsubmit="return validateForm();">
 
 			<h3>기본 정보</h3>
-			영문이름 <input type="text"> <br> 
-			이메일 <input type="text">@<input type="text"> <br> 
-			주소 <input type="text"> <br> 
+			영문이름 <input type="text" id="en_name"> <br> 
+			이메일 <input type="text" id="email1">@<input type="text" id="email2"> <br> 
+			주소 <input type="text" id="address"> <br> 
 			
 			<h3>결제 정보</h3>
 			결제계좌은행 <select name="pay_bank">
@@ -59,9 +60,35 @@
         }
         </script>
 			결제일 매월 <input type="number" name="pay_date">일 <br> 
+			
+			<p id="form_msg"></p>
 			<button type="submit">발급</button>
 		
 		</form>
+		
+		<script>
+        function validateForm() {
+            var en_name = document.getElementById("en_name").value;
+            var email1 = document.getElementById("email1").value;
+            var email2 = document.getElementById("email2").value;
+            var address = document.getElementById("address").value;
+            var account=document.querySelector('input[name="pay_account"]').value;
+            var pw=document.getElementById("password").value;
+            var pw_confirm=document.getElementById("confirmPassword").value;
+            var date=document.querySelector('input[name="pay_date"]').value;
+            var msg= document.getElementById("form_msg");
+            
+            if(en_name===''||email1===''||email2===''||address===''||account===''||pw===''||pw_confirm===''||date===''){
+            	msg.innerHTML = "입력하지 않은 정보가 있습니다.";
+            	return false;
+            }
+
+      
+
+            return true; // Allow form submission
+        }
+    </script>
+		
 	</div>
 
 

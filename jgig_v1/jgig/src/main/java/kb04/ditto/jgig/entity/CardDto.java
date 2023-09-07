@@ -3,19 +3,20 @@ package kb04.ditto.jgig.entity;
 import java.util.Date;
 
 public class CardDto {
-	
-	private int pay_date;
-	private String cd_num,cd_pw,pay_account,cd_item,cd_name,cd_ssn,cd_phone,cd_status,pay_bank,mem_id;
-	private Date end_date,start_date;
-	
+
+	private int cd_no, pay_date;
+	private String cd_num, cd_pw, pay_account, cd_item, cd_name, cd_ssn, cd_phone, cd_status, pay_bank, mem_id;
+	private Date end_date, start_date;
+
 	public CardDto() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CardDto(int pay_date, String cd_num, String cd_pw, String pay_account, String cd_item, String cd_name,
-			String cd_ssn, String cd_phone, String cd_status, String pay_bank, String mem_id, Date end_date,
-			Date start_date) {
+	public CardDto(int cd_no, int pay_date, String cd_num, String cd_pw, String pay_account, String cd_item,
+			String cd_name, String cd_ssn, String cd_phone, String cd_status, String pay_bank, String mem_id,
+			Date end_date, Date start_date) {
 		super();
+		this.cd_no = cd_no;
 		this.pay_date = pay_date;
 		this.cd_num = cd_num;
 		this.cd_pw = cd_pw;
@@ -29,6 +30,14 @@ public class CardDto {
 		this.mem_id = mem_id;
 		this.end_date = end_date;
 		this.start_date = start_date;
+	}
+
+	public int getCd_no() {
+		return cd_no;
+	}
+
+	public void setCd_no(int cd_no) {
+		this.cd_no = cd_no;
 	}
 
 	public int getPay_date() {
@@ -137,12 +146,10 @@ public class CardDto {
 
 	@Override
 	public String toString() {
-		return "pay_date=" + pay_date + ", cd_num=" + cd_num + ", cd_pw=" + cd_pw + ", pay_account="
-				+ pay_account + ", cd_item=" + cd_item + ", cd_name=" + cd_name + ", cd_ssn=" + cd_ssn + ", cd_phone="
-				+ cd_phone + ", cd_status=" + cd_status + ", pay_bank=" + pay_bank + ", mem_id=" + mem_id
-				+ ", end_date=" + end_date + ", start_date=" + start_date ;
+		return "cd_no=" + cd_no + ", pay_date=" + pay_date + ", cd_num=" + cd_num + ", cd_pw=" + cd_pw
+				+ ", pay_account=" + pay_account + ", cd_item=" + cd_item + ", cd_name=" + cd_name + ", cd_ssn="
+				+ cd_ssn + ", cd_phone=" + cd_phone + ", cd_status=" + cd_status + ", pay_bank=" + pay_bank
+				+ ", mem_id=" + mem_id + ", end_date=" + end_date + ", start_date=" + start_date;
 	}
-
-	
 
 }
