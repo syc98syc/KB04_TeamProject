@@ -74,7 +74,7 @@
 				<p id = "msg"></p>
 			</form>
 			
-			<form action = "open_form2" method = "post">
+			<form action = "open_account2" method = "post">
 				<h2>약관동의</h2>
 				<fieldset>
 					<p>약관동의!</p>

@@ -50,6 +50,6 @@
 			</tr>
 		</table>
 		<strong>${msg}</strong>
-		<a href = "open_form1" class ="button-like-link">계좌개설</a>
+		<a href = "open_account1" class ="button-like-link">계좌개설</a>
 	</body>
 </html>

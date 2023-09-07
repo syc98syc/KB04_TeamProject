@@ -7,7 +7,7 @@
 		<meta charset="UTF-8">
 		<title>계좌조회 및 이체</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-</head>
+	</head>
 	<body>
 		<h1>계좌이체</h1>
 		<fieldset>
@@ -32,7 +32,7 @@
 						</tr>
 						<tr>
 							<th>입금계좌번호</th>
-							<td><input type = "text" name = "depo_num" required></td>
+							<td><input type = "text" name = "depo_num" minlength = "13" maxlength = "13" required></td>
 						</tr>
 						<tr>
 							<th>이체금액</th>
@@ -40,12 +40,12 @@
 						</tr>
 						<tr>
 							<th>계좌비밀번호</th>
-							<td><input type = "text" name = "act_password" required></td>
+							<td><input type = "text" name = "act_password" minlength = "4" maxlength = "4" required></td>
 						</tr>
 				</table>
 				<input type = "submit" value = "이체">
+				<p>${errorMessage}</p>
 			</form>
-			<p>${errorMessage}</p>
 		</fieldset>
 	</body>
 </html>

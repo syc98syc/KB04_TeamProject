@@ -39,7 +39,7 @@ public class AccountController {
 		session.setAttribute("ssn", "990101-0000000"); // 테스트용 주민번호
 
 		// 로그인 정보를 저장한 후, 다음 페이지로 리다이렉트합니다.
-		return "redirect:/jgig/open_form1"; // 로그인 후의 페이지로 리다이렉트
+		return "redirect:/jgig/open_account1"; // 로그인 후의 페이지로 리다이렉트
 	}
 	
 	// 테스트용 로그아웃 처리 로직
@@ -49,7 +49,7 @@ public class AccountController {
 			session.invalidate();
 		}
 
-		return "redirect:/jgig/open_form1"; // 로그인 후의 페이지로 리다이렉트
+		return "redirect:/jgig/open_account1"; // 로그인 후의 페이지로 리다이렉트
 	}
 
 	// 로그인 체크 함수
@@ -68,13 +68,13 @@ public class AccountController {
 	
 
 	// 계좌개설폼1단계
-	@GetMapping("/jgig/open_form1")
+	@GetMapping("/jgig/open_account1")
 	public String open_form1() {
-		return "account/open_form1";
+		return "account/open_account1";
 	}
 	
 	// 계좌개설폼2단계
-	@PostMapping("/jgig/open_form2")
+	@PostMapping("/jgig/open_account2")
 	public String open_form2(Model model) {
 		model.addAttribute("act_name", actName);
 		model.addAttribute("mem_nm", memName);
@@ -82,7 +82,7 @@ public class AccountController {
 		model.addAttribute("phone_num", phone_num);
 		model.addAttribute("mem_id", mem_id);
 
-		return "account/open_form2";
+		return "account/open_account2";
 	}
 	
 	
@@ -96,7 +96,7 @@ public class AccountController {
 		Map<String, Object> response = new HashMap<>();
 
 		actName = act_name;
-		ssn = ssn1 + ssn2;
+		ssn = ssn1 + "-" + ssn2;
 		phone_num = phone_num1 + phone_num2 + phone_num3;
 		memName = mem_nm;
 		
@@ -106,14 +106,14 @@ public class AccountController {
         mem_id = returnVal;
         
         
-//		String mem_id = (String) session.getAttribute("mem_id"); //login_check(session);
-//		String mem_phone_num = (String) session.getAttribute("phone_num");
-//		String mem_ssn = (String) session.getAttribute("ssn");
+		String mem_id = (String) session.getAttribute("mem_id"); //login_check(session);
+		String mem_phone_num = (String) session.getAttribute("phone_num");
+		String mem_ssn = (String) session.getAttribute("ssn");
 		
 		if (mem_id != null) {
             // 사용자 정보 가져오기
             String mem_name = accountMapper.findById(mem_id);
-			  if(mem_nm.equals(mem_name)){
+			  if(mem_nm.equals(mem_name) && mem_ssn.equals(ssn) && mem_phone_num.equals(phone_num)){
 				 response.put("success", true);		
 			  }
         	  else {
@@ -125,7 +125,7 @@ public class AccountController {
 	
 	//로그인체크
 	private String notLogin() {
-		return "redirect:/jgig/open_form1";
+		return "redirect:/jgig/open_account1";
 	}
 
 	//계좌개설을 위한 두단계 form의 입력값들을 db에 저장하기 위한 action메서드

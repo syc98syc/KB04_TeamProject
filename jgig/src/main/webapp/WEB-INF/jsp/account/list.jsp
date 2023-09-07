@@ -51,7 +51,7 @@
 			</tr>
 			<tr>
 				<td>
-					<a href = "account_management?account=${acc.account}" class ="button-like-link">내역조회</a>
+					<a href = "trans_history_selected?account=${acc.account}" class ="button-like-link">내역조회</a>
 				</td>
 			</tr>
 			</c:forEach>
