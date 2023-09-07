@@ -20,14 +20,16 @@ import kb04.ditto.jgig.mapper.TransferMapper;
 public class TransferController {
 	@Autowired
 	TransferMapper transferMapper;
-
+	
+	//계좌이체폼1
 	@GetMapping("jgig/transfer_form")
 	public String transfer_form(@RequestParam("account") long account, Model model) {
 		AccountDto accountDto = transferMapper.findByAccount(account);
 		model.addAttribute("dto", accountDto);
 		return "transfer/transfer_form";
 	}
-
+	
+	//계좌이체폼2
 	@PostMapping("jgig/transfer_form2")
 	public String transfer_form_action(TransferDto transferDto, Model model,
 			@RequestParam("act_password") int act_password, HttpSession session) {
@@ -39,7 +41,8 @@ public class TransferController {
 		model.addAttribute("dto", transferDto);
 		return "transfer/transfer_form2";
 	}
-
+	
+	//계좌이체액션
 	@PostMapping("jgig/transfer_action")
 	public String transfer_action(TransferDto transferDto, Model model) {
 		transferMapper.insert(transferDto);
@@ -48,7 +51,8 @@ public class TransferController {
 		model.addAttribute("msg", "이체가 완료되었습니다.");
 		return "transfer/transfer_ok";
 	}
-
+	
+	//계좌내역조회
 	@GetMapping("jgig/trans_history")
 	public String trans_history(Model model, HttpSession session) {
 		String returnVal = login_check(session);
@@ -61,6 +65,7 @@ public class TransferController {
 		return "transfer/trans_history";
 	}
 	
+	//계좌내역조회액션
 	@PostMapping("jgig/trans_history_action")
 	public String trans_history_action(@RequestParam("selectedAccount") long selectedAccount, @RequestParam("year") int year, @RequestParam("month") int month, 
 			RedirectAttributes redirectAttributes, Model model) {
@@ -79,6 +84,7 @@ public class TransferController {
 		return "redirect:/jgig/trans_history";
 	}
 	
+	//계좌내역조회액션2
 	@PostMapping("jgig/trans_history_action2")
 	public String trans_history_action2(@RequestParam("selectedAccount") long selectedAccount, @RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, 
 			RedirectAttributes redirectAttributes, Model model) {
@@ -91,13 +97,14 @@ public class TransferController {
 	}
 	
 	
-	
+	//계좌내역조회(계좌관리에서 해당 계좌를 통해 누른 경우)
 	@GetMapping("jgig/trans_history_selected")
 	public String trans_history_selected(@RequestParam("account") long account, Model model) {
 		model.addAttribute("account", account);
 		return "transfer/trans_history_selected";
 	}
 	
+	//계좌내역조회액션1(계좌관리에서 해당 계좌를 통해 누른 경우)
 	@PostMapping("jgig/trans_history_selected_action")
 	public String trans_history_selected_action(@RequestParam("account") long account, @RequestParam("year") int year, @RequestParam("month") int month, 
 			RedirectAttributes redirectAttributes, HttpSession session, Model model) {
@@ -115,6 +122,7 @@ public class TransferController {
 		return "redirect:/jgig/trans_history_selected?account="+account;
 	}
 	
+	//계좌내역조회액션2(계좌관리에서 해당 계좌를 통해 누른 경우)
 	@PostMapping("jgig/trans_history_selected_action2")
 	public String trans_history_selected_action2(@RequestParam("account") long account, @RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, 
 			RedirectAttributes redirectAttributes, Model model) {
