@@ -1,0 +1,70 @@
+package kb04.ditto.jgig.entity;
+
+import java.util.List;
+
+public class PagingDto {
+	
+	private int currentPage = 1; //현재페이지
+	private int totalNum; //전체 게시글 수
+	private int startPage; //시작 페이지
+	private int endPage; //끝 페이지
+	private int displayNum=10; //10개씩 출력
+	private int displayPage=5; //5페이지씩 페이징
+	boolean prev;
+	boolean next;
+	public int getCurrentPage() {
+		return currentPage;
+	}
+	public void setCurrentPage(int currentPage) {
+		this.currentPage = currentPage;
+	}
+	public int getTotalNum() {
+		return totalNum;
+	}
+	public void setTotalNum(int totalNum) {
+		this.totalNum = totalNum;
+	}
+	public int getStartPage() {
+		return startPage;
+	}
+	public void setStartPage(int startPage) {
+		this.startPage = startPage;
+	}
+	public int getEndPage() {
+		return endPage;
+	}
+	public void setEndPage(int endPage) {
+		this.endPage = endPage;
+	}
+	public int getDisplayNum() {
+		return displayNum;
+	}
+	public void setDisplayNum(int displayNum) {
+		this.displayNum = displayNum;
+	}
+	public int getDisplayPage() {
+		return displayPage;
+	}
+	public void setDisplayPage(int displayPage) {
+		this.displayPage = displayPage;
+	}
+	public boolean isPrev() {
+		return prev;
+	}
+	public void setPrev(boolean prev) {
+		this.prev = prev;
+	}
+	public boolean isNext() {
+		return next;
+	}
+	public void setNext(boolean next) {
+		this.next = next;
+	}
+	
+	public PagingDto() {
+		endPage = (currentPage+(displayPage-1))/displayPage)*displayPage;
+	}
+	
+	
+
+}

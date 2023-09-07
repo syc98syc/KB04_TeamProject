@@ -1,0 +1,7 @@
+INDEX VERSION 1.131
+C:\ditto\KB04_TeamProject\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2080285720.index
+\jgig\src\main\java
+C:\ditto\KB04_TeamProject\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\927661633.index
+\jgig\src\main\java
+C:\ditto\KB04_TeamProject\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\12970736.index
+\jgig\src\main\java

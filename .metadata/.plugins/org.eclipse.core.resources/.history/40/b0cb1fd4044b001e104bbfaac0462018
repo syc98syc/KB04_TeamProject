@@ -1,0 +1,29 @@
+package kb04.ditto.jgig.entity;
+
+import java.util.List;
+
+public class PagingDto {
+	
+	private int startPage; //첫 페이지
+	private int endPage; //끝 페이지
+	private int total; //전체 게시글 개수
+	private boolean prev, next; //이전 다음 페이지 유무
+	//private Criteria cri; //현재페이지, 페이지당 게시물 수
+	
+	//생성자
+	public PagingDto(int startPage, int endPage, int total, boolean prev, boolean next, Criteria cri) {
+		this.startPage = startPage;
+		this.endPage = endPage;
+		this.total = total;
+		this.prev = prev;
+		this.next = next;
+		//this.cri = cri;
+		
+		
+	}
+	
+	
+	
+	
+
+}
