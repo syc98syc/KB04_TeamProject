@@ -20,12 +20,22 @@ public interface PointMapper {
 	void all_point(PointDto dto);
 	
 	
+	//포인트 조회
 	@Select("SELECT POINT_SEQ, POINT, POINT_DATE, DIVISION, MEM_ID " +
             "FROM POINT " +
             "WHERE MEM_ID = #{memId} " +
             "ORDER BY POINT_DATE DESC")
     List<PointDto> getPointByMemberId(String memId);
 	
+	 //필터링된 포인트 내역 조회
+    @Select("SELECT POINT_SEQ, POINT, POINT_DATE, DIVISION, MEM_ID " +
+            "FROM POINT " +
+            "WHERE MEM_ID = #{memId} " +
+            "AND (#{filter} = 'all' OR (#{filter} = 'earn' AND POINT > 0) OR (#{filter} = 'spend' AND POINT < 0)) " +
+            "ORDER BY POINT_DATE DESC")
+    List<PointDto> getFilteredPointByMemberId(@Param("memId") String memId, @Param("filter") String filter);
+	
+
 
 	
 //	포인트적립시 시퀀스 받기
