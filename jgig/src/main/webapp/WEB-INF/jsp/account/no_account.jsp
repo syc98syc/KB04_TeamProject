@@ -202,28 +202,9 @@
 					</div>
 				</div>
 				<div class="row">
-					<div id="service-content"> 
-						<strong>총 예금 잔액 ${totalBalance}</strong >
-						<table class = "table_list">
-							<c:forEach items="${account_list}" var ="acc">
-							<tr>
-								<th colspan=3>입출금 계좌</th>
-							</tr>
-							<tr>
-								<td rowspan = 2>${acc.account}<br>${acc.act_name}</td>
-								<td rowspan = 2>잔액 ${acc.balance}원</td>
-								<td>
-									<a href = "account_management?account=${acc.account}" class ="button-like-link">관리</a>
-									<a href = "transfer_form?account=${acc.account}" class ="button-like-link">이체</a>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<a href = "trans_history_selected?account=${acc.account}" class ="button-like-link">내역조회</a>
-								</td>
-							</tr>
-							</c:forEach>
-						</table>
+					<div id="service-content">
+						<p>해당 사용자의 계좌가 없습니다.</p> 
+						<a href = "open_account1" class ="button-like-link">계좌 개설</a>
 					</div>
 				</div>
 			</div>

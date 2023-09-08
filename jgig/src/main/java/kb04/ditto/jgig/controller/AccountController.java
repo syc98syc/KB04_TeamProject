@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kb04.ditto.jgig.entity.AccountDto;
 import kb04.ditto.jgig.mapper.AccountMapper;
@@ -143,9 +144,12 @@ public class AccountController {
 	@GetMapping("/jgig/account_list")
 	public String account_list(Model model, HttpSession session) {
 		String mem_id = (String) session.getAttribute("mem_id");
-		
-		int totalBalance = accountMapper.totalBalance(mem_id);
 		List<AccountDto> list = accountMapper.list(mem_id);
+		if(list.size() == 0 ) {
+			return "account/no_account";
+		}
+		int totalBalance = accountMapper.totalBalance(mem_id);
+		
 		model.addAttribute("totalBalance", totalBalance);
 		model.addAttribute("account_list", list);
 		return "account/list";
@@ -194,10 +198,16 @@ public class AccountController {
 	}
 	
 	//계좌해지 액션
-	@GetMapping("/jgig/termination_action")
-	public String termination_action(Model model, AccountDto dto) {
-		accountMapper.terminate(dto);
-		model.addAttribute("msg", "계좌 해지가 완료되었습니다.");
-		return "account/termination_ok";
+	@PostMapping("/jgig/termination_action")
+	public String termination_action(RedirectAttributes redirect,@RequestParam("account") long account,@RequestParam("act_password") int pw, Model model, AccountDto dto) {
+		int checkPw = accountMapper.checkPw(account);
+		if(checkPw == pw) {
+			accountMapper.terminate(dto);
+			model.addAttribute("msg", "계좌 해지가 완료되었습니다.");
+			return "account/termination_ok";
+		}
+		redirect.addFlashAttribute("msg", "비밀번호가 틀립니다. 다시한번 확인해주세요.");
+		
+		return "redirect:/jgig/termination?account="+account;
 	}
 }

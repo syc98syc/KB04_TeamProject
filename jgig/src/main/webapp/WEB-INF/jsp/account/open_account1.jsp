@@ -36,7 +36,6 @@
 			            success: function (data) {
 			                if (data.success) {
 			                	alert("본인인증이 완료되었습니다.");
-			                    $("#submitButton").prop("disabled", false)
 			                } else {
 			                	alert("본인인증에 실패하였습니다.");
 			                    $("#submitButton").prop("disabled", true)
@@ -45,8 +44,8 @@
 			            error: function (error) {
 			                console.error("Error:", error)
 			            },
-			        });
-			    });
+			        })
+			    })
 			}
 			
 			function check_permission(){

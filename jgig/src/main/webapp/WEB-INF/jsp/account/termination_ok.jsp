@@ -161,7 +161,7 @@
 	
 				<div class="col-lg-2">
 					<div class="sidemenubox">
-						<h2 class="h3 pt-3 ">메인메뉴명</h2>
+						<h2 class="h3 pt-3 ">금융 거래 연습</h2>
 						<hr>
 						<ul class="list-unstyled ">
 						<li><a
@@ -196,14 +196,13 @@
 					<div class="row">
 						<div class="col-md-6">
 							<ul class="list-inline shop-top-menu  pt-5 pl-3">
-								<h2>서비스명</h2>
+								<h2>계좌 해지</h2>
 							</ul>
 						</div>
 					</div>
 					<div class="row">
 						<div id="service-content"> 
 							<!-- 여기에 넣으시며 됩니당 -->
-							<h1>계좌 해지</h1>
 							<p>${msg}</p>
 							<a href = "account_list" class ="button-like-link">계좌조회 및 이체</a>
 						</div>

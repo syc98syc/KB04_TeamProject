@@ -4,7 +4,7 @@ Custom Css 클래스 이름 겹치지 않게 아래 추가해주시면 됩니다
 
 /**  공통 네비바 css start **/
 .navcolor {
-	background-color: #FFFDE5
+	background-color: #FFFDE5;
 }
 
 /* 드롭다운 메뉴를 초기에 숨김 */
@@ -307,8 +307,14 @@ input[id = "input_text"] {
 	border-radius: 5px;
 	font-weight: bold;
 }
+
 /* 버튼에 호버 효과 추가 */
 .button-like-link:hover {
 	background-color: #E5CC7C;
-}		
+}
+
+.table_list a:hover {
+	color : black;
+}
+	
 *******************************도현********************************

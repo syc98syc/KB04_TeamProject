@@ -184,7 +184,7 @@
 
 			<div class="col-lg-2">
 				<div class="sidemenubox">
-					<h2 class="h3 pt-3 ">메인메뉴명</h2>
+					<h2 class="h3 pt-3 ">금융 거래 연습</h2>
 					<hr>
 					<ul class="list-unstyled ">
 						<li><a
@@ -219,13 +219,12 @@
 				<div class="row">
 					<div class="col-md-6">
 						<ul class="list-inline shop-top-menu  pt-5 pl-3">
-							<h2>서비스명</h2>
+							<h2>계좌 관리</h2>
 						</ul>
 					</div>
 				</div>
 				<div class="row">
 					<div id="service-content">
-						<h1>계좌관리</h1>
 						<table>
 							<tr>
 								<th>상품명</th>
@@ -244,10 +243,8 @@
 								<td>${dto.balance}</td>
 							</tr>
 						</table>
-						<a href="update_password?account=${dto.account}"
-							class="button-like-link">비밀번호 수정</a> <a
-							href="termination?account=${dto.account}"
-							class="button-like-link">계좌해지</a><br>
+						<a href="update_password?account=${dto.account}" class="button-like-link">비밀번호 수정</a> 
+						<a href="termination?account=${dto.account}" class="button-like-link">계좌해지</a><br>
 					</div>
 				</div>
 			</div>

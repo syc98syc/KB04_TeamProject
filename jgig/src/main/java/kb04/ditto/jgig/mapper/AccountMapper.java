@@ -36,4 +36,7 @@ public interface AccountMapper {
 
 	@Select("select sum(balance) from account where mem_id = #{mem_id}")
 	public int totalBalance(String mem_id);
+	
+	@Select("select act_password from account where account = #{account}")
+	public int checkPw(long account);
 }

@@ -193,12 +193,12 @@
 					<ul class="list-unstyled ">
 						<li >
 							<a class="collapsed d-flex justify-content-between text-decoration-none selectsidemenu" href="#"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 -->
-								계좌개설
+								계좌 개설
 							</a>
 						</li>
 						<li >
 							<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
-								거래조회 및 이체
+								계좌 조회 및 이체
 							</a>
 						</li>
 						<li >
@@ -209,12 +209,12 @@
 						<hr>
 						<li >
 							<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
-								카드발급
+								카드 발급
 							</a>
 						</li>
 						<li >
 							<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
-								카드조회
+								카드 조회
 							</a>
 						</li>
 						<hr>
