@@ -57,7 +57,7 @@ Custom Css 클래스 이름 겹치지 않게 아래 추가해주시면 됩니다
 
 /** service content **/
 #service-content {
-	padding: 1rem ;
+	padding: 1rem;
 }
 
 /** 폰트 변경 **/
@@ -74,7 +74,7 @@ body, ul, li, p, a, label, input, div {
 	padding-left: 1rem;
 }
 
-/******************************************************************************/
+/***************************공통 css end****************************************/
 .cardlistcss table {
 	border: 1px #a39485 solid;
 	font-size: .9em;
@@ -146,65 +146,127 @@ body, ul, li, p, a, label, input, div {
 		border-bottom: 1px solid #e5e5e5;
 	}
 }
-	.cardlistbtn {
-		font-size: 10px;
-		background-color: #FFD64B;
-		border:none;
-		border-radius: 5px;
-		padding: 0.3rem  ;
-	}
 
-/**service-content**/	
-	.h3-subtitle{
-		font-size:23px;
-		padding-bottom: 0.5rem;
-	}
-	.subcontent{
-	padding:0 0 1rem 1rem;
-	}
-	
-	input[name="cd_name"]{
-		width: 80%;
-	}
-	
-	input[name="cd_ssn_1"],input[name="cd_ssn_2"]{
-		width: 39%;
-	}
+.cardlistbtn {
+	font-size: 10px;
+	background-color: #FFD64B;
+	border: none;
+	border-radius: 5px;
+	padding: 0.3rem;
+}
 
-	input[name="tel1"],input[name="tel2"],input[name="tel3"]{
-		width: 25%;
-	}
-	
-	.border-bt{
-	border:none; 
+/**service-content**/
+.h3-subtitle {
+	font-size: 23px;
+	padding-bottom: 0.5rem;
+}
+
+.subcontent {
+	padding: 0 0 1rem 1rem;
+}
+
+input[name="cd_name"] {
+	width: 80%;
+}
+
+input[name="cd_ssn_1"], input[name="cd_ssn_2"] {
+	width: 39%;
+}
+
+input[name="tel1"], input[name="tel2"], input[name="tel3"] {
+	width: 25%;
+}
+
+.border-bt {
+	border: none;
 	border-bottom: 1.5px solid gray;
-	}
+}
+
+/**약관동의 내용**/
+.terms-container {
+	max-height: 250px; /* 원하는 높이 설정 */
+	overflow-y: auto; /* 스크롤 추가 */
+	border: 1px solid #ccc; /* 테두리 스타일 설정 */
+	border-radius: 5px;
+	padding: 10px;
+	background-color: #F2F2F2;
+}
+
+#terms-radio {
+	padding: 1rem 2rem;
+	text-align: right;
+}
+
+.card-sumit-btn {
+	font-size: 18px;
+	width: 20%;
+	background-color: #FFD64B;
+	border: none;
+	border-radius: 5px;
+	padding: 0.3rem;
+}
+
+.btn-div {
+	text-align: center;;
+}
+.main_board {
+    width: 90%;
+    height: 400px;
+    background-color: #FFDE57;
+    padding: 15px;
+    margin: auto;
+    border-radius: 10px;
+    position: relative;
+}
+
+.tab_menu #tab2,#tab3{
+	display: none;
+}
+
+.tab_menu>ul{
+	list-style: none;
+}
+.tab_menu>ul> li {
+    float: left;
+    margin-right: 10px;
+}
+.tab_menu >ul> li:after {
+  content: " | ";
+}
+
+.cont{
+	margin:20px auto;
+	background-color: white;
+	height: 300px;
+	border-radius: 10px;
+	padding:10px 30px;
 	
-	/**약관동의 내용**/
-	 .terms-container { 
-        max-height: 250px; /* 원하는 높이 설정 */
-        overflow-y: auto; /* 스크롤 추가 */
-        border: 1px solid #ccc; /* 테두리 스타일 설정 */
-        border-radius:5px;
-        padding: 10px;
-        background-color: #F2F2F2;
-    }
-    
-    #terms-radio{
-    padding:1rem 2rem;
+}
+.cont ul{
+	list-style-type:circle;
+	padding-left: 0;
+}
+.cont li {
+	
+    padding: 8px;
+   /*  margin: 0 30px; */
+    display: flex; /* Flexbox를 사용하여 내부 요소를 정렬 */
+    justify-content: space-between; /* 내부 요소를 좌우로 분할 */
+}
+
+.brd_title {
+    width: 70%; /* 70%의 너비를 가짐 */
+    color: black;
+    text-decoration-line: none;
+}
+.brd_title:hover {
+  text-decoration-line: underline ;
+}
+
+.brd_date {
+    width: 30%; /* 30%의 너비를 가짐 */
     text-align: right;
-    }
-    
-    .card-sumit-btn{
-    font-size: 18px;
-    width:20%;
-		background-color: #FFD64B;
-		border:none;
-		border-radius: 5px;
-		padding: 0.3rem  ;
-    }
-    
-    .btn-div{
-    text-align: center;;
-    }
-	
+    /* 다른 스타일 설정 */
+}
+
+*******************************다윤********************************

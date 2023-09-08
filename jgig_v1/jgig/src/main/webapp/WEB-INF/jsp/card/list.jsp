@@ -54,7 +54,7 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                       	<li class="nav-item dropdown">
-                        	<a class="nav-link " href="#"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        	<a class="nav-link " href="/jgig/open_account1"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             금융거래연습
                         	</a>
                         	<ul class="dropdown-menu">
@@ -65,12 +65,11 @@ https://templatemo.com/tm-559-zay-shop
                              <li><a class="dropdown-item" href="/jgig/card_issuance">카드 발급</a></li>
                              <li><a class="dropdown-item" href="/jgig/card_list">카드 조회 및 관리</a></li>
                              <hr>
-                             <li><a class="dropdown-item" href="/jgig/certification">공인인증서 발급</a></li>
-                            
+                             <li><a class="dropdown-item" href="/jgig/certification">인증서 발급</a></li>
                         	</ul>
                     	</li>
                         <li class="nav-item dropdown">
-                        	<a class="nav-link " href="#"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        	<a class="nav-link " href="/jgig/searchWord"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             금융교육
                         	</a>
                         	<ul class="dropdown-menu">
@@ -81,7 +80,7 @@ https://templatemo.com/tm-559-zay-shop
                         	</ul>
                     	</li>
                     	<li class="nav-item dropdown">
-                        	<a class="nav-link " href="#"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        	<a class="nav-link " href="#공지사항링크"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             커뮤니티
                         	</a>
                         	<ul class="dropdown-menu">
@@ -91,25 +90,23 @@ https://templatemo.com/tm-559-zay-shop
                         	</ul>
                     	</li>
                     	<li class="nav-item dropdown">
-                        	<a class="nav-link " href="#"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        	<a class="nav-link " href="/jgig/findStore"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             지점찾기
                         	</a>
                         	<ul class="dropdown-menu">
                            	 <li><a class="dropdown-item" href="/jgig/findStore">지점찾기 및 번호표 발행</a></li>
                              <li><a class="dropdown-item" href="/jgig/detailWaiting">번호표 조회 및 취소</a></li>
-                             
                         	</ul>
                     	</li>
                     	<li class="nav-item dropdown">
-                        	<a class="nav-link " href="#"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        	<a class="nav-link " href="/jgig/point_list"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             마이포인트
                         	</a>
                         	<ul class="dropdown-menu">
-                           	 <li><a class="dropdown-item" href="#">포인트 조회</a></li>
-                             <li><a class="dropdown-item" href="#">포인트 전환</a></li>
+                           	 <li><a class="dropdown-item" href="/jgig/point_list">포인트 조회</a></li>
+                             <li><a class="dropdown-item" href="/jgig/point_conversion">포인트 전환</a></li>
                         	</ul>
                     	</li>
-    
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
@@ -121,50 +118,38 @@ https://templatemo.com/tm-559-zay-shop
                             </div>
                         </div>
                     </div>
-
-
-					<ul
-						class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-
+					<ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+					
+						<!--로그인 했을 때 -->
 						<c:if test="${not empty sessionScope.mem_id}">
 							<li class="nav-item dropdown">
-								<%-- 로그인 했을 때 --%> <a
-								class="nav-icon position-relative text-decoration-none nav-link"
-								href="/jgig/member_detail" role="button" data-bs-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false"> <i
-									class="fa fa-fw fa-user text-dark mr-3"></i>
+								<a class="nav-icon position-relative text-decoration-none nav-link"
+									href="/jgig/member_detail" role="button" data-bs-toggle="dropdown"
+									aria-haspopup="true" aria-expanded="false"> <i
+										class="fa fa-fw fa-user text-dark mr-3"></i>
 									${sessionScope.mem_nm}님 <!--session값으로 받아오기 -->
-							</a>
+								</a>
 								<ul class="dropdown-menu">
 									<li><a class="dropdown-item" href="/jgig/member_detail">마이페이지</a></li>
-
-
 								</ul>
 							</li>
 							<li class="nav-item"><a class="nav-link" href="/jgig/logout">로그아웃</a>
 							</li>
 						</c:if>
-
-						<%-- 로그인 안했을 때 --%>
+						
+						<!--로그인 안 했을 때 -->
 						<c:if test="${empty sessionScope.mem_id}">
 							<li class="nav-item"><a class="nav-link" href="/jgig/login">로그인</a>
 							</li>
 							<li class="nav-item"><a class="nav-link" href="/jgig/register">회원가입</a>
 							</li>
 						</c:if>
-
-
-
-
 					</ul>
-
-
 				</div>
-            </div>
-
-        </div>
-    </nav>
-    <!-- Close Header -->
+			</div>
+		</div>
+	</nav>
+	<!-- Close Header -->
 
     <!-- Modal -->
     <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

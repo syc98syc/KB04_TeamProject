@@ -45,7 +45,7 @@
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                       	<li class="nav-item dropdown">
-                        	<a class="nav-link " href="#"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        	<a class="nav-link " href="/jgig/open_account1"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             금융거래연습
                         	</a>
                         	<ul class="dropdown-menu">
@@ -60,7 +60,7 @@
                         	</ul>
                     	</li>
                         <li class="nav-item dropdown">
-                        	<a class="nav-link " href="#"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        	<a class="nav-link " href="/jgig/searchWord"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             금융교육
                         	</a>
                         	<ul class="dropdown-menu">
@@ -71,7 +71,7 @@
                         	</ul>
                     	</li>
                     	<li class="nav-item dropdown">
-                        	<a class="nav-link " href="#"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        	<a class="nav-link " href="#공지사항링크"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             커뮤니티
                         	</a>
                         	<ul class="dropdown-menu">
@@ -81,7 +81,7 @@
                         	</ul>
                     	</li>
                     	<li class="nav-item dropdown">
-                        	<a class="nav-link " href="#"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        	<a class="nav-link " href="/jgig/findStore"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             지점찾기
                         	</a>
                         	<ul class="dropdown-menu">
@@ -90,12 +90,12 @@
                         	</ul>
                     	</li>
                     	<li class="nav-item dropdown">
-                        	<a class="nav-link " href="#"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        	<a class="nav-link " href="/jgig/point_list"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             마이포인트
                         	</a>
                         	<ul class="dropdown-menu">
-                           	 <li><a class="dropdown-item" href="#">포인트 조회</a></li>
-                             <li><a class="dropdown-item" href="#">포인트 전환</a></li>
+                           	 <li><a class="dropdown-item" href="/jgig/point_list">포인트 조회</a></li>
+                             <li><a class="dropdown-item" href="/jgig/point_conversion">포인트 전환</a></li>
                         	</ul>
                     	</li>
                     </ul>
