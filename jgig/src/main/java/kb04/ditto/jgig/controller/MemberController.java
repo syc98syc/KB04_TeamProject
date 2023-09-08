@@ -101,7 +101,7 @@ public class MemberController {
 		String mem_id = (String) session.getAttribute("mem_id");
 		MemberDto update_dto = memberMapper.detail(mem_id);
 		model.addAttribute("memberDto", update_dto);
-		return "member/delete";
+		return "member/delete";///////주석했지롱
 	}
 
 	@PostMapping("/jgig/member_delete")
