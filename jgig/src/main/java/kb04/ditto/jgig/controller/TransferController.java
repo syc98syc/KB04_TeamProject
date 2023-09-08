@@ -20,14 +20,16 @@ import kb04.ditto.jgig.mapper.TransferMapper;
 public class TransferController {
 	@Autowired
 	TransferMapper transferMapper;
-
+	
+	//계좌이체 입력(입금은행, 입금계좌번호, 이체금액, 계좌번호)
 	@GetMapping("jgig/transfer_form")
 	public String transfer_form(@RequestParam("account") long account, Model model) {
 		AccountDto accountDto = transferMapper.findByAccount(account);
 		model.addAttribute("dto", accountDto);
 		return "transfer/transfer_form";
 	}
-
+	
+	//계좌이체 일력(입력내용확인)
 	@PostMapping("jgig/transfer_form2")
 	public String transfer_form_action(TransferDto transferDto, Model model,
 			@RequestParam("act_password") int act_password, HttpSession session) {
@@ -39,16 +41,24 @@ public class TransferController {
 		model.addAttribute("dto", transferDto);
 		return "transfer/transfer_form2";
 	}
-
+	
+	//계좌이체액션
 	@PostMapping("jgig/transfer_action")
 	public String transfer_action(TransferDto transferDto, Model model) {
-		transferMapper.insert(transferDto);
-		transferMapper.update(transferDto);
-		model.addAttribute("dto", transferDto);
-		model.addAttribute("msg", "이체가 완료되었습니다.");
-		return "transfer/transfer_ok";
+		int balance = transferMapper.findByBalance(transferDto.getAccount());
+		if(balance != 0 ) {
+			transferMapper.insert(transferDto);
+			transferMapper.update(transferDto);
+			model.addAttribute("dto", transferDto);
+			model.addAttribute("msg", "이체가 완료되었습니다.");
+			return "transfer/transfer_ok";
+		}
+		model.addAttribute("msg", "잔액이 부족합니다.");
+		return "transfer/transfer_fail";
 	}
-
+	
+	
+	//거래내역조회폼
 	@GetMapping("jgig/trans_history")
 	public String trans_history(Model model, HttpSession session) {
 		String returnVal = login_check(session);
@@ -61,6 +71,7 @@ public class TransferController {
 		return "transfer/trans_history";
 	}
 	
+	//거래내역조회 액션1
 	@PostMapping("jgig/trans_history_action")
 	public String trans_history_action(@RequestParam("selectedAccount") long selectedAccount, @RequestParam("year") int year, @RequestParam("month") int month, 
 			RedirectAttributes redirectAttributes, Model model) {
@@ -74,30 +85,38 @@ public class TransferController {
 		
 		redirectAttributes.addFlashAttribute("selectedAccount", selectedAccount);
 		redirectAttributes.addFlashAttribute("transferList", transferList);
-		redirectAttributes.addAttribute("showTable", "true");
-		
+		if(transferList.size() != 0) {
+			redirectAttributes.addAttribute("showTable", "true");
+		}
 		return "redirect:/jgig/trans_history";
 	}
 	
+	//거래내역조회 액션2
 	@PostMapping("jgig/trans_history_action2")
 	public String trans_history_action2(@RequestParam("selectedAccount") long selectedAccount, @RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, 
 			RedirectAttributes redirectAttributes, Model model) {
+		
 		List<TransferDto> transferList = transferMapper.listCalender(startDate, endDate, selectedAccount);
 		
 		redirectAttributes.addFlashAttribute("selectedAccount", selectedAccount);
 		redirectAttributes.addFlashAttribute("transferList", transferList);
-		redirectAttributes.addAttribute("showTable", "true");
+		
+		if(transferList.size() != 0) {
+			redirectAttributes.addAttribute("showTable", "true");
+		}
+		
 		return "redirect:/jgig/trans_history";
 	}
 	
 	
-	
+	//거래내역조회 폼(계좌관리에서 해당 계좌로 들어온 경우)
 	@GetMapping("jgig/trans_history_selected")
 	public String trans_history_selected(@RequestParam("account") long account, Model model) {
 		model.addAttribute("account", account);
 		return "transfer/trans_history_selected";
 	}
 	
+	//거래내역조회 액션1(계좌관리에서 해당 계좌로 들어온 경우)
 	@PostMapping("jgig/trans_history_selected_action")
 	public String trans_history_selected_action(@RequestParam("account") long account, @RequestParam("year") int year, @RequestParam("month") int month, 
 			RedirectAttributes redirectAttributes, HttpSession session, Model model) {
@@ -110,11 +129,14 @@ public class TransferController {
 		
 		redirectAttributes.addFlashAttribute("account", account);
 		redirectAttributes.addFlashAttribute("transferList", transferList);
-		redirectAttributes.addAttribute("showTable", "true");
+		if(transferList.size() != 0 ) {
+			redirectAttributes.addAttribute("showTable", "true");
+		}
 		
 		return "redirect:/jgig/trans_history_selected?account="+account;
 	}
 	
+	//거래내역조회 액션2(계좌관리에서 해당 계좌로 들어온 경우)
 	@PostMapping("jgig/trans_history_selected_action2")
 	public String trans_history_selected_action2(@RequestParam("account") long account, @RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, 
 			RedirectAttributes redirectAttributes, Model model) {
@@ -122,7 +144,9 @@ public class TransferController {
 		
 		redirectAttributes.addFlashAttribute("account", account);
 		redirectAttributes.addFlashAttribute("transferList", transferList);
-		redirectAttributes.addAttribute("showTable", "true");
+		if(transferList.size() != 0 ) {
+			redirectAttributes.addAttribute("showTable", "true");
+		}
 		
 		return "redirect:/jgig/trans_history_selected?account="+account;
 	}

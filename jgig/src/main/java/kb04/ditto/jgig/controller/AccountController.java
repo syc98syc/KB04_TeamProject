@@ -143,7 +143,10 @@ public class AccountController {
 	@GetMapping("/jgig/account_list")
 	public String account_list(Model model, HttpSession session) {
 		String mem_id = (String) session.getAttribute("mem_id");
+		
+		int totalBalance = accountMapper.totalBalance(mem_id);
 		List<AccountDto> list = accountMapper.list(mem_id);
+		model.addAttribute("totalBalance", totalBalance);
 		model.addAttribute("account_list", list);
 		return "account/list";
 	}

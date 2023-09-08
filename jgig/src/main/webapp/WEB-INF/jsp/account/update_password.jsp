@@ -12,7 +12,7 @@
 		</style>
 	</head>
 	<body>
-		<h1>계좌비밀번호수정</h1>
+		<h1>비밀번호수정</h1>
 		<fieldset>
 			<form action="update_password_action" method = "post">
 				<input type = "hidden" name = "account" value = "${dto.account}">
@@ -26,7 +26,7 @@
 					</tr>
 				</table>
 				계좌비밀번호 수정 : <input type = "text" name = "act_password"  minlength = "4" maxlength = "4" value = "${dto.act_password}"><br>
-				<input type = "submit" value = "수정">
+				<input type = "submit" value = "비밀번호수정">
 			</form>
 		</fieldset>
 	</body>	

@@ -35,7 +35,7 @@
 	</head>
 	<body>
 		<h1>계좌목록</h1>
-		<h2>총 예금 잔액 </h2>
+		<strong>총 예금 잔액 ${totalBalance}</strong >
 		<table>
 			<c:forEach items="${account_list}" var ="acc">
 			<tr>

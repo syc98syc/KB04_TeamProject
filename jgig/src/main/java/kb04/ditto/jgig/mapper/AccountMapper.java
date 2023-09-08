@@ -33,4 +33,7 @@ public interface AccountMapper {
 	
 	@Delete("delete from account where account = #{account}")
 	public void terminate(AccountDto dto);
+
+	@Select("select sum(balance) from account where mem_id = #{mem_id}")
+	public int totalBalance(String mem_id);
 }
