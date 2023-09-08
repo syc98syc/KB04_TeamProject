@@ -43,6 +43,7 @@
 #pagination {margin:10px auto;text-align: center;}
 #pagination a {display:inline-block;margin-right:10px;}
 #pagination .on {font-weight: bold; cursor: default;color:#777;}
+#placeDetail {display:none; position:absolute;top:0;left:260px;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
 </style>
 </head>
 <body>
@@ -63,8 +64,9 @@
 	        <ul id="placesList"></ul>
 	        <div id="pagination"></div>
 	    </div>
+        <div id="placeDetail"></div>
 	</div>
-	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>	
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d1ccdc8f7bb05f82cf933172668140d8&libraries=services"></script>
 <script>
 	// 현재 위치
@@ -143,6 +145,12 @@
 
 			// 페이지 번호를 표출합니다
 			displayPagination(pagination);
+			
+			// 검색했을 때 detailWrap 숨기
+			var detailWrap = document.querySelector("#placeDetail");
+			detailWrap.innerHTML = "";
+			detailWrap.style.display = "none";
+			
 
 		} else if (status === kakao.maps.services.Status.ZERO_RESULT) {
 
@@ -210,6 +218,9 @@
 
 		// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
 		map.setBounds(bounds);
+		
+		// 페이지 이동했을 때 이벤트다시 주기 
+		setTimeout(() => { placeClickHandler(); }, "1000");
 	}
 
 	// 검색결과 항목을 Element로 반환하는 함수입니다
@@ -223,7 +234,7 @@
 				+ places.place_name + '</h5>';
 
 		if (places.road_address_name) {
-			itemStr += '    <span>' + places.road_address_name + '</span>'
+			itemStr += '    <span class="juso">' + places.road_address_name + '</span>'
 					+ '   <span class="jibun gray">' + places.address_name
 					+ '</span>';
 		} else {
@@ -288,6 +299,8 @@
 				el.onclick = (function(i) {
 					return function() {
 						pagination.gotoPage(i);
+						// 페이지 이동했을 때 이벤트다시 주기 
+						setTimeout(() => { placeClickHandler(); }, "1000");
 					}
 				})(i);
 			}
@@ -311,6 +324,77 @@
 		while (el.hasChildNodes()) {
 			el.removeChild(el.lastChild);
 		}
+	}
+	
+	// 장소 리스트 클릭 이벤트 
+	function placeClickHandler() {
+		var places = document.querySelectorAll(".item");
+		places.forEach(place => {
+			place.addEventListener("click", () => displayDetail(place));
+		}) 
+	}
+	
+	// 지도 불러오는 시간 이슈 
+/* 	setTimeout(() => {
+		  placeClickHandler();
+		}, "1000"); */
+	
+	// 장소 리스트 클릭했을 때 상세정보와 대기인원수 보여주기 
+	var placeInfo;
+	function displayDetail(store){
+		var detailWrap = document.querySelector("#placeDetail");
+		detailWrap.innerHTML = "";
+		detailWrap.style.display = "block";
+		//console.log(store);
+		
+		placeInfo = {
+				mem_id : "kb0002", // 아이디 
+				wt_no : 3003, // 대기번호 
+				wt_list : 2, // 대기인원 
+				wt_stat : "Y", // 대기상태 
+				wt_store_name : store.querySelector("h5").innerText, // 지점풀네임 
+				wt_store : store.querySelector("h5").innerText.replace('KB국민은행 ', ''), // 지점 
+				wt_juso : store.querySelector(".juso").innerText, // 지점주소  
+			};
+		console.log(placeInfo);
+		
+		var el = document.createElement('div');
+		//var store = document.createElement('h3');
+		var content = `<p>\${placeInfo.wt_store}</p>`;
+		content += `<p>총 대기고객수 : 2</p>`;
+		content += `<table>
+				<tr><td>입금/출금/송금</td><td>1명</td></tr>
+				<tr><td>예금/펀드/신탁</td><td>1명</td></tr>
+				<tr><td>개인대출</td><td>0명</td></tr>
+				</table>`;
+		el.innerHTML = content;
+		detailWrap.append(el);
+		
+		var btn = document.createElement('button');
+		btn.innerHTML = "번호표 발행";
+		btn.setAttribute("id", "wtBtn");
+		btn.onclick = function() {
+			 waitingHandler();
+		}
+		detailWrap.append(btn);
+	}
+	
+	// 번호표 발행 이벤트 
+	function waitingHandler(){
+		const wt_data = placeInfo;
+		let options = {
+			type: "post",
+			url : "/jgig/addWaiting",
+			data: JSON.stringify(wt_data),
+			contentType: 'application/json; charset=utf-8',
+			success : function() {
+				console.log("성공 ");
+			},
+			error: function(jqXHR, textStatus, errorThrown) {
+			    console.error("AJAX 오류 발생: " + textStatus, errorThrown);
+			}
+		}
+		$.ajax(options);
 	}
 </script>
 </body>
