@@ -61,6 +61,7 @@
 			}
 			
 			$(function () {
+				$("#submitButton").prop("disabled", true)
 				check_button()
 				check_permission()
 			})
@@ -275,7 +276,7 @@
 									
 									주민등록번호
 									<input type ="text" name= "ssn1" minlength = "6" maxlength = "6" required> - 
-									<input type ="text" name= "ssn2" minlength = "7 maxlength = "7" required><br>
+									<input type ="text" name= "ssn2" minlength = "7" maxlength = "7" required><br>
 									
 									휴대폰번호
 									<input type = "text" name = "phone_num1" required minlength = 2 maxlength = 3> 
