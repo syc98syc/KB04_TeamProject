@@ -284,7 +284,7 @@ input[type="text"] {
 	color: yellow;
 }
 
-input[type="password"] {
+input[id = "input_text"] {
 	border: none; /* 테두리 제거 */
 	border-bottom: 1px solid #000; /* 아래쪽에 1px 두께의 줄 생성 */
 	background: transparent; /* 배경을 투명하게 설정 */
