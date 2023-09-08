@@ -10,4 +10,10 @@ public class controller {
 		
 		return "practice";
 	}
+	
+	@GetMapping("/jgig/open_ok")
+	public String ok() {
+		
+		return "sidemenu";
+	}
 }

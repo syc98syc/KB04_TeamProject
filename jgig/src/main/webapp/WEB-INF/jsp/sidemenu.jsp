@@ -6,7 +6,7 @@
 <html lang="en">
 
 <head>
-    <title>계좌개설</title>
+    <title>지금입금</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -24,29 +24,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-	<script>
-		function password_check(){
-			$(".pw").keyup(function(){
-				let pass1 = $("#password1").val()
-				let pass2 = $("#password2").val()
-				
-				if(pass1 != "" || pass2 != ""){
-					if(pass1 == pass2){
-						$("#checkPw").html("일치").css("color", "green")
-						$("#submitButton").prop("disabled", false)
-					}else{
-						$("#checkPw").html("불일치").css("color", "red")
-						$("#submitButton").prop("disabled", true)
-					}
-				}
-			})
-		}
-		
-		$(function(){
-			password_check()
-		})
-	</script>
 </head>
 
 <body>
@@ -188,39 +165,39 @@
 
 			<div class="col-lg-2">
 				<div class="sidemenubox">
-					<h2 class="h3 pt-3 ">금융거래연습</h2>
+					<h2 class="h3 pt-3 ">메인메뉴명</h2>
 					<hr>
 					<ul class="list-unstyled ">
 						<li >
 							<a class="collapsed d-flex justify-content-between text-decoration-none selectsidemenu" href="#"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 -->
-								계좌개설
+								하위메뉴
 							</a>
 						</li>
 						<li >
 							<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
-								거래조회 및 이체
+								하위메뉴
 							</a>
 						</li>
 						<li >
 							<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
-								거래 내역 조회
-							</a>
-						</li>
-						<hr>
-						<li >
-							<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
-								카드발급
-							</a>
-						</li>
-						<li >
-							<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
-								카드조회
+								하위메뉴
 							</a>
 						</li>
 						<hr>
 						<li >
 							<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
-								공인인증서 발급
+								하위메뉴
+							</a>
+						</li>
+						<li >
+							<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
+								하위메뉴
+							</a>
+						</li>
+						<hr>
+						<li >
+							<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
+								하위메뉴
 							</a>
 						</li>
 						<li >
@@ -243,46 +220,7 @@
 				<div class="row">
 					<div id="service-content"> 
 						<!-- 여기에 넣으시며 됩니당 -->
-						<h1>계좌개설</h1>
-						<form action="open_action" method = "post">
-							<input type = "hidden" name = "act_name" value = "${act_name}" >
-							<input type = "hidden" name = "mem_nm" value = "${mem_nm}">
-							<input type = "hidden" name = "ssn" value = "${ssn}">
-							<input type = "hidden" name = "balance" value = 0>
-							<input type = "hidden" name = "phone_num" value = "${phone_num}">
-							<input type = "hidden" name = "mem_id" value = "${mem_id}">
-							<h3 class="font-weight-bold">개인 정보</h3>
-							직업구분
-							<select name = "job">
-								<option value ="회사원">회사원</option>
-								<option value ="전문직">전문직</option>
-								<option value ="자영업">자영업</option>
-								<option value ="주부">주부</option>
-								<option value ="무직">무직</option>
-							</select>
-							<br>
-							거래목적  
-							<select name = "pur_trans">
-								<option value ="급여">급여</option>
-								<option value ="법인">법인</option>
-								<option value ="모임">모임</option>
-								<option value ="사업자금">사업자금</option>
-							</select>
-							<br>
-							거래자금의 원천  <input type = "text" name = "sor_fund" required><br>
-							<h3 class="font-weight-bold">계좌 정보</h3>
-							계좌비밀번호  <input type = "password" class = "pw" id = "password1" name = "act_password" 
-							placeholder = "네자리 비밀번호" minlength = 4 maxlength = 4 required><br>
-							계좌비밀번호 확인  <input type = "password" class = "pw" placeholder = "네자리 비밀번호" id = "password2" minlength = 4 maxlength = 4 required>
-							<font id = "checkPw" size = "2"></font>
-							
-							<div class = "text-center">
-								<div class = "d-inline-block">
-									<br>
-									<input type = "submit" id = "submitButton" class="btn btn-warning" value = "발급">
-								</div>
-							</div>
-						</form>
+						메인콘텐츠
 					</div>
 				</div>
 			</div>
