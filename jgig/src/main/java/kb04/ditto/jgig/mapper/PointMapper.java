@@ -37,6 +37,11 @@ public interface PointMapper {
 	
 
 
+    @Insert("INSERT INTO POINT (POINT_SEQ, POINT, POINT_DATE, DIVISION, MEM_ID) " +
+            "VALUES (POINT_SEQ.NEXTVAL, #{point, jdbcType=NUMERIC}, SYSDATE, '전환', #{memId, jdbcType=VARCHAR})")
+    int insertPoint(@Param("memId") String memId, @Param("point") int point);
+
+
 	
 //	포인트적립시 시퀀스 받기
 //	@Insert(" INSERT INTO MEMBER\r\n"

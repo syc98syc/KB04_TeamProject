@@ -13,7 +13,7 @@
 	<tr>
 		<td>${p.point}</td>
 		<td>${p.point_date}</td>
-		<td>${p.division}</td>
+		<td>${p.division}</td>ㄴ
 	</tr>
 </c:forEach>
 

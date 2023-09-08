@@ -42,3 +42,5 @@
 
     <input type="submit" value= "탈퇴">
 </form>
+</body>
+</html>
