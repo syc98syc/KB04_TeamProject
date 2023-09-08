@@ -2,11 +2,14 @@ package kb04.ditto.jgig.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import kb04.ditto.jgig.entity.PopularWordDto;
+import kb04.ditto.jgig.entity.WaitingDto;
 
 @Mapper
 public interface WaitingMapper {
@@ -33,4 +36,18 @@ public interface WaitingMapper {
 			+ ")\r\n"
 			+ "where rownum <= 10")
 	public List<PopularWordDto> allAgeList();
+	
+	@Insert("insert into waiting (wt_seq, wt_no, wt_list, wt_date, wt_stat, wt_store, mem_id) \r\n"
+			+ "values (wt_seq.NEXTVAL, #{wt_no}, #{wt_list}, sysdate, #{wt_stat}, #{wt_store}, #{mem_id})")
+	public void insertWaiting(WaitingDto dto);
+	
+	@Select("select * \r\n"
+			+ "from waiting\r\n"
+			+ "where mem_id = #{mem_id}\r\n"
+			+ "and wt_stat = 'Y'")
+	public WaitingDto detailWaiting(String mem_id);
+	
+	//@Delete("delete from waiting where wt_seq = #{wt_seq}")
+	@Update("update waiting set wt_stat = 'N' where wt_seq = #{wt_seq}")
+	public void updateWaiting(int wt_seq);
 }
