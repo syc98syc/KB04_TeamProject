@@ -143,7 +143,12 @@ public class AccountController {
 	// 계좌목록조회
 	@GetMapping("/jgig/account_list")
 	public String account_list(Model model, HttpSession session) {
-		String mem_id = (String) session.getAttribute("mem_id");
+		String returnVal = login_check(session);
+		
+		if (returnVal.equals("redirect:/jgig/login"))
+			return "redirect:/jgig/login";
+		String mem_id = returnVal;
+		
 		List<AccountDto> list = accountMapper.list(mem_id);
 		if(list.size() == 0 ) {
 			return "account/no_account";
