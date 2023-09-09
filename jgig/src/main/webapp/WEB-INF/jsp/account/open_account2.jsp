@@ -191,18 +191,18 @@
 					<h2 class="h3 pt-3 ">금융거래연습</h2>
 					<hr>
 					<ul class="list-unstyled ">
-						<li >
-							<a class="collapsed d-flex justify-content-between text-decoration-none selectsidemenu" href="#"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 -->
+						<li>
+							<a class="collapsed d-flex justify-content-between text-decoration-none selectsidemenu" href="open_account1"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 -->
 								계좌 개설
 							</a>
 						</li>
 						<li >
-							<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
+							<a class="collapsed d-flex justify-content-between text-decoration-none" href="account_list">
 								계좌 조회 및 이체
 							</a>
 						</li>
 						<li >
-							<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
+							<a class="collapsed d-flex justify-content-between text-decoration-none" href="trans_history">
 								거래 내역 조회
 							</a>
 						</li>
@@ -236,14 +236,13 @@
 				<div class="row">
 					<div class="col-md-6">
 						<ul class="list-inline shop-top-menu  pt-5 pl-3">
-							<h2>서비스명</h2>
+							<h2>계좌 개설</h2>
 						</ul>
 					</div>
 				</div>
 				<div class="row">
 					<div id="service-content"> 
 						<!-- 여기에 넣으시며 됩니당 -->
-						<h1>계좌개설</h1>
 						<form action="open_action" method = "post">
 							<input type = "hidden" name = "act_name" value = "${act_name}" >
 							<input type = "hidden" name = "mem_nm" value = "${mem_nm}">
@@ -260,7 +259,7 @@
 								<option value ="주부">주부</option>
 								<option value ="무직">무직</option>
 							</select>
-							<br>
+							<br><br>
 							거래목적  
 							<select name = "pur_trans">
 								<option value ="급여">급여</option>
@@ -268,11 +267,13 @@
 								<option value ="모임">모임</option>
 								<option value ="사업자금">사업자금</option>
 							</select>
-							<br>
+							<br><br>
 							거래자금의 원천  <input type = "text" name = "sor_fund" required><br>
+							<hr>
 							<h3 class="font-weight-bold">계좌 정보</h3>
+							
 							계좌비밀번호  <input type = "password" class = "pw" id = "password1" name = "act_password" 
-							placeholder = "네자리 비밀번호" minlength = 4 maxlength = 4 required><br>
+							placeholder = "네자리 비밀번호" minlength = 4 maxlength = 4 required><br><br>
 							계좌비밀번호 확인  <input type = "password" class = "pw" placeholder = "네자리 비밀번호" id = "password2" minlength = 4 maxlength = 4 required>
 							<font id = "checkPw" size = "2"></font>
 							

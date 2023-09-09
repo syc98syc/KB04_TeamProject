@@ -52,7 +52,7 @@ Custom Css 클래스 이름 겹치지 않게 아래 추가해주시면 됩니다
 
 .selectsidemenu {
 	background-color: #FFD64B;
-	border-radius: 50px;
+	border-radius: 10px;
 }
 
 /** service content **/
@@ -270,10 +270,11 @@ input[name="tel1"], input[name="tel2"], input[name="tel3"] {
 }
 
 *******************************다윤********************************
-#check_user{
+.check_user{
 	background-color: #EEEEEE;	
 	border: none;
 }
+
 input[type="text"] {
 	border: none; /* 테두리 제거 */
 	border-bottom: 1px solid #000; /* 아래쪽에 1px 두께의 줄 생성 */
@@ -316,5 +317,38 @@ input[id = "input_text"] {
 .table_list a:hover {
 	color : black;
 }
-	
+
+.form-container {
+    display: flex;
+    flex-direction: column; /* 수직으로 정렬 */
+    align-items: flex-start; /* 왼쪽 정렬 */
+    gap: 10px; /* 요소들 사이의 간격 설정 */
+}
+
+.form-group {
+    display: flex;
+    align-items: center; /* 요소들을 수직 가운데로 정렬 */
+}
+.form-container {
+    display: flex;
+    flex-direction: column; /* 수직으로 정렬 */
+    align-items: flex-start; /* 왼쪽 정렬 */
+    gap: 10px; /* 요소들 사이의 간격 설정 */
+}
+
+.form-group {
+    display: flex;
+    align-items: center; /* 요소들을 수직 가운데로 정렬 */
+}
+
+.label_open_account {
+    width: 150px; /* 라벨의 고정된 너비 설정 */
+    text-align: 200px; /* 라벨을 오른쪽 정렬 */
+    margin-right: 10px; /* 라벨과 입력 필드 사이의 간격 설정 */
+}
+
+.bold-text {
+	font-weight : bold;
+}
+
 *******************************도현********************************

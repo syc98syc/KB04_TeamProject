@@ -44,7 +44,7 @@ public class AccountController {
 	}
 	
 	// 테스트용 로그아웃 처리 로직
-	@GetMapping("/jgig/logout_test")
+	@GetMapping("/jgig/logout")
 	public String logoutTest(HttpSession session) {
 		if (session != null) {
 			session.invalidate();

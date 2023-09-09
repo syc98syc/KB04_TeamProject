@@ -24,6 +24,7 @@
 	    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 		<script>
+			var isSuccess = false
 			function check_button(){
 				$("#checkButton").click(function () {
 			        var formData = $("#memberCheckForm").serialize()
@@ -34,6 +35,7 @@
 			            data: formData,
 			            dataType: "json",
 			            success: function (data) {
+			            	isSuccess = data.success
 			                if (data.success) {
 			                	alert("본인인증이 완료되었습니다.");
 			                } else {
@@ -47,16 +49,15 @@
 			        })
 			    })
 			}
-			
 			function check_permission(){
 				$("input[name='check']").change(function () {
 		            var isChecked = $("input[name='check']:checked").val() === "yes"
-		            if (isChecked) {
+		            if (isChecked && isSuccess) {
 		                $("#submitButton").prop("disabled", false)
 		            } else {
 		                $("#submitButton").prop("disabled", true)
 		            }
-		        });
+		        })
 			}
 			
 			$(function () {
@@ -207,18 +208,18 @@
 						<h2 class="h3 pt-3 ">금융 거래 연습</h2>
 						<hr>
 						<ul class="list-unstyled ">
-							<li >
-								<a class="collapsed d-flex justify-content-between text-decoration-none selectsidemenu" href="#"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 -->
+							<li>
+								<a class="collapsed d-flex justify-content-between text-decoration-none selectsidemenu" href="open_account1"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 -->
 									계좌 개설
 								</a>
 							</li>
 							<li >
-								<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
+								<a class="collapsed d-flex justify-content-between text-decoration-none" href="account_list">
 									계좌 조회 및 이체
 								</a>
 							</li>
 							<li >
-								<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
+								<a class="collapsed d-flex justify-content-between text-decoration-none" href="trans_history">
 									거래 내역 조회
 								</a>
 							</li>
@@ -270,26 +271,35 @@
 									</select>
 									<hr>
 									<h3 class="font-weight-bold">본인인증</h3>
-									이름
-									<input type = "text" name = "mem_nm" required><br>
-									
-									주민등록번호
-									<input type ="text" name= "ssn1" minlength = "6" maxlength = "6" required> - 
-									<input type ="text" name= "ssn2" minlength = "7" maxlength = "7" required><br>
-									
-									휴대폰번호
-									<input type = "text" name = "phone_num1" required minlength = 2 maxlength = 3> 
-									- <input type = "text" name = "phone_num2" minlength = 3 maxlength = 4 required > 
-									- <input type = "text" name = "phone_num3" minlength = 3 maxlength = 4 required><br>
-									<div>
-										<button type = "button" id = "checkButton" class = "float-right">본인확인</button>
+									<div class="form-container">
+									    <div class="form-group">
+									        <label class = "label_open_account" for="mem_nm">이름</label>
+									        <input type="text" name="mem_nm" id="mem_nm" required>
+									    </div>
+									    <div class="form-group">
+									        <label class = "label_open_account" for="ssn1">주민등록번호</label>
+									        <input type="text" name="ssn1" id="ssn1" minlength="6" maxlength="6" required>
+									        -
+									        <input type="text" name="ssn2" id="ssn2" minlength="7" maxlength="7" required>
+									    </div>
+									    <div class="form-group">
+									        <label class = "label_open_account" for="phone_num1">휴대폰번호</label>
+									        <input type="text" name="phone_num1" id="phone_num1" required minlength="2" maxlength="3">
+									        -
+									        <input type="text" name="phone_num2" id="phone_num2" minlength="3" maxlength="4" required>
+									        -
+									        <input type="text" name="phone_num3" id="phone_num3" minlength="3" maxlength="4" required>
+									    </div>
+									    <div class="form-group">
+									        <button type="button" id="checkButton" class="float-right">본인확인</button>
+									    </div>
 									</div>
 								</form>
 								
 								<hr>
 								<form action = "open_account2" method = "post" >
 									<h3 class="font-weight-bold">약관동의</h3>
-									<fieldset id = "check_user">
+									<fieldset class = "check_user">
 										<strong>개인(신용)정보 수집-이용에 동의</strong>
 										<p>
 											본인은 귀사가 「개인정보보호법」 및 「신용정보의 이용 및 보호에 관한 법률」 에 따라 본인의 개인(신용)정보를 다음과 같이 수집·이용하는 것에 동의합니다

@@ -181,16 +181,14 @@
 						<h2 class="h3 pt-3 ">메인메뉴명</h2>
 						<hr>
 						<ul class="list-unstyled ">
-						<li><a
-							class="collapsed d-flex justify-content-between text-decoration-none"
-							href="#"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 --> 계좌 개설
-						</a></li>
-						<li><a
-							class="collapsed d-flex justify-content-between text-decoration-none selectsidemenu"
-							href="#"> 계좌 조회 및 이체 </a></li>
-						<li><a
-							class="collapsed d-flex justify-content-between text-decoration-none"
-							href="#"> 거래 내역 조회 </a></li>
+						<li><a class="collapsed d-flex justify-content-between text-decoration-none"href="open_account1"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 --> 계좌 개설</a>
+						</li>
+						<li>
+							<a class="collapsed d-flex justify-content-between text-decoration-none selectsidemenu" href="account_list"> 계좌 조회 및 이체 </a>
+						</li>
+						<li>
+							<a class="collapsed d-flex justify-content-between text-decoration-none" href="trans_history"> 거래 내역 조회 </a>
+						</li>
 						<hr>
 						<li><a
 							class="collapsed d-flex justify-content-between text-decoration-none"
@@ -242,6 +240,7 @@
 									<input type="radio" class="option1"  id = "option1" name = "check" value = "yes">
 							  		<label for="option1">계좌해지시 복구할 수 없음을 인지하였습니다.</label>
 								</fieldset>
+								<br>
 								<p>${msg}</p>
 								<input type = "submit" id = "submitButton" class="btn btn-warning" value = "해지">
 							</form>
