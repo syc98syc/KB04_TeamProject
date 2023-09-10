@@ -351,5 +351,72 @@ input[id = "input_text"] {
 	font-weight : bold;
 }
 
+#checkButton {
+        float: right; /* 오른쪽으로 이동 */
+}
 
+.float-right{
+	 float: right;
+}
+
+#submitButton{ /*계좌개설 약관동의 후 "다음 버튼" 위치*/
+	width : 110px
+}
+
+.check_user{/* 계좌개설 약관동의 배경화면*/
+	background-color: #DFDFE0;
+}
+
+.accountListCss table{
+	width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+}
+
+.accountListCss th, td {
+    border-bottom: 1px solid #444444;
+    border-left: 1px solid #444444;
+    padding: 10px;
+}
+
+.accountListCss th:first-child, td:first-child {
+    border-left: none;
+}
+
+.open-ok-msg{
+	float : right;	
+}
+
+.advice-ballon {
+	display: none;
+	position: absolute;
+	color: #black;
+	font-weight : bold;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.advice-ballon2:after{ /* 왼쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: 10px; /* 꼬리 위치 조정 */
+	left: -8px; /* 꼬리 위치 조정 */
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+} 
+.advice-ballon2 {
+			    /* 두 번째 말풍선의 스타일 */
+	background-color: #dee2e6;
+	top: 265px;
+	left: 850px;
+}
+.advice-location{
+	float : right;
+	border : medium;
+	border-radius: 5px;
+}
 *******************************도현********************************

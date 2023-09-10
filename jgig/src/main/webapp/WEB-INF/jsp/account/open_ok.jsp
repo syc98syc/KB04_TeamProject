@@ -234,35 +234,36 @@
 					<div class="row">
 						<div class="col-md-6">
 							<ul class="list-inline shop-top-menu  pt-5 pl-3">
-								<h2>서비스명</h2>
+								<h2>계좌 개설</h2>
 							</ul>
 						</div>
 					</div>
 					<div class="row">
 						<div id="service-content"> 
 							<!-- 여기에 넣으시며 됩니당 -->
-							<table>
-								<tr class="no-left-right-border">
-									<td class = "bgc">상품명</td>
-									<td>${dto.act_name}</td>
-								</tr>
-								<tr>
-									<td class = "bgc">계좌번호</td>		
-									<td>${account_num}</td>
-								</tr>
-								<tr>
-								<% 
-									Date date = new Date();
-									SimpleDateFormat simpleDate = new SimpleDateFormat("yyy-MM-dd/hh-mm");
-									String strdate = simpleDate.format(date);
-								%>
-									<td class = "bgc">발급일시</td>
-									<td><%=strdate%></td>
-								</tr>
-							</table>
+							<div class = "accountListCss">
+								<table >
+									<tr class="no-left-right-border">
+										<td class = "bgc"><strong>상품명</strong></td>
+										<td>${dto.act_name}</td>
+									</tr>
+									<tr>
+										<td class = "bgc"><strong>계좌번호</strong></td>		
+										<td>${account_num}</td>
+									</tr>
+									<tr>
+									<% 
+										Date date = new Date();
+										SimpleDateFormat simpleDate = new SimpleDateFormat("yyy-MM-dd/hh-mm");
+										String strdate = simpleDate.format(date);
+									%>
+										<td class = "bgc"><strong>발급일시</strong></td>
+										<td><%=strdate%></td>
+									</tr>
+								</table>
+							</div>
 							<br>
-							<strong>${msg}</strong><br><br>
-							<a href = "open_account1" class ="button-like-link">계좌개설</a>
+							<strong class = "open-ok-msg">${msg}</strong>
 						</div>
 					</div>
 				</div>

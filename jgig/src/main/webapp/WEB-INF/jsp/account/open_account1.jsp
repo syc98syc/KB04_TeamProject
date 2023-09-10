@@ -60,7 +60,20 @@
 		        })
 			}
 			
+			function advice_ballon(){
+				$('#advice-ballonCheckbox').change(function() {
+					if (this.checked) {
+						$('.advice-ballon2').show()
+						console.log('말풍선을 표시합니다.');
+					} else {
+						$('.advice-ballon2').hide()
+						console.log('말풍선을 숨깁니다.');
+					}
+				})
+			}
+			
 			$(function () {
+				advice_ballon()
 				$("#submitButton").prop("disabled", true)
 				check_button()
 				check_permission()
@@ -250,6 +263,13 @@
 				</div>
 	
 				<div class="col-lg-9">
+						<fieldset class = "advice-location">
+							<legend>도움기능 선택</legend>
+							<label for="">음성지원</label>
+							<input type="checkbox" id="">
+							<label for="tooltipCheckbox">도움말</label>
+							<input type="checkbox" id="advice-ballonCheckbox">
+						</fieldset>
 					<div class="row">
 						<div class="col-md-6">
 							<ul class="list-inline shop-top-menu  pt-5 pl-3">
@@ -269,6 +289,7 @@
 										<option value ="KB두근두근외화적금">KB두근두근외화적금</option>
 										<option value ="KB국민ON통장">KB국민ON통장</option>
 									</select>
+									<p class="advice-ballon advice-ballon2">1. 원하시는 상품을 선택해주세요.</p>
 									<hr>
 									<h3 class="font-weight-bold">본인인증</h3>
 									<div class="form-container">
@@ -290,12 +311,10 @@
 									        -
 									        <input type="text" name="phone_num3" id="phone_num3" minlength="3" maxlength="4" required>
 									    </div>
-									    <div class="form-group">
-									        <button type="button" id="checkButton" class="float-right">본인확인</button>
-									    </div>
 									</div>
+									<button type="button" id="checkButton" class="float-right">본인확인</button>
 								</form>
-								
+								<br>
 								<hr>
 								<form action = "open_account2" method = "post" >
 									<h3 class="font-weight-bold">약관동의</h3>

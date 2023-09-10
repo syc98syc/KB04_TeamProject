@@ -33,10 +33,10 @@
 				
 				if(pass1 != "" || pass2 != ""){
 					if(pass1 == pass2){
-						$("#checkPw").html("일치").css("color", "green")
+						$("#checkPw").html("비밀번호가 일치합니다.").css("color", "green")
 						$("#submitButton").prop("disabled", false)
 					}else{
-						$("#checkPw").html("불일치").css("color", "red")
+						$("#checkPw").html("비밀번호가 불일치합니다. 다시 입력해주세요.").css("color", "red")
 						$("#submitButton").prop("disabled", true)
 					}
 				}
@@ -277,11 +277,9 @@
 							계좌비밀번호 확인  <input type = "password" class = "pw" placeholder = "네자리 비밀번호" id = "password2" minlength = 4 maxlength = 4 required>
 							<font id = "checkPw" size = "2"></font>
 							
-							<div class = "text-center">
-								<div class = "d-inline-block">
+							<div class = "float-right">
 									<br>
 									<input type = "submit" id = "submitButton" class="btn btn-warning" value = "발급">
-								</div>
 							</div>
 						</form>
 					</div>
