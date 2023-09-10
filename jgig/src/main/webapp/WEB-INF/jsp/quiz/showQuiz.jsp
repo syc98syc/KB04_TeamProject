@@ -25,6 +25,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
 	<style type="text/css">
+		.question {
+		    border: 1px solid #F9F9F9;
+		    border-radius: 10px;
+		    padding: 26px 18px;
+		    background-color: #F9F9F9;
+		    margin: 22px 0;
+		}
 		.quiz_ul {
 			padding-left: 0; 
 		}
@@ -33,7 +40,7 @@
 			border: 1px solid #6c757d;
 			border-radius: 20px;
 			margin: 10px 0px;
-			padding: 10px 16px;
+			padding: 10px 18px;
 	 		width: 300px;
 		} 
 		.quiz_li.statF {
@@ -41,8 +48,6 @@
 		}
 		.quiz_li.statF:hover, 
 		.quiz_li.statF.clickedAns,
-		.quiz_li.correctAns,
-		.quiz_li.wrongAns,
 		.quiz_li.selectedAns {
 		    background-color: #a39485;
 		    border: 1px solid #a39485;
@@ -52,6 +57,11 @@
 		    border: 1px solid #58C9B9;
    			background-color: #58c9b926;
    			color: black;
+	    }
+	    .submitBtn {
+	        color: #fff;
+		    background-color: #9aaca3;
+		    border-color: #9aaca3;
 	    }
 	</style>
 </head>
@@ -95,7 +105,7 @@
                         	</a>
                         	<ul class="dropdown-menu">
                            	  <li><a class="dropdown-item" href="/jgig/searchWord">금융 용어 검색</a></li>
-                             <li><a class="dropdown-item" href="#">금융 상식 퀴즈</a></li>
+                             <li><a class="dropdown-item" href="/jgig/quiz">금융 상식 퀴즈</a></li>
                              <hr>
                              <li><a class="dropdown-item" href="#">이용 가이드</a></li>
                         	</ul>
@@ -199,12 +209,12 @@
 					<hr>
 					<ul class="list-unstyled ">
 						<li >
-							<a class="collapsed d-flex justify-content-between text-decoration-none" href="#"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 -->
+							<a class="collapsed d-flex justify-content-between text-decoration-none" href="/jgig/searchWord"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 -->
 								금융 용어 검색
 							</a>
 						</li>
 						<li >
-							<a class="collapsed d-flex justify-content-between text-decoration-none selectsidemenu" href="#">
+							<a class="collapsed d-flex justify-content-between text-decoration-none selectsidemenu" href="/jgig/quiz">
 								금융 상식 퀴즈
 							</a>
 						</li>
@@ -231,13 +241,12 @@
 							<!-- <h1>오늘의 퀴즈</h1> -->
 							
 							<div>다음에 해당하는 금융 용어를 고르세요.</div>
-					        <div>${resultList[ans].inner}</div>
+					        <div class="question">${resultList[ans].inner}</div>
 						    <ul class="quiz_ul">
 							<c:forEach items="${resultList}" var="item" varStatus="status">
 						        <li class="opt quiz_li statF" id="opt${status.index}" value="${status.index }">${item.tit}</li>
 						    </c:forEach>
 						    </ul>
-						    ${quizStat }
 						    <div>
 							    <c:set var="quizStat" value="${quiz_stat}" />
 							    <c:if test="${quizStat eq 'Y'}">
@@ -248,7 +257,7 @@
 							    </c:if>
 						    </div>
 							<c:if test="${quizStat eq 'F'}">
-							<button class="btn btn-outline-secondary" id="submitBtn" onclick="submitQuiz()">제출하기</button>
+							<button class="submitBtn btn" id="submitBtn" onclick="submitQuiz()">정답 제출</button>
 							</c:if>
 							<%-- <c:if test="${quizStat eq 'Y' || quizStat eq 'N'}">
 							<button disabled>제출완료</button>
@@ -286,7 +295,7 @@
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 	<script>
-	console.log("${quiz_stat}")
+	//console.log("${quiz_stat}")
 	// 문제 클릭 이벤트 
 	let selectedOpt;
 	
@@ -313,7 +322,7 @@
 		options.forEach(opt => {
 			opt.removeEventListener("click", () => clickEventHandler(opt));
 			opt.classList.remove("statF");
-		// opt.classList.remove("clickedAns");
+		 	opt.classList.remove("clickedAns");
 		});
 	}
 

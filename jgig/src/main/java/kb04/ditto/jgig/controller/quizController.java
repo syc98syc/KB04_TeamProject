@@ -23,7 +23,7 @@ import kb04.ditto.jgig.mapper.QuizMapper;
 
 @Controller
 public class quizController {
-	int ans = 1; // 정답 
+	int ans = 2; // 정답 
 	
 	@Autowired
 	private QuizMapper quizMapper;
@@ -44,7 +44,7 @@ public class quizController {
 		
 		
 		String URL = "https://m.kbcapital.co.kr/cstmrPtct/fnncInfoSqre/fnncTmng.kbc";
-		Document doc = Jsoup.connect(URL).data("targetRow","5").data("rowSize","3").get();
+		Document doc = Jsoup.connect(URL).data("targetRow","9").data("rowSize","3").get();
 		Elements el = doc.select("ul[class=\"sp-accord nospace\"]");
 		
 		List<Map<String, String>> resultList = new LinkedList<Map<String, String>>();
