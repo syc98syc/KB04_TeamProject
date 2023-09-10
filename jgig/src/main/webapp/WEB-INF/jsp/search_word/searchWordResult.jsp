@@ -246,6 +246,28 @@
 							</c:forEach>
 							</ul>
 						</div>
+						<div class="word-pagination">
+							<nav aria-label="Page navigation example">
+							  <ul class="pagination">
+							    <li class="page-item">
+							      <a class="page-link" href="#" aria-label="Previous">
+							        <span aria-hidden="true">&laquo;</span>
+							      </a>
+							    </li>
+							    
+							    <c:set var="pageCount" value="${totalCount / 10 + (totalCount % 10 > 0 ? 1 : 0)}" />
+								<c:forEach begin="1" end="${pageCount}" var="pageNum">
+								    <li class="page-item"><a class="page-link">${pageNum}</a></li>
+								</c:forEach>
+								
+							    <li class="page-item">
+							      <a class="page-link" href="#" aria-label="Next">
+							        <span aria-hidden="true">&raquo;</span>
+							      </a>
+							    </li>
+							  </ul>
+							</nav>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -290,7 +312,34 @@
 			});
 		}); 
 	}
+	function paginationHandler() {
+		var pages = document.querySelectorAll(".page-item");
+		pages.forEach(page => {
+			page.addEventListener("click", () => {
+				var word = "${word}";
+				var pageNo = page.querySelector("a").innerText;
+				var data  = {
+						pw_word: word,
+						pageNo: pageNo
+				}
+			  	let options = {
+					type: "post",
+					url : "/jgig/searchWordResult/" + pageNo,
+					data: data,
+					success : function(data) {
+						document.querySelector(".search-result").innerHTML = data;
+						wordClickHandler();
+					},
+					error: function(jqXHR, textStatus, errorThrown) {
+					    console.error("AJAX 오류 발생: " + textStatus, errorThrown);
+					}
+				}
+				$.ajax(options);
+			});
+		});
+	}
 	wordClickHandler();
+	paginationHandler();
 	</script>
 </body>
 </html>
