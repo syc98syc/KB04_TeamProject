@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 	<html>
 	<head>
@@ -324,7 +326,7 @@
 						        <tbody>
 						            <c:forEach items="${transferList}" var="transferDto">
 						                <tr>
-						                    <td>${transferDto.trans_date}</td>
+						                    <td><fmt:formatDate value="${transferDto.trans_date}" pattern="yyyy/MM/dd HH:mm:ss" /></td>
 						                    <td>${transferDto.send_nm}</td>
 						                    <td>${transferDto.receive_nm}</td>
 						                    <td>${transferDto.withdr_mon}</td>
@@ -375,6 +377,9 @@
 		
 		        if (showTable === "true") {
 		            $("#tableDiv").show()
+		            urlParams.delete("showTable")
+		            var newURL = window.location.pathname
+		            window.history.replaceState({}, document.title, newURL)
 		        } else {
 		            $("#tableDiv").hide()
 		        }

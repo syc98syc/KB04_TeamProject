@@ -130,7 +130,6 @@ public class TransferController {
 		}
 		String yearMon = year + "/" + input_month;
 		List<TransferDto> transferList = transferMapper.list(account, yearMon);
-		
 		redirectAttributes.addFlashAttribute("account", account);
 		redirectAttributes.addFlashAttribute("transferList", transferList);
 		if(transferList.size() != 0 ) {

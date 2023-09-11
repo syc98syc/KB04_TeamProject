@@ -186,7 +186,7 @@
 	
 				<div class="col-lg-2">
 					<div class="sidemenubox">
-						<h2 class="h3 pt-3 ">계좌개설</h2>
+						<h2 class="h3 pt-3 ">금융 거래 연습</h2>
 						<hr>
 						<ul class="list-unstyled ">
 							<li>

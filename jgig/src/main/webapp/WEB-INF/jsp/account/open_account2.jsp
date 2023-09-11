@@ -250,7 +250,6 @@
 
 			<div class="col-lg-9">
 					<fieldset class = "advice-location">
-						<legend>도움기능 선택</legend>
 						<label for="">음성지원</label>
 						<input type="checkbox" id="">
 						<label for="tooltipCheckbox">도움말</label>

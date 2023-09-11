@@ -12,7 +12,7 @@ import kb04.ditto.jgig.entity.AccountDto;
 
 @Mapper
 public interface AccountMapper {
-	@Select("select account, act_name, balance from account where mem_id = #{mem_id} order by account")
+	@Select("select account, act_name, balance from account where mem_id = #{mem_id} order by regdate desc, account")
 	public List<AccountDto> list(String mem_id);
 	
 	@Insert("insert into Account(account, act_name, act_password, balance, regdate, mem_nm, ssn, phone_num, job, pur_trans, sor_fund, mem_id) values(account_seq.nextval, #{act_name}, "
