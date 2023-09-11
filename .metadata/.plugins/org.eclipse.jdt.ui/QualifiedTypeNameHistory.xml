@@ -3,15 +3,15 @@
     <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-    <fullyQualifiedTypeName name="kb04.ditto.jgig.entity.BoardDto"/>
     <fullyQualifiedTypeName name="kb04.ditto.jgig.mapper.BoardMapper"/>
     <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Insert"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Update"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Delete"/>
-    <fullyQualifiedTypeName name="kb04.ditto.jgig.entity.Criteria"/>
     <fullyQualifiedTypeName name="kb04.ditto.jgig.entity.PagingDto"/>
+    <fullyQualifiedTypeName name="kb04.ditto.jgig.entity.Criteria"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="kb04.ditto.jgig.entity.BoardDto"/>
 </qualifiedTypeNameHistroy>
