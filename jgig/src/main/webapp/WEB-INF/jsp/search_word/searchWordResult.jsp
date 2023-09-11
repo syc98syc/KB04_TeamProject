@@ -39,7 +39,8 @@
     		border-bottom: 1px solid #E2E2E2;
     		cursor: pointer;
     	}
-    	ul.word-list > li:hover {
+    	ul.word-list > li:hover,
+    	ul.word-list > li.clicked {
     		background-color: #F9F9F9
     	}
     	ul.word-list > li .tit {
@@ -250,18 +251,18 @@
 							<nav aria-label="Page navigation example">
 							  <ul class="pagination">
 							    <li class="page-item">
-							      <a class="page-link" href="#" aria-label="Previous">
+							      <a class="page-link" onclick="ajaxPagination('1')" aria-label="Previous">
 							        <span aria-hidden="true">&laquo;</span>
 							      </a>
 							    </li>
 							    
-							    <c:set var="pageCount" value="${totalCount / 10 + (totalCount % 10 > 0 ? 1 : 0)}" />
+							    <c:set var="pageCount" value="${Math.ceil(totalCount / 10)}" />
 								<c:forEach begin="1" end="${pageCount}" var="pageNum">
-								    <li class="page-item"><a class="page-link">${pageNum}</a></li>
+								    <li class="page-item page-items"><a class="page-link">${pageNum}</a></li>
 								</c:forEach>
 								
 							    <li class="page-item">
-							      <a class="page-link" href="#" aria-label="Next">
+							      <a class="page-link" onclick="ajaxPagination(${pageCount})" aria-label="Next">
 							        <span aria-hidden="true">&raquo;</span>
 							      </a>
 							    </li>
@@ -306,40 +307,44 @@
 	function wordClickHandler() {
 		var list = document.querySelectorAll(".word-list > li");
 		list.forEach(item => {
-			//item.addEventListener("click", () => item.classList.add = "clicked");
 			item.addEventListener("click", () => {
 				item.classList.toggle("clicked");
 			});
 		}); 
 	}
 	function paginationHandler() {
-		var pages = document.querySelectorAll(".page-item");
+		var pages = document.querySelectorAll(".page-items");
 		pages.forEach(page => {
 			page.addEventListener("click", () => {
 				var word = "${word}";
 				var pageNo = page.querySelector("a").innerText;
-				var data  = {
-						pw_word: word,
-						pageNo: pageNo
-				}
-			  	let options = {
-					type: "post",
-					url : "/jgig/searchWordResult/" + pageNo,
-					data: data,
-					success : function(data) {
-						document.querySelector(".search-result").innerHTML = data;
-						wordClickHandler();
-					},
-					error: function(jqXHR, textStatus, errorThrown) {
-					    console.error("AJAX 오류 발생: " + textStatus, errorThrown);
-					}
-				}
-				$.ajax(options);
+				ajaxPagination(pageNo);
 			});
 		});
 	}
 	wordClickHandler();
 	paginationHandler();
+	
+	function ajaxPagination(pageNo) {
+		var word = "${word}";
+		var data  = {
+				pw_word: word
+		}
+	   	let options = {
+			type: "post",
+			url : "/jgig/searchWordResult/" + pageNo,
+			data: data,
+			success : function(data) {
+				document.querySelector(".search-result").innerHTML = data;
+				wordClickHandler();
+			},
+			error: function(jqXHR, textStatus, errorThrown) {
+			    console.error("AJAX 오류 발생: " + textStatus, errorThrown);
+			}
+		}
+		$.ajax(options);
+	}
+
 	</script>
 </body>
 </html>
