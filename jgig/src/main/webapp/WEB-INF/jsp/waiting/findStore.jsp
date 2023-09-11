@@ -5,12 +5,29 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+   <title>지금입금</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
+
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/templatemo.css">
+    <link rel="stylesheet" href="/assets/css/custom.css">
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="/assets/css/fontawesome.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
 <style>
 .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
 .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
 .map_wrap {position:relative;width:100%;height:500px;}
-#menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
+#menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.9);z-index: 1;font-size:12px;border-radius: 10px;}
 .bg_white {background:#fff;}
 #menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
 #menu_wrap .option{text-align: center;}
@@ -24,7 +41,7 @@
 #placesList .info .gray {color:#8a8a8a;}
 #placesList .info .jibun {padding-left:26px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
 #placesList .info .tel {color:#009900;}
-#placesList .item .markerbg {float:left;position:absolute;width:36px; height:37px;margin:10px 0 0 10px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;}
+#placesList .item .markerbg {float:left;position:absolute;width:44px; height:37px;margin:10px 0 0 10px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;}
 #placesList .item .marker_1 {background-position: 0 -10px;}
 #placesList .item .marker_2 {background-position: 0 -56px;}
 #placesList .item .marker_3 {background-position: 0 -102px}
@@ -43,29 +60,239 @@
 #pagination {margin:10px auto;text-align: center;}
 #pagination a {display:inline-block;margin-right:10px;}
 #pagination .on {font-weight: bold; cursor: default;color:#777;}
-#placeDetail {display:none; position:absolute;top:0;left:260px;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
+#searchBtn {padding: 1px 4px; font-size: 16px}
+#formWrap {display: flex;align-items: center;}
+#placeDetail {display:none; position:absolute;top:0;left:251px;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.9);z-index: 1;font-size:12px;border-radius: 10px;}
+#placeDetail .detail-wrap {padding: 12px;}
+#placeDetail .wt-store {display: block; font-size: 20px; font-weight: 350; margin-bottom: 20px;}
+#placeDetail .wt-list {display: block; font-size: 16px; font-weight: 350; margin-bottom: 10px;}
+#placeDetail .wt-table {margin: 18px 0;}
+#placeDetail .wtBtn-wrap {display:flex; justify-content: center;}
+#placeDetail #wtBtn {padding: 5px 10px;}
+#placeDetail .detail-close {display: flex; justify-content: flex-end; cursor: pointer;}
 </style>
 </head>
 <body>
-	<h1>지점 찾기/번호표 발행</h1>
-	<div class="map_wrap">
-	    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
-	
-	    <div id="menu_wrap" class="bg_white">
-	        <div class="option">
-	            <div>
-	                <form onsubmit="searchPlaces(); return false;">
-	                    키워드 : <input type="text" value="국민은행" id="keyword" size="15"> 
-	                    <button type="submit">검색하기</button> 
-	                </form>
-	            </div>
-	        </div>
-	        <hr>
-	        <ul id="placesList"></ul>
-	        <div id="pagination"></div>
-	    </div>
-        <div id="placeDetail"></div>
+	<!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow navcolor">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <a class="navbar-brand text-success logo h1 align-self-center" href="/jgig/">
+                <img src="/assets/img/KB-logo.png" width="30" height="30" alt="">
+                <img src="/assets/img/jgig-icon.png"  height="45" alt="">
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button> <!-- 화면 작아질시 토글바 -->
+
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                <div class="flex-fill">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                      	<li class="nav-item dropdown">
+                        	<a class="nav-link " role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            금융거래연습
+                        	</a>
+                        	<ul class="dropdown-menu">
+                           	 <li><a class="dropdown-item" href="/jgig/open_account1">계좌 개설</a></li>
+                             <li><a class="dropdown-item" href="/jgig/account_list">계좌 조회 및 이체</a></li>
+                             <li><a class="dropdown-item" href="/jgig/trans_history">거래 내역 조회</a></li>
+                             <hr>
+                             <li><a class="dropdown-item" href="/jgig/card_issuance">카드 발급</a></li>
+                             <li><a class="dropdown-item" href="/jgig/card_list">카드 조회 및 관리</a></li>
+                             <hr>
+                             <li><a class="dropdown-item" href="/jgig/certification">인증서 발급</a></li>
+                        	</ul>
+                    	</li>
+                        <li class="nav-item dropdown">
+                        	<a class="nav-link " role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            금융교육
+                        	</a>
+                        	<ul class="dropdown-menu">
+                           	  <li><a class="dropdown-item" href="/jgig/searchWord">금융 용어 검색</a></li>
+                             <li><a class="dropdown-item" href="#">금융 상식 퀴즈</a></li>
+                             <hr>
+                             <li><a class="dropdown-item" href="#">이용 가이드</a></li>
+                        	</ul>
+                    	</li>
+                    	<li class="nav-item dropdown">
+                        	<a class="nav-link " role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            커뮤니티
+                        	</a>
+                        	<ul class="dropdown-menu">
+                           	 <li><a class="dropdown-item" href="#">공지사항</a></li>
+                             <li><a class="dropdown-item" href="/jgig/board_list">게시판</a></li>
+                             <li><a class="dropdown-item" href="#">내가 쓴 글</a></li>
+                        	</ul>
+                    	</li>
+                    	<li class="nav-item dropdown">
+                        	<a class="nav-link " role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            지점찾기
+                        	</a>
+                        	<ul class="dropdown-menu">
+                           	 <li><a class="dropdown-item" href="/jgig/findStore">지점찾기 및 번호표 발행</a></li>
+                             <li><a class="dropdown-item" href="/jgig/detailWaiting">번호표 조회 및 취소</a></li>
+                        	</ul>
+                    	</li>
+                    	<li class="nav-item dropdown">
+                        	<a class="nav-link " role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            마이포인트
+                        	</a>
+                        	<ul class="dropdown-menu">
+                           	 <li><a class="dropdown-item" href="/jgig/point_list">포인트 조회</a></li>
+                             <li><a class="dropdown-item" href="/jgig/point_conversion">포인트 전환</a></li>
+                        	</ul>
+                    	</li>
+                    </ul>
+                </div>
+                <div class="navbar align-self-center d-flex">
+                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                            <div class="input-group-text">
+                                <i class="fa fa-fw fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+					<ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+					
+						<!--로그인 했을 때 -->
+						<c:if test="${not empty sessionScope.mem_id}">
+							<li class="nav-item dropdown">
+								<a class="nav-icon position-relative text-decoration-none nav-link"
+									href="/jgig/member_detail" role="button" data-bs-toggle="dropdown"
+									aria-haspopup="true" aria-expanded="false"> <i
+										class="fa fa-fw fa-user text-dark mr-3"></i>
+									${sessionScope.mem_nm}님 <!--session값으로 받아오기 -->
+								</a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="/jgig/member_detail">마이페이지</a></li>
+								</ul>
+							</li>
+							<li class="nav-item"><a class="nav-link" href="/jgig/logout">로그아웃</a>
+							</li>
+						</c:if>
+						
+						<!--로그인 안 했을 때 -->
+						<c:if test="${empty sessionScope.mem_id}">
+							<li class="nav-item"><a class="nav-link" href="/jgig/login">로그인</a>
+							</li>
+							<li class="nav-item"><a class="nav-link" href="/jgig/register">회원가입</a>
+							</li>
+						</c:if>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<!-- Close Header -->
+
+	<!-- Modal -->
+	<div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="w-100 pt-1 mb-5 text-right">
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<form action="" method="get" class="modal-content modal-body border-0 p-0">
+				<div class="input-group mb-2">
+					<input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+					<button type="submit" class="input-group-text bg-success text-light">
+						<i class="fa fa-fw fa-search text-white"></i>
+					</button>
+				</div>
+			</form>
+		</div>
 	</div>
+
+	<!-- Start Content -->
+	<div class="container py-5">
+		<div class="row">
+
+			<div class="col-lg-2">
+				<div class="sidemenubox">
+					<h2 class="h3 pt-3 ">지점 찾기</h2>
+					<hr>
+					<ul class="list-unstyled ">
+						<li >
+							<a class="collapsed d-flex justify-content-between text-decoration-none selectsidemenu" href="/jgig/findStore"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 -->
+								지점 찾기 및 번호표 발행
+							</a>
+						</li>
+						<li >
+							<a class="collapsed d-flex justify-content-between text-decoration-none" href="/jgig/detailWaiting">
+								번호표 조회 및 취소
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-lg-9">
+				<div class="row">
+					<div class="col-md-6">
+						<ul class="list-inline shop-top-menu  pt-5 pl-3">
+							<h2>지점 찾기 및 번호표 발행</h2>
+						</ul>
+					</div>
+				</div>
+				<div class="row">
+					<div id="service-content"> 
+						<!-- 여기에 넣으시며 됩니당 -->
+						<div class="map_wrap">
+						    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+						
+						    <div id="menu_wrap" class="bg_white">
+						        <div class="option">
+						            <div>
+						                <form onsubmit="searchPlaces(); return false;" id="formWrap">
+						                    키워드 : <input type="text" value="국민은행" id="keyword" size="15"> 
+						                    <button type="submit" class="btn btn-outline-dark" id="searchBtn">검색하기</button> 
+						                </form>
+						            </div>
+						        </div>
+						        <hr>
+						        <ul id="placesList"></ul>
+						        <div id="pagination"></div>
+						    </div>
+					        <div id="placeDetail"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- End Content -->
+
+	<!-- Start Footer -->
+	<footer class="footer-cust" id="tempaltemo_footer">
+		<div class="w-100 footer-cust py-2">
+			<div class="container">
+				<div class="row pt-2">
+					<div class="col-12">
+						<p class="text-left text-light">
+							Copyright &copy; 2023 KB IT's Your Life , Ditto
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- End Footer -->
+
+	<!-- Start Script -->
+	<script src="/assets/js/jquery-1.11.0.min.js"></script>
+	<script src="/assets/js/jquery-migrate-1.2.1.min.js"></script>
+	<script src="/assets/js/bootstrap.bundle.min.js"></script>
+	<script src="/assets/js/templatemo.js"></script>
+	<script src="/assets/js/custom.js"></script>
+	<!-- End Script -->
+
+
+
+
+
+	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>	
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d1ccdc8f7bb05f82cf933172668140d8&libraries=services"></script>
 <script>
@@ -313,7 +540,7 @@
 	// 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
 	// 인포윈도우에 장소명을 표시합니다
 	function displayInfowindow(marker, title) {
-		var content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
+		var content = '<span style="padding:5px;z-index:1;">' + title + '</span>';
 
 		infowindow.setContent(content);
 		infowindow.open(map, marker);
@@ -344,7 +571,7 @@
 	function displayDetail(store){
 		var detailWrap = document.querySelector("#placeDetail");
 		detailWrap.innerHTML = "";
-		detailWrap.style.display = "block";
+		detailWrap.style.display = "block";	
 		//console.log(store);
 		
 		placeInfo = {
@@ -356,13 +583,15 @@
 				wt_store : store.querySelector("h5").innerText.replace('KB국민은행 ', ''), // 지점 
 				wt_juso : store.querySelector(".juso").innerText, // 지점주소  
 			};
-		console.log(placeInfo);
+		// console.log(placeInfo);
 		
 		var el = document.createElement('div');
+		el.setAttribute("class","detail-wrap");
 		//var store = document.createElement('h3');
-		var content = `<p>\${placeInfo.wt_store}</p>`;
-		content += `<p>총 대기고객수 : 2</p>`;
-		content += `<table>
+		var content = `<span class="detail-close" onclick="detailCloseHandler()">X</span>`;
+		content += `<span class="wt-store">\${placeInfo.wt_store}</span>`;
+		content += `<span class="wt-list">총 대기고객수 : 2명</span>`;
+		content += `<table class="table wt-table">
 				<tr><td>입금/출금/송금</td><td>1명</td></tr>
 				<tr><td>예금/펀드/신탁</td><td>1명</td></tr>
 				<tr><td>개인대출</td><td>0명</td></tr>
@@ -370,17 +599,27 @@
 		el.innerHTML = content;
 		detailWrap.append(el);
 		
-		var btn = document.createElement('button');
-		btn.innerHTML = "번호표 발행";
-		btn.setAttribute("id", "wtBtn");
-		btn.onclick = function() {
-			 waitingHandler();
+		console.log("${wt_stat}")
+		console.log(wtStat)
+		// 발행받은 번호표 체크
+		if("${wt_stat}" == "N" && wtStat != "Y") {
+			var btnWrap = document.createElement('div');
+			btnWrap.setAttribute("class","wtBtn-wrap");
+			var btn = document.createElement('button');
+			btn.innerHTML = "번호표 발행";
+			btn.setAttribute("id", "wtBtn");
+			btn.setAttribute("class","btn btn-outline-dark");
+			btn.onclick = function() {
+				 waitingHandler();
+			}
+			btnWrap.append(btn);
+			detailWrap.append(btnWrap);
 		}
-		detailWrap.append(btn);
 	}
 	
+	let wtStat;
 	// 번호표 발행 이벤트 
-	function waitingHandler(){
+	function waitingHandler() {
 		const wt_data = placeInfo;
 		let options = {
 			type: "post",
@@ -389,6 +628,9 @@
 			contentType: 'application/json; charset=utf-8',
 			success : function() {
 				console.log("성공 ");
+				document.querySelector("#wtBtn").innerHTML = "발행 완료";
+				document.querySelector("#wtBtn").setAttribute("disabled", "true");
+				wtStat = "Y";
 			},
 			error: function(jqXHR, textStatus, errorThrown) {
 			    console.error("AJAX 오류 발생: " + textStatus, errorThrown);
@@ -396,6 +638,13 @@
 		}
 		$.ajax(options);
 	}
+	
+	// detail 닫기
+	function detailCloseHandler() {
+		var detailWrap = document.querySelector("#placeDetail");
+		detailWrap.style.display = "none";
+	}
+	
 </script>
 </body>
 </html>

@@ -18,7 +18,15 @@ public class waitingController {
 
 	@GetMapping("/jgig/findStore")
 	public String loadSearchWord(Model model) {
-
+		// 발급 유무 확인후 발급 버튼 display 결정 
+		String mem_id = "kb0002";
+//		String mem_id = "kb0005";
+		WaitingDto dto = waitingMapper.detailWaiting(mem_id);
+		if(dto != null) {
+			model.addAttribute("wt_stat", "Y");
+		} else {
+			model.addAttribute("wt_stat", "N");
+		}
 		return "waiting/findStore";
 	}
 
@@ -47,9 +55,9 @@ public class waitingController {
 		return "waiting/detailWaiting";
 	}
 
-	@PostMapping("/jgig/updateWaiting")
+	@PostMapping("/jgig/deleteWaiting")
 	public String deleteWaiting(@RequestBody WaitingDto dto, Model model) {
-		waitingMapper.updateWaiting(dto.getWt_seq());
+		waitingMapper.deleteWaiting(dto.getWt_seq());
 		return "redirect:/jgig/detailWaiting";
 	}
 }

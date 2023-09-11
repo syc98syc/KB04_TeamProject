@@ -7,21 +7,19 @@ public class WaitingDto {
 	private int wt_no;
 	private int wt_list;
 	private Date wt_date;
-	private String wt_stat;
 	private String wt_store;
 	private String mem_id;
 
 	public WaitingDto() {
 	}
 
-	public WaitingDto(int wt_seq, int wt_no, int wt_list, Date wt_date, String wt_stat, String wt_store,
+	public WaitingDto(int wt_seq, int wt_no, int wt_list, Date wt_date, String wt_store,
 			String mem_id) {
 		super();
 		this.wt_seq = wt_seq;
 		this.wt_no = wt_no;
 		this.wt_list = wt_list;
 		this.wt_date = wt_date;
-		this.wt_stat = wt_stat;
 		this.wt_store = wt_store;
 		this.mem_id = mem_id;
 	}
@@ -58,14 +56,6 @@ public class WaitingDto {
 		this.wt_date = wt_date;
 	}
 
-	public String getWt_stat() {
-		return wt_stat;
-	}
-
-	public void setWt_stat(String wt_stat) {
-		this.wt_stat = wt_stat;
-	}
-
 	public String getWt_store() {
 		return wt_store;
 	}
@@ -85,7 +75,7 @@ public class WaitingDto {
 	@Override
 	public String toString() {
 		return "WaitingDto [wt_seq=" + wt_seq + ", wt_no=" + wt_no + ", wt_list=" + wt_list + ", wt_date=" + wt_date
-				+ ", wt_stat=" + wt_stat + ", wt_store=" + wt_store + ", mem_id=" + mem_id + "]";
+				+ ", wt_store=" + wt_store + ", mem_id=" + mem_id + "]";
 	}
 
 }
