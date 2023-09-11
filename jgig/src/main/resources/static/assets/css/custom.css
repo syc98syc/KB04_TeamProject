@@ -1,0 +1,422 @@
+/*
+Custom Css 클래스 이름 겹치지 않게 아래 추가해주시면 됩니다.
+*/
+
+/**  공통 네비바 css start **/
+.navcolor {
+	background-color: #FFFDE5;
+}
+
+/* 드롭다운 메뉴를 초기에 숨김 */
+.nav-item .dropdown-menu {
+	display: none;
+	position: absolute;
+	background-color: #FFFDE5; /* 드롭다운 배경색 설정 */
+	border: none;
+	text-align: center;
+	top: 100%; /* 커뮤니티 메뉴 바로 아래에 나타나도록 설정 */
+	left: 50%; /* 부모 요소의 가로 중앙에 위치 */
+	transform: translateX(-50%); /* 가로 중앙 정렬을 위한 변형(transform) 설정 */
+}
+
+/* 메뉴 호버 시 드롭다운 메뉴 표시 */
+.nav-item:hover .dropdown-menu {
+	display: block;
+}
+
+.nav-item .dropdown-menu hr {
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+
+/**  공통 footer css start **/
+.footer-cust {
+	border-top: 0.5px solid #E8E8E8; /* 위쪽에 1px 두께의 검정색 실선 테두리 설정 */
+	background-color: none; /* 배경색 설정 */
+}
+
+/** 공통 sidemenu css start **/
+.sidemenubox {
+	margin: 1rem;
+	padding: 0.5rem;
+	background: #F2F2F2;
+	text-align: center;
+	height: 550px;
+	border-radius: 10px;
+}
+
+.sidemenubox ul li a {
+	color: #000;
+	padding: 0.3rem;
+}
+
+.selectsidemenu {
+	background-color: #FFD64B;
+	border-radius: 10px;
+}
+
+/** service content **/
+#service-content {
+	padding: 1rem;
+}
+
+/** 폰트 변경 **/
+body, ul, li, p, a, label, input, div {
+	font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+.h1, .h2, .h3 {
+	font-family: 'IBM Plex Sans KR', sans-serif;
+	font-weight: 300;
+}
+
+.pl-3 {
+	padding-left: 1rem;
+}
+
+/***************************공통 css end****************************************/
+.cardlistcss table {
+	border: 1px #a39485 solid;
+	font-size: .9em;
+	width: 100%;
+	border-collapse: collapse;
+	border-radius: 5px;
+	overflow: hidden;
+	text-align: center;
+}
+
+.cardlistcss th {
+	text-align: left;
+	text-align: center;
+	font-size: 13px;
+}
+
+.cardlistcss thead {
+	font-weight: bold;
+	color: #fff;
+	background: #73685d;
+}
+
+.cardlistcss td, th {
+	padding: 1em .5em;
+	vertical-align: middle;
+}
+
+.cardlistcss td {
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+	background: #fff;
+	font-size: 14px;
+}
+
+.cardlistcss a {
+	color: #73685d;
+}
+
+@media all and (max-width: 768px) {
+	.cardlistcss table, thead, tbody, th, td, tr {
+		display: block;
+	}
+	.cardlistcss th {
+		text-align: right;
+	}
+	.cardlistcss table {
+		position: relative;
+		padding-bottom: 0;
+		border: none;
+		box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+	}
+	.cardlistcss thead {
+		float: left;
+		white-space: nowrap;
+	}
+	.cardlistcss tbody {
+		overflow-x: auto;
+		overflow-y: hidden;
+		position: relative;
+		white-space: nowrap;
+	}
+	.cardlistcss tr {
+		display: inline-block;
+		vertical-align: top;
+	}
+	.cardlistcss th {
+		border-bottom: 1px solid #a39485;
+	}
+	.cardlistcss td {
+		border-bottom: 1px solid #e5e5e5;
+	}
+}
+
+.cardlistbtn {
+	font-size: 10px;
+	background-color: #FFD64B;
+	border: none;
+	border-radius: 5px;
+	padding: 0.3rem;
+}
+
+/**service-content**/
+.h3-subtitle {
+	font-size: 23px;
+	padding-bottom: 0.5rem;
+}
+
+.subcontent {
+	padding: 0 0 1rem 1rem;
+}
+
+input[name="cd_name"] {
+	width: 80%;
+}
+
+input[name="cd_ssn_1"], input[name="cd_ssn_2"] {
+	width: 39%;
+}
+
+input[name="tel1"], input[name="tel2"], input[name="tel3"] {
+	width: 25%;
+}
+
+.border-bt {
+	border: none;
+	border-bottom: 1.5px solid gray;
+}
+
+/**약관동의 내용**/
+.terms-container {
+	max-height: 250px; /* 원하는 높이 설정 */
+	overflow-y: auto; /* 스크롤 추가 */
+	border: 1px solid #ccc; /* 테두리 스타일 설정 */
+	border-radius: 5px;
+	padding: 10px;
+	background-color: #F2F2F2;
+}
+
+#terms-radio {
+	padding: 1rem 2rem;
+	text-align: right;
+}
+
+.card-sumit-btn {
+	font-size: 18px;
+	width: 20%;
+	background-color: #FFD64B;
+	border: none;
+	border-radius: 5px;
+	padding: 0.3rem;
+}
+
+.btn-div {
+	text-align: center;;
+}
+.main_board {
+    width: 90%;
+    height: 400px;
+    background-color: #FFDE57;
+    padding: 15px;
+    margin: auto;
+    border-radius: 10px;
+    position: relative;
+}
+
+.tab_menu #tab2,#tab3{
+	display: none;
+}
+
+.tab_menu>ul{
+	list-style: none;
+}
+.tab_menu>ul> li {
+    float: left;
+    margin-right: 10px;
+}
+.tab_menu >ul> li:after {
+  content: " | ";
+}
+
+.cont{
+	margin:20px auto;
+	background-color: white;
+	height: 300px;
+	border-radius: 10px;
+	padding:10px 30px;
+	
+}
+.cont ul{
+	list-style-type:circle;
+	padding-left: 0;
+}
+.cont li {
+	
+    padding: 8px;
+   /*  margin: 0 30px; */
+    display: flex; /* Flexbox를 사용하여 내부 요소를 정렬 */
+    justify-content: space-between; /* 내부 요소를 좌우로 분할 */
+}
+
+.brd_title {
+    width: 70%; /* 70%의 너비를 가짐 */
+    color: black;
+    text-decoration-line: none;
+}
+.brd_title:hover {
+  text-decoration-line: underline ;
+}
+
+.brd_date {
+    width: 30%; /* 30%의 너비를 가짐 */
+    text-align: right;
+    /* 다른 스타일 설정 */
+}
+
+*******************************다윤********************************
+.check_user{
+	background-color: #EEEEEE;	
+	border: none;
+}
+
+input[type="text"] {
+	border: none; /* 테두리 제거 */
+	border-bottom: 1px solid #000; /* 아래쪽에 1px 두께의 줄 생성 */
+	background: transparent; /* 배경을 투명하게 설정 */
+	outline: none; /* 포커스 효과 제거 */
+}
+#option1{
+	color: yellow;
+}
+
+input[id = "input_text"] {
+	border: none; /* 테두리 제거 */
+	border-bottom: 1px solid #000; /* 아래쪽에 1px 두께의 줄 생성 */
+	background: transparent; /* 배경을 투명하게 설정 */
+	outline: none; /* 포커스 효과 제거 */
+}
+.no-left-right-border{
+	border-left: none;
+}
+.bgc{
+	background-color: #DEDEDE;
+}
+.button-like-link {
+	display: inline-block;
+	padding: 3px 10px;
+	background-color: #FED671;
+	color: black;
+	text-decoration: none;
+ 	border: 1px solid black;
+ 	cursor: pointer;
+	border-radius: 5px;
+	font-weight: bold;
+}
+
+/* 버튼에 호버 효과 추가 */
+.button-like-link:hover {
+	background-color: #E5CC7C;
+}
+
+.table_list a:hover {
+	color : black;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column; /* 수직으로 정렬 */
+    align-items: flex-start; /* 왼쪽 정렬 */
+    gap: 10px; /* 요소들 사이의 간격 설정 */
+}
+
+.form-group {
+    display: flex;
+    align-items: center; /* 요소들을 수직 가운데로 정렬 */
+}
+.form-container {
+    display: flex;
+    flex-direction: column; /* 수직으로 정렬 */
+    align-items: flex-start; /* 왼쪽 정렬 */
+    gap: 10px; /* 요소들 사이의 간격 설정 */
+}
+
+.form-group {
+    display: flex;
+    align-items: center; /* 요소들을 수직 가운데로 정렬 */
+}
+
+.label_open_account {
+    width: 150px; /* 라벨의 고정된 너비 설정 */
+    text-align: 200px; /* 라벨을 오른쪽 정렬 */
+    margin-right: 10px; /* 라벨과 입력 필드 사이의 간격 설정 */
+}
+
+.bold-text {
+	font-weight : bold;
+}
+
+#checkButton {
+        float: right; /* 오른쪽으로 이동 */
+}
+
+.float-right{
+	 float: right;
+}
+
+#submitButton{ /*계좌개설 약관동의 후 "다음 버튼" 위치*/
+	width : 110px
+}
+
+.check_user{/* 계좌개설 약관동의 배경화면*/
+	background-color: #DFDFE0;
+}
+
+.accountListCss table{
+	width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+}
+
+.accountListCss th, td {
+    border-bottom: 1px solid #444444;
+    border-left: 1px solid #444444;
+    padding: 10px;
+}
+
+.accountListCss th:first-child, td:first-child {
+    border-left: none;
+}
+
+.open-ok-msg{
+	float : right;	
+}
+
+.advice-ballon {
+	display: none;
+	position: absolute;
+	color: #black;
+	font-weight : bold;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.advice-ballon2:after{ /* 왼쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: 10px; /* 꼬리 위치 조정 */
+	left: -8px; /* 꼬리 위치 조정 */
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+} 
+.advice-ballon2 {
+			    /* 두 번째 말풍선의 스타일 */
+	background-color: #dee2e6;
+	top: 265px;
+	left: 850px;
+}
+.advice-location{
+	float : right;
+	border : medium;
+	border-radius: 5px;
+}
+*******************************도현********************************
