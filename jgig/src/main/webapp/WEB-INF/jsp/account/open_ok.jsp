@@ -254,7 +254,7 @@
 									<tr>
 									<% 
 										Date date = new Date();
-										SimpleDateFormat simpleDate = new SimpleDateFormat("yyy-MM-dd/hh-mm");
+										SimpleDateFormat simpleDate = new SimpleDateFormat("yyy-MM-dd/hh:mm");
 										String strdate = simpleDate.format(date);
 									%>
 										<td class = "bgc"><strong>발급일시</strong></td>

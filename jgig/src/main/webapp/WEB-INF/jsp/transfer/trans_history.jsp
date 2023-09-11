@@ -26,11 +26,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		
-		<style>
-		table, th, td {
-			border: 1px solid black;
-		}
-		</style>
 	</head>
 	<body>
 		<!-- Header -->
@@ -208,6 +203,12 @@
 				</div>
 	
 				<div class="col-lg-9">
+					<fieldset class = "advice-location">
+								<label for="">음성지원</label>
+								<input type="checkbox" id="">
+								<label for="tooltipCheckbox">도움말</label>
+								<input type="checkbox" id="advice-balloonCheckbox">
+					</fieldset>
 					<div class="row">
 						<div class="col-md-6">
 							<ul class="list-inline shop-top-menu  pt-5 pl-3">
@@ -215,40 +216,54 @@
 							</ul>
 						</div>
 					</div>
+					<strong class="advice-balloon advice-balloon1_trans_his1">거래 내역 조회를 원하시면 다음 단계(월별조회 혹은 조회)를 수행해주세요.</strong>
 					<div class="row">
 						<div id="service-content"> 
 							<!-- 여기에 넣으시며 됩니당 -->
 							<fieldset>
 							<form action="trans_history_action" method="post" id = "f1" onsubmit="return validateForm();">
-								계좌 선택 
-								<select name = "selectedAccount" id="selectedAccount" onchange="copyAccountNumber()">
-									<option selected>선택</option>
-									<c:forEach items="${list}" var="acclist" varStatus="status">
-										<option value="${acclist.account}">${acclist.account}</option>
-									</c:forEach>
-								</select><hr>
-								
-								월별 조회
-							    <select id="year" name="year" class="form-control" style="display: inline-block; width: auto;">
-							      <c:forEach var="i" begin="15" end="25">
-							        <option value="${i}">20${i}</option>
-							      </c:forEach>
-							    </select>
-							    <span>년</span>
-							    <select id="month" name="month" class="form-control" style="display: inline-block; width: auto;">
-							      <c:forEach var="i" begin="1" end="12">
-							        <c:choose>
-							          <c:when test="${i lt 10 }">
-							            <option value="0${i}">0${i}</option>
-							          </c:when>
-							          <c:otherwise>
-							            <option value="${i}">${i}</option>
-							          </c:otherwise>
-							        </c:choose>
-							      </c:forEach>
-							    </select>
-							    <span>월</span>
-							    <input type="submit" value="월별조회">
+								<div class = "accountListCss">
+									<table>
+										<tr>
+											<th class ="bgc">계좌 선택</th>
+											<strong class="advice-balloon advice-balloon2_trans_his1">1. 계좌를 선택해주세요.</strong>
+											<td>
+												<select name="selectedAccount" id="selectedAccount"
+													onchange="copyAccountNumber()">
+														<option selected>선택</option>
+														<c:forEach items="${list}" var="acclist" varStatus="status">
+															<option value="${acclist.account}">${acclist.account}</option>
+														</c:forEach>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<th class ="bgc">월별 조회</th>
+											<strong class="advice-balloon advice-balloon3_trans_his1">2-1. 월별조회 버튼을 눌러주세요.</strong>
+											<td>
+												<select id="year" name="year" class="form-control"
+													style="display: inline-block; width: auto;">
+														<c:forEach var="i" begin="15" end="25">
+															<option value="${i}">20${i}</option>
+														</c:forEach>
+												</select> <span>년</span> <select id="month" name="month"
+													class="form-control"
+													style="display: inline-block; width: auto;">
+														<c:forEach var="i" begin="1" end="12">
+															<c:choose>
+																<c:when test="${i lt 10 }">
+																	<option value="0${i}">0${i}</option>
+																</c:when>
+																<c:otherwise>
+																	<option value="${i}">${i}</option>
+																</c:otherwise>
+															</c:choose>
+														</c:forEach>
+												</select> <span>월</span> <input type="submit"  class="btn btn-warning" value="월별조회">
+											</td>
+										</tr>
+									</table>
+								</div>
 							  </form>
 							  
 							  <script>
@@ -261,14 +276,23 @@
 								  return true; // 폼 제출을 허용합니다.
 								}
 								</script>
-							<br>
 							<form action="trans_history_action2" method="post" onsubmit="return validateForm2();">
 								<input type="hidden" id="accountNumber" name="selectedAccount">
-						        <label for="datepicker-start">조회 기간</label>
-						        <input type="text" id="datepicker-start" name="startDate">
-						        <label for="datepicker-end">~</label>
-						        <input type="text" id="datepicker-end" name="endDate">
-						        <input type="submit" value="조회">
+								<div class ="accountListCss">
+									<table>
+										<tr>
+											<th class ="bgc" style="width: 246px;">조회 기간</th>
+											<td>
+												<input type="text" id="datepicker-start" name="startDate">
+										        <label for="datepicker-end">~</label>
+										        <input type="text" id="datepicker-end" name="endDate">
+										        <strong class="advice-balloon advice-balloon4_trans_his1">2-2-1. 조회기간을 선택해주세요</strong>
+										        <input type="submit" class="btn btn-warning" value="조회">
+										        <strong class="advice-balloon advice-balloon5_trans_his1">2-2-2. 조회버튼을 선택해주세요</strong>
+											</td>
+										</tr>
+									</table>
+								</div>
 						    </form>
 						    
 						    <script>
@@ -282,16 +306,19 @@
 								}
 							</script>
 						</fieldset>
+						<br>
 						<div id="tableDiv" style="display: none;">
-							<h2>조회한 계좌번호 ${selectedAccount}</h2>
-						    <table>
+							<h4>계좌번호 ${selectedAccount}</h4>
+							<br>
+							<div class = "accountListCss">
+								<table>
 						        <thead>
 						            <tr>
-						                <th>거래일시</th>
-						                <th>보내는분</th>
-						                <th>받는분</th>
-						                <th>받은금액(원)</th>
-						                <th>보낸금액(원)</th>
+						                <th class = "bgc">거래일시</th>
+						                <th class = "bgc">보내는분</th>
+						                <th class = "bgc">받는분</th>
+						                <th class = "bgc">받은금액(원)</th>
+						                <th class = "bgc">보낸금액(원)</th>
 						            </tr>
 						        </thead>
 						        <tbody>
@@ -306,6 +333,7 @@
 						            </c:forEach>
 						        </tbody>
 						    </table>
+							</div>
 						</div>
 						</div>
 					</div>
@@ -341,6 +369,7 @@
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<script>
 		    $(function() {
+		    	advice_balloon()
 		        var urlParams = new URLSearchParams(window.location.search)
 		        var showTable = urlParams.get("showTable")
 		
@@ -357,6 +386,25 @@
 	            var selectedAccount = document.getElementById("selectedAccount").value
 	            document.getElementById("accountNumber").value = selectedAccount
 	        }
+		    function advice_balloon(){
+				$('#advice-balloonCheckbox').change(function() {
+					if (this.checked) {
+						$('.advice-balloon1_trans_his1').show()
+						$('.advice-balloon2_trans_his1').show()
+						$('.advice-balloon3_trans_his1').show()
+						$('.advice-balloon4_trans_his1').show()
+						$('.advice-balloon5_trans_his1').show()
+						console.log('말풍선을 표시합니다.')
+					} else {
+						$('.advice-balloon1_trans_his1').hide()
+						$('.advice-balloon2_trans_his1').hide()
+						$('.advice-balloon3_trans_his1').hide()
+						$('.advice-balloon4_trans_his1').hide()
+						$('.advice-balloon5_trans_his1').hide()
+						console.log('말풍선을 숨깁니다.')
+					}
+				})
+			}
 		</script>
 		<!-- End Script -->
 	</body>

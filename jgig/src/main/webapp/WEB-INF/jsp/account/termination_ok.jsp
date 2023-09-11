@@ -22,6 +22,23 @@
 	    <link rel="preconnect" href="https://fonts.googleapis.com">
 	    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+		<script>
+				function advice_balloon(){
+					$('#advice-balloonCheckbox').change(function() {
+						if (this.checked) {
+							$('.advice-balloon1_accountStopOk').show()
+							console.log('말풍선을 표시합니다.')
+						} else {
+							$('.advice-balloon1_accountStopOk').hide()
+							console.log('말풍선을 숨깁니다.')
+						}
+					})
+				}
+				$(function () {
+					advice_balloon()
+				})
+			</script>
 	</head>
 	<body>
 		<!-- Header -->
@@ -190,6 +207,12 @@
 				</div>
 	
 				<div class="col-lg-9">
+					<fieldset class = "advice-location">
+								<label for="">음성지원</label>
+								<input type="checkbox" id="">
+								<label for="tooltipCheckbox">도움말</label>
+								<input type="checkbox" id="advice-balloonCheckbox">
+					</fieldset>
 					<div class="row">
 						<div class="col-md-6">
 							<ul class="list-inline shop-top-menu  pt-5 pl-3">
@@ -197,17 +220,22 @@
 							</ul>
 						</div>
 					</div>
+					<br><br>
 					<div class="row">
 						<div id="service-content"> 
 							<!-- 여기에 넣으시며 됩니당 -->
-							<p>${msg}</p>
-							<a href = "account_list" class ="button-like-link">계좌조회 및 이체</a>
+							<div style = "text-align : center;">
+								<strong class = "termination_msg">${msg}</strong>
+								<br><br>
+							</div>
+							<a href = "account_list" class ="button-like-link" style="float: right;">계좌조회 및 이체</a>
 						</div>
+						
 					</div>
 				</div>
-	
 			</div>
 		</div>
+		<strong class="advice-balloon advice-balloon1_accountStopOk">해당 버튼을 이용해서 계좌 조회 및 이체 페이지로 이동이 가능합니다.</strong>
 		<!-- End Content -->
 	
 		<!-- Start Footer -->

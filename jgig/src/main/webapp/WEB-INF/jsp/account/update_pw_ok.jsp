@@ -25,6 +25,25 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400&display=swap"
 	rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+	<script>
+	function advice_balloon(){
+		$('#advice-balloonCheckbox').change(function() {
+			if (this.checked) {
+				$('.advice-balloon1_accountPassword_ok').show()
+				$('.advice-balloon1_accountPassword_ok').show()
+				console.log('말풍선을 표시합니다.')
+			} else {
+				$('.advice-balloon1_accountPassword_ok').hide()
+				$('.advice-balloon1_accountPassword_ok').hide()
+				console.log('말풍선을 숨깁니다.')
+			}
+		})
+	}
+	$(function(){
+		advice_balloon()
+	})
+	</script>
 <title>계좌조회및이체</title>
 </head>
 <body>
@@ -214,6 +233,12 @@
 			</div>
 
 			<div class="col-lg-9">
+				<fieldset class = "advice-location">
+						<label for="">음성지원</label>
+						<input type="checkbox" id="">
+						<label for="tooltipCheckbox">도움말</label>
+						<input type="checkbox" id="advice-balloonCheckbox">
+				</fieldset>
 				<div class="row">
 					<div class="col-md-6">
 						<ul class="list-inline shop-top-menu  pt-5 pl-3">
@@ -224,22 +249,26 @@
 				<div class="row">
 					<div id="service-content">
 						<!-- 여기에 넣으시며 됩니당 -->
-						<table>
+						<div class = "accountListCss">
+							<table>
 							<tr>
-								<td>상품명</td>
+								<td class= "bgc">상품명</td>
 								<td>${dto.act_name}</td>
 							</tr>
 							<tr>
-								<td>계좌번호</td>
+								<td class= "bgc">계좌번호</td>
 								<td>${dto.account}</td>
 							</tr>
 							<tr>
-								<td>비밀번호수정</td>
+								<td class= "bgc">비밀번호수정</td>
 								<td>${dto.act_password}</td>
 							</tr>
-						</table>
-						<strong>${msg}</strong><br> <a href="account_list"
-							class="button-like-link">계좌조회 및 이체</a>
+							</table>
+							<br>
+							<strong class = "password-ok-msg">${msg}</strong><br><br> 
+							<a href="account_list" class="button-like-link" style="float: right;">계좌조회 및 이체</a>
+							<strong class="advice-balloon advice-balloon1_accountPassword_ok">3. 비밀번호 수정을 완료한 후 계좌 조회 및 이체 페이지로 이동이 가능합니다.</strong>
+						</div>
 					</div>
 				</div>
 			</div>

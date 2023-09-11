@@ -60,20 +60,26 @@
 		        })
 			}
 			
-			function advice_ballon(){
-				$('#advice-ballonCheckbox').change(function() {
+			function advice_balloon(){
+				$('#advice-balloonCheckbox').change(function() {
 					if (this.checked) {
-						$('.advice-ballon2').show()
-						console.log('말풍선을 표시합니다.');
+						$('.advice-balloon1').show()
+						$('.advice-balloon2').show()
+						$('.advice-balloon3').show()
+						$('.advice-balloon4').show()
+						console.log('말풍선을 표시합니다.')
 					} else {
-						$('.advice-ballon2').hide()
-						console.log('말풍선을 숨깁니다.');
+						$('.advice-balloon1').hide()
+						$('.advice-balloon2').hide()
+						$('.advice-balloon3').hide()
+						$('.advice-balloon4').hide()
+						console.log('말풍선을 숨깁니다.')
 					}
 				})
 			}
 			
 			$(function () {
-				advice_ballon()
+				advice_balloon()
 				$("#submitButton").prop("disabled", true)
 				check_button()
 				check_permission()
@@ -268,12 +274,13 @@
 							<label for="">음성지원</label>
 							<input type="checkbox" id="">
 							<label for="tooltipCheckbox">도움말</label>
-							<input type="checkbox" id="advice-ballonCheckbox">
+							<input type="checkbox" id="advice-balloonCheckbox">
 						</fieldset>
 					<div class="row">
 						<div class="col-md-6">
 							<ul class="list-inline shop-top-menu  pt-5 pl-3">
 								<h2>계좌 개설</h2>
+								<p class="advice-balloon advice-balloon1"><strong>계좌개설을 연습하고 싶은 경우 다음 단계를 수행해주세요.</strong></p>
 							</ul>
 						</div>
 					</div>
@@ -289,9 +296,21 @@
 										<option value ="KB두근두근외화적금">KB두근두근외화적금</option>
 										<option value ="KB국민ON통장">KB국민ON통장</option>
 									</select>
-									<p class="advice-ballon advice-ballon2">1. 원하시는 상품을 선택해주세요.</p>
+									<p class="advice-balloon advice-balloon2"><strong>1. 원하시는 상품을 선택해주세요.</strong></p>
 									<hr>
 									<h3 class="font-weight-bold">본인인증</h3>
+									<p class="advice-balloon advice-balloon3">
+										<strong>2. 본인 인증을 위해 다음 순서대로 입력해주세요.</strong>
+										<br>
+										&nbsp; 1. 이름을 입력해주세요.
+										<br>
+										&nbsp; 2. 주민등록번호를 입력해주세요.
+										<br>
+										&nbsp; 3. 휴대폰 번호를 입력해주세요.
+										<br>
+										&nbsp; 4. 본인 인증 버튼을 눌러주세요.
+										<br>
+									</p>
 									<div class="form-container">
 									    <div class="form-group">
 									        <label class = "label_open_account" for="mem_nm">이름</label>
@@ -328,6 +347,7 @@
 											※ 상기 동의를 거부하실 경우 비대면 계좌개설이 불가합니다.
 										</p>
 									</fieldset>
+									<p class="advice-balloon advice-balloon4"><strong>3. 약관동의에 동의을 눌러준 후 다음버튼을 눌러주세요.</strong></p>
 									<div class = "float-right">
 										<input type="radio" class="option1" id = "option1" name="check" value="yes">
 							  			<label for="option1" >동의</label>

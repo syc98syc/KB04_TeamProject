@@ -34,9 +34,27 @@
 		            }
 		        })
 			}
+			function advice_balloon(){
+				$('#advice-balloonCheckbox').change(function() {
+					if (this.checked) {
+						$('.advice-balloon1_accountStop').show()
+						$('.advice-balloon2_accountStop').show()
+						$('.advice-balloon3_accountStop').show()
+						$('.advice-balloon4_accountStop').show()
+						console.log('말풍선을 표시합니다.')
+					} else {
+						$('.advice-balloon1_accountStop').hide()
+						$('.advice-balloon2_accountStop').hide()
+						$('.advice-balloon3_accountStop').hide()
+						$('.advice-balloon4_accountStop').hide()
+						console.log('말풍선을 숨깁니다.')
+					}
+				})
+			}
 			$(function () {
 				$("#submitButton").prop("disabled", true)
 				check_permission()
+				advice_balloon()
 			})
 		</script>
 	</head>
@@ -208,41 +226,61 @@
 				</div>
 	
 				<div class="col-lg-9">
+					<fieldset class = "advice-location">
+								<label for="">음성지원</label>
+								<input type="checkbox" id="">
+								<label for="tooltipCheckbox">도움말</label>
+								<input type="checkbox" id="advice-balloonCheckbox">
+					</fieldset>
 					<div class="row">
 						<div class="col-md-6">
 							<ul class="list-inline shop-top-menu  pt-5 pl-3">
-								<h2>계좌해지</h2>
+								<h2>계좌 해지</h2>
 							</ul>
 						</div>
 					</div>
+					<strong class="advice-balloon advice-balloon1_accountStop">계좌해지를 원하시면 다음 단계를 수행해주세요.</strong>
 					<div class="row">
 						<div id="service-content"> 
 							<!-- 여기에 넣으시며 됩니당 -->
-							<table>
-							<tr>
-								<th>상품명</th><td>${dto.act_name}</td>
-							</tr>
-							<tr>
-								<th>계좌번호 </th><td>${dto.account}</td>
-							</tr>
-							<tr>
-								<th>발급일시</th><td>${formattedRegdate}</td>
-							</tr>
-							<tr>
-								<th>잔액</th><td>${dto.balance}</td>
-							</tr>
-							</table>
-							비밀번호 확인
+							<div class = "accountListCss">
+								<table>
+								<tr>
+									<th class= "bgc">상품명</th><td>${dto.act_name}</td>
+								</tr>
+								<tr>
+									<th class= "bgc">계좌번호 </th><td>${dto.account}</td>
+								</tr>
+								<tr>
+									<th class= "bgc">발급일시</th><td>${formattedRegdate}</td>
+								</tr>
+								<tr>
+									<th class= "bgc">잔액</th><td>${dto.balance}</td>
+								</tr>
+								</table>
+							</div>
+							<br>
 							<form action = "termination_action" method = "post" id="accountTerminationForm">
 								<input type = "hidden" name = "account" value = "${dto.account}">
-								<input type = "text" name = "act_password" minlength = "4" maxlength="4" value = "${dto.act_password}">
-								<fieldset>
+								<div class = "accountListCss">
+									<table>
+										<tr>
+											<th class= "bgc">비밀번호 확인</th>
+											<td><input type = "text" name = "act_password" minlength = "4" maxlength="4" value = "${dto.act_password}"></td>
+										</tr>
+									</table>
+								</div>
+								<strong class="advice-balloon advice-balloon2_accountStop">1. 비밀번호를 입력해주세요.</strong>
+								<br>
+								<div class = "check_termination_account_box">
 									<input type="radio" class="option1"  id = "option1" name = "check" value = "yes">
-							  		<label for="option1">계좌해지시 복구할 수 없음을 인지하였습니다.</label>
-								</fieldset>
+							  		<strong style="font-size: 20px; font-weight : bold;">계좌해지 시 복구할 수 없음을 인지하였습니다.</strong>
+								</div>
+								<strong class="advice-balloon advice-balloon3_accountStop">2. 약관동의에 클릭해주세요.</strong>
 								<br>
 								<p>${msg}</p>
-								<input type = "submit" id = "submitButton" class="btn btn-warning" value = "해지">
+								<strong class="advice-balloon advice-balloon4_accountStop">3. 계좌해지버튼을 눌러주세요.</strong>
+								<input type = "submit" id = "submitButton" class="btn btn-warning" style="float: right;" value = "계좌 해지">
 							</form>
 						</div>
 					</div>

@@ -32,10 +32,14 @@ public class TransferController {
 	//계좌이체 일력(입력내용확인)
 	@PostMapping("jgig/transfer_form2")
 	public String transfer_form_action(TransferDto transferDto, Model model,
-			@RequestParam("act_password") int act_password, HttpSession session) {
+			@RequestParam("act_password") int act_password, HttpSession session, RedirectAttributes redirectAttributes) {
+		String returnVal = login_check(session);
+		if (returnVal.equals("redirect:/jgig/login"))
+			return "redirect:/jgig/login";
+		
 		int ActPassword = transferMapper.findByActPassword(transferDto.getAccount());
 		if (ActPassword != act_password) {
-			session.setAttribute("errorMessage", "비밀번호가 맞지 않습니다.");
+			redirectAttributes.addFlashAttribute("errorMessage", "비밀번호가 맞지 않습니다.");
 			return "redirect:/jgig/transfer_form?account=" + transferDto.getAccount();
 		}
 		model.addAttribute("dto", transferDto);

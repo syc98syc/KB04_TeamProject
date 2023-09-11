@@ -43,7 +43,23 @@
 			})
 		}
 		
+		function advice_balloon(){
+			$('#advice-balloonCheckbox').change(function() {
+				if (this.checked) {
+					$('.advice-balloon1_account2').show()
+					$('.advice-balloon2_account2').show()
+					$('.advice-balloon3_account2').show()
+					console.log('말풍선을 표시합니다.')
+				} else {
+					$('.advice-balloon1_account2').hide()
+					$('.advice-balloon2_account2').hide()
+					$('.advice-balloon3_account2').hide()
+					console.log('말풍선을 숨깁니다.')
+				}
+			})
+		}
 		$(function(){
+			advice_balloon()
 			password_check()
 		})
 	</script>
@@ -188,7 +204,7 @@
 
 			<div class="col-lg-2">
 				<div class="sidemenubox">
-					<h2 class="h3 pt-3 ">금융거래연습</h2>
+					<h2 class="h3 pt-3 ">금융 거래 연습</h2>
 					<hr>
 					<ul class="list-unstyled ">
 						<li>
@@ -233,6 +249,13 @@
 			</div>
 
 			<div class="col-lg-9">
+					<fieldset class = "advice-location">
+						<legend>도움기능 선택</legend>
+						<label for="">음성지원</label>
+						<input type="checkbox" id="">
+						<label for="tooltipCheckbox">도움말</label>
+						<input type="checkbox" id="advice-balloonCheckbox">
+					</fieldset>
 				<div class="row">
 					<div class="col-md-6">
 						<ul class="list-inline shop-top-menu  pt-5 pl-3">
@@ -250,44 +273,80 @@
 							<input type = "hidden" name = "balance" value = 0>
 							<input type = "hidden" name = "phone_num" value = "${phone_num}">
 							<input type = "hidden" name = "mem_id" value = "${mem_id}">
-							<h3 class="font-weight-bold">개인 정보</h3>
-							직업구분
-							<select name = "job">
-								<option value ="회사원">회사원</option>
-								<option value ="전문직">전문직</option>
-								<option value ="자영업">자영업</option>
-								<option value ="주부">주부</option>
-								<option value ="무직">무직</option>
-							</select>
-							<br><br>
-							거래목적  
-							<select name = "pur_trans">
-								<option value ="급여">급여</option>
-								<option value ="법인">법인</option>
-								<option value ="모임">모임</option>
-								<option value ="사업자금">사업자금</option>
-							</select>
-							<br><br>
-							거래자금의 원천  <input type = "text" name = "sor_fund" required><br>
-							<hr>
-							<h3 class="font-weight-bold">계좌 정보</h3>
-							
-							계좌비밀번호  <input type = "password" class = "pw" id = "password1" name = "act_password" 
-							placeholder = "네자리 비밀번호" minlength = 4 maxlength = 4 required><br><br>
-							계좌비밀번호 확인  <input type = "password" class = "pw" placeholder = "네자리 비밀번호" id = "password2" minlength = 4 maxlength = 4 required>
-							<font id = "checkPw" size = "2"></font>
-							
-							<div class = "float-right">
+							<div style = "text-align:center">
+								<div style="display:inline-block; width: 130px; text-align: left;  margin-right: 350px;" >
+									<h3 class="font-weight-bold">개인 정보</h3>
 									<br>
-									<input type = "submit" id = "submitButton" class="btn btn-warning" value = "발급">
+								</div>
 							</div>
-						</form>
+							<p class="advice-balloon advice-balloon1_account2">
+								<strong>1. 개인정보를 다음 순서대로 입력해주세요.</strong>
+								<br>
+								&nbsp; 1. 직업구분을 선택해주세요.
+								<br>
+								&nbsp; 2. 거래목적을 선택해주세요.
+								<br>
+								&nbsp; 3. 거래 자금의 원천을 선택해주세요.
+								<br>
+							</p>
+							
+							<div style = "text-align:center">
+								<div style="display:inline-block; width: 130px; text-align: left;">직업구분</div>
+								<select name = "job" style="width: 150px;">
+									<option value ="회사원">회사원</option>
+									<option value ="전문직">전문직</option>
+									<option value ="자영업">자영업</option>
+									<option value ="주부">주부</option>
+									<option value ="무직">무직</option>
+								</select>
+								<br><br>
+								<div style="display:inline-block; width: 130px; text-align: left;">거래목적</div>
+								<select name = "pur_trans" style="width: 150px;">
+									<option value ="급여">급여</option>
+									<option value ="법인">법인</option>
+									<option value ="모임">모임</option>
+									<option value ="사업자금">사업자금</option>
+								</select>
+								<br><br>
+								<div style="display:inline-block; width: 130px; text-align:left;">거래자금의 원천</div>
+								 <input type = "text" name = "sor_fund" required style="width: 150px;"><br>
+								<hr>
+							</div>
+								<div style = "text-align:center">
+									<div style="display:inline-block; width: 130px; text-align: left;  margin-right: 350px;" >
+										<h3 class="font-weight-bold">계좌 정보</h3>
+										<br>
+									</div>
+								</div>
+								<div style = "text-align:center">
+									<div style="display:inline-block; width: 130px; text-align: left;">계좌비밀번호</div>
+									<input type = "password" class = "pw" id = "password1" name = "act_password" 
+									placeholder = "네자리 비밀번호" minlength = 4 maxlength = 4 required style = "width : 150px;"><br><br>
+									<div style="display:inline-block; width: 130px; text-align: left;">계좌비밀번호 확인</div>
+									<input type = "password" class = "pw" placeholder = "네자리 비밀번호" id = "password2" minlength = 4 maxlength = 4 required style = "width : 150px;">
+									<br><br>
+									<font id = "checkPw" size = "2"></font>
+								</div>
+								<p class="advice-balloon advice-balloon2_account2">
+									<strong>2. 계좌 정보를 다음 순서대로 입력해주세요.</strong>
+									<br>
+									&nbsp; 1. 계좌 비밀번호를 입력해주세요.
+									<br>
+									&nbsp; 2. 계좌 비밀번호 확인을 위해 다시 한번 입력해주세요.
+									<br>
+								</p>
+								<div class = "float-right">
+									<br>
+									<p class="advice-balloon advice-balloon3_account2"><strong>3. 입력을 완료하셨으면 발급버튼을 눌러주세요.</strong></p>
+									<input type = "submit" id = "submitButton" class="btn btn-warning" value = "발급">
+								</div>
+							</form>
+						</div>
 					</div>
 				</div>
+	
 			</div>
-
 		</div>
-	</div>
 	<!-- End Content -->
 
 	<!-- Start Footer -->

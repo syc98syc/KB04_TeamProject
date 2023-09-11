@@ -299,18 +299,19 @@ input[id = "input_text"] {
 }
 .button-like-link {
 	display: inline-block;
-	padding: 3px 10px;
-	background-color: #FED671;
-	color: black;
+	padding: 7px 15px;
+	background-color: #FFC107;
+	color: #000000;
 	text-decoration: none;
- 	border: 1px solid black;
  	cursor: pointer;
 	border-radius: 5px;
 	font-weight: bold;
+	margin: 2px;
 }
 
 /* 버튼에 호버 효과 추가 */
 .button-like-link:hover {
+	color : black;
 	background-color: #E5CC7C;
 }
 
@@ -352,7 +353,7 @@ input[id = "input_text"] {
 }
 
 #checkButton {
-        float: right; /* 오른쪽으로 이동 */
+    float: right; /* 오른쪽으로 이동 */
 }
 
 .float-right{
@@ -360,7 +361,7 @@ input[id = "input_text"] {
 }
 
 #submitButton{ /*계좌개설 약관동의 후 "다음 버튼" 위치*/
-	width : 110px
+	width : 115px
 }
 
 .check_user{/* 계좌개설 약관동의 배경화면*/
@@ -387,7 +388,14 @@ input[id = "input_text"] {
 	float : right;	
 }
 
-.advice-ballon {
+.account_info_location{
+	
+	
+}
+
+
+/*공통 말풍선*/
+.advice-balloon {
 	display: none;
 	position: absolute;
 	color: #black;
@@ -396,7 +404,33 @@ input[id = "input_text"] {
 	border-radius: 5px;
 }
 
-.advice-ballon2:after{ /* 왼쪽 꼬리만들기 */
+/*계좌개설1 말풍선 시작*/
+.advice-balloon1 {
+	/* 첫 번째 말풍선의 스타일 */
+	background-color: #f5dc8c;
+	top: 180px;
+	left: 850px;
+}
+
+.advice-balloon1:after{ /* 위쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: 10px; /* 꼬리 위치 조정 */
+	left: -8px; /* 꼬리 위치 조정 */
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-right: 8px solid #f5dc8c; /* 꼬리 색상 설정 */
+} 
+
+.advice-balloon2 { /* 두 번째 말풍선의 스타일 */
+	background-color: #dee2e6;
+	top: 240px;
+	left: 850px;
+}
+.advice-balloon2:after{ /* 왼쪽 꼬리만들기 */
 	display: block;
 	content: '';
 	position: absolute;
@@ -408,15 +442,694 @@ input[id = "input_text"] {
 	border-bottom: 8px solid transparent;
 	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
 } 
-.advice-ballon2 {
-			    /* 두 번째 말풍선의 스타일 */
+
+.advice-balloon3 {
+	/* 세 번째 말풍선의 스타일 */
 	background-color: #dee2e6;
-	top: 265px;
-	left: 850px;
+	top: 300px;
+	left: 1280px;
 }
+.advice-balloon3:after{ /* 왼쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: 10px; /* 꼬리 위치 조정 */
+	left: -8px; /* 꼬리 위치 조정 */
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+} 
+
+.advice-balloon4 {
+	/* 세 번째 말풍선의 스타일 */
+	background-color: #dee2e6;
+	top: 685px;
+	left: 1100px;
+}
+
+ .advice-balloon4:after{ /* 왼쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: 10px; /* 꼬리 위치 조정 */
+	right: -8px; /* 꼬리 위치 조정 */
+	width: 0px;
+ 	height: 0px;
+	border-top: 8px solid transparent;
+   	border-bottom: 8px solid transparent;
+	border-left: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+} 
+
 .advice-location{
 	float : right;
 	border : medium;
 	border-radius: 5px;
+}
+
+/*계좌개설1 말풍선 끝*/
+
+/*계좌개설2 말풍선 시작*/
+.advice-balloon1_account2 {
+	/* 세 번째 말풍선의 스타일 */
+	background-color: #dee2e6;
+	top: 300px;
+	left: 1280px;
+}
+.advice-balloon1_account2:after{ /* 왼쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: 10px; /* 꼬리 위치 조정 */
+	left: -8px; /* 꼬리 위치 조정 */
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+} 
+
+.advice-balloon2_account2 {
+	/* 세 번째 말풍선의 스타일 */
+	background-color: #dee2e6;
+	top: 530px;
+	left: 1280px;
+}
+.advice-balloon2_account2:after{ /* 왼쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: 10px; /* 꼬리 위치 조정 */
+	left: -8px; /* 꼬리 위치 조정 */
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+} 
+
+.advice-balloon3_account2 {
+	/* 세 번째 말풍선의 스타일 */
+	background-color: #f5dc8c;
+	top: 675px;
+	left: 1150px;
+}
+
+ .advice-balloon3_account2:after{ /* 왼쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: 10px; /* 꼬리 위치 조정 */
+	right: -8px; /* 꼬리 위치 조정 */
+	width: 0px;
+ 	height: 0px;
+	border-top: 8px solid transparent;
+   	border-bottom: 8px solid transparent;
+	border-left: 8px solid #f5dc8c; /* 꼬리 색상 설정 */
+} 
+
+/*계좌개설2 말풍선 끝*/
+
+/*계좌목록페이지의 총예금잔액 및 계좌수css*/
+.total-accountBalCss{
+	text-align: right;
+	font-weight : bold;
+	font-size: 50px;
+}
+
+.password-ok-msg{
+	float : right;	
+}
+
+/*계좌 목록 말풍선 시작*/
+.advice-balloon1_accountList {
+	/* 첫 번째 말풍선의 스타일 */
+	background-color: #f5dc8c;
+	top: 350px;
+	left: 1030px;
+}
+
+.advice-balloon1_accountList:after{ /* 위쪽 꼬리만들기 */
+    display: block;
+    content: '';
+    position: absolute;
+    top: 10px; /* 꼬리 위치 조정 */
+    right: -8px; /* 꼬리 위치 조정 */
+    width: 0px;
+    height: 0px;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid #f5dc8c; /* 꼬리 색상 설정 */
+} 
+/*계좌 목록 말풍선 끝*/
+
+
+/*계좌 관리 말풍선 시작 */
+.advice-balloon1_accountManage{
+	background-color: #f5dc8c;
+	top: 510px;
+	left: 1065px;
+}
+.advice-balloon1_accountManage:after{ /* 위쪽 꼬리만들기 */
+     display: block; 
+     content: ''; 
+     position: absolute; 
+     top: -7px; 
+     left: 440px; 
+     width: 0px; 
+     height: 0px; 
+     border-top: 8px solid none; 
+     border-left: 8px solid transparent; 
+     border-right: 8px solid transparent; 
+     border-bottom: 8px solid #f5dc8c; /*꼬리색깔 바꾸기 */
+} 
+/*계좌 관리 말풍선 끝 */
+
+/*비밀번호 수정 말풍선 시작*/
+.advice-balloon1_update-password{
+	background-color: #dee2e6;
+	top: 395px;
+	left: 985px;
+}
+.advice-balloon1_update-password:after{ /* 위쪽 꼬리만들기 */
+     display: block; 
+     content: ''; 
+     position: absolute; 
+     top: -5px; 
+     left: 2px; 
+     width: 0px; 
+     height: 0px; 
+     border-top: 8px solid none; 
+     border-left: 8px solid transparent; 
+     border-right: 8px solid transparent; 
+     border-bottom: 8px solid #dee2e6; /*꼬리색깔 바꾸기 */
+} 
+.advice-balloon2_update-password{
+	background-color: #dee2e6;
+	top: 460px;
+	left: 1360px;
+}
+.advice-balloon2_update-password:after{ /* 위쪽 꼬리만들기 */
+     display: block; 
+     content: ''; 
+     position: absolute; 
+     top: -5px; 
+     left: 220px; 
+     width: 0px; 
+     height: 0px; 
+     border-top: 8px solid none; 
+     border-left: 8px solid transparent; 
+     border-right: 8px solid transparent; 
+     border-bottom: 8px solid #dee2e6; /*꼬리색깔 바꾸기 */
+} 
+.advice-balloon1_accountPassword_ok{
+	background-color: #dee2e6;
+	top: 510px;
+	left: 1105px;
+}
+.advice-balloon1_accountPassword_ok:after{ /* 위쪽 꼬리만들기 */
+     display: block; 
+     content: ''; 
+     position: absolute; 
+     top: -8px; 
+     left: 450px; 
+     width: 0px; 
+     height: 0px; 
+     border-top: 8px solid none; 
+     border-left: 8px solid transparent; 
+     border-right: 8px solid transparent; 
+     border-bottom: 8px solid #dee2e6; /*꼬리색깔 바꾸기 */
+} 
+/*비밀번호 수정 말풍선 끝*/
+
+/*계좌 이체 잔액부족시 나오는 메세지*/
+.transfer_fail_msg{
+	font-weight: bold;
+	font-size: 30px;
+}
+
+/*계좌 해지시 약관동의 박스*/
+.check_termination_account_box{
+	background-color: #dee2e6;
+	border-radius: 5px;
+}
+.termination_msg{
+	font-weight: bold;
+	font-size: 30px;
+}
+
+/*계좌해지 시 말풍선 시작*/
+.advice-balloon1_accountStop{
+	background-color: #f5dc8c;
+	top: 180px;
+	left: 850px;
+}
+.advice-balloon1_accountStop:after{ /* 왼쪽 꼬리만들기 */
+	display: block;
+    content: '';
+    position: absolute;
+    top: 10px; /* 꼬리 위치 조정 */
+    left: -8px; /* 꼬리 위치 조정 */
+    width: 0px;
+    height: 0px;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid #f5dc8c; /* 꼬리 색상 설정 */
+}
+
+.advice-balloon2_accountStop{
+	background-color: #dee2e6;
+	top: 459px;
+	left: 1200px;
+} 
+.advice-balloon2_accountStop:after{ /* 왼쪽 꼬리만들기 */
+	display: block;
+    content: '';
+    position: absolute;
+    top: 10px; /* 꼬리 위치 조정 */
+    left: -8px; /* 꼬리 위치 조정 */
+    width: 0px;
+    height: 0px;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+}
+.advice-balloon3_accountStop{
+	background-color: #dee2e6;
+	top: 620px;
+	left: 580px;
+} .advice-balloon3_accountStop:after{ /* 위쪽 꼬리만들기 */
+    display: block; 
+    content: ''; 
+    position: absolute; 
+    top: -7px; 
+    left:15px; 
+    width: 0px; 
+    height: 0px; 
+    border-top: 8px solid none; 
+    border-left: 8px solid transparent; 
+    border-right: 8px solid transparent; 
+    border-bottom: 8px solid #dee2e6; /*꼬리색깔 바꾸기 */
+}
+.advice-balloon4_accountStop{
+	background-color: #dee2e6;
+	top: 620px;
+	left: 1200px;
+} 
+.advice-balloon4_accountStop:after{ /* 위쪽 꼬리만들기 */
+   display: block;
+   content: '';
+   position: absolute;
+   top: 10px; /* 꼬리 위치 조정 */
+   right: -8px; /* 꼬리 위치 조정 */
+   width: 0px;
+   height: 0px;
+   border-top: 8px solid transparent;
+   border-bottom: 8px solid transparent;
+   border-left: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+} 
+.advice-balloon1_accountStopOk{
+	background-color: #dee2e6;
+	top: 420px;
+	left: 1155px;
+}
+.advice-balloon1_accountStopOk:after{ /* 위쪽 꼬리만들기 */
+    display: block; 
+    content: ''; 
+    position: absolute; 
+    top: -7px; 
+    left:400px; 
+    width: 0px; 
+    height: 0px; 
+    border-top: 8px solid none; 
+    border-left: 8px solid transparent; 
+    border-right: 8px solid transparent; 
+    border-bottom: 8px solid #dee2e6; /*꼬리색깔 바꾸기 */
+} 
+/*계좌해지 시 말풍선 끝*/
+
+/*계좌 이체 말풍선 시작*/
+.advice-balloon1_transferform{ /* 두 번째 말풍선의 스타일 */
+	background-color: #f5dc8c;
+	top: 240px;
+	left: 750px;
+}
+.advice-balloon1_transferform:after{ /* 왼쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: 10px; /* 꼬리 위치 조정 */
+	left: -8px; /* 꼬리 위치 조정 */
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-right: 8px solid #f5dc8c; /* 꼬리 색상 설정 */
+}
+
+.advice-balloon2_transferform{ /* 두 번째 말풍선의 스타일 */
+	background-color: #dee2e6;
+	top: 360px;
+	left: 1250px;
+}
+.advice-balloon2_transferform:after{ /* 왼쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: 10px; /* 꼬리 위치 조정 */
+	left: -8px; /* 꼬리 위치 조정 */
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+}
+.advice-balloon3_transferform{ /* 두 번째 말풍선의 스타일 */
+	background-color: #dee2e6;
+	top: 410px;
+	left: 1250px;
+}
+.advice-balloon3_transferform:after{ /* 왼쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: 10px; /* 꼬리 위치 조정 */
+	left: -8px; /* 꼬리 위치 조정 */
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+}  
+.advice-balloon4_transferform{ /* 두 번째 말풍선의 스타일 */
+	background-color: #dee2e6;
+	top: 455px;
+	left: 1250px;
+}
+.advice-balloon4_transferform:after{ /* 왼쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: 10px; /* 꼬리 위치 조정 */
+	left: -8px; /* 꼬리 위치 조정 */
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+} 
+.advice-balloon5_transferform{ /* 두 번째 말풍선의 스타일 */
+	background-color: #dee2e6;
+	top: 502px;
+	left: 1250px;
+}
+.advice-balloon5_transferform:after{ /* 왼쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: 10px; /* 꼬리 위치 조정 */
+	left: -8px; /* 꼬리 위치 조정 */
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+}       
+
+.advice-balloon6_transferform{ /* 두 번째 말풍선의 스타일 */
+	background-color: #dee2e6;
+	top: 550px;
+	left: 1250px;
+}
+.advice-balloon6_transferform:after{ /* 왼쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: 10px; /* 꼬리 위치 조정 */
+	left: -8px; /* 꼬리 위치 조정 */
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+} 
+.advice-balloon7_transferform{ /* 두 번째 말풍선의 스타일 */
+	background-color: #dee2e6;
+	top: 620px;
+	left: 1250px;
+}
+.advice-balloon7_transferform:after{ /* 왼쪽 꼬리만들기 */
+    display: block;
+    content: '';
+    position: absolute;
+    top: 10px; /* 꼬리 위치 조정 */
+    right: -8px; /* 꼬리 위치 조정 */
+    width: 0px;
+    height: 0px;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+} 
+.advice-balloon1_transferform2{
+	background-color: #dee2e6;
+	top: 550px;
+	left: 1300px;
+}
+
+.advice-balloon1_transferform2:after { /* 위쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: -7px;
+	left: 135px;
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid none;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-bottom: 8px solid #dee2e6; /*꼬리색깔 바꾸기 */
+}
+.advice-balloon2_transferform2{
+	background-color: #dee2e6;
+	top: 550px;
+	left: 1500px;
+}
+
+.advice-balloon2_transferform2:after { /* 위쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: -7px;
+	left: 5px;
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid none;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-bottom: 8px solid #dee2e6; /*꼬리색깔 바꾸기 */
+}
+.advice-balloon1_accountTransferOk{
+	background-color: #dee2e6;
+	top: 570px;
+	left: 1155px;
+}
+.advice-balloon1_accountTransferOk:after { /* 위쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: -7px;
+	left: 400px;
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid none;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-bottom: 8px solid #dee2e6; /*꼬리색깔 바꾸기 */
+}
+.advice-balloon1_accountTransferfFail{
+	background-color: #dee2e6;
+	top: 480px;
+	left: 1155px;
+}
+.advice-balloon1_accountTransferfFail:after { /* 위쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: -7px;
+	left: 400px;
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid none;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-bottom: 8px solid #dee2e6; /*꼬리색깔 바꾸기 */
+}
+/*계좌 이체 말풍선 끝*/
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    float: right;
+}
+
+/* 거래내역 조회 */
+.advice-balloon1_trans_his1{
+	background-color: #f5dc8c;
+	top: 175px;
+	left: 800px;
+}
+.advice-balloon1_trans_his1:after { /* 위쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: 10px; /* 꼬리 위치 조정 */
+	left: -8px; /* 꼬리 위치 조정 */
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-right: 8px solid #f5dc8c; /* 꼬리 색상 설정 */
+}
+
+.advice-balloon2_trans_his1{
+	background-color: #dee2e6;
+	top: 255px;
+	left: 1100px;
+}
+.advice-balloon2_trans_his1:after { /* 위쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: 10px; /* 꼬리 위치 조정 */
+	left: -8px; /* 꼬리 위치 조정 */
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+}
+.advice-balloon3_trans_his1{
+	background-color: #dee2e6;
+	top: 305px;
+	left: 1100px;
+}
+.advice-balloon3_trans_his1:after { /* 위쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: 10px; /* 꼬리 위치 조정 */
+	left: -8px; /* 꼬리 위치 조정 */
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+}
+.advice-balloon4_trans_his1{
+	background-color: #dee2e6;
+	top: 420px;
+	left: 950px;
+}
+.advice-balloon4_trans_his1:after { /* 위쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: -7px;
+	left: 15px;
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid none;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-bottom: 8px solid #dee2e6; /*꼬리색깔 바꾸기 */}
+	
+.advice-balloon5_trans_his1{
+	background-color: #dee2e6;
+	top: 370px;
+	left: 1350px;
+}
+.advice-balloon5_trans_his1:after { /* 위쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: 10px; /* 꼬리 위치 조정 */
+	left: -8px; /* 꼬리 위치 조정 */
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+}
+
+.advice-balloon1_trans_his_selected{
+	background-color: #f5dc8c;
+	top: 175px;
+	left: 800px;
+}
+.advice-balloon1_trans_his_selected:after { /* 위쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: 10px; /* 꼬리 위치 조정 */
+	left: -8px; /* 꼬리 위치 조정 */
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-right: 8px solid #f5dc8c; /* 꼬리 색상 설정 */
+}
+
+.advice-balloon3_trans_his_selected{
+	background-color: #dee2e6;
+	top: 305px;
+	left: 1100px;
+}
+.advice-balloon3_trans_his_selected:after { /* 위쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: 10px; /* 꼬리 위치 조정 */
+	left: -8px; /* 꼬리 위치 조정 */
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+}
+
+.advice-balloon4_trans_his_selected{
+	background-color: #dee2e6;
+	top: 400px;
+	left: 950px;
+}
+.advice-balloon4_trans_his_selected:after { /* 위쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: -7px;
+	left: 15px;
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid none;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-bottom: 8px solid #dee2e6; /*꼬리색깔 바꾸기 */}
+.advice-balloon5_trans_his_selected{
+	background-color: #dee2e6;
+	top: 360px;
+	left: 1350px;
+}
+.advice-balloon5_trans_his_selected:after { /* 위쪽 꼬리만들기 */
+	display: block;
+	content: '';
+	position: absolute;
+	top: 10px; /* 꼬리 위치 조정 */
+	left: -8px; /* 꼬리 위치 조정 */
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
 }
 *******************************도현********************************

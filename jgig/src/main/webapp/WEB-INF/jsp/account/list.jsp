@@ -23,6 +23,23 @@
 	    <link rel="preconnect" href="https://fonts.googleapis.com">
 	    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+		<script>
+			function advice_balloon(){
+				$('#advice-balloonCheckbox').change(function() {
+					if (this.checked) {
+						$('.advice-balloon1_accountList').show()
+						console.log('말풍선을 표시합니다.')
+					} else {
+						$('.advice-balloon1_accountList').hide()
+						console.log('말풍선을 숨깁니다.')
+					}
+				})
+			}
+			$(function () {
+				advice_balloon()
+			})
+		</script>
 	</head>
 	<body>
 		<!-- Header -->
@@ -192,36 +209,43 @@
 			</div>
 
 			<div class="col-lg-9">
+					<fieldset class = "advice-location">
+							<legend>도움기능 선택</legend>
+							<label for="">음성지원</label>
+							<input type="checkbox" id="">
+							<label for="tooltipCheckbox">도움말</label>
+							<input type="checkbox" id="advice-balloonCheckbox">
+					</fieldset>
 				<div class="row">
 					<div class="col-md-6">
 						<ul class="list-inline shop-top-menu  pt-5 pl-3">
 							<h2>계좌 목록</h2>
+							<p class="advice-balloon advice-balloon1_accountList"><strong>관리, 이체, 내역조회 버튼을 누르면<br> 해당 기능을 수행할 수 있는 페이지로 이동합니다.</strong></p>
 						</ul>
 					</div>
 				</div>
 				<div class="row">
-					<div id="service-content"> 
-						<strong>총 예금 잔액 ${totalBalance}</strong >
-						<table class = "table_list">
+					<div id="service-content">
+						<p class = "total-accountBalCss">총 예금 잔액 ${totalBalance}원 (${account_list.size()}계좌)</p>
+						<div class = "accountListCss">
+						<table>
 							<c:forEach items="${account_list}" var ="acc">
-							<tr>
-								<th colspan=3>입출금 계좌</th>
+							<tr class = "no-left-right-border">
+								<th colspan=3 class = "bgc">입출금 계좌</th>
 							</tr>
 							<tr>
-								<td rowspan = 2>${acc.account}<br>${acc.act_name}</td>
-								<td rowspan = 2>잔액 ${acc.balance}원</td>
-								<td>
-									<a href = "account_management?account=${acc.account}" class ="button-like-link">관리</a>
-									<a href = "transfer_form?account=${acc.account}" class ="button-like-link">이체</a>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<a href = "trans_history_selected?account=${acc.account}" class ="button-like-link">내역조회</a>
+								<td>${acc.account}<br>${acc.act_name}</td>
+								<td  class = "no-left-right-border"><strong>잔액 ${acc.balance}원</strong></td>
+								<td class = "no-left-right-border" style = "text-align :right">
+									<a href = "account_management?account=${acc.account}" class ="button-like-link " style="width: 105px; text-align : center">관리</a>
+									<a href = "transfer_form?account=${acc.account}" class ="button-like-link" style="width: 105px; text-align : center">이체</a><br>
+									<a href = "trans_history_selected?account=${acc.account}" class ="button-like-link" style="width: 218px; text-align : center">내역조회</a>
 								</td>
 							</tr>
 							</c:forEach>
 						</table>
+						
+						</div> 
 					</div>
 				</div>
 			</div>

@@ -26,6 +26,25 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400&display=swap"
 	rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+	<script>
+		function advice_balloon(){
+			$('#advice-balloonCheckbox').change(function() {
+				if (this.checked) {
+					$('.advice-balloon1_update-password').show()
+					$('.advice-balloon2_update-password').show()
+					console.log('말풍선을 표시합니다.')
+				} else {
+					$('.advice-balloon1_update-password').hide()
+					$('.advice-balloon2_update-password').hide()
+					console.log('말풍선을 숨깁니다.')
+				}
+			})
+		}
+		$(function(){
+			advice_balloon()
+		})
+	</script>
 </head>
 <body>
 	<!-- Header -->
@@ -214,6 +233,12 @@
 			</div>
 
 			<div class="col-lg-9">
+				<fieldset class = "advice-location">
+							<label for="">음성지원</label>
+							<input type="checkbox" id="">
+							<label for="tooltipCheckbox">도움말</label>
+							<input type="checkbox" id="advice-balloonCheckbox">
+				</fieldset>
 				<div class="row">
 					<div class="col-md-6">
 						<ul class="list-inline shop-top-menu  pt-5 pl-3">
@@ -224,25 +249,36 @@
 				<div class="row">
 					<div id="service-content">
 						<!-- 여기에 넣으시며 됩니당 -->
-						<fieldset>
+						<div class= "accountListCss">
+							<fieldset>
 							<form action="update_password_action" method="post">
 								<input type="hidden" name="account" value="${dto.account}">
 								<input type="hidden" name="act_name" value="${dto.act_name}">
 								<table>
 									<tr>
-										<th>상품명</th>
+										<th class="bgc">상품명</th>
 										<td>${dto.act_name}</td>
 									</tr>
 									<tr>
-										<th>계좌번호</th>
+										<th class="bgc">계좌번호</th>
 										<td>${dto.account}</td>
 									</tr>
+									<tr>
+										<th class = "bgc">계좌비밀번호 수정</th>
+										<td>
+											<input type="text" name="act_password" minlength="4"
+											maxlength="4" value="${dto.act_password}"><br> 
+										</td>
+									</tr>
 								</table>
-								계좌비밀번호 수정 : <input type="text" name="act_password" minlength="4"
-									maxlength="4" value="${dto.act_password}"><br> <input
-									type="submit" value="비밀번호 수정">
+								<strong class="advice-balloon advice-balloon1_update-password">1. 원하는 비밀번호를 입력해주세요.</strong>
+								<br>
+								<input type="submit" id = "submitButton"  class="btn btn-warning " style="float: right;" value="비밀번호 수정">
+								<strong class="advice-balloon advice-balloon2_update-password">2. 비밀번호 수정 버튼을 눌러주세요.</strong>
 							</form>
-						</fieldset>
+							</fieldset>
+						</div>
+						
 					</div>
 				</div>
 			</div>

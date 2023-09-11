@@ -26,6 +26,23 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400&display=swap"
 	rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+	<script>
+		function advice_balloon(){
+			$('#advice-balloonCheckbox').change(function() {
+				if (this.checked) {
+					$('.advice-balloon1_accountManage').show()
+					console.log('말풍선을 표시합니다.')
+				} else {
+					$('.advice-balloon1_accountManage').hide()
+					console.log('말풍선을 숨깁니다.')
+				}
+			})
+		}
+		$(function(){
+			advice_balloon()
+		})
+	</script>	
 </head>
 <body>
 	<!-- Header -->
@@ -214,6 +231,12 @@
 			</div>
 
 			<div class="col-lg-9">
+				<fieldset class = "advice-location">
+							<label for="">음성지원</label>
+							<input type="checkbox" id="">
+							<label for="tooltipCheckbox">도움말</label>
+							<input type="checkbox" id="advice-balloonCheckbox">
+				</fieldset>
 				<div class="row">
 					<div class="col-md-6">
 						<ul class="list-inline shop-top-menu  pt-5 pl-3">
@@ -223,26 +246,32 @@
 				</div>
 				<div class="row">
 					<div id="service-content">
+					<div class = "accountListCss">
 						<table>
-							<tr>
-								<th>상품명</th>
-								<td>${dto.act_name}</td>
-							</tr>
-							<tr>
-								<th>계좌번호</th>
-								<td>${dto.account}</td>
-							</tr>
-							<tr>
-								<th>발급일시</th>
-								<td>${formattedRegdate}</td>
-							</tr>
-							<tr>
-								<th>잔액</th>
-								<td>${dto.balance}</td>
-							</tr>
-						</table>
-						<a href="update_password?account=${dto.account}" class="button-like-link">비밀번호 수정</a> 
-						<a href="termination?account=${dto.account}" class="button-like-link">계좌해지</a><br>
+								<tr>
+									<th class = "bgc">상품명</th>
+									<td>${dto.act_name}</td>
+								</tr>
+								<tr>
+									<th class = "bgc">계좌번호</th>
+									<td>${dto.account}</td>
+								</tr>
+								<tr>
+									<th class = "bgc">발급일시</th>
+									<td>${formattedRegdate}</td>
+								</tr>
+								<tr>
+									<th class = "bgc">잔액</th>
+									<td>${dto.balance}</td>
+								</tr>
+							</table>
+							<br>
+							<div style = "text-align : right">
+								<a href="update_password?account=${dto.account}" class="button-like-link">비밀번호 수정</a> 
+								<a href="termination?account=${dto.account}" class="button-like-link">계좌 해지</a><br>
+							</div>
+							<strong class="advice-balloon advice-balloon1_accountManage">비밀번호 수정 혹은 계좌 해지를 누르면 해당 기능을 수행하는 페이지로 이동합니다.</strong>
+					</div>
 					</div>
 				</div>
 			</div>
