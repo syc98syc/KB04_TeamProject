@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -131,16 +131,17 @@
 				<div class="sidemenubox">
 					<h2 class="h3 pt-3 ">금융거래연습</h2>
 					<hr>
+					
 					<ul class="list-unstyled ">
 						<li><a class="collapsed d-flex justify-content-between text-decoration-none" href="/jgig/open_account1"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 --> 계좌 개설
 						</a></li>
 						<li><a class="collapsed d-flex justify-content-between  text-decoration-none" href="/jgig/account_list"> 계좌 조회 및 이체 </a></li>
 						<li><a class="collapsed d-flex justify-content-between  text-decoration-none" href="/jgig/trans_history"> 거래 내역 조회 </a></li>
 						<hr>
-						<li><a class="collapsed d-flex justify-content-between text-decoration-none selectsidemenu " href="/jgig/card_issuance"> 카드발급 </a></li>
-						<li><a class="collapsed d-flex justify-content-between text-decoration-none  " href="/jgig/card_list"> 카드 조회 및 관리 </a></li>
+						<li><a class="collapsed d-flex justify-content-between text-decoration-none  " href="/jgig/card_issuance"> 카드발급 </a></li>
+						<li><a class="collapsed d-flex justify-content-between text-decoration-none   " href="/jgig/card_list"> 카드 조회 및 관리 </a></li>
 						<hr>
-						<li><a class="collapsed d-flex justify-content-between  text-decoration-none" href="/jgig/certification"> 인증서 발급 </a></li>
+						<li><a class="collapsed d-flex justify-content-between  text-decoration-none selectsidemenu" href="/jgig/certification"> 인증서 발급 </a></li>
 					</ul>
 				</div>
 			</div>
@@ -148,38 +149,68 @@
 				<div class="row">
 					<div class="col-md-6">
 						<ul class="list-inline shop-top-menu pt-5 pl-3">
-							<h2>카드 발급</h2>
+							<h2>인증서 발급</h2>
 						</ul>
 					</div>
 				</div>
 				<div class="row">
 					<div id="service-content">
-						<div class="subcontent">
-							<table class="ok-table">
-								<colgroup>
-									<col style="width: 30%">
-									<col style="width: *">
-								</colgroup>
-								<tbody>
+						<!-- 여기에 넣으시며 됩니당 -->
+						<form action="certification_issuance2" method="post" onsubmit="return validateForm();">
 
-									<tr>
-										<th>카드 상품명</th>
-										<td>${card_success.cd_item}</td>
-									</tr>
+							<div class="subcontent">
+								<h3 class="h3-subtitle">사용자 본인확인</h3>
+								<div class="subcontent">
+									<table id="certifi_info_table" class="table-center">
+										<colgroup>
+											<col style="width: 184px">
+											<col style="width: *">
+										</colgroup>
+										<tbody>
+											<tr>
+												<th scope="row"><label for="성명">이름</label></th>
+												<td><input type="text" name="ct_name" class="border-bt blank-1" placeholder="이름 입력"></td>
+											</tr>
+											<tr>
+												<th scope="row"><label for="주민등록번호1 ">주민등록번호</label></th>
+												<td><input type="text" name="ct_ssn_1" class="border-bt blank-2" placeholder="앞 6자리" maxlength="6"> - <input type="text" name="ct_ssn_2" class="border-bt blank-2" placeholder="뒤 7자리" maxlength="7"> <br> <input type="hidden" name="ct_ssn" id="ct_ssn"></td>
+												<!-- JavaScript를 사용하여 두 입력 값을 결합하여 cd_ssn 필드에 설정 -->
 
-									<tr>
-										<th>출금계좌</th>
-										<td>${card_success.pay_account}</td>
-									</tr>
+											</tr>
+											<tr>
+												<th scope="row"><label for="call_hp1">휴대폰번호</label></th>
+												<td><input type="text" name="tel1" class="border-bt blank-3" maxlength="3"> - <input type="text" name="tel2" class="border-bt blank-3" maxlength="4"> - <input type="text" name="tel3" class="border-bt blank-3" maxlength="4"> <input type="hidden" name="ct_phone" id="ct_phone"></td>
 
-									<tr>
-										<th>발급일</th>
-										<td><fmt:formatDate value="${card_success.start_date}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
-									</tr>
-								</tbody>
-							</table>
-							<div class="text-center py-3">해당 카드의 발급이 완료되었습니다.</div>
-						</div>
+											</tr>
+										</tbody>
+									</table>
+
+								</div>
+								<div class="btn-div">
+									<button type="button" class="card-vaild-btn" onclick="validateMeminfo()">인증</button>
+								</div>
+							</div>
+
+							<div class="subcontent">
+								<h3 class="h3-subtitle">약관동의</h3>
+								<div class="subcontent">
+									<div class="terms-container">
+										<p>귀하는 개인신용정보 수집·이용·조회 및 제공 동의에 대해 거부하실 수 있습니다. 다만, 개인(신용)정보 수집·이용·조회 및 제공에 관한 동의는 KB국민카드(KB국민비씨카드의 경우 비씨카드㈜ 포함. 이하 같습니다.)와의 상거래 관계의 설정, 유지에 필수적이거나 상거래 관계에 따라 귀하에게 제공되는 서비스와 직접적으로 관련된 필수적 사항이므로 아래의 사항에 동의하셔야만 거래관계의 설정 및 유지가 가능합니다. 귀하는 개인신용정보 수집·이용·조회 및 제공 동의에 대해 거부하실 수 있습니다. 다만, 개인(신용)정보 수집·이용·조회 및 제공에 관한 동의는 KB국민카드(KB국민비씨카드의 경우 비씨카드㈜ 포함. 이하 같습니다.)와의 상거래 관계의 설정, 유지에 필수적이거나 상거래 관계에 따라 귀하에게 제공되는 서비스와 직접적으로 관련된 필수적 사항이므로 아래의 사항에 동의하셔야만 거래관계의 설정 및 유지가 가능합니다. 귀하는 개인신용정보 수집·이용·조회 및 제공 동의에 대해 거부하실 수 있습니다. 다만, 개인(신용)정보 수집·이용·조회 및 제공에 관한 동의는 KB국민카드(KB국민비씨카드의 경우 비씨카드㈜ 포함. 이하 같습니다.)와의 상거래 관계의 설정, 유지에 필수적이거나 상거래 관계에 따라 귀하에게 제공되는 서비스와 직접적으로 관련된 필수적 사항이므로 아래의 사항에 동의하셔야만 거래관계의 설정 및 유지가 가능합니다.</p>
+									</div>
+									<div id="terms-radio">
+										<input type="radio" name="agreement1" value="동의"> 동의 <input type="radio" name="agreement1" value="비동의"> 비동의
+									</div>
+								</div>
+							</div>
+							<div class="btn-div">
+								<p id="form_msg"></p>
+								<button type="submit" class="card-sumit-btn">확인</button>
+							</div>
+
+
+
+
+						</form>
 					</div>
 				</div>
 			</div>
@@ -201,15 +232,91 @@
 	</footer>
 	<!-- End Footer -->
 
-	<!-- Start Script -->
-	<script src="/assets/js/jquery-1.11.0.min.js"></script>
-	<script src="/assets/js/jquery-migrate-1.2.1.min.js"></script>
-	<script src="/assets/js/bootstrap.bundle.min.js"></script>
-	<script src="/assets/js/templatemo.js"></script>
-	<script src="/assets/js/custom.js"></script>
+<!-- Start Script -->
+<script src="/assets/js/jquery-1.11.0.min.js"></script>
+<script src="/assets/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/templatemo.js"></script>
+<script src="/assets/js/custom.js"></script>
 
+<script>
+    // 두 입력 필드의 값을 가져와 결합하여 설정
+    var ssn1 = document.querySelector('input[name="ct_ssn_1"]');
+    var ssn2 = document.querySelector('input[name="ct_ssn_2"]');
+    var cdSsn = document.getElementById('ct_ssn');
+    
 
-	<!-- End Script -->
+    ssn1.addEventListener('input', updateSsn);
+    ssn2.addEventListener('input', updateSsn);
+
+    function updateSsn() {
+        cdSsn.value = ssn1.value + '-' + ssn2.value;
+    }
+</script>
+<script>
+    var tel1 = document.querySelector('input[name="tel1"]');
+    var tel2 = document.querySelector('input[name="tel2"]');
+    var tel3 = document.querySelector('input[name="tel3"]');
+    var cdTel = document.getElementById('ct_phone');
+
+    tel1.addEventListener('input', updateTel);
+    tel2.addEventListener('input', updateTel);
+    tel3.addEventListener('input', updateTel);
+
+    function updateTel() {
+        cdTel.value = tel1.value + tel2.value + tel3.value;
+    }
+</script>
+
+<script>
+    var validateMem = false; //본인인증 여부
+    // 본인인증함수
+    function validateMeminfo() {
+        var name = document.querySelector('input[name="ct_name"]').value;
+        var ssn = document.querySelector('input[name="ct_ssn"]').value;
+        var tel = document.querySelector('input[name="ct_phone"]').value;
+      
+
+        if (name !== "${sessionScope.mem_nm}" || ssn !== "${sessionScope.ssn}"|| tel !== "${sessionScope.phone_num}" ) {
+            alert("회원정보가 일치하지 않습니다.")
+        } else {
+            alert("본인인증 완료");
+            validateMem = true;
+        }
+    }
+
+    //약관 체크 함수
+    function check_agree() {
+        var agreement1 = document.querySelectorAll('input[name="agreement1"]:checked');
+
+        if (agreement1.length === 0) {
+            var formMsg = document.getElementById("form_msg");
+            formMsg.innerHTML = "약관 항목을 확인해주세요.";
+            return false;
+        } else {
+            var checked_agree = document.querySelector('input[name="agreement1"]:checked').value;
+            console.log(checked_agree);
+            if (checked_agree !== "동의") {
+                alert("약관에 동의하여야 발급이 가능합니다.");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // 폼이 제출될 때 실행되는 함수
+    function validateForm() {
+        if (!validateMem) { //본인인증 안했으면
+            alert("본인 인증이 필요합니다.");
+            return false;
+        }
+        if (!check_agree()) { //약관 체크 안했으면
+            return false;
+        }
+        return true;
+    }
+</script>
+<!-- End Script -->
 
 </body>
 </html>

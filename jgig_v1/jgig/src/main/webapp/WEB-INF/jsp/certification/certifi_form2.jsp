@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -113,7 +113,7 @@
 			<div class="w-100 pt-1 mb-5 text-right">
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
-			<form action="" method="get" class="modal-content modal-body border-0 p-0">
+			<form action="certification_issuance3" method="post" class="modal-content modal-body border-0 p-0">
 				<div class="input-group mb-2">
 					<input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
 					<button type="submit" class="input-group-text bg-success text-light">
@@ -131,16 +131,17 @@
 				<div class="sidemenubox">
 					<h2 class="h3 pt-3 ">금융거래연습</h2>
 					<hr>
+					
 					<ul class="list-unstyled ">
 						<li><a class="collapsed d-flex justify-content-between text-decoration-none" href="/jgig/open_account1"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 --> 계좌 개설
 						</a></li>
 						<li><a class="collapsed d-flex justify-content-between  text-decoration-none" href="/jgig/account_list"> 계좌 조회 및 이체 </a></li>
 						<li><a class="collapsed d-flex justify-content-between  text-decoration-none" href="/jgig/trans_history"> 거래 내역 조회 </a></li>
 						<hr>
-						<li><a class="collapsed d-flex justify-content-between text-decoration-none selectsidemenu " href="/jgig/card_issuance"> 카드발급 </a></li>
-						<li><a class="collapsed d-flex justify-content-between text-decoration-none  " href="/jgig/card_list"> 카드 조회 및 관리 </a></li>
+						<li><a class="collapsed d-flex justify-content-between text-decoration-none  " href="/jgig/card_issuance"> 카드발급 </a></li>
+						<li><a class="collapsed d-flex justify-content-between text-decoration-none   " href="/jgig/card_list"> 카드 조회 및 관리 </a></li>
 						<hr>
-						<li><a class="collapsed d-flex justify-content-between  text-decoration-none" href="/jgig/certification"> 인증서 발급 </a></li>
+						<li><a class="collapsed d-flex justify-content-between  text-decoration-none selectsidemenu" href="/jgig/certification"> 인증서 발급 </a></li>
 					</ul>
 				</div>
 			</div>
@@ -148,38 +149,88 @@
 				<div class="row">
 					<div class="col-md-6">
 						<ul class="list-inline shop-top-menu pt-5 pl-3">
-							<h2>카드 발급</h2>
+							<h2>인증서 발급</h2>
 						</ul>
 					</div>
 				</div>
 				<div class="row">
 					<div id="service-content">
-						<div class="subcontent">
-							<table class="ok-table">
-								<colgroup>
-									<col style="width: 30%">
-									<col style="width: *">
-								</colgroup>
-								<tbody>
+						<!-- 여기에 넣으시며 됩니당 -->
+						<form action="certification_issuance3" method="post" onsubmit="return validateForm_user();">
 
-									<tr>
-										<th>카드 상품명</th>
-										<td>${card_success.cd_item}</td>
-									</tr>
+							<div class="subcontent">
+								<h3 class="h3-subtitle">추가 본인 인증</h3>
+								<div class="subcontent">
+									<table class="certifi-table">
+										<colgroup>
+											<col style="width: 30%">
+											<col style="width: *">
+										</colgroup>
+										<tbody>
+											<tr>
+												<th>ARS 인증</th>
+												<td>등록된 고객님의 연락처 중 선택하신 전화번호로 전화연결 후 ARS안내에 따라 본인여부를 확인합니다.</td>
+											</tr>
+										</tbody>
+									</table>
 
-									<tr>
-										<th>출금계좌</th>
-										<td>${card_success.pay_account}</td>
-									</tr>
+								</div>
+								<div class="btn-div">
+									<button type="button" class="card-vaild-btn " onclick="openARS();">ARS 인증</button>
+								</div>
+							</div>
 
-									<tr>
-										<th>발급일</th>
-										<td><fmt:formatDate value="${card_success.start_date}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
-									</tr>
-								</tbody>
-							</table>
-							<div class="text-center py-3">해당 카드의 발급이 완료되었습니다.</div>
-						</div>
+							<div class="subcontent">
+								<h3 class="h3-subtitle">사용자 추가 본인확인</h3>
+								<div class="subcontent">
+									<table class="certifi-table" id="user-add-cttable">
+										<colgroup>
+											<col style="width: 30%">
+											<col style="width: *">
+										</colgroup>
+										<tbody>
+
+											<tr>
+												<th>출금계좌</th>
+												<td class="p-sm-2 text-sm-start"><input id="ct_account"></td>
+											</tr>
+											<tr>
+												<th>계좌 비밀번호</th>
+												<td class="p-sm-2 text-sm-start"><input type="password" id="ct_account_pw"></td>
+											</tr>
+											<tr>
+												<th>인증 구분</th>
+												<td class="p-sm-2 text-sm-start"><input type="radio" id="ct_div_smartotp" name="ct_div" value="smartotp">스마트OTP <input type="radio" id="ct_div_card" name="ct_div" value="card">보안카드</td>
+											</tr>
+											<tr id="smartotp_image" class="hidden">
+												<th>일회용 비밀번호</th>
+
+												<td class="p-sm-2 text-sm-start"><input  id="ct_otp_input" name="ct_otp_input"><br>
+												<span>일회용비밀번호생성기(OTP)의 일회용 비밀번호 6자리를 입력해주세요.</span><br> <img src="/assets/img/otp.png" alt="스마트OTP 이미지"> <br><span>위 그림은 연습을 위한 가상의 OTP입니다.</span></td>
+											</tr>
+											
+											
+											<tr id="card_num" class="hidden">
+												<th>보안카드 일련번호</th>
+												<td class="p-sm-2 text-sm-start">보안카드 일련번호 <input type="password" id="ct_secu_input1" maxlength="4"> 일련번호 끝 4자리 입력
+												</td>
+
+											</tr>
+											<tr id="card_image" class="hidden">
+												<th>보안카드 비밀번호</th>
+												<td class="p-sm-2 text-sm-start"><input type="password" id="ct_secu_input2" maxlength="2" name="ct_secu_input2"> ●● <span class="text-red">[29]</span> 앞의 두자리<br> ●● <input type="password" maxlength="2" id="ct_secu_input3" name="ct_secu_input3"> <span class="text-blue">[25]</span> 뒤의 두자리 <img src="/assets/img/securitycard.png" alt="보안카드 이미지"></td>
+											</tr>
+
+										</tbody>
+									</table>
+
+								</div>
+
+							</div>
+							<div class="btn-div">
+								<button type="submit" class="card-sumit-btn">확인</button>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -209,6 +260,109 @@
 	<script src="/assets/js/custom.js"></script>
 
 
+
+	<script>
+		// JavaScript
+		var ctDivSmartOTP = document.getElementById('ct_div_smartotp');
+		var ctDivCard = document.getElementById('ct_div_card');
+		var smartOTPImage = document.getElementById('smartotp_image');
+		var cardImage = document.getElementById('card_image');
+		var cardNum = document.getElementById('card_num');
+
+		ctDivSmartOTP.addEventListener('change', function() {
+			if (ctDivSmartOTP.checked) {
+				showImage('smartotp_image');
+			}
+		});
+
+		ctDivCard.addEventListener('change', function() {
+			if (ctDivCard.checked) {
+				showImage('card_image');
+			}
+		});
+		
+
+		function showImage(imageId) {
+			smartOTPImage.classList.add('hidden');
+			cardImage.classList.add('hidden');
+			cardNum.classList.add('hidden');
+			
+			if(imageId==='card_image'){
+			var cardnum=document.getElementById('card_num');
+				cardnum.classList.remove('hidden');
+			}
+			var image = document.getElementById(imageId);
+			image.classList.remove('hidden');
+		}
+		
+		
+		//ars 확인 함수
+		function check_ars() {
+			var isars = ${sessionScope.isARS};
+			console.log("isars" + isars);
+
+			if (isars === true) {
+				//console.log("isARS exists:", isars);
+				return true;
+			} else {
+				alert("ARS 인증이 필요합니다.");
+				return false;
+			}
+
+		}
+		// 폼이 제출될 때 실행되는 함수
+	    function validateForm_user() {
+	    	if (!check_ars()) {
+				return false;
+			}
+			
+			var ct_account=document.getElementById('ct_account').value;
+			var ct_account_pw=document.getElementById('ct_account_pw').value;
+			var ct_div = document.querySelectorAll('input[name="ct_div"]:checked');
+			
+			if(ct_account===''||ct_account_pw===''||ct_div.length === 0){
+				alert("추가 본인확인이 완료되지 않았습니다.");
+				return false;
+			}
+			
+	    	
+		var checked_certi_div = document
+					.querySelector('input[name="ct_div"]:checked').value;
+			if (checked_certi_div === "smartotp") {
+				var ct_otp_input = document.getElementById('ct_otp_input').value;
+				if (ct_otp_input !== '050109') {
+					alert("일회용 비밀번호가 다릅니다.");
+					return false;
+				}
+			}
+			
+			if (checked_certi_div === "card") {
+				var ct_secu_input1 = document.getElementById('ct_secu_input1').value;
+				var ct_secu_input2 = document.getElementById('ct_secu_input2').value;
+				var ct_secu_input3 = document.getElementById('ct_secu_input3').value;
+				
+				if (ct_secu_input1!=='2938' ||ct_secu_input2!=='01'||ct_secu_input3!=='75') {
+					alert("보안카드 비밀번호가 다릅니다");
+				return false;
+				}
+
+			}
+
+			
+			return true;
+		}
+	</script>
+	
+	<script>
+    function openARS() {
+        var arsWindow = window.open('/jgig/ars', 'ARSWindow', 'width=800, height=1200, top=50, left=50');
+        
+        // ARS 창이 닫히면 부모 창을 새로 고침
+        arsWindow.onbeforeunload = function() {
+            window.opener.location.reload(); // 부모 창 새로 고침
+        };
+    }
+</script>
 	<!-- End Script -->
 
 </body>

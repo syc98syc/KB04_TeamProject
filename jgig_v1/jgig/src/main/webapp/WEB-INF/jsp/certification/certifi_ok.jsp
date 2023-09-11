@@ -137,10 +137,10 @@
 						<li><a class="collapsed d-flex justify-content-between  text-decoration-none" href="/jgig/account_list"> 계좌 조회 및 이체 </a></li>
 						<li><a class="collapsed d-flex justify-content-between  text-decoration-none" href="/jgig/trans_history"> 거래 내역 조회 </a></li>
 						<hr>
-						<li><a class="collapsed d-flex justify-content-between text-decoration-none selectsidemenu " href="/jgig/card_issuance"> 카드발급 </a></li>
-						<li><a class="collapsed d-flex justify-content-between text-decoration-none  " href="/jgig/card_list"> 카드 조회 및 관리 </a></li>
+						<li><a class="collapsed d-flex justify-content-between text-decoration-none  " href="/jgig/card_issuance"> 카드발급 </a></li>
+						<li><a class="collapsed d-flex justify-content-between text-decoration-none   " href="/jgig/card_list"> 카드 조회 및 관리 </a></li>
 						<hr>
-						<li><a class="collapsed d-flex justify-content-between  text-decoration-none" href="/jgig/certification"> 인증서 발급 </a></li>
+						<li><a class="collapsed d-flex justify-content-between  text-decoration-none selectsidemenu" href="/jgig/certification"> 인증서 발급 </a></li>
 					</ul>
 				</div>
 			</div>
@@ -148,37 +148,14 @@
 				<div class="row">
 					<div class="col-md-6">
 						<ul class="list-inline shop-top-menu pt-5 pl-3">
-							<h2>카드 발급</h2>
+							<h2>인증서 발급</h2>
 						</ul>
 					</div>
 				</div>
 				<div class="row">
 					<div id="service-content">
-						<div class="subcontent">
-							<table class="ok-table">
-								<colgroup>
-									<col style="width: 30%">
-									<col style="width: *">
-								</colgroup>
-								<tbody>
-
-									<tr>
-										<th>카드 상품명</th>
-										<td>${card_success.cd_item}</td>
-									</tr>
-
-									<tr>
-										<th>출금계좌</th>
-										<td>${card_success.pay_account}</td>
-									</tr>
-
-									<tr>
-										<th>발급일</th>
-										<td><fmt:formatDate value="${card_success.start_date}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
-									</tr>
-								</tbody>
-							</table>
-							<div class="text-center py-3">해당 카드의 발급이 완료되었습니다.</div>
+						<div class="subcontent text-center vertical-center">
+						<span class="h2"><img  class="m-2" src="/assets/img/certification.png"> 인증서 발급이 완료되었습니다.</span>
 						</div>
 					</div>
 				</div>

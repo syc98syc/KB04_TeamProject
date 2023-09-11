@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import kb04.ditto.jgig.entity.BoardDto;
 import kb04.ditto.jgig.entity.MemberDto;
+import kb04.ditto.jgig.entity.NoticeDto;
 import kb04.ditto.jgig.mapper.MainMapper;
 
 @Controller
@@ -27,6 +28,9 @@ public class MainController {
 		
 		List<BoardDto> question_list = mainMapper.question_list();
 		model.addAttribute("question_list", question_list);
+		
+		List<NoticeDto> notice_list = mainMapper.notice_list();
+		model.addAttribute("notice_list", notice_list);
 		
 		List<MemberDto> point_rank=mainMapper.point_rank();
 		model.addAttribute("point_rank", point_rank);

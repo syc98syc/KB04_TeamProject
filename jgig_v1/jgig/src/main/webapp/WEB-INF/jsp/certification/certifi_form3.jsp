@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -137,10 +137,10 @@
 						<li><a class="collapsed d-flex justify-content-between  text-decoration-none" href="/jgig/account_list"> 계좌 조회 및 이체 </a></li>
 						<li><a class="collapsed d-flex justify-content-between  text-decoration-none" href="/jgig/trans_history"> 거래 내역 조회 </a></li>
 						<hr>
-						<li><a class="collapsed d-flex justify-content-between text-decoration-none selectsidemenu " href="/jgig/card_issuance"> 카드발급 </a></li>
-						<li><a class="collapsed d-flex justify-content-between text-decoration-none  " href="/jgig/card_list"> 카드 조회 및 관리 </a></li>
+						<li><a class="collapsed d-flex justify-content-between text-decoration-none  " href="/jgig/card_issuance"> 카드발급 </a></li>
+						<li><a class="collapsed d-flex justify-content-between text-decoration-none   " href="/jgig/card_list"> 카드 조회 및 관리 </a></li>
 						<hr>
-						<li><a class="collapsed d-flex justify-content-between  text-decoration-none" href="/jgig/certification"> 인증서 발급 </a></li>
+						<li><a class="collapsed d-flex justify-content-between  text-decoration-none selectsidemenu" href="/jgig/certification"> 인증서 발급 </a></li>
 					</ul>
 				</div>
 			</div>
@@ -148,38 +148,61 @@
 				<div class="row">
 					<div class="col-md-6">
 						<ul class="list-inline shop-top-menu pt-5 pl-3">
-							<h2>카드 발급</h2>
+							<h2>인증서 발급</h2>
 						</ul>
 					</div>
 				</div>
 				<div class="row">
 					<div id="service-content">
-						<div class="subcontent">
-							<table class="ok-table">
-								<colgroup>
-									<col style="width: 30%">
-									<col style="width: *">
-								</colgroup>
-								<tbody>
+						<!-- 여기에 넣으시며 됩니당 -->
+						<form action="certification_action" method="post" onsubmit="return validateForm();">
 
-									<tr>
-										<th>카드 상품명</th>
-										<td>${card_success.cd_item}</td>
-									</tr>
+							<div class="subcontent">
+								<h3 class="h3-subtitle">인증서 저장 위치</h3>
+								<div class="subcontent">
+									<span>* 저장 위치는 연습을 위한 양식입니다. 실제 지정 위치에 저장되지 않습니다. </span> <br>
+									<div id="loca-div">
+									<label><input type="radio" name="save_loca" > 하드 디스크</label>
+									<label><input type="radio" name="save_loca">이동식 디스크</label>
+									<label><input type="radio" name="save_loca">보안 토큰</label>
+									<label><input type="radio" name="save_loca">휴대폰</label>
+									</div>
+									
+								</div>
+								
+							</div>
 
-									<tr>
-										<th>출금계좌</th>
-										<td>${card_success.pay_account}</td>
-									</tr>
+							<div class="subcontent">
+								<h3 class="h3-subtitle">인증서 암호 입력</h3>
+								<div class="subcontent">
+									<table class="certifi-table" id="user-add-cttable">
+										<colgroup>
+											<col style="width: 30%">
+											<col style="width: *">
+										</colgroup>
+										<tbody>
 
-									<tr>
-										<th>발급일</th>
-										<td><fmt:formatDate value="${card_success.start_date}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
-									</tr>
-								</tbody>
-							</table>
-							<div class="text-center py-3">해당 카드의 발급이 완료되었습니다.</div>
-						</div>
+											<tr>
+												<th>암호</th>
+												<td class="p-sm-2 text-sm-start"><input id="ct_pw" type="password"></td>
+											</tr>
+											<tr>
+												<th>암호 확인</th>
+												<td class="p-sm-2 text-sm-start"><input type="password" id="ct_pw_confirm" oninput="checkPassword()"> <span id="pw2_message"></span></td>
+											</tr>
+											
+
+										</tbody>
+									</table>
+
+								</div>
+
+							</div>
+							<div class="btn-div">
+								<p id="form_msg"></p>
+								<button type="submit" class="card-sumit-btn">발급</button>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -208,7 +231,49 @@
 	<script src="/assets/js/templatemo.js"></script>
 	<script src="/assets/js/custom.js"></script>
 
+ <script>
+        function checkPassword() {
+            var password = document.getElementById("ct_pw").value;
+            var confirmPassword = document.getElementById("ct_pw_confirm").value;
+            
+            var message2 = document.getElementById("pw2_message");
 
+            
+            if ( password !== confirmPassword &&confirmPassword.length!==0) {
+                message2.innerHTML = "비밀번호가 일치하지 않습니다.";
+            } else {
+                message2.innerHTML = "";
+    
+            }
+        }
+        </script>			
+
+
+	<script>
+	
+	
+		
+		// 폼이 제출될 때 실행되는 함수
+	    function validateForm() {
+	    
+			var save_loca = document.querySelectorAll('input[name="save_loca"]:checked');
+			var ct_pw=document.getElementById('ct_pw').value;
+			var ct_pw_confirm=document.getElementById('ct_pw_confirm').value;
+			
+			if(save_loca.length === 0){
+				alert("인증서 저장 위치를 선택해 주세요");
+				return false;
+			}else if(ct_pw===''||ct_pw_confirm===''){
+				alert("암호를 설정해주세요.")
+				return false;
+			}
+			
+
+			
+			return true;
+		}
+		
+	</script>
 	<!-- End Script -->
 
 </body>

@@ -50,8 +50,6 @@ public class CardController {
 			return "redirect:/jgig/card_status_form?no=" + cd_no; // 실패한 경우, 다시 카드 비빌번호변경 입력폼 페이지로 리다이렉트
 		}
 
-		
-
 		cardMapper.update_pw(cd_no, new_pw);
 		CardDto update_card = cardMapper.select_card(cd_no);
 		model.addAttribute("cardDto", update_card);
@@ -78,7 +76,7 @@ public class CardController {
 		if (returnVal.equals("redirect:/jgig/login"))
 			return returnVal;
 
-		// 본인인증 유효성 체크
+//		 본인인증 유효성 체크
 		CardDto select_card = (CardDto) session.getAttribute("select_card");
 		String cd_nm = select_card.getCd_name();
 		String cd_tel = select_card.getCd_phone();
@@ -98,7 +96,6 @@ public class CardController {
 			session.setAttribute("errorMessage", errorMessage); // 실패 메시지를 세션에 저장
 			return "redirect:/jgig/card_status_form?no=" + cd_no; // 실패한 경우, 다시 카드 상태변경 입력폼 페이지로 리다이렉트
 		}
-	
 
 		cardMapper.update_status(cd_no);
 		CardDto update_card = cardMapper.select_card(cd_no);
@@ -146,7 +143,6 @@ public class CardController {
 			session.setAttribute("errorMessage", errorMessage); // 실패 메시지를 세션에 저장
 			return "redirect:/jgig/card_cancellation_form?no=" + cd_no; // 실패한 경우, 다시 카드 해지 입력폼 페이지로 리다이렉트
 		}
-		
 
 		cardMapper.delete(cd_no);
 		model.addAttribute("cardDto", select_card);
@@ -221,8 +217,6 @@ public class CardController {
 			session.setAttribute("errorMessage", errorMessage); // 실패 메시지를 세션에 저장
 			return "redirect:/jgig/card_issuance"; // 실패한 경우, 다시 form1 페이지로 리다이렉트
 		}
-		
-		
 
 		// 약관동의 체크
 		if (!agree.equals("동의")) {
@@ -230,7 +224,6 @@ public class CardController {
 			session.setAttribute("errorMessage", errorMessage); // 실패 메시지를 세션에 저장
 			return "redirect:/jgig/card_issuance"; // 실패한 경우, 다시 form1 페이지로 리다이렉트
 		}
-		
 
 		// 입력 받은 DTO를 세션에 저장
 		session.setAttribute("cardDto_form1", cardDto);
@@ -257,6 +250,7 @@ public class CardController {
 		cardDto.setCd_ssn(cardDto_form1.getCd_ssn());
 		cardDto.setCd_phone(cardDto_form1.getCd_phone());
 		cardDto.setMem_id(mem_id);
+		System.out.println("들어갈 dto : "+cardDto);
 
 		cardMapper.insert(cardDto); // DB insert
 		CardDto card_success = cardMapper.find_last(mem_id);
@@ -295,7 +289,6 @@ public class CardController {
 		session.setAttribute("mem_nm", "김철수"); // 테스트용 이름
 		session.setAttribute("phone_num", "01054237895"); // 테스트용 폰번호
 		session.setAttribute("ssn", "990101-0000000"); // 테스트용 주민번호
-		
 
 		// 로그인 정보를 저장한 후, 다음 페이지로 리다이렉트합니다.
 		return "redirect:/jgig/card_issuance"; // 로그인 후의 페이지로 리다이렉트
