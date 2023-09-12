@@ -23,6 +23,44 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+    <style type="text/css">
+    	.search_wrap {
+    		display: flex;
+    		border: 1px solid #A0A0A0;
+		    border-radius: 20px;
+			padding: 10px 0px 10px 20px;
+	        margin: 0 auto 30px;
+    		width: 70%;
+    	}
+    	.search_inp {
+    		width: 90%;
+    		outline: none;
+   		 	border: none;
+    	}
+    	#searchBtn > i {
+    		color: #A0A0A0;
+    		font-size: 20px;
+    	}
+    	#searchBtn {
+			border: none;
+			background: none;
+			display: flex;
+			align-items: center;
+		}
+		.pw-table	{
+			margin-top: 10px;
+		}
+		.pw-table tr, .pw-table td {
+			border: 1px solid white;
+		}
+		.pw-table td:first-child {
+			width: 8%
+		}
+		.popular_word_list {
+		    width: 70%;
+    		margin: 0 auto; 
+    	}
+    </style>
 </head>
 <body>
 	<!-- Header -->
@@ -62,7 +100,7 @@
                         	</a>
                         	<ul class="dropdown-menu">
                            	  <li><a class="dropdown-item" href="/jgig/searchWord">금융 용어 검색</a></li>
-                             <li><a class="dropdown-item" href="#">금융 상식 퀴즈</a></li>
+                             <li><a class="dropdown-item" href="/jgig/quiz">금융 상식 퀴즈</a></li>
                              <hr>
                              <li><a class="dropdown-item" href="#">이용 가이드</a></li>
                         	</ul>
@@ -198,21 +236,17 @@
 					<div id="service-content"> 
 						<!-- 여기에 넣으시며 됩니당 -->
 						<form action="searchWordResult" method="post" class="search_wrap">
-							<input type="text" name="pw_word" id="word">
+							<input type="text" name="pw_word" id="word" class="search_inp">
 							<input type="hidden" name="pageNo" value="1">
-							<button id="searchBtn">검색</button>
+							<button id="searchBtn"><i class="fas fa-search"></i></button>
 						</form>
 						<div class="popular_word_list">
-							<h3>인기 검색어</h3>
-							<table>
-								<tr>
-									<th>순위</th>
-									<th>단어</th>
-								</tr>
+							<span>인기 검색어</span>
+							<table class="table pw-table">
 								<c:forEach items="${word_list}" var="wrd" varStatus="status">
 									<tr>
-										<th>${status.count}</th>
-										<th>${wrd.pw_word }</th>
+										<td>${status.count}</td>
+										<td>${wrd.pw_word }</td>
 									</tr>
 								</c:forEach>
 							</table>

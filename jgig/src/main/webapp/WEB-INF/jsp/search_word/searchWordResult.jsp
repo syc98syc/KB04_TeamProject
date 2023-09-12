@@ -57,6 +57,11 @@
 		ul.word-list > li .inner {
 		    padding: 20px;
 	    }
+	    .quiz-pagination {
+	    	display: flex;
+		    align-items: center;
+		    justify-content: center;
+		} 
     </style>
 </head>
 <body>
@@ -97,7 +102,7 @@
                         	</a>
                         	<ul class="dropdown-menu">
                            	  <li><a class="dropdown-item" href="/jgig/searchWord">금융 용어 검색</a></li>
-                             <li><a class="dropdown-item" href="#">금융 상식 퀴즈</a></li>
+                             <li><a class="dropdown-item" href="/jgig/quiz">금융 상식 퀴즈</a></li>
                              <hr>
                              <li><a class="dropdown-item" href="#">이용 가이드</a></li>
                         	</ul>
@@ -247,7 +252,7 @@
 							</c:forEach>
 							</ul>
 						</div>
-						<div class="word-pagination">
+						<div class="word-pagination quiz-pagination">
 							<nav aria-label="Page navigation example">
 							  <ul class="pagination">
 							    <li class="page-item">

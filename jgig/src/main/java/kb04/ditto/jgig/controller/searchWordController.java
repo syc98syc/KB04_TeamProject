@@ -12,6 +12,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
@@ -41,22 +42,36 @@ public class searchWordController {
 	private String totalCount;
 
 	@GetMapping("/jgig/searchWord")
-	public String loadSearchWord(Model model) {
+	public String loadSearchWord(Model model, HttpSession session) {
 
 		// 로그인 유무에 따라 전체 인기 검색어 or 나이대별 검색어 분기처리하기
-		List<PopularWordDto> list = searchWordMapper.list();
+		String memId = (String) session.getAttribute("mem_id");
+		if(memId == null) {
+			List<PopularWordDto> list = searchWordMapper.allAgeList();
+			model.addAttribute("word_list", list);
+			return "search_word/searchWord";
+		}
+		
+		int mem_age = searchWordMapper.selectAge(memId);
+		System.out.println(mem_age);
+		
+		List<PopularWordDto> list = searchWordMapper.list(mem_age);
 		model.addAttribute("word_list", list);
 		return "search_word/searchWord";
 	}
 
 	@PostMapping("/jgig/searchWordResult")
-	public String getSearchWordHandler(PopularWordDto dto, @RequestParam("pw_word") String pw_word, @RequestParam("pageNo") String pageNo, Model model) {
-		// pupulart_word 테이블에 insert
-//		pw_word = pw_word.replaceAll("\\s+", "");
-//		dto.setPw_word(pw_word);
-//		dto.setPw_age(25 / 10 * 10); // 10단위만 넣기 
-//		dto.setMem_id("kb0001"); // 로그인 중인 멤버의 아이디 넣기
-//		searchWordMapper.insert(dto);
+	public String getSearchWordHandler(PopularWordDto dto, @RequestParam("pw_word") String pw_word, @RequestParam("pageNo") String pageNo, Model model, HttpSession session) {
+		// 로그인했을 때만 검색한 단어 popular_word에 insert
+		String memId = (String) session.getAttribute("mem_id");
+		if(memId != null) {
+			pw_word = pw_word.replaceAll("\\s+", "");
+			dto.setPw_word(pw_word);
+			int mem_age = searchWordMapper.selectAge(memId);
+			dto.setPw_age(mem_age);
+			dto.setMem_id(memId); // 로그인 중인 멤버의 아이디 넣기
+			searchWordMapper.insert(dto);
+		}
 
 		try {
 			String crawlingResult = crawlingHandler(pw_word, pageNo);
