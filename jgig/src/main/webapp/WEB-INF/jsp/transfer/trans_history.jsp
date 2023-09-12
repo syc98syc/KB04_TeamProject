@@ -225,10 +225,12 @@
 							<fieldset>
 							<form action="trans_history_action" method="post" id = "f1" onsubmit="return validateForm();">
 								<div class = "accountListCss">
+								<strong class="advice-balloon advice-balloon2_trans_his1">1. 계좌를 선택해주세요.</strong>
+								<strong class="advice-balloon advice-balloon3_trans_his1">2-1. 월별조회 버튼을 눌러주세요.</strong>
 									<table>
 										<tr>
 											<th class ="bgc">계좌 선택</th>
-											<strong class="advice-balloon advice-balloon2_trans_his1">1. 계좌를 선택해주세요.</strong>
+											
 											<td>
 												<select name="selectedAccount" id="selectedAccount"
 													onchange="copyAccountNumber()">
@@ -241,7 +243,6 @@
 										</tr>
 										<tr>
 											<th class ="bgc">월별 조회</th>
-											<strong class="advice-balloon advice-balloon3_trans_his1">2-1. 월별조회 버튼을 눌러주세요.</strong>
 											<td>
 												<select id="year" name="year" class="form-control"
 													style="display: inline-block; width: auto;">
@@ -283,7 +284,7 @@
 								<div class ="accountListCss">
 									<table>
 										<tr>
-											<th class ="bgc" style="width: 246px;">조회 기간</th>
+											<th class ="bgc" style="width: 245px;">조회 기간</th>
 											<td>
 												<input type="text" id="datepicker-start" name="startDate">
 										        <label for="datepicker-end">~</label>

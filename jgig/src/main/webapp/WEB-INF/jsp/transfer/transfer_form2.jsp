@@ -275,7 +275,9 @@
 								</div>
 								<br>
 								<div class="button-container">
-								    <a href="transfer_form?account=${dto.account}" class="button-like-link">수정</a>
+									<div>
+										<a href="transfer_form?account=${dto.account}" class="button-like-link" style="font-size: 16px; padding: 7px 40px;">수정</a>
+									</div>
 								    <input type="submit" id="submitButton" class="btn btn-warning" value="이체">
 								</div>
 								<strong class="advice-balloon advice-balloon1_transferform2">1. 수정을 원할 시 <br>수정 버튼을 눌러주세요.</strong>

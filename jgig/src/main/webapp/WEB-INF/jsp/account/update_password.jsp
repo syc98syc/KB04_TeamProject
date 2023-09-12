@@ -41,8 +41,27 @@
 				}
 			})
 		}
+		function togglePasswordVisibility() {
+		    var passwordInput = document.querySelector("#password1")
+		    var eyeIcon = document.querySelector("#eye-icon")
+
+		    eyeIcon.addEventListener("click", function() {
+		        if (passwordInput.type === "password") {
+		            passwordInput.type = "text"
+		            eyeIcon.classList.remove("fa-eye")
+		            eyeIcon.classList.add("fa-eye-slash")
+		        } else {
+		            passwordInput.type = "password"
+		            eyeIcon.classList.remove("fa-eye-slash")
+		            eyeIcon.classList.add("fa-eye")
+		        }
+		    })
+		    
+		    passwordInput.type = "password"  
+		}
 		$(function(){
 			advice_balloon()
+			togglePasswordVisibility()
 		})
 	</script>
 </head>
@@ -266,8 +285,10 @@
 									<tr>
 										<th class = "bgc">계좌비밀번호 수정</th>
 										<td>
-											<input type="text" name="act_password" minlength="4"
-											maxlength="4" value="${dto.act_password}"><br> 
+											<input type="password" name="act_password" id = "password1" minlength="4"
+											maxlength="4" value="${dto.act_password}">
+											<i id="eye-icon" class="fa fa-eye fa-lg" style="cursor: pointer; margin-left: 1px; font-size: 18px;" onclick="togglePasswordVisibility()"></i>
+											<br> 
 										</td>
 									</tr>
 								</table>

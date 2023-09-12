@@ -10,6 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+	<link rel="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
     <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
 
@@ -58,8 +59,28 @@
 				}
 			})
 		}
+		function togglePasswordVisibility() {
+		    var passwordInput = document.querySelector("#password1")
+		    var eyeIcon = document.querySelector("#eye-icon")
+
+		    eyeIcon.addEventListener("click", function() {
+		        if (passwordInput.type === "password") {
+		            passwordInput.type = "text"
+		            eyeIcon.classList.remove("fa-eye")
+		            eyeIcon.classList.add("fa-eye-slash")
+		        } else {
+		            passwordInput.type = "password"
+		            eyeIcon.classList.remove("fa-eye-slash")
+		            eyeIcon.classList.add("fa-eye")
+		        }
+		    })
+		    
+		    passwordInput.type = "password"  
+		}
+		
 		$(function(){
 			advice_balloon()
+			togglePasswordVisibility()
 			password_check()
 		})
 	</script>
@@ -278,8 +299,8 @@
 									<br>
 								</div>
 							</div>
-							<p class="advice-balloon advice-balloon1_account2">
-								<strong>1. 개인정보를 다음 순서대로 입력해주세요.</strong>
+							<div class="advice-balloon advice-balloon1_account2">
+								<strong style = "font-weight : bold;">1. 개인정보를 다음 순서대로 입력해주세요.</strong>
 								<br>
 								&nbsp; 1. 직업구분을 선택해주세요.
 								<br>
@@ -287,7 +308,7 @@
 								<br>
 								&nbsp; 3. 거래 자금의 원천을 선택해주세요.
 								<br>
-							</p>
+							</div>
 							
 							<div style = "text-align:center">
 								<div style="display:inline-block; width: 130px; text-align: left;">직업구분</div>
@@ -318,25 +339,27 @@
 									</div>
 								</div>
 								<div style = "text-align:center">
-									<div style="display:inline-block; width: 130px; text-align: left;">계좌비밀번호</div>
+									<div style="display:inline-block; width: 100px; margin-left : 30px; text-align: left;">계좌비밀번호</div>
 									<input type = "password" class = "pw" id = "password1" name = "act_password" 
-									placeholder = "네자리 비밀번호" minlength = 4 maxlength = 4 required style = "width : 150px;"><br><br>
+									placeholder = "네자리 비밀번호" minlength = 4 maxlength = 4 required style = "width : 150px; margin-left : 23px">
+									<i id="eye-icon" class="fa fa-eye fa-lg" style="cursor: pointer; margin-left: 1px; font-size: 18px;" onclick="togglePasswordVisibility()"></i>
+									<br><br>
 									<div style="display:inline-block; width: 130px; text-align: left;">계좌비밀번호 확인</div>
 									<input type = "password" class = "pw" placeholder = "네자리 비밀번호" id = "password2" minlength = 4 maxlength = 4 required style = "width : 150px;">
 									<br><br>
 									<font id = "checkPw" size = "2"></font>
 								</div>
-								<p class="advice-balloon advice-balloon2_account2">
-									<strong>2. 계좌 정보를 다음 순서대로 입력해주세요.</strong>
+								<div class="advice-balloon advice-balloon2_account2">
+									<strong style ="font-weight : bold;">2. 계좌 정보를 다음 순서대로 입력해주세요.</strong>
 									<br>
 									&nbsp; 1. 계좌 비밀번호를 입력해주세요.
 									<br>
 									&nbsp; 2. 계좌 비밀번호 확인을 위해 다시 한번 입력해주세요.
 									<br>
-								</p>
+								</div>
 								<div class = "float-right">
 									<br>
-									<p class="advice-balloon advice-balloon3_account2"><strong>3. 입력을 완료하셨으면 발급버튼을 눌러주세요.</strong></p>
+									<strong class="advice-balloon advice-balloon3_account2">3. 입력을 완료하셨으면 발급버튼을 눌러주세요.</strong>
 									<input type = "submit" id = "submitButton" class="btn btn-warning" value = "발급">
 								</div>
 							</form>

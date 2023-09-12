@@ -279,8 +279,8 @@
 						<div class="col-md-6">
 							<ul class="list-inline shop-top-menu  pt-5 pl-3">
 								<h2>계좌 개설</h2>
-								<p class="advice-balloon advice-balloon1"><strong>계좌개설을 연습하고 싶은 경우 다음 단계를 수행해주세요.</strong></p>
 							</ul>
+							<strong class="advice-balloon advice-balloon1">계좌개설을 연습하고 싶은 경우 다음 단계를 수행해주세요.</strong>
 						</div>
 					</div>
 					<div class="row">
@@ -295,11 +295,11 @@
 										<option value ="KB두근두근외화적금">KB두근두근외화적금</option>
 										<option value ="KB국민ON통장">KB국민ON통장</option>
 									</select>
-									<p class="advice-balloon advice-balloon2"><strong>1. 원하시는 상품을 선택해주세요.</strong></p>
+									<strong class="advice-balloon advice-balloon2">1. 원하시는 상품을 선택해주세요.</strong>
 									<hr>
 									<h3 class="font-weight-bold">본인인증</h3>
-									<p class="advice-balloon advice-balloon3">
-										<strong>2. 본인 인증을 위해 다음 순서대로 입력해주세요.</strong>
+									<div class="advice-balloon advice-balloon3">
+										<strong style = "font-weight : bold;">2. 본인 인증을 위해 다음 순서대로 입력해주세요.</strong>
 										<br>
 										&nbsp; 1. 이름을 입력해주세요.
 										<br>
@@ -309,7 +309,7 @@
 										<br>
 										&nbsp; 4. 본인 인증 버튼을 눌러주세요.
 										<br>
-									</p>
+									</div>
 									<div class="form-container">
 									    <div class="form-group">
 									        <label class = "label_open_account" for="mem_nm">이름</label>
@@ -346,7 +346,7 @@
 											※ 상기 동의를 거부하실 경우 비대면 계좌개설이 불가합니다.
 										</p>
 									</fieldset>
-									<p class="advice-balloon advice-balloon4"><strong>3. 약관동의에 동의을 눌러준 후 다음버튼을 눌러주세요.</strong></p>
+									<strong class="advice-balloon advice-balloon4">3. 약관동의에 동의을 눌러준 후 다음버튼을 눌러주세요.</strong>
 									<div class = "float-right">
 										<input type="radio" class="option1" id = "option1" name="check" value="yes">
 							  			<label for="option1" >동의</label>

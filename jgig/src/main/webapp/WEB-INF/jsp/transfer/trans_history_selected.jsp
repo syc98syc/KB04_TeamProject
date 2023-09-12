@@ -220,16 +220,15 @@
 							<!-- 여기에 넣으시며 됩니당 -->
 							<fieldset>
 							<form action="trans_history_selected_action" method="post" id = "f1" >
+								<input type="hidden" name="account" value = "${account}">
 								<div class = "accountListCss">
 									<table>
 											<tr>
 												<th class="bgc">계좌 선택</th>
 												<td>${account}</td>
-												<input type="hidden" name="account" value = "${account}">
 											</tr>
 											<tr>
 												<th class="bgc">월별 조회</th>
-												<strong class="advice-balloon advice-balloon3_trans_his_selected">2-1. 월별조회 버튼을 눌러주세요.</strong>
 												<td>
 													<select id="year" name="year" class="form-control" style="display: inline-block; width: auto;">
 													<c:forEach var="i" begin="15" end="25">
@@ -252,6 +251,7 @@
 												</td>
 											</tr>
 									</table>
+									<strong class="advice-balloon advice-balloon3_trans_his_selected">2-1. 월별조회 버튼을 눌러주세요.</strong>
 								</div>
 							</form>
 							<form action="trans_history_selected_action2" method="post">
@@ -259,7 +259,7 @@
 								<div class ="accountListCss">
 									<table>
 										<tr>
-											<th class ="bgc" style="width: 248px;">조회 기간</th>
+											<th class ="bgc" style="width: 250px;">조회 기간</th>
 											<td>
 												<input type="text" id="datepicker-start" name="startDate">
 												<label for="datepicker-end">~</label>

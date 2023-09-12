@@ -47,9 +47,28 @@
 				}
 			})
 		}
+		function togglePasswordVisibility() {
+		    var passwordInput = document.querySelector("#password1")
+		    var eyeIcon = document.querySelector("#eye-icon")
+
+		    eyeIcon.addEventListener("click", function() {
+		        if (passwordInput.type === "password") {
+		            passwordInput.type = "text"
+		            eyeIcon.classList.remove("fa-eye")
+		            eyeIcon.classList.add("fa-eye-slash")
+		        } else {
+		            passwordInput.type = "password"
+		            eyeIcon.classList.remove("fa-eye-slash")
+		            eyeIcon.classList.add("fa-eye")
+		        }
+		    })
+		    
+		    passwordInput.type = "password"  
+		}
 		
 		$(function () {
 			advice_balloon()
+			togglePasswordVisibility()
 		})
 		</script>
 	</head>
@@ -246,8 +265,8 @@
 						<div class="col-md-6">
 							<ul class="list-inline shop-top-menu  pt-5 pl-3">
 								<h2>계좌 이체</h2>
-								<strong class="advice-balloon advice-balloon1_transferform">계좌 이체를 원하시면 다음 단계를 수행해주세요.</strong>
 							</ul>
+							<strong class="advice-balloon advice-balloon1_transferform">계좌 이체를 원하시면 다음 단계를 수행해주세요.</strong>
 						</div>
 					</div>
 					<div class="row">
@@ -262,6 +281,11 @@
 									<input type = "hidden" name = "mem_id" value = "${dto.mem_id}">
 									<br>
 									<div class = "accountListCss">
+										<strong class="advice-balloon advice-balloon2_transferform">1. 입금은행을 선택해주세요.</strong>
+										<strong class="advice-balloon advice-balloon3_transferform">2. 입급할 분의 이름을 입력해주세요.</strong>
+										<strong class="advice-balloon advice-balloon4_transferform">3. 입급할 계좌번호를 입력해주세요.</strong>
+										<strong class="advice-balloon advice-balloon5_transferform">4. 이체금액을 입력해주세요.</strong>
+										<strong class="advice-balloon advice-balloon6_transferform">5. 계좌비밀번호를 입력해주세요.</strong>
 										<table>
 											<tr>
 												<th class = "bgc">출금계좌번호</th>
@@ -269,28 +293,34 @@
 											</tr>
 											<tr>
 												<th class = "bgc">입금은행</th> 
-												<strong class="advice-balloon advice-balloon2_transferform">1. 입급할 은행을 입력해주세요.</strong>
-												<td><input type = "text" name = "depo_bank" value = "국민" required></td>
+												<td>
+													<select name = "depo_bank" required>
+														<option value ="국민" selected>국민</option>
+														<option value ="신한">신한</option>
+														<option value ="우리">우리</option>
+														<option value ="농협">농협</option>
+													</select>
+												</td>
 											</tr>
 											<tr>
 												<th class = "bgc">받는분</th>
-												<strong class="advice-balloon advice-balloon3_transferform">2. 입급할 분의 이름을 입력해주세요.</strong>
 												<td><input type = "text" name = "receive_nm" required></td>
 											</tr>
 											<tr>
 												<th class = "bgc">입금계좌번호</th>
-												<strong class="advice-balloon advice-balloon4_transferform">3. 입급할 계좌번호를 입력해주세요.</strong>
 												<td><input type = "text" name = "depo_num" minlength = "13" maxlength = "13" required></td>
 											</tr>
 											<tr>
 												<th class = "bgc">이체금액</th>
-												<strong class="advice-balloon advice-balloon5_transferform">4. 이체금액을 입력해주세요.</strong>
+												
 												<td><input type = "text" name = "depo_mon" required>원</td>
 											</tr>
 											<tr>
 												<th class = "bgc">계좌비밀번호</th>
-												<strong class="advice-balloon advice-balloon6_transferform">5. 계좌비밀번호를 입력해주세요.</strong>
-												<td><input type = "text" name = "act_password" minlength = "4" maxlength = "4" required></td>
+												<td><input type = "password" id = "password1" name = "act_password" minlength = 4 maxlength = 4 required>
+												<i id="eye-icon" class="fa fa-eye fa-lg" style="cursor: pointer; margin-left: 1px; font-size: 18px;" onclick="togglePasswordVisibility()"></i>
+												</td>
+												
 											</tr>
 										</table>
 									</div>
