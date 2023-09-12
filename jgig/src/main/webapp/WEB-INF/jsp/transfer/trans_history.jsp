@@ -330,8 +330,8 @@
 						                    <td><fmt:formatDate value="${transferDto.trans_date}" pattern="yyyy/MM/dd HH:mm:ss" /></td>
 						                    <td>${transferDto.send_nm}</td>
 						                    <td>${transferDto.receive_nm}</td>
-						                    <td>${transferDto.withdr_mon}</td>
-						                    <td>${transferDto.depo_mon}</td>
+						                    <td><fmt:formatNumber value="${transferDto.withdr_mon}" pattern="#,###"/>원</td>
+						                    <td><fmt:formatNumber value="${transferDto.depo_mon}" pattern="#,###"/>원</td>
 						                </tr>
 						            </c:forEach>
 						        </tbody>

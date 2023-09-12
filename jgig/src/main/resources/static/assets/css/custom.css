@@ -280,6 +280,10 @@ input[name="tel1"], input[name="tel2"], input[name="tel3"] {
   color: red;
 }
 
+#checkButton {
+    width: 115px; /* 원하는 너비로 조정하세요 */
+}
+
 input[type="text"] {
 	border: none; /* 테두리 제거 */
 	border-bottom: 1px solid #000; /* 아래쪽에 1px 두께의 줄 생성 */

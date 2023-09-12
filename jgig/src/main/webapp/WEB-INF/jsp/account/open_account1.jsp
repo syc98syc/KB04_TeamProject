@@ -330,7 +330,7 @@
 									        <input type="text" name="phone_num3" id="phone_num3" minlength="3" maxlength="4" required>
 									    </div>
 									</div>
-									<button type="button" id="checkButton" class="float-right">본인확인</button>
+									<button type="button" id="checkButton" class="float-right btn btn-warning">본인확인</button>
 								</form>
 								<br>
 								<hr>
@@ -346,7 +346,7 @@
 											※ 상기 동의를 거부하실 경우 비대면 계좌개설이 불가합니다.
 										</p>
 									</fieldset>
-									<strong class="advice-balloon advice-balloon4">3. 약관동의에 동의을 눌러준 후 다음버튼을 눌러주세요.</strong>
+									<strong class="advice-balloon advice-balloon4">3. 약관동의에 동의를 눌러준 후 다음버튼을 눌러주세요.</strong>
 									<div class = "float-right">
 										<input type="radio" class="option1" id = "option1" name="check" value="yes">
 							  			<label for="option1" >동의</label>

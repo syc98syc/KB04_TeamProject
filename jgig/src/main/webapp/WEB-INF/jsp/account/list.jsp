@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -225,7 +226,7 @@
 				</div>
 				<div class="row">
 					<div id="service-content">
-						<p class = "total-accountBalCss">총 예금 잔액 ${totalBalance}원 (${account_list.size()}계좌)</p>
+						<p class = "total-accountBalCss">총 예금 잔액 <fmt:formatNumber value="${totalBalance}" pattern="#,###"/>원 (${account_list.size()}계좌)</p>
 						<div class = "accountListCss">
 						<table>
 							<c:forEach items="${account_list}" var ="acc">
@@ -234,7 +235,7 @@
 							</tr>
 							<tr>
 								<td>${acc.account}<br>${acc.act_name}</td>
-								<td  class = "no-left-right-border"><strong>잔액 ${acc.balance}원</strong></td>
+								<td class = "no-left-right-border">잔액 <fmt:formatNumber value="${acc.balance}" pattern="#,###"/>원</td>
 								<td class = "no-left-right-border" style = "text-align :right">
 									<a href = "account_management?account=${acc.account}" class ="button-like-link " style="width: 105px; text-align : center">관리</a>
 									<a href = "transfer_form?account=${acc.account}" class ="button-like-link" style="width: 105px; text-align : center">이체</a><br>
