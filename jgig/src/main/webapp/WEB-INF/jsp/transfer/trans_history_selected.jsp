@@ -247,7 +247,7 @@
 														</c:choose>
 													</c:forEach>
 													</select>월
-													<input type="submit" class="btn btn-warning" value="월별조회">
+													<input type="submit" class="btn button-like-link" value="월별조회">
 												</td>
 											</tr>
 									</table>
@@ -259,13 +259,13 @@
 								<div class ="accountListCss">
 									<table>
 										<tr>
-											<th class ="bgc" style="width: 250px;">조회 기간</th>
+											<th class ="bgc" style="width: 243px;">조회 기간</th>
 											<td>
 												<input type="text" id="datepicker-start" name="startDate">
 												<label for="datepicker-end">~</label>
 												<input type="text" id="datepicker-end" name="endDate">
 												<strong class="advice-balloon advice-balloon4_trans_his_selected">2-2-1. 조회기간을 선택해주세요</strong>
-						        				<input type="submit"  class="btn btn-warning" value="조회">
+						        				<input type="submit"  class="btn button-like-link" value="조회">
 						        				<strong class="advice-balloon advice-balloon5_trans_his_selected">2-2-2. 조회버튼을 선택해주세요</strong>
 											</td>
 										</tr>

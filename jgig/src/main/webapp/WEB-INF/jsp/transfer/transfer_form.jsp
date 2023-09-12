@@ -325,7 +325,7 @@
 										</table>
 									</div>
 									<br>
-									<input type = "submit" id = "submitButton" class="btn btn-warning" style="float: right;" value = "확인">
+									<input type = "submit" id = "submitButton" class="btn button-like-link" style="float: right;" value = "확인">
 									<strong class="advice-balloon advice-balloon7_transferform">6. 확인 버튼을 눌러주세요.</strong>
 								</form>
 							</fieldset>

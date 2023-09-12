@@ -266,7 +266,7 @@
 								<div class = "accountListCss">
 									<table>
 										<tr>
-											<th class= "bgc">비밀번호 확인</th>
+											<th class= "bgc" style= "width : 313px">비밀번호 확인</th>
 											<td><input type = "text" name = "act_password" minlength = "4" maxlength="4" value = "${dto.act_password}"></td>
 										</tr>
 									</table>
@@ -281,7 +281,7 @@
 								<br>
 								<p>${msg}</p>
 								<strong class="advice-balloon advice-balloon4_accountStop">3. 계좌해지버튼을 눌러주세요.</strong>
-								<input type = "submit" id = "submitButton" class="btn btn-warning" style="float: right;" value = "계좌 해지">
+								<input type = "submit" id = "submitButton" class="btn button-like-link" style="float: right;" value = "계좌 해지">
 							</form>
 						</div>
 					</div>

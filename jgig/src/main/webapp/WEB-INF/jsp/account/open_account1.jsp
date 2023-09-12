@@ -330,8 +330,9 @@
 									        <input type="text" name="phone_num3" id="phone_num3" minlength="3" maxlength="4" required>
 									    </div>
 									</div>
-									<button type="button" id="checkButton" class="float-right btn btn-warning">본인확인</button>
+									<button type="button" id="checkButton" class="float-right btn button-like-link">본인확인</button>
 								</form>
+								<br>
 								<br>
 								<hr>
 								<form action = "open_account2" method = "post" >

@@ -294,7 +294,7 @@
 								</table>
 								<strong class="advice-balloon advice-balloon1_update-password">1. 원하는 비밀번호를 입력해주세요.</strong>
 								<br>
-								<input type="submit" id = "submitButton"  class="btn btn-warning " style="float: right;" value="비밀번호 수정">
+								<input type="submit" id = "submitButton"  class="btn button-like-link" style="float: right;" value="수정하기">
 								<strong class="advice-balloon advice-balloon2_update-password">2. 비밀번호 수정 버튼을 눌러주세요.</strong>
 							</form>
 							</fieldset>

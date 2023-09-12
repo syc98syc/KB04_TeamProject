@@ -360,7 +360,7 @@
 								<div class = "float-right">
 									<br>
 									<strong class="advice-balloon advice-balloon3_account2">3. 입력을 완료하셨으면 발급버튼을 눌러주세요.</strong>
-									<input type = "submit" id = "submitButton" class="btn btn-warning" value = "발급">
+									<input type = "submit" id = "submitButton" class="btn button-like-link value = "발급">
 								</div>
 							</form>
 						</div>
