@@ -288,7 +288,7 @@
 										<strong class="advice-balloon advice-balloon6_transferform">5. 계좌비밀번호를 입력해주세요.</strong>
 										<table>
 											<tr>
-												<th class = "bgc">출금계좌번호</th>
+												<th class = "bgc" width = 150px>출금계좌번호</th>
 												<td>${dto.account}</td>
 											</tr>
 											<tr>
@@ -319,15 +319,14 @@
 												<th class = "bgc">계좌비밀번호</th>
 												<td><input type = "password" id = "password1" name = "act_password" minlength = 4 maxlength = 4 required>
 												<i id="eye-icon" class="fa fa-eye fa-lg" style="cursor: pointer; margin-left: 1px; font-size: 18px;" onclick="togglePasswordVisibility()"></i>
+												<span id= "error-message">${errorMessage}</span>
 												</td>
-												
 											</tr>
 										</table>
 									</div>
 									<br>
 									<input type = "submit" id = "submitButton" class="btn btn-warning" style="float: right;" value = "확인">
 									<strong class="advice-balloon advice-balloon7_transferform">6. 확인 버튼을 눌러주세요.</strong>
-									<p>${errorMessage}</p>
 								</form>
 							</fieldset>
 						</div>
