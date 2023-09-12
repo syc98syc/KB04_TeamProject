@@ -154,10 +154,12 @@
 				</div>
 				<div class="row">
 					<div id="service-content">
+					<div class="subcontent checkbox-div">
+					<label for="advice-balloonCheckbox">도움말</label> <input type="checkbox" id="advice-balloonCheckbox"></div>
 						<div class="subcontent">
 							<h3 class="h3-subtitle">카드 정보</h3>
 							<div class="subcontent">
-								<table class="select-card-info-table">
+								<table class="select-card-info-table" data-bs-toggle="tooltip" data-bs-placement="top" title="선택하신 카드 정보가 맞는지 확인해 주세요.">
 									<colgroup>
 										<col style="width: 30%">
 										<col style="width: *">
@@ -171,7 +173,7 @@
 
 										<tr>
 											<th>카드번호</th>
-											<td>${cardDto.cd_num}</td>
+											<td >${cardDto.cd_num}</td>
 										</tr>
 
 										<tr>
@@ -196,33 +198,33 @@
 										<tbody>
 											<tr>
 												<th scope="row"><label for="성명">이름</label></th>
-												<td><input type="text" name="cd_name" class="border-bt blank-1" placeholder="이름 입력"></td>
+												<td><input type="text" name="cd_name" class="border-bt blank-1" placeholder="이름 입력" data-bs-toggle="tooltip" data-bs-placement="right" title="본인의 이름을 정확히 입력해주세요."></td>
 											</tr>
 											<tr>
 												<th scope="row"><label for="주민등록번호1 ">주민등록번호</label></th>
-												<td><input type="text" name="cd_ssn_1" class="border-bt blank-2" placeholder="앞 6자리" maxlength="6"> - <input type="text" name="cd_ssn_2" class="border-bt blank-2" placeholder="뒤 7자리" maxlength="7"> <br> <input type="hidden" name="cd_ssn" id="cd_ssn"></td>
+												<td><input type="text" name="cd_ssn_1" class="border-bt blank-2" placeholder="앞 6자리" maxlength="6"> - <input type="text" name="cd_ssn_2" class="border-bt blank-2" placeholder="뒤 7자리" maxlength="7" data-bs-toggle="tooltip" data-bs-placement="right" title="주민등록번호 앞6자리와 뒤7자리를 정확히 입력해주세요."> <br> <input type="hidden" name="cd_ssn" id="cd_ssn"></td>
 												<!-- JavaScript를 사용하여 두 입력 값을 결합하여 cd_ssn 필드에 설정 -->
 
 											</tr>
 											<tr>
 												<th scope="row"><label for="call_hp1">휴대폰번호</label></th>
-												<td><input type="text" name="tel1" class="border-bt blank-3" maxlength="3"> - <input type="text" name="tel2" class="border-bt blank-3" maxlength="4"> - <input type="text" name="tel3" class="border-bt blank-3" maxlength="4"> <input type="hidden" name="cd_phone" id="cd_phone"></td>
+												<td><input type="text" name="tel1" class="border-bt blank-3" maxlength="3"> - <input type="text" name="tel2" class="border-bt blank-3" maxlength="4"> - <input type="text" name="tel3" class="border-bt blank-3" maxlength="4" data-bs-toggle="tooltip" data-bs-placement="right" title="휴대폰 번호를 정확히 입력해주세요."> <input type="hidden" name="cd_phone" id="cd_phone"></td>
 
 											</tr>
 											<tr>
 												<th scope="row"><label for="passwd">카드 비밀번호</label></th>
-												<td><input type="password" id="passwd" name="cd_pw" maxlength="4" class="blank-2 border-bt">
+												<td><input type="password" id="passwd" name="cd_pw" maxlength="4" class="blank-2 border-bt" ata-bs-toggle="tooltip" data-bs-placement="right" title="해당 카드의 비밀번호 4자리를 입력해주세요.">
 											</tr>
 
 										</tbody>
 									</table>
 									<div class=" right-btn">
-										<button type="button" class="card-vaild-btn" onclick="validateMeminfo()">인증</button>
+										<button type="button" class="card-vaild-btn" onclick="validateMeminfo()" data-bs-toggle="tooltip" data-bs-placement="left" title="위의 항목을 모두 입력한 뒤 버튼을 눌러주세요.">인증</button>
 									</div>
 
 								</div>
 								<div class="btn-div">
-									<button type="submit" class="card-sumit-btn">카드 해지</button>
+									<button type="submit" class="card-sumit-btn" data-bs-toggle="tooltip" data-bs-placement="left" title="반드시 본인인증을 완료 후 해지버튼을 눌러주세요.">카드 해지</button>
 								</div>
 							</form>
 						</div>
@@ -316,6 +318,44 @@
 			}
 			return true;
 		}
+	</script>
+	
+	<script>
+		$(function() {
+			var tooltipTriggerList = [].slice.call(document
+					.querySelectorAll('[data-bs-toggle="tooltip"]'));
+			var tooltipList = tooltipTriggerList
+					.map(function(tooltipTriggerEl) {
+						return new bootstrap.Tooltip(
+								tooltipTriggerEl,
+								{
+									trigger : 'manual',
+									template : '<div class="tooltip tooltip-warning" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' // 툴팁 말풍선의 클래스 변경
+								});
+					});
+
+			$('#advice-balloonCheckbox').change(function() {
+				if (this.checked) {
+					$('.advice-balloon1').show();
+					$('.advice-balloon2').show();
+					$('.advice-balloon3').show();
+					$('.advice-balloon4').show();
+
+					tooltipList.forEach(function(tooltip) {
+						tooltip.show();
+					});
+				} else {
+					$('.advice-balloon1').hide();
+					$('.advice-balloon2').hide();
+					$('.advice-balloon3').hide();
+					$('.advice-balloon4').hide();
+
+					tooltipList.forEach(function(tooltip) {
+						tooltip.hide();
+					});
+				}
+			});
+		});
 	</script>
 
 	<!-- End Script -->

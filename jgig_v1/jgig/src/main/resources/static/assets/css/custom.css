@@ -165,25 +165,25 @@ body, ul, li, p, a, label, input, div {
 	padding: 0 0 1rem 1rem;
 }
 
-table.card-info-table{
-	width:80%;
-	
-}
-
-
-
-.blank-1{
+table.card-info-table {
 	width: 80%;
 }
-.blank-2{
+
+.blank-1 {
+	width: 80%;
+}
+
+.blank-2 {
 	width: 38%;
 }
-.blank-3{
+
+.blank-3 {
 	width: 25%;
-} 
-.blank-4{
+}
+
+.blank-4 {
 	width: 20%;
-} 
+}
 
 .border-bt {
 	border: none;
@@ -200,16 +200,14 @@ input[name="cd_ssn_1"], input[name="cd_ssn_2"] {
 /* input[name="tel1"], input[name="tel2"], input[name="tel3"] {
 	width: 25%;
 } */
-
-.table-center{
-	margin:auto;
+.table-center {
+	margin: auto;
 }
 
- /*숫자 input 화살표 제거*/
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+/*숫자 input 화살표 제거*/
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
 }
 
 /**약관동의 내용**/
@@ -564,17 +562,16 @@ input::-webkit-inner-spin-button {
 	padding: 5px 150px;
 }
 
-#attendance{
-	
+#attendance {
 	min-height: 100%;
 }
 
-#attendance body{
+#attendance body {
 	min-height: 100%;
 }
 
-.att-content{
-	position:relative;
+.att-content {
+	position: relative;
 	width: 750px;
 	height: 800px;
 	background-color: #FFF3D5;
@@ -590,8 +587,8 @@ input::-webkit-inner-spin-button {
 	font-size: 5rem !important;
 }
 
-.att-title>span{
-	color:#FF4D29;
+.att-title>span {
+	color: #FF4D29;
 	text-shadow: 3px 3px 3px lightgrey;
 }
 
@@ -600,67 +597,119 @@ input::-webkit-inner-spin-button {
 	width: 90%;
 	margin: auto;
 	background-color: white;
-    border-radius: 20px;
-    border: 1px solid gray;
-    display: flex;
+	border-radius: 20px;
+	border: 1px solid gray;
+	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-.att-table{
-	width: 95%;
-    height: 95%;
-    margin: auto;
-  
-}
 .att-table {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	width: 95%;
+	height: 95%;
+	margin: auto;
 }
 
-.att-table tbody{
-	position: relative;
-    width: 100%;
-    height: 100%;
+.att-table {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
+
+.att-table tbody {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
 .att-table tr {
-    display: flex;
-    flex-direction: row;
-    height:16.6%;
+	display: flex;
+	flex-direction: row;
+	height: 16.6%;
 }
 
 .att-table td {
-   border-bottom: 2px dotted lightgrey;
-    margin: 2px;
-    margin: 2px; /* 셀 간격 조정을 위한 마진 설정 */
-    width: 20%;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-   
-}
-.att-table span{
-	font-family: 'Russo One', sans-serif;
-	font-size: 50px;
-    font-weight: bold;
-    color: gray;
-}
-.att-btn{
-	height: 20%;
+	border-bottom: 2px dotted lightgrey;
+	margin: 2px;
+	margin: 2px; /* 셀 간격 조정을 위한 마진 설정 */
+	width: 20%;
 	text-align: center;
-    padding: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.att-btn button{
-	width: 30%;
-    font-size: 40px;
-    border: none;
-    background-color: #FF4D29;
-    border-radius: 30px;
-    color: white;
-    font-weight: bold;
-    box-shadow: 2px 2px gray;
+.att-table span {
+	font-family: 'Russo One', sans-serif;
+	font-size: 50px;
+	font-weight: bold;
+	color: gray;
 }
-*******************************다윤********************************
+
+.att-btn {
+	height: 20%;
+	text-align: center;
+	padding: 20px;
+}
+
+.att-btn button {
+	width: 30%;
+	font-size: 40px;
+	border: none;
+	background-color: #FF4D29;
+	border-radius: 30px;
+	color: white;
+	font-weight: bold;
+	box-shadow: 2px 2px gray;
+}
+
+.checkbox-div{
+	text-align: right;
+    padding: 5px 20%;
+}
+
+.checkbox-div label{
+	font-size: 20px !important;
+}
+
+#advice-balloonCheckbox{
+	transform: scale(1.5);
+    margin: 5px;
+}
+
+ /* 툴팁 말풍선의 스타일 수정 */
+    .tooltip-warning .tooltip-inner {
+        background-color: #f5dc8c; /* 배경색을 노란색으로 변경 */
+        color: black; /* 텍스트 색상을 검은색으로 변경 */
+         max-width: 350px;
+    }
+    
+    .tooltip .tooltip-arrow{
+        border-top-color: #f5dc8c !important; /* 꼬리의 색상을 빨간색으로 변경 */
+    }
+    
+ .bs-tooltip-end .tooltip-arrow::before {
+    right: -1px;
+    border-width: 0.4rem 0.4rem 0.4rem 0;
+    border-right-color: #f5dc8c;
+}
+.bs-tooltip-start .tooltip-arrow::before {
+    left: -1px;
+    border-width: 0.4rem 0 0.4rem 0.4rem;
+    border-left-color: #f5dc8c;
+}
+.bs-tooltip-bottom .tooltip-arrow::before {
+    bottom: -1px;
+    border-width: 0 0.4rem 0.4rem;
+    border-bottom-color:#f5dc8c;
+}
+.bs-tooltip-auto[data-popper-placement^=top] .tooltip-arrow::before, .bs-tooltip-top .tooltip-arrow::before {
+    top: -1px;
+    border-width: 0.4rem 0.4rem 0;
+    border-top-color: #f5dc8c;
+}
+
+
+/*******************************다윤********************************/
+
+ 

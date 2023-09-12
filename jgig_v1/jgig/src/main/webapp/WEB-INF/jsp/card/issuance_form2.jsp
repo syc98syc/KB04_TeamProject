@@ -155,6 +155,9 @@
 				<div class="row">
 					<div id="service-content">
 						<!-- 여기에 넣으시며 됩니당 -->
+						<div class="subcontent checkbox-div">
+							<label for="advice-balloonCheckbox">도움말</label> <input type="checkbox" id="advice-balloonCheckbox">
+						</div>
 						<form action="card_issuance_action" method="post" onsubmit="return validateForm();">
 
 							<div class="subcontent">
@@ -168,15 +171,15 @@
 										<tbody>
 											<tr>
 												<th scope="row"><label for="en_name">영문이름</label></th>
-												<td><input type="text" id="en_name" class="blank-1 border-bt"></td>
+												<td><input type="text" id="en_name" class="blank-1 border-bt" data-bs-toggle="tooltip" data-bs-placement="right" title="카드에 새겨질 영문이름을 입력해 주세요."></td>
 											</tr>
 											<tr>
 												<th scope="row"><label for="email">이메일</label></th>
-												<td><input type="text" id="email1" class="blank-2 border-bt"> @ <input type="text" id="email2" class="blank-2 border-bt"></td>
+												<td><input type="text" id="email1" class="blank-2 border-bt"> @ <input type="text" id="email2" class="blank-2 border-bt" data-bs-toggle="tooltip" data-bs-placement="right" title="안내받을 이메일 주소를 입력해주세요."></td>
 											</tr>
 											<tr>
 												<th scope="row"><label for="address">주소</label></th>
-												<td><input type="text" id="address" class="blank-1 border-bt"></td>
+												<td><input type="text" id="address" class="blank-1 border-bt" data-bs-toggle="tooltip" data-bs-placement="right" title="카드를 배송 받을 주소를 입력해주세요."></td>
 											</tr>
 										</tbody>
 									</table>
@@ -194,7 +197,7 @@
 										<tbody>
 											<tr>
 												<th scope="row"><label for="pay_bank">결제계좌은행</label></th>
-												<td><select name="pay_bank" id="pay_bank" class="blank-2 border-bt">
+												<td><select name="pay_bank" id="pay_bank" class="blank-2 border-bt" data-bs-toggle="tooltip" data-bs-placement="right" title="카드 사용 시 결제할 계좌 은행을 선택해주세요.">
 														<option value="국민은행">국민은행</option>
 														<option value="카카오뱅크">카카오뱅크</option>
 														<option value="기업은행">기업은행</option>
@@ -210,20 +213,20 @@
 											</tr>
 											<tr>
 												<th scope="row"><label for="pay_account">계좌번호</label></th>
-												<td><input type="number" name="pay_account" id="pay_account" class="blank-1 border-bt"></td>
+												<td><input type="number" name="pay_account" id="pay_account" class="blank-1 border-bt" data-bs-toggle="tooltip" data-bs-placement="right" title="계좌번호를 정확히 입력해주세요."></td>
 											</tr>
 											<tr>
 												<th scope="row"><label for="passwd">카드 비밀번호</label></th>
-												<td><input type="password" id="passwd" name="cd_pw" maxlength="4" oninput="checkPassword()" class="blank-2 border-bt"> <span id="pw1_message"></span></td>
+												<td><input type="password" id="passwd" name="cd_pw" maxlength="4" oninput="checkPassword()" class="blank-2 border-bt" data-bs-toggle="tooltip" data-bs-placement="right" title="카드 비밀번호 4자리 숫자를 입력해주세요. "> <span id="pw1_message"></span></td>
 											</tr>
 											<tr>
 												<th scope="row"><label for="confirmPassword">카드 비밀번호 확인</label></th>
-												<td><input type="password" id="confirmPassword" maxlength="4" oninput="checkPassword()" class="blank-2 border-bt"><span id="pw2_message"></span></td>
+												<td><input type="password" id="confirmPassword" maxlength="4" oninput="checkPassword()" class="blank-2 border-bt" data-bs-toggle="tooltip" data-bs-placement="right" title="카드 비밀번호 4자리를 똑같이 다시 입력해주세요."><span id="pw2_message"></span></td>
 											</tr>
 
 											<tr>
 												<th scope="row"><label for="pay_date">결제일</label></th>
-												<td>매월 <input type="number" name="pay_date" id="pay_date" class="blank-4 border-bt"> 일
+												<td>매월 <input type="number" name="pay_date" id="pay_date" class="blank-4 border-bt"> <span data-bs-toggle="tooltip" data-bs-placement="right" title="카드 사용 금액의 매월 결제일을 입력해주세요">일</span>
 												</td>
 											</tr>
 
@@ -271,49 +274,88 @@
 	<!-- End Script -->
 
 	<script>
-        function validateForm() {
-            var en_name = document.getElementById("en_name").value;
-            var email1 = document.getElementById("email1").value;
-            var email1 = document.getElementById("email2").value;
-         
-            var address = document.getElementById("pay_account").value;
-            var account=document.getElementById("address").value;
-            var pw=document.getElementById("passwd").value;
-            var pw_confirm=document.getElementById("confirmPassword").value;
-            var date=document.getElementById("pay_date").value;
-            var msg= document.getElementById("form_msg");
-            
-            if(en_name===''||email1===''||email2===''||address===''||account===''||pw===''||pw_confirm===''||date===''){
-            	msg.innerHTML = "입력하지 않은 정보가 있습니다.";
-            	return false;
-            }
+		function validateForm() {
+			var en_name = document.getElementById("en_name").value;
+			var email1 = document.getElementById("email1").value;
+			var email1 = document.getElementById("email2").value;
 
-      
+			var address = document.getElementById("pay_account").value;
+			var account = document.getElementById("address").value;
+			var pw = document.getElementById("passwd").value;
+			var pw_confirm = document.getElementById("confirmPassword").value;
+			var date = document.getElementById("pay_date").value;
+			var msg = document.getElementById("form_msg");
 
-            return true; // Allow form submission
-        }
-    </script>
+			if (en_name === '' || email1 === '' || email2 === ''
+					|| address === '' || account === '' || pw === ''
+					|| pw_confirm === '' || date === '') {
+				msg.innerHTML = "입력하지 않은 정보가 있습니다.";
+				return false;
+			}
+
+			return true; // Allow form submission
+		}
+	</script>
 
 	<script>
-    //비밀번호 체크
-        function checkPassword() {
-            var password = document.getElementById("passwd").value;
-            var confirmPassword = document.getElementById("confirmPassword").value;
-            var message1 = document.getElementById("pw1_message");
-            var message2 = document.getElementById("pw2_message");
+		//비밀번호 체크
+		function checkPassword() {
+			var password = document.getElementById("passwd").value;
+			var confirmPassword = document.getElementById("confirmPassword").value;
+			var message1 = document.getElementById("pw1_message");
+			var message2 = document.getElementById("pw2_message");
 
-            if (password.length !== 4 ) {
-                message1.innerHTML = "비밀번호는 4자리 입력해야 합니다.";
-            } else {
-                message1.innerHTML = "";
-            }
-            if (password.length === 4 && password !== confirmPassword &&confirmPassword.length!==0) {
-                message2.innerHTML = "비밀번호가 일치하지 않습니다.";
-            } else {
-                message2.innerHTML = "";
-    
-            }
-        }
-        </script>
+			if (password.length !== 4) {
+				message1.innerHTML = "비밀번호는 4자리 입력해야 합니다.";
+			} else {
+				message1.innerHTML = "";
+			}
+			if (password.length === 4 && password !== confirmPassword
+					&& confirmPassword.length !== 0) {
+				message2.innerHTML = "비밀번호가 일치하지 않습니다.";
+			} else {
+				message2.innerHTML = "";
+
+			}
+		}
+	</script>
+
+	<script>
+		$(function() {
+			var tooltipTriggerList = [].slice.call(document
+					.querySelectorAll('[data-bs-toggle="tooltip"]'));
+			var tooltipList = tooltipTriggerList
+					.map(function(tooltipTriggerEl) {
+						return new bootstrap.Tooltip(
+								tooltipTriggerEl,
+								{
+									trigger : 'manual',
+									template : '<div class="tooltip tooltip-warning" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' // 툴팁 말풍선의 클래스 변경
+								});
+					});
+
+			$('#advice-balloonCheckbox').change(function() {
+				if (this.checked) {
+					$('.advice-balloon1').show();
+					$('.advice-balloon2').show();
+					$('.advice-balloon3').show();
+					$('.advice-balloon4').show();
+
+					tooltipList.forEach(function(tooltip) {
+						tooltip.show();
+					});
+				} else {
+					$('.advice-balloon1').hide();
+					$('.advice-balloon2').hide();
+					$('.advice-balloon3').hide();
+					$('.advice-balloon4').hide();
+
+					tooltipList.forEach(function(tooltip) {
+						tooltip.hide();
+					});
+				}
+			});
+		});
+	</script>
 </body>
 </html>
