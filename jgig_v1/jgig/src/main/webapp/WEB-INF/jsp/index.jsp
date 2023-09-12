@@ -251,7 +251,7 @@ https://templatemo.com/tm-559-zay-shop
 
 			<div class="col-lg-4">
 				<div class="subcontent text-center">
-					<button type="button" class="att_btn " onclick="window.open( '/jgig/attendance', 'Child', 'width=800, height=1200, top=50, left=50' );">
+					<button type="button"  class="att_btn " onclick="return isLogin();">
 						<img src="/assets/img/attendance-icon.png" height="30px">출석체크
 					</button>
 				</div>
@@ -342,6 +342,21 @@ https://templatemo.com/tm-559-zay-shop
 				clickedButton.style.color = 'white'; // Change to the desired color
 			}
 		}
+		
+		
+		function isLogin(){
+			
+			if("${sessionScope.mem_id}"===''){
+				alert("로그인이 필요합니다.");
+				window.location.href='/jgig/login';
+				return false;
+			}else{
+				window.open( '/jgig/attendance', 'Child', 'width=750px, height=800px, top=50, left=50' );
+				return true;
+			}
+		}
+		
+		
 	</script>
 	<!-- End Script -->
 </body>

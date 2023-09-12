@@ -3,11 +3,13 @@ package kb04.ditto.jgig.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import kb04.ditto.jgig.entity.BoardDto;
 import kb04.ditto.jgig.entity.MemberDto;
 import kb04.ditto.jgig.entity.NoticeDto;
+import kb04.ditto.jgig.entity.PointDto;
 
 @Mapper
 public interface MainMapper {
@@ -24,6 +26,8 @@ public interface MainMapper {
 	@Select("SELECT nickname,score FROM (SELECT RANK() OVER (ORDER BY score DESC) AS ranking, nickname, score FROM member)WHERE ranking <= 10")
 	public List<MemberDto> point_rank();
 	
+	@Select("select * from point where mem_id=#{mem_id} AND extract(month from to_date(point_date))=extract(month from sysdate) order by point_date")
+	public List<PointDto> att_list(@Param("mem_id") final String mem_id);
 	
 
 }
