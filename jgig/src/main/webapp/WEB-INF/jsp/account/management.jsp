@@ -268,8 +268,8 @@
 							</table>
 							<br>
 							<div style = "text-align : right">
-								<a href="update_password?account=${dto.account}" class="button-like-link">비밀번호 수정</a> 
-								<a href="termination?account=${dto.account}" class="button-like-link">계좌 해지</a><br>
+								<a href="update_password?account=${dto.account}" class="button-like-link"><strong>비밀번호 수정</strong></a> 
+								<a href="termination?account=${dto.account}" class="button-like-link"><strong>계좌 해지</strong></a><br>
 							</div>
 							<strong class="advice-balloon advice-balloon1_accountManage">비밀번호 수정 혹은 계좌 해지를 누르면 해당 기능을 수행하는 페이지로 이동합니다.</strong>
 					</div>

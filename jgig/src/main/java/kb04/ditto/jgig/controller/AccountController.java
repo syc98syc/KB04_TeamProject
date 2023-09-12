@@ -160,7 +160,7 @@ public class AccountController {
 		return "account/list";
 	}
 
-	// 계좌관리
+	//계좌관리
 	@GetMapping("/jgig/account_management")
 	public String account_management(Model model, @RequestParam("account") long account) {
 		AccountDto dto = accountMapper.findByAccount(account);

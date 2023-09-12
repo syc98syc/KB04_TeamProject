@@ -237,9 +237,9 @@
 								<td>${acc.account}<br>${acc.act_name}</td>
 								<td class = "no-left-right-border">잔액 <fmt:formatNumber value="${acc.balance}" pattern="#,###"/>원</td>
 								<td class = "no-left-right-border" style = "text-align :right">
-									<a href = "account_management?account=${acc.account}" class ="button-like-link " style="width: 105px; text-align : center">관리</a>
-									<a href = "transfer_form?account=${acc.account}" class ="button-like-link" style="width: 105px; text-align : center">이체</a><br>
-									<a href = "trans_history_selected?account=${acc.account}" class ="button-like-link" style="width: 218px; text-align : center">내역조회</a>
+									<a href = "account_management?account=${acc.account}" class ="button-like-link " style="width: 105px; text-align : center"><strong>관리</strong></a>
+									<a href = "transfer_form?account=${acc.account}" class ="button-like-link" style="width: 105px; text-align : center"><strong>이체</strong></a><br>
+									<a href = "trans_history_selected?account=${acc.account}" class ="button-like-link" style="width: 218px; text-align : center"><strong>내역조회</strong></a>
 								</td>
 							</tr>
 							</c:forEach>
