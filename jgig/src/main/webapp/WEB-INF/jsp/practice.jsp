@@ -7,6 +7,6 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
-	<h1>야호~~~~~ </h1>
+	<h1> hi ~~</h1>
 	</body>
 </html>
