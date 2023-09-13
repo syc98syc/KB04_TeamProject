@@ -167,14 +167,14 @@
 					<ul class="list-unstyled ">
 						<li><a
 							class="collapsed d-flex justify-content-between text-decoration-none"
-							href="#"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 --> 계좌 개설
+							href="open_account1"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 --> 계좌 개설
 						</a></li>
 						<li><a
 							class="collapsed d-flex justify-content-between text-decoration-none selectsidemenu"
-							href="#"> 계좌 조회 및 이체 </a></li>
+							href="account_list"> 계좌 조회 및 이체 </a></li>
 						<li><a
 							class="collapsed d-flex justify-content-between text-decoration-none"
-							href="#"> 거래 내역 조회 </a></li>
+							href="trans_history"> 거래 내역 조회 </a></li>
 						<hr>
 						<li><a
 							class="collapsed d-flex justify-content-between text-decoration-none"
@@ -203,9 +203,13 @@
 				</div>
 				<div class="row">
 					<div id="service-content">
-						<p>해당 사용자의 계좌가 없습니다.</p> 
-						<a href = "open_account1" class ="button-like-link">
-							<strong><span style="font-weight: 900;">계좌 조회 및 이체</span></strong>
+						<div style = "text-align : center;">
+							<strong class = "transfer_fail_msg">해당 사용자의 계좌가 없습니다.</strong>
+							<br><br>
+						</div>
+						<br><br>
+						<a href = "open_account1" class ="button-like-link" style="float: right;">
+							<strong><span style="font-weight: 900;">계좌 개설</span></strong>
 						</a>
 					</div>
 				</div>
