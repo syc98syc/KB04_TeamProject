@@ -204,7 +204,9 @@
 				<div class="row">
 					<div id="service-content">
 						<p>해당 사용자의 계좌가 없습니다.</p> 
-						<a href = "open_account1" class ="button-like-link">계좌 개설</a>
+						<a href = "open_account1" class ="button-like-link">
+							<strong><span style="font-weight: 900;">계좌 조회 및 이체</span></strong>
+						</a>
 					</div>
 				</div>
 			</div>

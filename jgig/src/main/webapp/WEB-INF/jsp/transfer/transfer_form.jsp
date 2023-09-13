@@ -256,8 +256,6 @@
 	
 				<div class="col-lg-9">
 					<fieldset class = "advice-location">
-							<label for="">음성지원</label>
-							<input type="checkbox" id="">
 							<label for="tooltipCheckbox">도움말</label>
 							<input type="checkbox" id="advice-balloonCheckbox">
 					</fieldset>
@@ -325,7 +323,7 @@
 										</table>
 									</div>
 									<br>
-									<input type = "submit" id = "submitButton" class="btn button-like-link" style="float: right;" value = "확인">
+									<Button type = "submit" id = "submitButton" class="btn button-like-link" style="float: right;">확인</Button>
 									<strong class="advice-balloon advice-balloon7_transferform">6. 확인 버튼을 눌러주세요.</strong>
 								</form>
 							</fieldset>

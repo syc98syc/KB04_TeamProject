@@ -211,8 +211,6 @@
 
 			<div class="col-lg-9">
 					<fieldset class = "advice-location">
-							<label for="">음성지원</label>
-							<input type="checkbox" id="">
 							<label for="tooltipCheckbox">도움말</label>
 							<input type="checkbox" id="advice-balloonCheckbox">
 					</fieldset>
@@ -237,9 +235,16 @@
 								<td>${acc.account}<br>${acc.act_name}</td>
 								<td class = "no-left-right-border">잔액 <fmt:formatNumber value="${acc.balance}" pattern="#,###"/>원</td>
 								<td class = "no-left-right-border" style = "text-align :right">
-									<a href = "account_management?account=${acc.account}" class ="button-like-link " style="width: 105px; text-align : center"><strong>관리</strong></a>
-									<a href = "transfer_form?account=${acc.account}" class ="button-like-link" style="width: 105px; text-align : center"><strong>이체</strong></a><br>
-									<a href = "trans_history_selected?account=${acc.account}" class ="button-like-link" style="width: 218px; text-align : center"><strong>내역조회</strong></a>
+									<a href = "account_management?account=${acc.account}" class ="button-like-link " style="width: 105px; text-align : center; font-weight : bold;">
+										<strong><span style="font-weight: 900;">관리</span></strong>
+									</a>
+									<a href = "transfer_form?account=${acc.account}" class ="button-like-link" style="width: 105px; text-align : center">
+										<strong><span style="font-weight: 900;">이체</span></strong>
+									</a>
+									<br>
+									<a href = "trans_history_selected?account=${acc.account}" class ="button-like-link" style="width: 218px; text-align : center">
+										<strong><span style="font-weight: 900;">거래 내역 조회</span></strong>
+									</a>
 								</td>
 							</tr>
 							</c:forEach>

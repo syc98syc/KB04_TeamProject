@@ -52,10 +52,29 @@
 					}
 				})
 			}
+			function togglePasswordVisibility() {
+			    var passwordInput = document.querySelector("#password1")
+			    var eyeIcon = document.querySelector("#eye-icon")
+
+			    eyeIcon.addEventListener("click", function() {
+			        if (passwordInput.type === "password") {
+			            passwordInput.type = "text"
+			            eyeIcon.classList.remove("fa-eye")
+			            eyeIcon.classList.add("fa-eye-slash")
+			        } else {
+			            passwordInput.type = "password"
+			            eyeIcon.classList.remove("fa-eye-slash")
+			            eyeIcon.classList.add("fa-eye")
+			        }
+			    })
+			    
+			    passwordInput.type = "password"  
+			}
 			$(function () {
 				$("#submitButton").prop("disabled", true)
 				check_permission()
 				advice_balloon()
+				togglePasswordVisibility()
 			})
 		</script>
 	</head>
@@ -228,8 +247,6 @@
 	
 				<div class="col-lg-9">
 					<fieldset class = "advice-location">
-								<label for="">음성지원</label>
-								<input type="checkbox" id="">
 								<label for="tooltipCheckbox">도움말</label>
 								<input type="checkbox" id="advice-balloonCheckbox">
 					</fieldset>
@@ -267,7 +284,11 @@
 									<table>
 										<tr>
 											<th class= "bgc" style= "width : 313px">비밀번호 확인</th>
-											<td><input type = "text" name = "act_password" minlength = "4" maxlength="4" value = "${dto.act_password}"></td>
+											<td>
+												<input type="password" name="act_password" id = "password1" minlength="4"
+												maxlength="4" value="${dto.act_password}">
+												<i id="eye-icon" class="fa fa-eye fa-lg" style="cursor: pointer; margin-left: 1px; font-size: 18px;" onclick="togglePasswordVisibility()"></i>
+											</td>
 										</tr>
 									</table>
 								</div>
@@ -281,7 +302,7 @@
 								<br>
 								<p>${msg}</p>
 								<strong class="advice-balloon advice-balloon4_accountStop">3. 계좌해지버튼을 눌러주세요.</strong>
-								<input type = "submit" id = "submitButton" class="btn button-like-link" style="float: right;" value = "계좌 해지">
+								<Button type = "submit" id = "submitButton" class="btn button-like-link" style="float: right;">계좌 해지</Button>
 							</form>
 						</div>
 					</div>

@@ -234,8 +234,6 @@
 
 			<div class="col-lg-9">
 				<fieldset class = "advice-location">
-						<label for="">음성지원</label>
-						<input type="checkbox" id="">
 						<label for="tooltipCheckbox">도움말</label>
 						<input type="checkbox" id="advice-balloonCheckbox">
 				</fieldset>
@@ -266,7 +264,9 @@
 							</table>
 							<br>
 							<strong class = "password-ok-msg">${msg}</strong><br><br> 
-							<a href="account_list" class="button-like-link" style="float: right;">계좌조회 및 이체</a>
+							<a href="account_list" class="button-like-link" style="float: right;">
+								<strong><span style="font-weight: 900;">계좌조회 및 이체</span></strong>
+							</a>
 							<strong class="advice-balloon advice-balloon1_accountPassword_ok">3. 비밀번호 수정을 완료한 후 계좌 조회 및 이체 페이지로 이동이 가능합니다.</strong>
 						</div>
 					</div>

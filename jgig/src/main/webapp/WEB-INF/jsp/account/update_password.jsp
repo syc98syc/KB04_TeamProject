@@ -253,8 +253,6 @@
 
 			<div class="col-lg-9">
 				<fieldset class = "advice-location">
-							<label for="">음성지원</label>
-							<input type="checkbox" id="">
 							<label for="tooltipCheckbox">도움말</label>
 							<input type="checkbox" id="advice-balloonCheckbox">
 				</fieldset>

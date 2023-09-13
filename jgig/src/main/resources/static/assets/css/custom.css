@@ -542,7 +542,7 @@ input[id = "input_text"] {
 	/* 세 번째 말풍선의 스타일 */
 	background-color: #f5dc8c;
 	top: 675px;
-	left: 1150px;
+	left: 1100px;
 }
 
  .advice-balloon3_account2:after{ /* 왼쪽 꼬리만들기 */

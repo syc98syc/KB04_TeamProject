@@ -206,8 +206,6 @@
 	
 				<div class="col-lg-9">
 					<fieldset class = "advice-location">
-								<label for="">음성지원</label>
-								<input type="checkbox" id="">
 								<label for="tooltipCheckbox">도움말</label>
 								<input type="checkbox" id="advice-balloonCheckbox">
 					</fieldset>
@@ -262,7 +260,8 @@
 																</c:otherwise>
 															</c:choose>
 														</c:forEach>
-												</select> <span>월</span> <input type="submit"  class="btn button-like-link" value="월별조회">
+												</select> <span>월</span> 
+												<Button type="submit"  class="btn button-like-link">월별조회</Button>
 											</td>
 										</tr>
 									</table>
@@ -282,7 +281,7 @@
 							<form action="trans_history_action2" method="post" onsubmit="return validateForm2();">
 								<input type="hidden" id="accountNumber" name="selectedAccount">
 								<div class ="accountListCss">
-									<table>
+									<table style = "border: none;">
 										<tr>
 											<th class ="bgc" style="width: 238px;">조회 기간</th>
 											<td>
@@ -290,7 +289,7 @@
 										        <label for="datepicker-end">~</label>
 										        <input type="text" id="datepicker-end" name="endDate">
 										        <strong class="advice-balloon advice-balloon4_trans_his1">2-2-1. 조회기간을 선택해주세요</strong>
-										        <input type="submit" class="btn button-like-link" value="조회">
+										        <Button type="submit" class="btn button-like-link">조회</Button>
 										        <strong class="advice-balloon advice-balloon5_trans_his1">2-2-2. 조회버튼을 선택해주세요</strong>
 											</td>
 										</tr>

@@ -270,8 +270,6 @@
 	
 				<div class="col-lg-9">
 						<fieldset class = "advice-location">
-							<label for="">음성지원</label>
-							<input type="checkbox" id="">
 							<label for="tooltipCheckbox">도움말</label>
 							<input type="checkbox" id="advice-balloonCheckbox">
 						</fieldset>
@@ -354,7 +352,7 @@
 							  			<input type="radio" class="option2" id = "option2" name="check" value="no">
 							  			<label for="option2">비동의</label>
 							  			<br>
-										<input type = "submit" id = "submitButton" class="btn btn-warning" value = "다음">
+										<Button type = "submit" id = "submitButton" class="btn button-like-link">다음</Button>
 									</div>
 								</form>	
 						</div>

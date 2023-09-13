@@ -208,8 +208,6 @@
 	
 				<div class="col-lg-9">
 					<fieldset class = "advice-location">
-								<label for="">음성지원</label>
-								<input type="checkbox" id="">
 								<label for="tooltipCheckbox">도움말</label>
 								<input type="checkbox" id="advice-balloonCheckbox">
 					</fieldset>
@@ -228,7 +226,9 @@
 								<strong class = "termination_msg">${msg}</strong>
 								<br><br>
 							</div>
-							<a href = "account_list" class ="button-like-link" style="float: right;">계좌조회 및 이체</a>
+							<a href = "account_list" class ="button-like-link" style="float: right;">
+								<strong><span style="font-weight: 900;">계좌조회 및 이체</span></strong>
+							</a>
 						</div>
 						
 					</div>

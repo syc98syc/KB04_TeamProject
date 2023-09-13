@@ -227,8 +227,6 @@
 	
 				<div class="col-lg-9">
 					<fieldset class = "advice-location">
-							<label for="">음성지원</label>
-							<input type="checkbox" id="">
 							<label for="tooltipCheckbox">도움말</label>
 							<input type="checkbox" id="advice-balloonCheckbox">
 					</fieldset>
@@ -277,9 +275,11 @@
 								<br>
 								<div class="button-container">
 									<div>
-										<a href="transfer_form?account=${dto.account}" class="button-like-link" style="font-size: 16px; padding: 8px 41px;">수정</a>
+										<a href="transfer_form?account=${dto.account}" class="button-like-link" style="font-size: 16px; padding: 8px 41px;">
+											<strong><span style="font-weight: 900;">수정</span></strong>
+										</a>
 									</div>
-								    <input type="submit" id="submitButton" class="btn button-like-link" value="이체">
+								    <Button type="submit" id="submitButton" class="btn button-like-link">이체</Button>
 								</div>
 								<strong class="advice-balloon advice-balloon1_transferform2">1. 수정을 원할 시 <br>수정 버튼을 눌러주세요.</strong>
 								<strong class="advice-balloon advice-balloon2_transferform2">2. 보낼 정보가 맞을 경우 <br>확인 버튼을 눌러주세요.</strong>
