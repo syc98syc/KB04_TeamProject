@@ -26,6 +26,7 @@ public interface WaitingMapper {
 			+ ")\r\n"
 			+ "where rownum <= 10")
 	public List<PopularWordDto> list();
+	// 나이별로 #{}
 	
 	@Select("select *\r\n"
 			+ "from (\r\n"
@@ -36,6 +37,21 @@ public interface WaitingMapper {
 			+ ")\r\n"
 			+ "where rownum <= 10")
 	public List<PopularWordDto> allAgeList();
+	
+	@Select("SELECT\r\n"
+			+ "  CASE\r\n"
+			+ "    WHEN EXTRACT(YEAR FROM sysdate) - EXTRACT(YEAR FROM to_date(SUBSTR(ssn, 1, 6), 'YYMMDD')) BETWEEN 10 AND 19 THEN 10\r\n"
+			+ "    WHEN EXTRACT(YEAR FROM sysdate) - EXTRACT(YEAR FROM to_date(SUBSTR(ssn, 1, 6), 'YYMMDD')) BETWEEN 20 AND 29 THEN 20\r\n"
+			+ "    WHEN EXTRACT(YEAR FROM sysdate) - EXTRACT(YEAR FROM to_date(SUBSTR(ssn, 1, 6), 'YYMMDD')) BETWEEN 30 AND 39 THEN 30\r\n"
+			+ "    WHEN EXTRACT(YEAR FROM sysdate) - EXTRACT(YEAR FROM to_date(SUBSTR(ssn, 1, 6), 'YYMMDD')) BETWEEN 40 AND 49 THEN 40\r\n"
+			+ "    WHEN EXTRACT(YEAR FROM sysdate) - EXTRACT(YEAR FROM to_date(SUBSTR(ssn, 1, 6), 'YYMMDD')) BETWEEN 50 AND 59 THEN 50\r\n"
+			+ "    WHEN EXTRACT(YEAR FROM sysdate) - EXTRACT(YEAR FROM to_date(SUBSTR(ssn, 1, 6), 'YYMMDD')) BETWEEN 60 AND 69 THEN 60\r\n"
+			+ "    WHEN EXTRACT(YEAR FROM sysdate) - EXTRACT(YEAR FROM to_date(SUBSTR(ssn, 1, 6), 'YYMMDD')) BETWEEN 70 AND 79 THEN 70\r\n"
+			+ "    ELSE 0\r\n"
+			+ "  END AS age\r\n"
+			+ "FROM MEMBER\r\n"
+			+ "WHERE mem_id = #{mem_id}")
+	public int selectAge(String mem_id);
 	
 	@Insert("insert into waiting (wt_seq, wt_no, wt_list, wt_date, wt_store, mem_id) \r\n"
 			+ "values (wt_seq.NEXTVAL, #{wt_no}, #{wt_list}, sysdate, #{wt_store}, #{mem_id})")
