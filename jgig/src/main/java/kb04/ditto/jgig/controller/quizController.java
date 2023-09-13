@@ -6,6 +6,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -18,21 +20,28 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kb04.ditto.jgig.entity.PopularWordDto;
 import kb04.ditto.jgig.entity.QuizDto;
 import kb04.ditto.jgig.mapper.QuizMapper;
 
 @Controller
 public class quizController {
-	int ans = 2; // 정답 
+	int ans = 3; // 정답 
 	
 	@Autowired
 	private QuizMapper quizMapper;
 	
 	@GetMapping("/jgig/quiz")
-	public String loadQuizData(Model model) throws IOException {
+	public String loadQuizData(Model model, HttpSession session) throws IOException {
+		
+		// 로그인체크 후 안했으면 로그인 화면으로 이동
+		String memId = (String) session.getAttribute("mem_id");
+		if(memId == null) {
+			return "redirect:/jgig/login";
+		}
+		
 		// 퀴즈 풀었는지, 정답/오답인지 확인 
-		String mem_id = "kb0002"; // 로그인한 아이디 넣기 
-		QuizDto dto = quizMapper.selectQuiz(mem_id);
+		QuizDto dto = quizMapper.selectQuiz(memId);
 		if(dto != null) {
 			model.addAttribute("quiz_stat", dto.getQuiz_stat());
 			model.addAttribute("my_answer", dto.getMy_answer());
@@ -42,9 +51,8 @@ public class quizController {
 		}
 		
 		
-		
 		String URL = "https://m.kbcapital.co.kr/cstmrPtct/fnncInfoSqre/fnncTmng.kbc";
-		Document doc = Jsoup.connect(URL).data("targetRow","9").data("rowSize","3").get();
+		Document doc = Jsoup.connect(URL).data("targetRow","24").data("rowSize","4").get();
 		Elements el = doc.select("ul[class=\"sp-accord nospace\"]");
 		
 		List<Map<String, String>> resultList = new LinkedList<Map<String, String>>();
@@ -69,6 +77,7 @@ public class quizController {
 		// 정답일 때 
 		if(selectedOpt == ans) {
 			quizMapper.insertQuiz(mem_id, "Y", ans, selectedOpt);
+			// 
 			// quizMapper.insertPoint(mem_id); // 포인트 insert 
 			QuizDto dto = new QuizDto(mem_id, "Y", "", selectedOpt, ans);
 			return dto; 

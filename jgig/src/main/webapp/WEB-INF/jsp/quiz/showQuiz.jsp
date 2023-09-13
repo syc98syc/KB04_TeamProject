@@ -6,7 +6,7 @@
 <html lang="en">
 
 <head>
-    <title>지금입금</title>
+    <title>금융상식퀴즈</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -25,6 +25,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
 	<style type="text/css">
+		#service-content {
+			position: relative;
+		}
 		.question {
 		    border: 1px solid #F9F9F9;
 		    border-radius: 10px;
@@ -33,18 +36,22 @@
 		    margin: 22px 0;
 		}
 		.quiz_ul {
+			display: flex;
+		  	flex-wrap: wrap;
+			justify-content: center;
 			padding-left: 0; 
+			margin-bottom: 4rem;
 		}
-	 	.quiz_li, .quiz_li.statF {
+		.quiz_li, .quiz_li.statF {
 			list-style: none;
 			border: 1px solid #6c757d;
 			border-radius: 20px;
-			margin: 10px 0px;
-			padding: 10px 18px;
-	 		width: 300px;
+			margin: 10px 5px;
+			padding: 14px 20px;
+			width: 40%;
 		} 
 		.quiz_li.statF {
-	 		cursor: pointer;
+			cursor: pointer;
 		}
 		.quiz_li.statF:hover, 
 		.quiz_li.statF.clickedAns,
@@ -55,14 +62,21 @@
 		}
 		.quiz_li.correctAnsN {    
 		    border: 1px solid #58C9B9;
-   			background-color: #58c9b926;
-   			color: black;
-	    }
-	    .submitBtn {
-	        color: #fff;
-		    background-color: #9aaca3;
-		    border-color: #9aaca3;
-	    }
+			background-color: #58c9b926;
+			color: black;
+		}
+		.quiz-submitBtn {
+			margin-right: 1rem;
+			position: absolute;
+			right: 0;
+		}
+		.quiz-result {
+		 display: flex;
+			justify-content: center;
+		}
+		.quiz-result > span {
+			font-size: x-large;
+		}	
 	</style>
 </head>
 
@@ -107,7 +121,7 @@
                            	  <li><a class="dropdown-item" href="/jgig/searchWord">금융 용어 검색</a></li>
                              <li><a class="dropdown-item" href="/jgig/quiz">금융 상식 퀴즈</a></li>
                              <hr>
-                             <li><a class="dropdown-item" href="#">이용 가이드</a></li>
+                             <li><a class="dropdown-item" href="/jgig/guide">이용 가이드</a></li>
                         	</ul>
                     	</li>
                     	<li class="nav-item dropdown">
@@ -155,7 +169,7 @@
 						<c:if test="${not empty sessionScope.mem_id}">
 							<li class="nav-item dropdown">
 								<a class="nav-icon position-relative text-decoration-none nav-link"
-									href="/jgig/member_detail" role="button" data-bs-toggle="dropdown"
+									 role="button" data-bs-toggle="dropdown"
 									aria-haspopup="true" aria-expanded="false"> <i
 										class="fa fa-fw fa-user text-dark mr-3"></i>
 									${sessionScope.mem_nm}님 <!--session값으로 받아오기 -->
@@ -220,7 +234,7 @@
 						</li>
 						<hr>
 						<li >
-							<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
+							<a class="collapsed d-flex justify-content-between text-decoration-none" href="/jgig/guide">
 								이용 가이드
 							</a>
 						</li>
@@ -247,17 +261,17 @@
 						        <li class="opt quiz_li statF" id="opt${status.index}" value="${status.index }">${item.tit}</li>
 						    </c:forEach>
 						    </ul>
-						    <div>
+						    <div class="quiz-result">
 							    <c:set var="quizStat" value="${quiz_stat}" />
 							    <c:if test="${quizStat eq 'Y'}">
-							   	<p>정답입니다. 10포인트 획득!</p>
+							   	<span>정답입니다. 10포인트 획득!</span>
 							    </c:if>
 							    <c:if test="${quizStat eq 'N'}">
-							   	<p>오답입니다.</p>
+							   	<span>오답입니다.</span>
 							    </c:if>
 						    </div>
 							<c:if test="${quizStat eq 'F'}">
-							<button class="submitBtn btn" id="submitBtn" onclick="submitQuiz()">정답 제출</button>
+							<button class="quiz-submitBtn btn btn-outline-warning" id="submitBtn" onclick="submitQuiz()">정답 제출</button>
 							</c:if>
 							<%-- <c:if test="${quizStat eq 'Y' || quizStat eq 'N'}">
 							<button disabled>제출완료</button>
@@ -356,15 +370,15 @@
 				
 				var selectedAns = document.querySelector("#opt"+data.my_answer);
 				selectedAns.classList.add("selectedAns");
-				
+
+				var el = document.createElement('div');
+				el.setAttribute("class", "quiz-result");
 				if(data.quiz_stat == 'Y') {
-					var el = document.createElement('div');
-					var content = "<p>정답입니다. 10포인트 획득!</p>";
+					var content = "<span>정답입니다. 10포인트 획득!</span>";
 					el.innerHTML = content;
 					document.querySelector(".quiz_ul").after(el);
 				} else if(data.quiz_stat == 'N') {
-					var el = document.createElement('div');
-					var content = "<p>오답입니다.</p>";
+					var content = "<span>오답입니다.</span>";
 					el.innerHTML = content;
 					document.querySelector(".quiz_ul").after(el);
 					
