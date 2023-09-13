@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>계좌 조회 및 이체</title>
+		<title>계좌조회 및 이체</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">

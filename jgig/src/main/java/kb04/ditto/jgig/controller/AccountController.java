@@ -70,13 +70,23 @@ public class AccountController {
 
 	// 계좌개설폼1단계
 	@GetMapping("/jgig/open_account1")
-	public String open_form1() {
+	public String open_form1(HttpSession session) {
+		
+		String returnVal = login_check(session);
+		if (returnVal.equals("redirect:/jgig/login"))
+			return "redirect:/jgig/login";
+		
 		return "account/open_account1";
 	}
 	
 	// 계좌개설폼2단계
 	@PostMapping("/jgig/open_account2")
-	public String open_form2(Model model) {
+	public String open_form2(HttpSession session, Model model) {
+		
+		String returnVal = login_check(session);
+		if (returnVal.equals("redirect:/jgig/login"))
+			return "redirect:/jgig/login";
+		
 		model.addAttribute("act_name", actName);
 		model.addAttribute("mem_nm", memName);
 		model.addAttribute("ssn", ssn);
@@ -131,7 +141,11 @@ public class AccountController {
 
 	//계좌개설을 위한 두단계 form의 입력값들을 db에 저장하기 위한 action메서드
 	@PostMapping("/jgig/open_action")
-	public String open_action(AccountDto dto, Model model) {
+	public String open_action(AccountDto dto, HttpSession session, Model model) {
+		String returnVal = login_check(session);
+		if (returnVal.equals("redirect:/jgig/login"))
+			return "redirect:/jgig/login";
+		
 		accountMapper.insert(dto);
 		long account_num = accountMapper.account_num(dto);
 		model.addAttribute("dto", dto);
@@ -162,7 +176,11 @@ public class AccountController {
 
 	//계좌관리
 	@GetMapping("/jgig/account_management")
-	public String account_management(Model model, @RequestParam("account") long account) {
+	public String account_management(Model model, HttpSession session, @RequestParam("account") long account) {
+		String returnVal = login_check(session);
+		if (returnVal.equals("redirect:/jgig/login"))
+			return "redirect:/jgig/login";
+		
 		AccountDto dto = accountMapper.findByAccount(account);
 		Date regdate = dto.getRegdate();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
@@ -175,7 +193,11 @@ public class AccountController {
 	
 	//계좌 비밀번호 수정 폼
 	@GetMapping("/jgig/update_password")
-	public String board_update_form(Model model , @RequestParam("account") long account) {
+	public String board_update_form(Model model , HttpSession session, @RequestParam("account") long account) {
+		String returnVal = login_check(session);
+		if (returnVal.equals("redirect:/jgig/login"))
+			return "redirect:/jgig/login";
+		
 		AccountDto dto = accountMapper.findByAccount(account);
 		model.addAttribute("dto",dto);
 		return "account/update_password";
@@ -183,7 +205,11 @@ public class AccountController {
 	
 	//계좌 비밀번호 수정 액션
 	@PostMapping("/jgig/update_password_action")
-	public String update_password_action(AccountDto dto, Model model) {
+	public String update_password_action(AccountDto dto, HttpSession session, Model model) {
+		String returnVal = login_check(session);
+		if (returnVal.equals("redirect:/jgig/login"))
+			return "redirect:/jgig/login";
+		
 		accountMapper.update(dto);
 		model.addAttribute("dto", dto);
 		model.addAttribute("msg","비밀번호 수정이 완료되었습니다.");
@@ -192,7 +218,11 @@ public class AccountController {
 	
 	//계좌해지 폼
 	@GetMapping("/jgig/termination")
-	public String termination(@RequestParam("account") long account, Model model) {
+	public String termination(@RequestParam("account") long account, HttpSession session, Model model) {
+		String returnVal = login_check(session);
+		if (returnVal.equals("redirect:/jgig/login"))
+			return "redirect:/jgig/login";
+		
 		AccountDto dto = accountMapper.findByAccount(account);
 		Date regdate = dto.getRegdate();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
@@ -204,7 +234,11 @@ public class AccountController {
 	
 	//계좌해지 액션
 	@PostMapping("/jgig/termination_action")
-	public String termination_action(RedirectAttributes redirect,@RequestParam("account") long account,@RequestParam("act_password") int pw, Model model, AccountDto dto) {
+	public String termination_action(RedirectAttributes redirect, @RequestParam("account") long account, @RequestParam("act_password") int pw, AccountDto dto, HttpSession session, Model model) {
+		String returnVal = login_check(session);
+		if (returnVal.equals("redirect:/jgig/login"))
+			return "redirect:/jgig/login";
+		
 		int checkPw = accountMapper.checkPw(account);
 		if(checkPw == pw) {
 			accountMapper.terminate(dto);

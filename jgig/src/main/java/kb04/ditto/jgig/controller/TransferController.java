@@ -48,7 +48,10 @@ public class TransferController {
 	
 	//계좌이체액션
 	@PostMapping("jgig/transfer_action")
-	public String transfer_action(TransferDto transferDto, Model model) {
+	public String transfer_action(TransferDto transferDto, HttpSession session, Model model) {
+		String returnVal = login_check(session);
+		if (returnVal.equals("redirect:/jgig/login"))
+			return "redirect:/jgig/login";
 		int balance = transferMapper.findByBalance(transferDto.getAccount());
 		if(balance != 0 ) {
 			transferMapper.insert(transferDto);
@@ -78,7 +81,10 @@ public class TransferController {
 	//거래내역조회 액션1
 	@PostMapping("jgig/trans_history_action")
 	public String trans_history_action(@RequestParam("selectedAccount") long selectedAccount, @RequestParam("year") int year, @RequestParam("month") int month, 
-			RedirectAttributes redirectAttributes, Model model) {
+			RedirectAttributes redirectAttributes, HttpSession session, Model model) {
+		String returnVal = login_check(session);
+		if (returnVal.equals("redirect:/jgig/login"))
+			return "redirect:/jgig/login";
 		String input_month = "0";
 		
 		if(month >= 0 && month <=9) {
@@ -98,8 +104,10 @@ public class TransferController {
 	//거래내역조회 액션2
 	@PostMapping("jgig/trans_history_action2")
 	public String trans_history_action2(@RequestParam("selectedAccount") long selectedAccount, @RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, 
-			RedirectAttributes redirectAttributes, Model model) {
-		
+			RedirectAttributes redirectAttributes, HttpSession session, Model model) {
+		String returnVal = login_check(session);
+		if (returnVal.equals("redirect:/jgig/login"))
+			return "redirect:/jgig/login";
 		List<TransferDto> transferList = transferMapper.listCalender(startDate, endDate, selectedAccount);
 		
 		redirectAttributes.addFlashAttribute("selectedAccount", selectedAccount);
@@ -115,7 +123,10 @@ public class TransferController {
 	
 	//거래내역조회 폼(계좌관리에서 해당 계좌로 들어온 경우)
 	@GetMapping("jgig/trans_history_selected")
-	public String trans_history_selected(@RequestParam("account") long account, Model model) {
+	public String trans_history_selected(@RequestParam("account") long account, HttpSession session, Model model) {
+		String returnVal = login_check(session);
+		if (returnVal.equals("redirect:/jgig/login"))
+			return "redirect:/jgig/login";
 		model.addAttribute("account", account);
 		return "transfer/trans_history_selected";
 	}
@@ -124,6 +135,9 @@ public class TransferController {
 	@PostMapping("jgig/trans_history_selected_action")
 	public String trans_history_selected_action(@RequestParam("account") long account, @RequestParam("year") int year, @RequestParam("month") int month, 
 			RedirectAttributes redirectAttributes, HttpSession session, Model model) {
+		String returnVal = login_check(session);
+		if (returnVal.equals("redirect:/jgig/login"))
+			return "redirect:/jgig/login";
 		String input_month = "0";
 		if(month >= 0 && month <=9) {
 			input_month += month;
@@ -142,7 +156,10 @@ public class TransferController {
 	//거래내역조회 액션2(계좌관리에서 해당 계좌로 들어온 경우)
 	@PostMapping("jgig/trans_history_selected_action2")
 	public String trans_history_selected_action2(@RequestParam("account") long account, @RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, 
-			RedirectAttributes redirectAttributes, Model model) {
+			RedirectAttributes redirectAttributes, HttpSession session, Model model) {
+		String returnVal = login_check(session);
+		if (returnVal.equals("redirect:/jgig/login"))
+			return "redirect:/jgig/login";
 		List<TransferDto> transferList = transferMapper.listCalender(startDate, endDate, account);
 		
 		redirectAttributes.addFlashAttribute("account", account);
