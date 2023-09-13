@@ -222,11 +222,11 @@
 								<div class = "accountListCss">
 									<table>
 											<tr>
-												<th class="bgc">계좌 선택</th>
+												<th class="bgc" style = "width:24%;">계좌 선택</th>
 												<td>${account}</td>
 											</tr>
 											<tr>
-												<th class="bgc">월별 조회</th>
+												<th class="bgc" style = "width:24%;">월별 조회</th>
 												<td>
 													<select id="year" name="year" class="form-control" style="display: inline-block; width: auto;">
 													<c:forEach var="i" begin="15" end="25">
@@ -257,14 +257,17 @@
 								<div class ="accountListCss">
 									<table style = "border: none;">
 										<tr>
-											<th class ="bgc" style="width: 243px;">조회 기간</th>
+											<th class ="bgc" style="width: 24%;">조회 기간</th>
 											<td>
 												<input type="text" id="datepicker-start" name="startDate">
 												<label for="datepicker-end">~</label>
 												<input type="text" id="datepicker-end" name="endDate">
 												<strong class="advice-balloon advice-balloon4_trans_his_selected">2-2-1. 조회기간을 선택해주세요</strong>
-						        				<Button type="submit"  class="btn button-like-link">조회</Button>
-						        				<strong class="advice-balloon advice-balloon5_trans_his_selected">2-2-2. 조회버튼을 선택해주세요</strong>
+						        				<div class = "balloon-container">
+						        					<Button type="submit"  class="btn button-like-link">조회</Button>
+						        					<strong class="advice-balloon advice-balloon5_trans_his_selected">2-2-2. 조회버튼을 선택해주세요</strong>
+						        				</div>
+						        				
 											</td>
 										</tr>
 									</table>

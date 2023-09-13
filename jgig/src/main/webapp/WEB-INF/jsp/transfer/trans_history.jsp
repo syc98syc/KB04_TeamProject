@@ -227,7 +227,7 @@
 								<strong class="advice-balloon advice-balloon3_trans_his1">2-1. 월별조회 버튼을 눌러주세요.</strong>
 									<table>
 										<tr>
-											<th class ="bgc">계좌 선택</th>
+											<th class ="bgc" style = "width:24%;">계좌 선택</th>
 											
 											<td>
 												<select name="selectedAccount" id="selectedAccount"
@@ -240,7 +240,7 @@
 											</td>
 										</tr>
 										<tr>
-											<th class ="bgc">월별 조회</th>
+											<th class ="bgc" style = "width:24%;">월별 조회</th>
 											<td>
 												<select id="year" name="year" class="form-control"
 													style="display: inline-block; width: auto;">
@@ -283,7 +283,7 @@
 								<div class ="accountListCss">
 									<table style = "border: none;">
 										<tr>
-											<th class ="bgc" style="width: 238px;">조회 기간</th>
+											<th class ="bgc" style="width: 24%;">조회 기간</th>
 											<td>
 												<input type="text" id="datepicker-start" name="startDate">
 										        <label for="datepicker-end">~</label>

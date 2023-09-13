@@ -402,6 +402,10 @@ input[id = "input_text"] {
 	
 }
 
+.balloon-container  {
+	position: relative;
+	display: inline-block;
+}
 
 /*공통 말풍선*/
 .advice-balloon {
@@ -411,6 +415,7 @@ input[id = "input_text"] {
 	font-weight : bold;
 	padding: 5px;
 	border-radius: 5px;
+	width: auto; /* 말풍선 너비 자동 조정 */
 }
 
 /*계좌개설1 말풍선 시작*/
@@ -1071,6 +1076,9 @@ input[id = "input_text"] {
 	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
 }
 
+/* 거래 내역 조회 끝*/
+
+/* 거래 내역 조회(계좌목로에서 들어오는 경우)*/
 .advice-balloon1_trans_his_selected{
 	background-color: #f5dc8c;
 	top: 175px;
@@ -1109,7 +1117,7 @@ input[id = "input_text"] {
 
 .advice-balloon4_trans_his_selected{
 	background-color: #dee2e6;
-	top: 400px;
+	top: 410px;
 	left: 950px;
 }
 .advice-balloon4_trans_his_selected:after { /* 위쪽 꼬리만들기 */
@@ -1124,10 +1132,12 @@ input[id = "input_text"] {
 	border-left: 8px solid transparent;
 	border-right: 8px solid transparent;
 	border-bottom: 8px solid #dee2e6; /*꼬리색깔 바꾸기 */}
+	
 .advice-balloon5_trans_his_selected{
 	background-color: #dee2e6;
-	top: 360px;
-	left: 1350px;
+	width: auto; /* 말풍선 너비 자동 조정 */
+	top: 0;
+	left: 110%;
 }
 .advice-balloon5_trans_his_selected:after { /* 위쪽 꼬리만들기 */
 	display: block;
@@ -1141,4 +1151,7 @@ input[id = "input_text"] {
 	border-bottom: 8px solid transparent;
 	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
 }
+.balloon-container:hover .advice-balloon5_trans_his_selected {
+        display: block;
+    }
 *******************************도현********************************
