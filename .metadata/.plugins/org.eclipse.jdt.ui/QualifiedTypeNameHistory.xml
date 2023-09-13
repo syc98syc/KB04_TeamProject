@@ -15,8 +15,8 @@
     <fullyQualifiedTypeName name="kb04.ditto.jgig.entity.NoticeDto"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Update"/>
     <fullyQualifiedTypeName name="kb04.ditto.jgig.entity.CommentDto"/>
-    <fullyQualifiedTypeName name="kb04.ditto.jgig.mapper.CommentMapper"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Param"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
     <fullyQualifiedTypeName name="kb04.ditto.jgig.mapper.BoardMapper"/>
+    <fullyQualifiedTypeName name="kb04.ditto.jgig.mapper.CommentMapper"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 </qualifiedTypeNameHistroy>

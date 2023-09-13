@@ -1,0 +1,235 @@
+package kb04.ditto.jgig.controller;
+
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import kb04.ditto.jgig.entity.BoardDto;
+import kb04.ditto.jgig.entity.CommentDto;
+import kb04.ditto.jgig.entity.Criteria;
+import kb04.ditto.jgig.mapper.BoardMapper;
+import kb04.ditto.jgig.mapper.CommentMapper;
+
+@Controller
+public class BoardController {
+	
+	@Autowired
+	private BoardMapper boardMapper;
+	
+	@Autowired
+	private CommentMapper commentMapper;
+	
+	
+	
+//	@PostMapping("jgig/board_search_action")
+//	public String board_search_action(@RequestParam("title") String title, Model model ) {
+//		System.out.println("되나?");
+//		
+//		List<BoardDto> list = boardMapper.findByTitle(title);
+//		model.addAttribute("board_list",list);
+//		return "board/search_list";
+//	}
+	
+	@GetMapping("jgig/board_search_action")
+	public String board_search_list_withPaging(@RequestParam(value="searchTag", required=false) String searchTag, @RequestParam(value="keyword", required=false) String keyword, @RequestParam(value="pageNum", required=false) Integer pageNum, Model model) {
+		
+		
+		if(pageNum==null)
+			pageNum=1;
+		
+		Criteria criteria;
+		List<BoardDto> list;
+		
+		if(searchTag.equals("제목")) {
+			int total = boardMapper.getSearchTotalByTitle(keyword);
+			criteria = new Criteria(pageNum,searchTag,keyword,total);
+			 list = boardMapper.searchListWithPagingByTitle(criteria);
+			 model.addAttribute("total", total);
+		}
+		else {
+			int total = boardMapper.getSearchTotalByMem(keyword);
+			criteria = new Criteria(pageNum,searchTag,keyword,total);
+			list = boardMapper.searchListWithPagingByMem(criteria);
+			model.addAttribute("total", total);
+		}
+		
+		
+		
+		
+		model.addAttribute("search_list",list);
+		model.addAttribute("criteria", criteria);
+		
+		return "board/search_list";
+	}
+	
+	
+	@PostMapping("jgig/board_delete_action")
+	public String board_delete_action(BoardDto dto, Model model ) {
+		boardMapper.delete(dto);
+		model.addAttribute("msg", "게시물 삭제 성공");
+		return "board/insert_ok";
+	}
+	
+	@GetMapping("jgig/board_delete_form")
+	public String board_delete_form(@RequestParam("no") int no, Model model ) {
+		BoardDto dto = boardMapper.findByNo(no);
+		commentMapper.deleteAll(no);
+		model.addAttribute("dto",dto);
+		return "board/delete_form";
+	}
+	
+	@PostMapping("jgig/board_update_action")
+	public String board_update_action(BoardDto dto, Model model ) {
+		boardMapper.update(dto);
+		model.addAttribute("msg", "게시물 수정 성공");
+		return "board/insert_ok";
+	}
+	
+	@GetMapping("jgig/board_update_form")
+	public String board_update_form(@RequestParam("no") int no, Model model ) {
+		BoardDto dto = boardMapper.findByNo(no);
+		model.addAttribute("dto",dto);
+		return "board/update_form";
+	}
+	
+	@GetMapping("jgig/board_detail")
+	public String board_detail(@RequestParam("no") int no, Model model) {
+
+		int cmt_total = commentMapper.getTotal(no);
+
+		model.addAttribute("cmt_total", cmt_total);
+
+		BoardDto dto = boardMapper.findByNo(no);
+		boardMapper.updateView(dto);
+		model.addAttribute("dto",dto);
+		
+		List<CommentDto> cmt_list = commentMapper.list(no);
+		model.addAttribute("cmt_list",cmt_list);
+
+		return "board/detail";
+	}
+	
+	@PostMapping("jgig/board_insert_action")
+	public String board_insert_action(BoardDto dto, Model model ) {
+		boardMapper.insert(dto);
+		model.addAttribute("msg", "게시물 추가 성공");
+		return "board/insert_ok";
+	}
+	
+	@GetMapping("jgig/board_insert_form")
+	public String board_insert_form() {
+		return "board/insert_form";
+	}
+	
+
+	//페이징 처리 완료한 리스트로 대체
+//	@GetMapping("jgig/board_list")
+//	public String board_list(Model model) {
+//		
+//		List<BoardDto> list = boardMapper.list();
+//		model.addAttribute("board_list",list);
+//		
+//		return "board/list";
+//	}
+//	
+	
+	@GetMapping("jgig/board_list")
+	public String board_list_withPaging(@RequestParam(value="pageNum", required=false) Integer pageNum, Model model) {
+		int total = boardMapper.getTotal();
+		
+		if(pageNum==null)
+			pageNum=1;
+		
+		Criteria criteria = new Criteria(pageNum,total);
+		List<BoardDto> list = boardMapper.listWithPaging(criteria);
+		
+		model.addAttribute("total", total);
+		
+		model.addAttribute("board_list",list);
+		model.addAttribute("criteria", criteria);
+		
+		return "board/list";
+	}
+	
+	@PostMapping("jgig/comment_insert_action")
+	public String comment_insert_action(@RequestParam(value="brd_id", required=false) Integer brd_id,CommentDto dto, Model model ) {
+		commentMapper.insert(dto);
+		model.addAttribute("brd_id",brd_id);
+		model.addAttribute("msg", "댓글 작성 성공");
+		return "board/comment_ok";
+	}
+	
+	@GetMapping("jgig/comment_insert_form")
+	public String comment_insert_form(@RequestParam("no") int no, Model model ) {
+		BoardDto dto = boardMapper.findByNo(no);
+		model.addAttribute("dto",dto);
+		return "board/comment_insert_form";
+	}
+	
+	@PostMapping("jgig/comment_update_action")
+	public String comment_update_action(@RequestParam(value="brd_id", required=false) Integer brd_id, CommentDto dto, Model model ) {
+		commentMapper.update(dto);
+
+		model.addAttribute("brd_id",brd_id);
+		model.addAttribute("msg", "댓글 수정 성공");
+		return "board/comment_ok";
+	}
+	
+	@GetMapping("jgig/comment_update_form")
+	public String comment_update_form(@RequestParam("cmt_no") int cmt_no, Model model ) {
+		CommentDto dto = commentMapper.findByNo(cmt_no);
+		model.addAttribute("dto",dto);
+		return "board/comment_update_form";
+	}
+	
+	@PostMapping("jgig/comment_delete_action")
+	public String board_comment_action(@RequestParam(value="brd_id", required=false) Integer brd_id, CommentDto dto, Model model ) {
+		commentMapper.deleteOne(dto);
+
+		model.addAttribute("brd_id",brd_id);
+		model.addAttribute("msg", "댓글 삭제 성공");
+		return "board/comment_ok";
+	}
+	
+	@GetMapping("jgig/comment_delete_form")
+	public String board_comment_form(@RequestParam("no") int no, @RequestParam("cmt_no") int cmt_no, Model model ) {
+		BoardDto dto = boardMapper.findByNo(no);
+		model.addAttribute("dto",dto);
+		
+		CommentDto dto = commentMapper.findByNo(cmt_no);
+		model.addAttribute("dto",dto);
+		return "board/comment_delete_form";
+	}
+	
+	//내가 쓴 글
+	@GetMapping("jgig/board_my_list_action")
+	public String board_my_list_withPaging(HttpSession session, @RequestParam(value="searchTag", required=false) String searchTag, @RequestParam(value="keyword", required=false) String keyword, @RequestParam(value="pageNum", required=false) Integer pageNum, Model model) {
+		session.setAttribute("mem_id", "kb0001"); // 테스트용 아이디
+//		session.invalidate();
+		if(pageNum==null)
+			pageNum=1;
+		
+		Criteria criteria;
+		List<BoardDto> list;
+		
+		keyword="";
+		
+		String mid = (String) session.getAttribute("mem_id");
+		int total = boardMapper.getSearchTotalByMem(mid);
+		criteria = new Criteria(pageNum,searchTag,mid,total);
+		list = boardMapper.searchListWithPagingByMem(criteria);
+		model.addAttribute("total", total);
+		
+		model.addAttribute("search_list",list);
+		model.addAttribute("criteria", criteria);
+		
+		return "board/my_list";
+	}
+}
