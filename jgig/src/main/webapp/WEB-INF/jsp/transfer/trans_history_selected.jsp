@@ -229,8 +229,8 @@
 												<th class="bgc" style = "width:24%;">월별 조회</th>
 												<td>
 													<select id="year" name="year" class="form-control" style="display: inline-block; width: auto;">
-													<c:forEach var="i" begin="15" end="25">
-														<option value="${i}">20${i}</option>
+													<c:forEach var="i" begin="15" end="23">
+														<option value="${i}" selected>20${i}</option>
 													</c:forEach>
 													</select>년
 													<select id="month" name="month" class="form-control" style="display: inline-block; width: auto;">

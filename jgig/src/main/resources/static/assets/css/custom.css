@@ -1025,7 +1025,7 @@ input[id = "input_text"] {
 }
 .advice-balloon3_trans_his1{
 	background-color: #dee2e6;
-	top: 305px;
+	top: 310px;
 	left: 1100px;
 }
 .advice-balloon3_trans_his1:after { /* 위쪽 꼬리만들기 */
@@ -1061,7 +1061,7 @@ input[id = "input_text"] {
 .advice-balloon5_trans_his1{
 	background-color: #dee2e6;
 	top: 370px;
-	left: 1350px;
+	left: 1370px;
 }
 .advice-balloon5_trans_his1:after { /* 위쪽 꼬리만들기 */
 	display: block;

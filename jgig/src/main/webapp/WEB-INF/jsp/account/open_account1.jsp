@@ -78,6 +78,7 @@
 				})
 			}
 			
+			
 			$(function () {
 				advice_balloon()
 				$("#submitButton").prop("disabled", true)

@@ -228,7 +228,6 @@
 									<table>
 										<tr>
 											<th class ="bgc" style = "width:24%;">계좌 선택</th>
-											
 											<td>
 												<select name="selectedAccount" id="selectedAccount"
 													onchange="copyAccountNumber()">
@@ -244,8 +243,8 @@
 											<td>
 												<select id="year" name="year" class="form-control"
 													style="display: inline-block; width: auto;">
-														<c:forEach var="i" begin="15" end="25">
-															<option value="${i}">20${i}</option>
+														<c:forEach var="i" begin="15" end="23">
+															<option value="${i}" selected>20${i}</option>
 														</c:forEach>
 												</select> <span>년</span> <select id="month" name="month"
 													class="form-control"

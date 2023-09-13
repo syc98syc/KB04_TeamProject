@@ -286,7 +286,7 @@
 											<th class= "bgc" style= "width : 313px">비밀번호 확인</th>
 											<td>
 												<input type="password" name="act_password" id = "password1" minlength="4"
-												maxlength="4" value="${dto.act_password}">
+												maxlength="4">
 												<i id="eye-icon" class="fa fa-eye fa-lg" style="cursor: pointer; margin-left: 1px; font-size: 18px;" onclick="togglePasswordVisibility()"></i>
 											</td>
 										</tr>
@@ -300,7 +300,7 @@
 								</div>
 								<strong class="advice-balloon advice-balloon3_accountStop">2. 약관동의에 클릭해주세요.</strong>
 								<br>
-								<p>${msg}</p>
+								<p style = "color : red;">${msg}</p>
 								<strong class="advice-balloon advice-balloon4_accountStop">3. 계좌해지버튼을 눌러주세요.</strong>
 								<Button type = "submit" id = "submitButton" class="btn button-like-link" style="float: right;">계좌 해지</Button>
 							</form>

@@ -293,25 +293,24 @@
 												<th class = "bgc">입금은행</th> 
 												<td>
 													<select name = "depo_bank" required>
-														<option value ="국민" selected>국민</option>
-														<option value ="신한">신한</option>
-														<option value ="우리">우리</option>
-														<option value ="농협">농협</option>
+														<option value ="국민" ${transDto.depo_bank == '국민' ? 'selected' : ''}>국민</option>
+														<option value ="신한" ${transDto.depo_bank == '신한' ? 'selected' : ''}>신한</option>
+														<option value ="우리" ${transDto.depo_bank == '우리' ? 'selected' : ''}>우리</option>
+														<option value ="농협" ${transDto.depo_bank == '농협' ? 'selected' : ''}>농협</option>
 													</select>
 												</td>
 											</tr>
 											<tr>
 												<th class = "bgc">받는분</th>
-												<td><input type = "text" name = "receive_nm" required></td>
+												<td><input type = "text" name = "receive_nm" value = "${transDto.receive_nm}" required></td>
 											</tr>
 											<tr>
 												<th class = "bgc">입금계좌번호</th>
-												<td><input type = "text" name = "depo_num" minlength = "13" maxlength = "13" required></td>
+												<td><input type = "text" name = "depo_num" value = "${transDto.depo_num}" minlength = "13" maxlength = "13" required></td>
 											</tr>
 											<tr>
 												<th class = "bgc">이체금액</th>
-												
-												<td><input type = "text" name = "depo_mon" required>원</td>
+												<td><input type = "text" name = "depo_mon" value = "${transDto.depo_mon}" required>원</td>
 											</tr>
 											<tr>
 												<th class = "bgc">계좌비밀번호</th>

@@ -39,6 +39,7 @@ public class TransferController {
 		
 		int ActPassword = transferMapper.findByActPassword(transferDto.getAccount());
 		if (ActPassword != act_password) {
+			redirectAttributes.addFlashAttribute("transDto", transferDto);
 			redirectAttributes.addFlashAttribute("errorMessage", "비밀번호가 맞지 않습니다.");
 			return "redirect:/jgig/transfer_form?account=" + transferDto.getAccount();
 		}

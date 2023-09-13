@@ -150,7 +150,7 @@ public class AccountController {
 		long account_num = accountMapper.account_num(dto);
 		model.addAttribute("dto", dto);
 		model.addAttribute("account_num", account_num);
-		model.addAttribute("msg", "해당 계좌의 개설이 완료되었습니다");
+		model.addAttribute("msg", "해당 계좌의 개설이 완료되었습니다.");
 		return "account/open_ok";
 	}
 
