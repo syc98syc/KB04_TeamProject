@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-   <title>지금입금</title>
+   <title>지점찾기</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -64,8 +64,8 @@
 #formWrap {display: flex;align-items: center;}
 #placeDetail {display:none; position:absolute;top:0;left:251px;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.9);z-index: 1;font-size:12px;border-radius: 10px;}
 #placeDetail .detail-wrap {padding: 12px;}
-#placeDetail .wt-store {display: block; font-size: 20px; font-weight: 350; margin-bottom: 20px;}
-#placeDetail .wt-list {display: block; font-size: 16px; font-weight: 350; margin-bottom: 10px;}
+#placeDetail .wt-store {display: block; font-size: 18px; font-weight: 500; margin-bottom: 20px;}
+#placeDetail .wt-list {display: block; font-size: 15px; font-weight: 350; margin-bottom: 10px;}
 #placeDetail .wt-table {margin: 18px 0;}
 #placeDetail .wtBtn-wrap {display:flex; justify-content: center;}
 #placeDetail #wtBtn {padding: 5px 10px;}
@@ -110,7 +110,7 @@
                         	</a>
                         	<ul class="dropdown-menu">
                            	  <li><a class="dropdown-item" href="/jgig/searchWord">금융 용어 검색</a></li>
-                             <li><a class="dropdown-item" href="#">금융 상식 퀴즈</a></li>
+                             <li><a class="dropdown-item" href="/jgig/quiz">금융 상식 퀴즈</a></li>
                              <hr>
                              <li><a class="dropdown-item" href="#">이용 가이드</a></li>
                         	</ul>
@@ -157,6 +157,9 @@
 					<ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
 					
 						<!--로그인 했을 때 -->
+						<%
+						String memId = (String) session.getAttribute("mem_id");
+						%>
 						<c:if test="${not empty sessionScope.mem_id}">
 							<li class="nav-item dropdown">
 								<a class="nav-icon position-relative text-decoration-none nav-link"
@@ -210,17 +213,17 @@
 
 			<div class="col-lg-2">
 				<div class="sidemenubox">
-					<h2 class="h3 pt-3 ">지점 찾기</h2>
+					<h2 class="h3 pt-3 ">지점찾기</h2>
 					<hr>
 					<ul class="list-unstyled ">
 						<li >
 							<a class="collapsed d-flex justify-content-between text-decoration-none selectsidemenu" href="/jgig/findStore"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 -->
-								지점 찾기 및 번호표 발행
+								지점찾기 및 번호표발행
 							</a>
 						</li>
 						<li >
 							<a class="collapsed d-flex justify-content-between text-decoration-none" href="/jgig/detailWaiting">
-								번호표 조회 및 취소
+								번호표조회 및 취소
 							</a>
 						</li>
 					</ul>
@@ -231,7 +234,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<ul class="list-inline shop-top-menu  pt-5 pl-3">
-							<h2>지점 찾기 및 번호표 발행</h2>
+							<h2>지점찾기 및 번호표발행</h2>
 						</ul>
 					</div>
 				</div>
@@ -288,11 +291,6 @@
 	<script src="/assets/js/custom.js"></script>
 	<!-- End Script -->
 
-
-
-
-
-	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>	
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d1ccdc8f7bb05f82cf933172668140d8&libraries=services"></script>
 <script>
@@ -354,8 +352,8 @@
 		// 옵션 추가 
 		var options = {
 				location : new kakao.maps.LatLng(testLat, testLon), // 지도의 중심좌표
-				radius : 10000,
-				sort : kakao.maps.services.SortBy.DISTAMCE,
+				radius : 5000,
+				sort : kakao.maps.services.SortBy.DISTANCE,
 		}
 
 		// 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
@@ -366,6 +364,10 @@
 	function placesSearchCB(data, status, pagination) {
 		if (status === kakao.maps.services.Status.OK) {
 
+			//console.log(data);
+			//var pdata = data.filter(place => place.place_name.indexOf('ATM') == -1);
+			// console.log(pdata);
+			
 			// 정상적으로 검색이 완료됐으면
 			// 검색 목록과 마커를 표출합니다
 			displayPlaces(data);
@@ -452,7 +454,6 @@
 
 	// 검색결과 항목을 Element로 반환하는 함수입니다
 	function getListItem(index, places) {
-
 		var el = document.createElement('li'), itemStr = '<span class="markerbg marker_'
 				+ (index + 1)
 				+ '"></span>'
@@ -468,7 +469,8 @@
 			itemStr += '    <span>' + places.address_name + '</span>';
 		}
 
-		itemStr += '  <span class="tel">' + places.phone + '</span>' + '</div>';
+		itemStr += '  <span class="tel">' + places.phone + '</span>';
+		itemStr += '  <span>' + places.distance + 'm</span>' + '</div>';
 
 		el.innerHTML = itemStr;
 		el.className = 'item';
@@ -575,14 +577,13 @@
 		//console.log(store);
 		
 		placeInfo = {
-				mem_id : "kb0002", // 아이디 
-				wt_no : 3003, // 대기번호 
-				wt_list : 2, // 대기인원 
-				wt_stat : "Y", // 대기상태 
-				wt_store_name : store.querySelector("h5").innerText, // 지점풀네임 
-				wt_store : store.querySelector("h5").innerText.replace('KB국민은행 ', ''), // 지점 
-				wt_juso : store.querySelector(".juso").innerText, // 지점주소  
-			};
+			wt_no : 3003, // 대기번호 
+			wt_list : 2, // 대기인원 
+			wt_stat : "Y", // 대기상태 
+			wt_store_name : store.querySelector("h5").innerText, // 지점풀네임 
+			wt_store : store.querySelector("h5").innerText.replace('KB국민은행 ', ''), // 지점 
+			wt_juso : store.querySelector(".juso").innerText, // 지점주소  
+		};
 		// console.log(placeInfo);
 		
 		var el = document.createElement('div');
@@ -599,21 +600,25 @@
 		el.innerHTML = content;
 		detailWrap.append(el);
 		
-		console.log("${wt_stat}")
-		console.log(wtStat)
+		/* console.log("${wt_stat}");
+		console.log(wtStat);*/
+		var loginId = '<%= session.getAttribute("mem_id") %>';
+		
 		// 발행받은 번호표 체크
-		if("${wt_stat}" == "N" && wtStat != "Y") {
-			var btnWrap = document.createElement('div');
-			btnWrap.setAttribute("class","wtBtn-wrap");
-			var btn = document.createElement('button');
-			btn.innerHTML = "번호표 발행";
-			btn.setAttribute("id", "wtBtn");
-			btn.setAttribute("class","btn btn-outline-dark");
-			btn.onclick = function() {
-				 waitingHandler();
+		if(loginId != 'null'){
+			if(("${wt_stat}" === "N" && wtStat !== "Y")) {
+				var btnWrap = document.createElement('div');
+				btnWrap.setAttribute("class","wtBtn-wrap");
+				var btn = document.createElement('button');
+				btn.innerHTML = "번호표 발행";
+				btn.setAttribute("id", "wtBtn");
+				btn.setAttribute("class","btn btn-outline-dark");
+				btn.onclick = function() {
+					 waitingHandler();
+				}
+				btnWrap.append(btn);
+				detailWrap.append(btnWrap);
 			}
-			btnWrap.append(btn);
-			detailWrap.append(btnWrap);
 		}
 	}
 	
