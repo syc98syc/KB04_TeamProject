@@ -1135,9 +1135,8 @@ input[id = "input_text"] {
 	
 .advice-balloon5_trans_his_selected{
 	background-color: #dee2e6;
-	width: auto; /* 말풍선 너비 자동 조정 */
-	top: 0;
-	left: 110%;
+	top: 370px;
+	left: 1360px;
 }
 .advice-balloon5_trans_his_selected:after { /* 위쪽 꼬리만들기 */
 	display: block;
@@ -1151,7 +1150,4 @@ input[id = "input_text"] {
 	border-bottom: 8px solid transparent;
 	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
 }
-.balloon-container:hover .advice-balloon5_trans_his_selected {
-        display: block;
-    }
 *******************************도현********************************

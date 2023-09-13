@@ -263,11 +263,8 @@
 												<label for="datepicker-end">~</label>
 												<input type="text" id="datepicker-end" name="endDate">
 												<strong class="advice-balloon advice-balloon4_trans_his_selected">2-2-1. 조회기간을 선택해주세요</strong>
-						        				<div class = "balloon-container">
-						        					<Button type="submit"  class="btn button-like-link">조회</Button>
-						        					<strong class="advice-balloon advice-balloon5_trans_his_selected">2-2-2. 조회버튼을 선택해주세요</strong>
-						        				</div>
-						        				
+						        				<Button type="submit"  class="btn button-like-link">조회</Button>
+						        				<strong class="advice-balloon advice-balloon5_trans_his_selected">2-2-2. 조회버튼을 선택해주세요</strong>
 											</td>
 										</tr>
 									</table>
