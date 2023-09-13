@@ -279,7 +279,7 @@
 											<strong><span style="font-weight: 900;">수정</span></strong>
 										</a>
 									</div>
-								    <Button type="submit" id="submitButton" class="btn button-like-link">이체</Button>
+								    <Button type="submit" id="submitButton" class="btn button-like-link">이체하기</Button>
 								</div>
 								<strong class="advice-balloon advice-balloon1_transferform2">1. 수정을 원할 시 <br>수정 버튼을 눌러주세요.</strong>
 								<strong class="advice-balloon advice-balloon2_transferform2">2. 보낼 정보가 맞을 경우 <br>확인 버튼을 눌러주세요.</strong>

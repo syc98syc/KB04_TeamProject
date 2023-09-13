@@ -249,8 +249,7 @@
 							</tr>
 							</c:forEach>
 						</table>
-						
-						</div> 
+						</div>
 					</div>
 				</div>
 			</div>
