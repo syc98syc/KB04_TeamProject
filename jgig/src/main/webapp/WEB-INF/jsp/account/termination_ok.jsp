@@ -37,7 +37,7 @@
 				}
 				function modal(){
 					$('#modalClose').click(function(){
-			            $('#myModal').modal('hide');
+			            $('#myModal').modal('hide')
 			        });
 			        // 페이지 로드 시 모달을 자동으로 띄우도록 설정
 			        $("#myModal").modal('show')
@@ -197,6 +197,7 @@
 						<li>
 							<a class="collapsed d-flex justify-content-between text-decoration-none" href="trans_history"> 거래 내역 조회 </a>
 						</li>
+						<hr>
 						<li><a
 							class="collapsed d-flex justify-content-between text-decoration-none"
 							href="#"> 카드 발급 </a></li>

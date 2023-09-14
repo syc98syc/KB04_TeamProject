@@ -37,9 +37,9 @@
 			            success: function (data) {
 			            	isSuccess = data.success
 			                if (data.success) {
-			                	alert("본인인증이 완료되었습니다.");
+			                	alert("본인인증이 완료되었습니다.")
 			                } else {
-			                	alert("본인인증에 실패하였습니다.");
+			                	alert("본인인증에 실패하였습니다.")
 			                    $("#submitButton").prop("disabled", true)
 			                }
 			            },

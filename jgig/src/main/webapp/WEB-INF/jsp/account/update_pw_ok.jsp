@@ -42,7 +42,7 @@
 	}
 	function modal(){
 		$('#modalClose').click(function(){
-            $('#myModal').modal('hide');
+            $('#myModal').modal('hide')
         });
         // 페이지 로드 시 모달을 자동으로 띄우도록 설정
         $("#myModal").modal('show')
