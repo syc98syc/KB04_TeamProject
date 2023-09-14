@@ -245,7 +245,7 @@
 														</c:choose>
 													</c:forEach>
 													</select>월
-													<Button type="submit"  class="btn button-like-link">월별조회</Button>
+													<Button id = "monthlyModal" type="submit"  class="btn button-like-link">월별조회</Button>
 												</td>
 											</tr>
 									</table>
@@ -300,6 +300,22 @@
 						</div>
 						</div>
 					</div>
+					<div class="modal fade" id="myModal" role="dialog"> 
+					    <div class="modal-dialog">
+					      <!-- Modal content-->
+					      <div class="modal-content">
+					        <div class="modal-header">
+					          <h4 class="modal-title">포인트 적립</h4> 
+					        </div>
+					        <div class="modal-body">
+					          <p>${point}</p>
+					        </div>
+					        <div class="modal-footer">
+					          <button type="button" class="btn btn-default" data-dismiss="modal" id= "modalClose" >Close</button>
+					        </div>
+					      </div>
+					    </div>
+				  	</div>
 				</div>
 	
 			</div>
@@ -336,8 +352,9 @@
 		    	advice_balloon()
 		        var urlParams = new URLSearchParams(window.location.search)
 		        var showTable = urlParams.get("showTable")
-		
+		        
 		        if (showTable === "true") {
+		        	$("#myModal").modal('show')
 		            $("#tableDiv").show()
 		            urlParams.delete("showTable")
 		            var newURL = window.location.pathname + '?' + urlParams.toString()
@@ -347,7 +364,11 @@
 		        }
 		        $("#datepicker-start").datepicker()
 	            $("#datepicker-end").datepicker()
+	            $('#modalClose').click(function(){
+		            $('#myModal').modal('hide')
+		        })
 		    })
+		    
 		    function advice_balloon(){
 				$('#advice-balloonCheckbox').change(function() {
 					if (this.checked) {

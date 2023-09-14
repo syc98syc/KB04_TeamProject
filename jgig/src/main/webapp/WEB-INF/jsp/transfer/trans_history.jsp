@@ -338,6 +338,22 @@
 						</div>
 						</div>
 					</div>
+					<div class="modal fade" id="myModal" role="dialog"> 
+					    <div class="modal-dialog">
+					      <!-- Modal content-->
+					      <div class="modal-content">
+					        <div class="modal-header">
+					          <h4 class="modal-title">포인트 적립</h4> 
+					        </div>
+					        <div class="modal-body">
+					          <p>${point}</p>
+					        </div>
+					        <div class="modal-footer">
+					          <button type="button" class="btn btn-default" data-dismiss="modal" id= "modalClose" >Close</button>
+					        </div>
+					      </div>
+					    </div>
+				  	</div>
 				</div>
 	
 			</div>
@@ -375,6 +391,7 @@
 		        var showTable = urlParams.get("showTable")
 		
 		        if (showTable === "true") {
+		        	$("#myModal").modal('show')
 		            $("#tableDiv").show()
 		            urlParams.delete("showTable")
 		            var newURL = window.location.pathname
@@ -384,6 +401,9 @@
 		        }
 		        $("#datepicker-start").datepicker()
 	            $("#datepicker-end").datepicker()
+	            $('#modalClose').click(function(){
+		            $('#myModal').modal('hide')
+		        })
 		    })
 		    
 		    function copyAccountNumber() {

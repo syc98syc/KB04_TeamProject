@@ -57,8 +57,10 @@ public class TransferController {
 		if(balance != 0 ) {
 			transferMapper.insert(transferDto);
 			transferMapper.update(transferDto);
+			transferMapper.setPoint(1, "계좌이체", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
 			model.addAttribute("dto", transferDto);
 			model.addAttribute("msg", "이체가 완료되었습니다.");
+			model.addAttribute("point", "포인트가 "+1+" 적립되었습니다.");
 			return "transfer/transfer_ok";
 		}
 		model.addAttribute("msg", "잔액이 부족합니다.");
@@ -97,6 +99,8 @@ public class TransferController {
 		redirectAttributes.addFlashAttribute("selectedAccount", selectedAccount);
 		redirectAttributes.addFlashAttribute("transferList", transferList);
 		if(transferList.size() != 0) {
+			transferMapper.setPoint(1, "조회", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
+			redirectAttributes.addFlashAttribute("point", "포인트가 "+1+" 적립되었습니다.");
 			redirectAttributes.addAttribute("showTable", "true");
 		}
 		return "redirect:/jgig/trans_history";
@@ -115,6 +119,8 @@ public class TransferController {
 		redirectAttributes.addFlashAttribute("transferList", transferList);
 		
 		if(transferList.size() != 0) {
+			transferMapper.setPoint(1, "조회", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
+			redirectAttributes.addFlashAttribute("point", "포인트가 "+1+" 적립되었습니다.");
 			redirectAttributes.addAttribute("showTable", "true");
 		}
 		
@@ -145,9 +151,12 @@ public class TransferController {
 		}
 		String yearMon = year + "/" + input_month;
 		List<TransferDto> transferList = transferMapper.list(account, yearMon);
+		
 		redirectAttributes.addFlashAttribute("account", account);
 		redirectAttributes.addFlashAttribute("transferList", transferList);
 		if(transferList.size() != 0 ) {
+			transferMapper.setPoint(1, "조회", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
+			redirectAttributes.addFlashAttribute("point", "포인트가 "+1+" 적립되었습니다.");
 			redirectAttributes.addAttribute("showTable", "true");
 		}
 		
@@ -166,6 +175,8 @@ public class TransferController {
 		redirectAttributes.addFlashAttribute("account", account);
 		redirectAttributes.addFlashAttribute("transferList", transferList);
 		if(transferList.size() != 0 ) {
+			transferMapper.setPoint(1, "조회", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
+			redirectAttributes.addFlashAttribute("point", "포인트가 "+1+" 적립되었습니다.");
 			redirectAttributes.addAttribute("showTable", "true");
 		}
 		

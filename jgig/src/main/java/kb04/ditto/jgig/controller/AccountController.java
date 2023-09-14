@@ -148,12 +148,12 @@ public class AccountController {
 		
 		accountMapper.insert(dto);
 		long account_num = accountMapper.account_num(dto);
-		accountMapper.setPoint(1, "계좌개설", (String)session.getAttribute("mem_id"));
+		accountMapper.setPoint(1, "계좌개설", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
 		
 		model.addAttribute("dto", dto);
 		model.addAttribute("account_num", account_num);
 		model.addAttribute("msg", "해당 계좌의 개설이 완료되었습니다.");
-		model.addAttribute("point", "포인트가"+1+"적립되었습니다.");
+		model.addAttribute("point", "포인트가 "+1+" 적립되었습니다.");
 		return "account/open_ok";
 	}
 
@@ -214,7 +214,10 @@ public class AccountController {
 			return "redirect:/jgig/login";
 		
 		accountMapper.update(dto);
+		accountMapper.setPoint(1, "비번수정", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
+		
 		model.addAttribute("dto", dto);
+		model.addAttribute("point", "포인트가 "+1+" 적립되었습니다.");
 		model.addAttribute("msg","비밀번호 수정이 완료되었습니다.");
 		return "account/update_pw_ok";
 	}
@@ -245,7 +248,11 @@ public class AccountController {
 		int checkPw = accountMapper.checkPw(account);
 		if(checkPw == pw) {
 			accountMapper.terminate(dto);
+			
+			accountMapper.setPoint(1, "계좌해지	", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
+			model.addAttribute("point", "포인트가 "+1+" 적립되었습니다.");
 			model.addAttribute("msg", "계좌 해지가 완료되었습니다.");
+			
 			return "account/termination_ok";
 		}
 		redirect.addFlashAttribute("msg", "비밀번호가 틀립니다. 다시한번 확인해주세요.");

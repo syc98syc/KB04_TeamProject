@@ -23,7 +23,16 @@
 	    <link rel="preconnect" href="https://fonts.googleapis.com">
 	    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
-		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+		<script>
+		    $(function(){
+		    	$('#modalClose').click(function(){
+		            $('#myModal').modal('hide')
+		        })
+		        // 페이지 로드 시 모달을 자동으로 띄우도록 설정
+		        $("#myModal").modal('show')
+		    });
+		</script>
 		<style>
 			.no-left-right-border{
 				border-left: none;
@@ -264,11 +273,27 @@
 							</div>
 							<br>
 							<strong class = "open-ok-msg">${msg}</strong><br>
-							<strong class = "open-ok-msg">${point}</strong>
 						</div>
 					</div>
+					
+					<div class="modal fade" id="myModal" role="dialog"> 
+					    <div class="modal-dialog">
+					      <!-- Modal content-->
+					      <div class="modal-content">
+					        <div class="modal-header">
+					          <h4 class="modal-title">포인트 적립</h4> 
+					        </div>
+					        <div class="modal-body">
+					          <p>${point}</p>
+					        </div>
+					        <div class="modal-footer">
+					          <button type="button" class="btn btn-default" data-dismiss="modal" id= "modalClose" >Close</button>
+					        </div>
+					      </div>
+					    </div>
+				  	</div>
+				  	
 				</div>
-	
 			</div>
 		</div>
 		<!-- End Content -->

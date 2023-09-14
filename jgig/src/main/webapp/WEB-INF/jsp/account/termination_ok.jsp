@@ -35,8 +35,16 @@
 						}
 					})
 				}
+				function modal(){
+					$('#modalClose').click(function(){
+			            $('#myModal').modal('hide');
+			        });
+			        // 페이지 로드 시 모달을 자동으로 띄우도록 설정
+			        $("#myModal").modal('show')
+				}
 				$(function () {
 					advice_balloon()
+					modal()
 				})
 			</script>
 	</head>
@@ -230,8 +238,25 @@
 								<strong><span style="font-weight: 900;">계좌조회 및 이체</span></strong>
 							</a>
 						</div>
-						
 					</div>
+					
+					<div class="modal fade" id="myModal" role="dialog"> 
+					    <div class="modal-dialog">
+					      <!-- Modal content-->
+					      <div class="modal-content">
+					        <div class="modal-header">
+					          <h4 class="modal-title">포인트 적립</h4> 
+					        </div>
+					        <div class="modal-body">
+					          <p>${point}</p>
+					        </div>
+					        <div class="modal-footer">
+					          <button type="button" class="btn btn-default" data-dismiss="modal" id= "modalClose" >Close</button>
+					        </div>
+					      </div>
+					    </div>
+				  	</div>
+				  	
 				</div>
 			</div>
 		</div>

@@ -1150,4 +1150,11 @@ input[id = "input_text"] {
 	border-bottom: 8px solid transparent;
 	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
 }
+#modalClose{
+	background-color: #a39485;
+	font-weight: bold;
+}
+#modalClose:hover {
+   background-color: #c2b3a5;
+}
 *******************************도현********************************

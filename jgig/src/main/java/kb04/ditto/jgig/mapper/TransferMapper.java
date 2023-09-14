@@ -36,4 +36,7 @@ public interface TransferMapper {
  
 	@Select("SELECT * FROM transfer WHERE TO_CHAR(trans_date, 'MM/DD/YYYY') BETWEEN #{startDate} AND #{endDate} AND account = #{account} order by trans_date desc")
 	public List<TransferDto> listCalender(String startDate, String endDate, long account);
+
+	@Insert("insert into Point(point_seq, point, point_date, division, mem_id) values(point_seq.nextval, #{point}, sysdate, #{division}, #{mem_id})")
+	public void setPoint(int point, String division, String mem_id);
 }
