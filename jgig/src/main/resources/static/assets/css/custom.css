@@ -693,6 +693,12 @@ input[id = "input_text"] {
 	font-size: 30px;
 }
 
+/*거래 내역 조회시 내역이 없는 경우*/
+.trans_history_fail_msg{
+	font-weight: bold;
+	font-size: 30px;
+}
+
 /*계좌해지 시 말풍선 시작*/
 .advice-balloon1_accountStop{
 	background-color: #f5dc8c;

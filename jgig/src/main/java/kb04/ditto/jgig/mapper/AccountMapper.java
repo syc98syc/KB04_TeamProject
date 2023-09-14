@@ -16,7 +16,7 @@ public interface AccountMapper {
 	public List<AccountDto> list(String mem_id);
 	
 	@Insert("insert into Account(account, act_name, act_password, balance, regdate, mem_nm, ssn, phone_num, job, pur_trans, sor_fund, mem_id) values(account_seq.nextval, #{act_name}, "
-			+ "#{act_password}, 0, sysdate, #{mem_nm}, #{ssn}, #{phone_num}, #{job}, #{pur_trans}, #{sor_fund}, #{mem_id})")
+			+ "#{act_password}, 50000, sysdate, #{mem_nm}, #{ssn}, #{phone_num}, #{job}, #{pur_trans}, #{sor_fund}, #{mem_id})")
 	public int insert(AccountDto dto);
 	
 	@Select("select account from account where mem_nm = #{mem_nm} and rownum = 1 order by account desc ")

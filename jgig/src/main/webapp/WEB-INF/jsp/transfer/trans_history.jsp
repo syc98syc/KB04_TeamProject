@@ -333,17 +333,21 @@
 						                </tr>
 						            </c:forEach>
 						        </tbody>
-						    </table>
+						    	</table>
 							</div>
 						</div>
+						<div style = "text-align : center;">
+							<strong class = "trans_history_fail_msg">${msg}</strong>
+							<br><br>
 						</div>
+					</div>
 					</div>
 					<div class="modal fade" id="myModal" role="dialog"> 
 					    <div class="modal-dialog">
 					      <!-- Modal content-->
 					      <div class="modal-content">
 					        <div class="modal-header">
-					          <h4 class="modal-title">포인트 적립</h4> 
+					          <h4 class="modal-title">금융 거래 연습 완료!</h4> 
 					        </div>
 					        <div class="modal-body">
 					          <p>${point}</p>
@@ -396,11 +400,15 @@
 		            urlParams.delete("showTable")
 		            var newURL = window.location.pathname
 		            window.history.replaceState({}, document.title, newURL)
-		        } else {
+		        }else if(showTable==="false"){
+		        	$("#myModal").modal('show')
+		        }
+		        else {
 		            $("#tableDiv").hide()
 		        }
 		        $("#datepicker-start").datepicker()
 	            $("#datepicker-end").datepicker()
+	            
 	            $('#modalClose').click(function(){
 		            $('#myModal').modal('hide')
 		        })
