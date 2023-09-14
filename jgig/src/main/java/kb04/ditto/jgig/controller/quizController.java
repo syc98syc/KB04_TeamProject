@@ -1,6 +1,7 @@
 package kb04.ditto.jgig.controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -20,13 +21,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kb04.ditto.jgig.entity.PopularWordDto;
 import kb04.ditto.jgig.entity.QuizDto;
 import kb04.ditto.jgig.mapper.QuizMapper;
 
 @Controller
 public class quizController {
-	int ans = 3; // 정답 
+	LocalDate now = LocalDate.now();
+	int dayOfMonth = now.getDayOfMonth();
+	int ans = dayOfMonth % 4;
+	//int ans = 3; // 정답 
+	String question = Integer.toString(dayOfMonth * dayOfMonth % 160);
 	
 	@Autowired
 	private QuizMapper quizMapper;
@@ -52,7 +56,7 @@ public class quizController {
 		
 		
 		String URL = "https://m.kbcapital.co.kr/cstmrPtct/fnncInfoSqre/fnncTmng.kbc";
-		Document doc = Jsoup.connect(URL).data("targetRow","24").data("rowSize","4").get();
+		Document doc = Jsoup.connect(URL).data("targetRow", question).data("rowSize","4").get();
 		Elements el = doc.select("ul[class=\"sp-accord nospace\"]");
 		
 		List<Map<String, String>> resultList = new LinkedList<Map<String, String>>();
@@ -70,15 +74,12 @@ public class quizController {
 	 
 	@PostMapping("/jgig/submitQuiz")
 	@ResponseBody
-	public QuizDto submitQuiz(@RequestParam("selectedOpt") int selectedOpt) {
-		
-		String mem_id = "kb0002"; // 로그인한 아이디 넣기 
-		
+	public QuizDto submitQuiz(@RequestParam("selectedOpt") int selectedOpt, HttpSession session) {
+		String mem_id = (String) session.getAttribute("mem_id");
 		// 정답일 때 
 		if(selectedOpt == ans) {
 			quizMapper.insertQuiz(mem_id, "Y", ans, selectedOpt);
-			// 
-			// quizMapper.insertPoint(mem_id); // 포인트 insert 
+			quizMapper.insertPoint(mem_id); // 포인트 insert 
 			QuizDto dto = new QuizDto(mem_id, "Y", "", selectedOpt, ans);
 			return dto; 
 		} 
