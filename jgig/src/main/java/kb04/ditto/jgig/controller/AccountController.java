@@ -148,9 +148,12 @@ public class AccountController {
 		
 		accountMapper.insert(dto);
 		long account_num = accountMapper.account_num(dto);
+		accountMapper.setPoint(1, "계좌개설", (String)session.getAttribute("mem_id"));
+		
 		model.addAttribute("dto", dto);
 		model.addAttribute("account_num", account_num);
 		model.addAttribute("msg", "해당 계좌의 개설이 완료되었습니다.");
+		model.addAttribute("point", "포인트가"+1+"적립되었습니다.");
 		return "account/open_ok";
 	}
 

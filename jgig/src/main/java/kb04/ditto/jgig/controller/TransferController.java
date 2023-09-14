@@ -79,7 +79,7 @@ public class TransferController {
 		return "transfer/trans_history";
 	}
 	
-	//거래내역조회 액션1
+	//거래내역조회 액션1(월별조회)
 	@PostMapping("jgig/trans_history_action")
 	public String trans_history_action(@RequestParam("selectedAccount") long selectedAccount, @RequestParam("year") int year, @RequestParam("month") int month, 
 			RedirectAttributes redirectAttributes, HttpSession session, Model model) {
@@ -102,7 +102,7 @@ public class TransferController {
 		return "redirect:/jgig/trans_history";
 	}
 	
-	//거래내역조회 액션2
+	//거래내역조회 액션2(달력조회)
 	@PostMapping("jgig/trans_history_action2")
 	public String trans_history_action2(@RequestParam("selectedAccount") long selectedAccount, @RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, 
 			RedirectAttributes redirectAttributes, HttpSession session, Model model) {
@@ -132,7 +132,7 @@ public class TransferController {
 		return "transfer/trans_history_selected";
 	}
 	
-	//거래내역조회 액션1(계좌관리에서 해당 계좌로 들어온 경우)
+	//거래내역조회 액션1(계좌관리에서 해당 계좌로 들어온 경우)(월별조회)
 	@PostMapping("jgig/trans_history_selected_action")
 	public String trans_history_selected_action(@RequestParam("account") long account, @RequestParam("year") int year, @RequestParam("month") int month, 
 			RedirectAttributes redirectAttributes, HttpSession session, Model model) {
@@ -154,7 +154,7 @@ public class TransferController {
 		return "redirect:/jgig/trans_history_selected?account="+account;
 	}
 	
-	//거래내역조회 액션2(계좌관리에서 해당 계좌로 들어온 경우)
+	//거래내역조회 액션2(계좌관리에서 해당 계좌로 들어온 경우)(달력조회)
 	@PostMapping("jgig/trans_history_selected_action2")
 	public String trans_history_selected_action2(@RequestParam("account") long account, @RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, 
 			RedirectAttributes redirectAttributes, HttpSession session, Model model) {

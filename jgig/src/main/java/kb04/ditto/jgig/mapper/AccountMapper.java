@@ -39,4 +39,7 @@ public interface AccountMapper {
 	
 	@Select("select act_password from account where account = #{account}")
 	public int checkPw(long account);
+
+	@Insert("insert into Point(point_seq, point, point_date, division, mem_id) values(point_seq.nextval, #{point}, sysdate, #{division}, #{mem_id})")
+	public void setPoint(int point, String division, String mem_id);
 }

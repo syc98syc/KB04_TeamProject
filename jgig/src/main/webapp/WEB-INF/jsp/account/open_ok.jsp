@@ -263,7 +263,8 @@
 								</table>
 							</div>
 							<br>
-							<strong class = "open-ok-msg">${msg}</strong>
+							<strong class = "open-ok-msg">${msg}</strong><br>
+							<strong class = "open-ok-msg">${point}</strong>
 						</div>
 					</div>
 				</div>
