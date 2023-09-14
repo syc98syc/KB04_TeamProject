@@ -1163,4 +1163,50 @@ input[id = "input_text"] {
 #modalClose:hover {
    background-color: #c2b3a5;
 }
+
+.pagination_account{
+	display: flex;
+	list-style: none;
+	padding: 0;
+}
+
+.pagination_account li {
+	margin-right: 1px;
+	border-radius: 5px;
+}
+.pagination_account ui {
+	margin-right: 1px;
+	border-radius: 5px;
+}
+
+.pagination_account a {
+	text-decoration: none;
+	background-color: #c0c0c0;
+	color: #fff;
+	padding: 5px 10px;
+	border-radius: 5px;
+}
+
+.pagination_account a:hover {
+	background-color: #a39485;
+}
+.pagination_account .page-link_account{
+	background-color: #a39485;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: #fff; /* 텍스트 색상을 밝은 색상으로 변경 */
+}
+.pagination_account .page-link_account:hover {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: black; /* 텍스트 색상을 밝은 색상으로 변경 */
+}
+.page-link_account_choice{
+	background-color: #c0c0c0;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: black; /* 텍스트 색상을 밝은 색상으로 변경 */
+}
+
 *******************************도현********************************

@@ -224,7 +224,7 @@
 				</div>
 				<div class="row">
 					<div id="service-content">
-						<p class = "total-accountBalCss">총 예금 잔액 <fmt:formatNumber value="${totalBalance}" pattern="#,###"/>원 (${account_list.size()}계좌)</p>
+						<p class = "total-accountBalCss">총 예금 잔액 <fmt:formatNumber value="${totalBalance}" pattern="#,###"/>원 (${total}계좌)</p>
 						<div class = "accountListCss">
 						<table>
 							<c:forEach items="${account_list}" var ="acc">
@@ -249,6 +249,41 @@
 							</tr>
 							</c:forEach>
 						</table>
+						<br>
+						<nav aria-label="Page navigation example" class="nav justify-content-center">
+						    <ul class="pagination_account">
+						        <c:if test="${hasPrevious}">
+								    <li class="page-item">
+								        <a class="page-link_account" href="/jgig/account_list?currentPage=${startPage - 1}" aria-label="Previous">
+								            <span aria-hidden="true">이전</span>
+								        </a>
+								    </li>
+								</c:if>
+						
+						        <c:forEach begin="${startPage}" end="${endPage}" var="page">
+						            <c:choose>
+						                <c:when test="${page == currentPage}">
+						                    <li class="page-item active">
+						                        <span class="page-link_account_choice">${page} <span class="sr-only">(current)</span></span>
+						                    </li>
+						                </c:when>
+						                <c:otherwise>
+						                    <li class="page-item">
+						                        <a class="page-link_account" href="/jgig/account_list?currentPage=${page}">${page}</a>
+						                    </li>
+						                </c:otherwise>
+						            </c:choose>
+						        </c:forEach>
+						
+						        <c:if test="${hasNext}">
+								    <li class="page-item">
+								        <a class="page-link_account" href="/jgig/account_list?currentPage=${endPage + 1}" aria-label="Next">
+								            <span aria-hidden="true">다음</span>
+								        </a>
+								    </li>
+								</c:if>
+						    </ul>
+						</nav>
 						</div>
 					</div>
 				</div>

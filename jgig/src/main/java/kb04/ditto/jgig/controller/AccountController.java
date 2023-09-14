@@ -156,24 +156,63 @@ public class AccountController {
 		model.addAttribute("point", "포인트가 "+1+" 적립되었습니다.");
 		return "account/open_ok";
 	}
+	
 
 	// 계좌목록조회
 	@GetMapping("/jgig/account_list")
-	public String account_list(Model model, HttpSession session) {
+	public String account_list(Model model, HttpSession session, @RequestParam(name = "currentPage", defaultValue = "1") int currentPage) {
 		String returnVal = login_check(session);
 		
 		if (returnVal.equals("redirect:/jgig/login"))
 			return "redirect:/jgig/login";
 		String mem_id = returnVal;
 		
-		List<AccountDto> list = accountMapper.list(mem_id);
+		int size = 3;
+		
+		int total = accountMapper.list(mem_id);
+	    int pagingCount = 3;
+	    
+	    int totalPages = total/size;
+	    if(total % size > 0){
+	    	totalPages++;
+	    }
+	    
+	    int startPage = currentPage / pagingCount * pagingCount + 1;
+		if(currentPage % pagingCount == 0){ 
+	    	startPage -= pagingCount; 
+	    }
+		
+		int endPage = startPage + (pagingCount - 1);
+	    if(endPage > totalPages){
+	    	endPage = totalPages; 
+	    }
+	    
+	    List<AccountDto> list = accountMapper.listWithPaging(mem_id, currentPage*size-size+1, currentPage*size);
+	    System.out.println(list.size());
+	    for(AccountDto dto : list) {
+	    	System.out.println(dto);
+	    }
+	    
 		if(list.size() == 0 ) {
 			return "account/no_account";
 		}
 		int totalBalance = accountMapper.totalBalance(mem_id);
 		
+		boolean hasPrevious = startPage > 1;
+		boolean hasNext = endPage < totalPages;
+		
+		model.addAttribute("total", total);
+		model.addAttribute("startPage", startPage);
+		model.addAttribute("endPage", endPage);
+		model.addAttribute("currentPage", currentPage);
 		model.addAttribute("totalBalance", totalBalance);
+		model.addAttribute("size", size);
 		model.addAttribute("account_list", list);
+		
+		
+		model.addAttribute("hasPrevious", hasPrevious);
+	    model.addAttribute("hasNext", hasNext);
+	    
 		return "account/list";
 	}
 

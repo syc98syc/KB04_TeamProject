@@ -12,8 +12,11 @@ import kb04.ditto.jgig.entity.AccountDto;
 
 @Mapper
 public interface AccountMapper {
-	@Select("select account, act_name, balance from account where mem_id = #{mem_id} order by regdate desc, account")
-	public List<AccountDto> list(String mem_id);
+	@Select("select count(*) from account where mem_id = #{mem_id} order by regdate desc, account")
+	public int list(String mem_id);
+	
+	@Select("select rownum num, account, act_name, act_password, balance, regdate, mem_nm, ssn, phone_num, job, pur_trans, sor_fund, mem_id from (select rownum num, a.*from ( select * from account order by regdate desc, balance desc) a )where mem_id = #{mem_id} and num between #{startPage} and #{endPage}")
+	public List<AccountDto> listWithPaging(String mem_id, int startPage, int endPage);
 	
 	@Insert("insert into Account(account, act_name, act_password, balance, regdate, mem_nm, ssn, phone_num, job, pur_trans, sor_fund, mem_id) values(account_seq.nextval, #{act_name}, "
 			+ "#{act_password}, 50000, sysdate, #{mem_nm}, #{ssn}, #{phone_num}, #{job}, #{pur_trans}, #{sor_fund}, #{mem_id})")
