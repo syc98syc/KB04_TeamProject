@@ -239,7 +239,7 @@
 							</div>
 							<div class="btn-div">
 								<p id="form_msg"></p>
-								<button type="submit" class="card-sumit-btn">확인</button>
+								<button type="submit" class="card-sumit-btn" data-bs-toggle="tooltip" data-bs-placement="left" title="반드시 본인인증을 완료 후 버튼을 눌러주세요.">확인</button>
 							</div>
 
 

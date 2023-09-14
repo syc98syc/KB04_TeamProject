@@ -216,12 +216,12 @@
 												<td><input type="number" name="pay_account" id="pay_account" class="blank-1 border-bt" data-bs-toggle="tooltip" data-bs-placement="right" title="계좌번호를 정확히 입력해주세요."></td>
 											</tr>
 											<tr>
-												<th scope="row"><label for="passwd">카드 비밀번호</label></th>
-												<td><input type="password" id="passwd" name="cd_pw" maxlength="4" oninput="checkPassword()" class="blank-2 border-bt" data-bs-toggle="tooltip" data-bs-placement="right" title="카드 비밀번호 4자리 숫자를 입력해주세요. "> <span id="pw1_message"></span></td>
+												<th scope="row" data-bs-toggle="tooltip" data-bs-placement="left" title="카드 비밀번호 4자리 숫자를 입력해주세요. "><label for="passwd">카드 비밀번호</label></th>
+												<td><input type="password" id="passwd" name="cd_pw" maxlength="4" oninput="checkPassword()" class="blank-2 border-bt" > <span id="pw1_message"></span></td>
 											</tr>
 											<tr>
-												<th scope="row"><label for="confirmPassword">카드 비밀번호 확인</label></th>
-												<td><input type="password" id="confirmPassword" maxlength="4" oninput="checkPassword()" class="blank-2 border-bt" data-bs-toggle="tooltip" data-bs-placement="right" title="카드 비밀번호 4자리를 똑같이 다시 입력해주세요."><span id="pw2_message"></span></td>
+												<th scope="row"data-bs-toggle="tooltip" data-bs-placement="left" title="카드 비밀번호 4자리를 똑같이 다시 입력해주세요."><label for="confirmPassword">카드 비밀번호 확인</label></th>
+												<td><input type="password" id="confirmPassword" maxlength="4" oninput="checkPassword()" class="blank-2 border-bt"><span id="pw2_message"></span></td>
 											</tr>
 
 											<tr>

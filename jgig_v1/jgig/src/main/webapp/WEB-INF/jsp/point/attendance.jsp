@@ -43,8 +43,8 @@
 			<span>출석체크</span>
 		</div>
 
+			<img src="/assets/img/rubber-stamp.png" id="stamp-img">
 		<div class="att-checklist">
-
 
 			<table class="att-table">
 				<c:set var="counter" value="0" />

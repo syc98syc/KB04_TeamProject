@@ -27,10 +27,13 @@
 	<nav class="navbar navbar-expand-lg navbar-light shadow navcolor">
 		<div class="container d-flex justify-content-between align-items-center">
 
-			<a class="navbar-brand text-success logo h1 align-self-center" href="/jgig/"> <img src="/assets/img/KB-logo.png" width="30" height="30" alt=""> <img src="/assets/img/jgig-icon.png" height="45" alt="">
+			<a class="navbar-brand text-success logo h1 align-self-center" href="/jgig/"> <img src="/assets/img/KB-logo.png" width="30" height="30" alt="">
+				<img src="/assets/img/jgig-icon.png" height="45" alt="">
 			</a>
 
-			<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+			>
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<!-- 화면 작아질시 토글바 -->
@@ -38,7 +41,9 @@
 			<div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
 				<div class="flex-fill">
 					<ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 금융거래연습 </a>
+						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"
+						> 금융거래연습 </a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="/jgig/open_account1">계좌 개설</a></li>
 								<li><a class="dropdown-item" href="/jgig/account_list">계좌 조회 및 이체</a></li>
@@ -49,25 +54,33 @@
 								<hr>
 								<li><a class="dropdown-item" href="/jgig/certification">인증서 발급</a></li>
 							</ul></li>
-						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 금융교육 </a>
+						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"
+						> 금융교육 </a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="/jgig/searchWord">금융 용어 검색</a></li>
 								<li><a class="dropdown-item" href="#">금융 상식 퀴즈</a></li>
 								<hr>
 								<li><a class="dropdown-item" href="#">이용 가이드</a></li>
 							</ul></li>
-						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 커뮤니티 </a>
+						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"
+						> 커뮤니티 </a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="#">공지사항</a></li>
 								<li><a class="dropdown-item" href="/jgig/board_list">게시판</a></li>
 								<li><a class="dropdown-item" href="#">내가 쓴 글</a></li>
 							</ul></li>
-						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 지점찾기 </a>
+						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"
+						> 지점찾기 </a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="/jgig/findStore">지점찾기 및 번호표 발행</a></li>
 								<li><a class="dropdown-item" href="/jgig/detailWaiting">번호표 조회 및 취소</a></li>
 							</ul></li>
-						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 마이포인트 </a>
+						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"
+						> 마이포인트 </a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="/jgig/point_list">포인트 조회</a></li>
 								<li><a class="dropdown-item" href="/jgig/point_conversion">포인트 전환</a></li>
@@ -87,7 +100,9 @@
 
 						<!--로그인 했을 때 -->
 						<c:if test="${not empty sessionScope.mem_id}">
-							<li class="nav-item dropdown"><a class="nav-icon position-relative text-decoration-none nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-fw fa-user text-dark mr-3"></i> ${sessionScope.mem_nm}님 <!--session값으로 받아오기 -->
+							<li class="nav-item dropdown"><a class="nav-icon position-relative text-decoration-none nav-link" href="#" role="button"
+								data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+							> <i class="fa fa-fw fa-user text-dark mr-3"></i> ${sessionScope.mem_nm}님 <!--session값으로 받아오기 -->
 							</a>
 								<ul class="dropdown-menu">
 									<li><a class="dropdown-item" href="/jgig/member_detail">마이페이지</a></li>
@@ -132,7 +147,8 @@
 					<h2 class="h3 pt-3 ">금융거래연습</h2>
 					<hr>
 					<ul class="list-unstyled ">
-						<li><a class="collapsed d-flex justify-content-between text-decoration-none" href="/jgig/open_account1"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 --> 계좌 개설
+						<li><a class="collapsed d-flex justify-content-between text-decoration-none" href="/jgig/open_account1"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 -->
+								계좌 개설
 						</a></li>
 						<li><a class="collapsed d-flex justify-content-between  text-decoration-none" href="/jgig/account_list"> 계좌 조회 및 이체 </a></li>
 						<li><a class="collapsed d-flex justify-content-between  text-decoration-none" href="/jgig/trans_history"> 거래 내역 조회 </a></li>
@@ -154,8 +170,9 @@
 				</div>
 				<div class="row">
 					<div id="service-content">
-					<div class="subcontent checkbox-div">
-					<label for="advice-balloonCheckbox">도움말</label> <input type="checkbox" id="advice-balloonCheckbox"></div>
+						<div class="subcontent checkbox-div">
+							<label for="advice-balloonCheckbox">도움말</label> <input type="checkbox" id="advice-balloonCheckbox">
+						</div>
 						<div class="subcontent">
 							<h3 class="h3-subtitle">카드 정보</h3>
 							<div class="subcontent">
@@ -173,7 +190,7 @@
 
 										<tr>
 											<th>카드번호</th>
-											<td >${cardDto.cd_num}</td>
+											<td>${cardDto.cd_num}</td>
 										</tr>
 
 										<tr>
@@ -198,33 +215,47 @@
 										<tbody>
 											<tr>
 												<th scope="row"><label for="성명">이름</label></th>
-												<td><input type="text" name="cd_name" class="border-bt blank-1" placeholder="이름 입력" data-bs-toggle="tooltip" data-bs-placement="right" title="본인의 이름을 정확히 입력해주세요."></td>
+												<td><input type="text" name="cd_name" class="border-bt blank-1" placeholder="이름 입력" data-bs-toggle="tooltip"
+													data-bs-placement="right" title="본인의 이름을 정확히 입력해주세요."
+												></td>
 											</tr>
 											<tr>
 												<th scope="row"><label for="주민등록번호1 ">주민등록번호</label></th>
-												<td><input type="text" name="cd_ssn_1" class="border-bt blank-2" placeholder="앞 6자리" maxlength="6"> - <input type="text" name="cd_ssn_2" class="border-bt blank-2" placeholder="뒤 7자리" maxlength="7" data-bs-toggle="tooltip" data-bs-placement="right" title="주민등록번호 앞6자리와 뒤7자리를 정확히 입력해주세요."> <br> <input type="hidden" name="cd_ssn" id="cd_ssn"></td>
+												<td><input type="text" name="cd_ssn_1" class="border-bt blank-2" placeholder="앞 6자리" maxlength="6"> - <input type="password"
+													name="cd_ssn_2" class="border-bt blank-2" placeholder="뒤 7자리" maxlength="7" data-bs-toggle="tooltip" data-bs-placement="right"
+													title="주민등록번호 앞6자리와 뒤7자리를 정확히 입력해주세요."
+												> <br> <input type="hidden" name="cd_ssn" id="cd_ssn"></td>
 												<!-- JavaScript를 사용하여 두 입력 값을 결합하여 cd_ssn 필드에 설정 -->
 
 											</tr>
 											<tr>
 												<th scope="row"><label for="call_hp1">휴대폰번호</label></th>
-												<td><input type="text" name="tel1" class="border-bt blank-3" maxlength="3"> - <input type="text" name="tel2" class="border-bt blank-3" maxlength="4"> - <input type="text" name="tel3" class="border-bt blank-3" maxlength="4" data-bs-toggle="tooltip" data-bs-placement="right" title="휴대폰 번호를 정확히 입력해주세요."> <input type="hidden" name="cd_phone" id="cd_phone"></td>
+												<td><input type="text" name="tel1" class="border-bt blank-3" maxlength="3"> - <input type="text" name="tel2"
+													class="border-bt blank-3" maxlength="4"
+												> - <input type="text" name="tel3" class="border-bt blank-3" maxlength="4" data-bs-toggle="tooltip" data-bs-placement="right"
+													title="휴대폰 번호를 정확히 입력해주세요."
+												> <input type="hidden" name="cd_phone" id="cd_phone"></td>
 
 											</tr>
 											<tr>
 												<th scope="row"><label for="passwd">카드 비밀번호</label></th>
-												<td><input type="password" id="passwd" name="cd_pw" maxlength="4" class="blank-2 border-bt" ata-bs-toggle="tooltip" data-bs-placement="right" title="해당 카드의 비밀번호 4자리를 입력해주세요.">
+												<td><input type="password" id="passwd" name="cd_pw" maxlength="4" class="blank-2 border-bt" data-bs-toggle="tooltip"
+													data-bs-placement="right" title="해당 카드의 비밀번호 4자리를 입력해주세요."
+												>
 											</tr>
 
 										</tbody>
 									</table>
 									<div class=" right-btn">
-										<button type="button" class="card-vaild-btn" onclick="validateMeminfo()" data-bs-toggle="tooltip" data-bs-placement="left" title="위의 항목을 모두 입력한 뒤 버튼을 눌러주세요.">인증</button>
+										<button type="button" class="card-vaild-btn" onclick="validateMeminfo()" data-bs-toggle="tooltip" data-bs-placement="left"
+											title="위의 항목을 모두 입력한 뒤 버튼을 눌러주세요."
+										>인증</button>
 									</div>
 
 								</div>
 								<div class="btn-div">
-									<button type="submit" class="card-sumit-btn" data-bs-toggle="tooltip" data-bs-placement="left" title="반드시 본인인증을 완료 후 해지버튼을 눌러주세요.">카드 해지</button>
+									<button type="submit" class="card-sumit-btn" data-bs-toggle="tooltip" data-bs-placement="left" title="반드시 본인인증을 완료 후 해지버튼을 눌러주세요.">카드
+										해지</button>
 								</div>
 							</form>
 						</div>
@@ -319,7 +350,7 @@
 			return true;
 		}
 	</script>
-	
+
 	<script>
 		$(function() {
 			var tooltipTriggerList = [].slice.call(document

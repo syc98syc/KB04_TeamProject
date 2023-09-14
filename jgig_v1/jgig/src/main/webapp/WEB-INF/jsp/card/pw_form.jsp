@@ -27,10 +27,13 @@
 	<nav class="navbar navbar-expand-lg navbar-light shadow navcolor">
 		<div class="container d-flex justify-content-between align-items-center">
 
-			<a class="navbar-brand text-success logo h1 align-self-center" href="/jgig/"> <img src="/assets/img/KB-logo.png" width="30" height="30" alt=""> <img src="/assets/img/jgig-icon.png" height="45" alt="">
+			<a class="navbar-brand text-success logo h1 align-self-center" href="/jgig/"> <img src="/assets/img/KB-logo.png" width="30" height="30" alt="">
+				<img src="/assets/img/jgig-icon.png" height="45" alt="">
 			</a>
 
-			<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+			>
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<!-- 화면 작아질시 토글바 -->
@@ -38,7 +41,9 @@
 			<div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
 				<div class="flex-fill">
 					<ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 금융거래연습 </a>
+						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"
+						> 금융거래연습 </a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="/jgig/open_account1">계좌 개설</a></li>
 								<li><a class="dropdown-item" href="/jgig/account_list">계좌 조회 및 이체</a></li>
@@ -49,25 +54,33 @@
 								<hr>
 								<li><a class="dropdown-item" href="/jgig/certification">인증서 발급</a></li>
 							</ul></li>
-						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 금융교육 </a>
+						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"
+						> 금융교육 </a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="/jgig/searchWord">금융 용어 검색</a></li>
 								<li><a class="dropdown-item" href="#">금융 상식 퀴즈</a></li>
 								<hr>
 								<li><a class="dropdown-item" href="#">이용 가이드</a></li>
 							</ul></li>
-						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 커뮤니티 </a>
+						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"
+						> 커뮤니티 </a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="#">공지사항</a></li>
 								<li><a class="dropdown-item" href="/jgig/board_list">게시판</a></li>
 								<li><a class="dropdown-item" href="#">내가 쓴 글</a></li>
 							</ul></li>
-						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 지점찾기 </a>
+						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"
+						> 지점찾기 </a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="/jgig/findStore">지점찾기 및 번호표 발행</a></li>
 								<li><a class="dropdown-item" href="/jgig/detailWaiting">번호표 조회 및 취소</a></li>
 							</ul></li>
-						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 마이포인트 </a>
+						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"
+						> 마이포인트 </a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="/jgig/point_list">포인트 조회</a></li>
 								<li><a class="dropdown-item" href="/jgig/point_conversion">포인트 전환</a></li>
@@ -87,7 +100,9 @@
 
 						<!--로그인 했을 때 -->
 						<c:if test="${not empty sessionScope.mem_id}">
-							<li class="nav-item dropdown"><a class="nav-icon position-relative text-decoration-none nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-fw fa-user text-dark mr-3"></i> ${sessionScope.mem_nm}님 <!--session값으로 받아오기 -->
+							<li class="nav-item dropdown"><a class="nav-icon position-relative text-decoration-none nav-link" href="#" role="button"
+								data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+							> <i class="fa fa-fw fa-user text-dark mr-3"></i> ${sessionScope.mem_nm}님 <!--session값으로 받아오기 -->
 							</a>
 								<ul class="dropdown-menu">
 									<li><a class="dropdown-item" href="/jgig/member_detail">마이페이지</a></li>
@@ -132,7 +147,8 @@
 					<h2 class="h3 pt-3 ">금융거래연습</h2>
 					<hr>
 					<ul class="list-unstyled ">
-						<li><a class="collapsed d-flex justify-content-between text-decoration-none" href="/jgig/open_account1"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 --> 계좌 개설
+						<li><a class="collapsed d-flex justify-content-between text-decoration-none" href="/jgig/open_account1"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 -->
+								계좌 개설
 						</a></li>
 						<li><a class="collapsed d-flex justify-content-between  text-decoration-none" href="/jgig/account_list"> 계좌 조회 및 이체 </a></li>
 						<li><a class="collapsed d-flex justify-content-between  text-decoration-none" href="/jgig/trans_history"> 거래 내역 조회 </a></li>
@@ -154,10 +170,13 @@
 				</div>
 				<div class="row">
 					<div id="service-content">
+					<div class="subcontent checkbox-div">
+							<label for="advice-balloonCheckbox">도움말</label> <input type="checkbox" id="advice-balloonCheckbox">
+						</div>
 						<div class="subcontent">
 							<h3 class="h3-subtitle">카드 정보</h3>
 							<div class="subcontent">
-								<table class="select-card-info-table">
+								<table class="select-card-info-table" data-bs-toggle="tooltip" data-bs-placement="top" title="선택한 카드 정보를 확인해 주세요.">
 									<colgroup>
 										<col style="width: 30%">
 										<col style="width: *">
@@ -196,37 +215,54 @@
 										<tbody>
 											<tr>
 												<th scope="row"><label for="성명">이름</label></th>
-												<td><input type="text" name="cd_name" class="border-bt blank-1" placeholder="이름 입력"></td>
+												<td><input type="text" name="cd_name" class="border-bt blank-1" placeholder="이름 입력" data-bs-toggle="tooltip" data-bs-placement="right"
+													title="본인의 이름을 정확히 입력해주세요."
+												></td>
 											</tr>
 											<tr>
 												<th scope="row"><label for="주민등록번호1 ">주민등록번호</label></th>
-												<td><input type="text" name="cd_ssn_1" class="border-bt blank-2" placeholder="앞 6자리" maxlength="6"> - <input type="text" name="cd_ssn_2" class="border-bt blank-2" placeholder="뒤 7자리" maxlength="7"> <br> <input type="hidden" name="cd_ssn" id="cd_ssn"></td>
+												<td><input type="text" name="cd_ssn_1" class="border-bt blank-2" placeholder="앞 6자리" maxlength="6"> - <input type="password"
+													name="cd_ssn_2" class="border-bt blank-2" placeholder="뒤 7자리" maxlength="7" data-bs-placement="right"
+													title="주민등록번호 앞6자리와 뒤7자리를 정확히 입력해주세요."
+												> <br> <input type="hidden" name="cd_ssn" id="cd_ssn"></td>
 												<!-- JavaScript를 사용하여 두 입력 값을 결합하여 cd_ssn 필드에 설정 -->
 
 											</tr>
 											<tr>
 												<th scope="row"><label for="call_hp1">휴대폰번호</label></th>
-												<td><input type="text" name="tel1" class="border-bt blank-3" maxlength="3"> - <input type="text" name="tel2" class="border-bt blank-3" maxlength="4"> - <input type="text" name="tel3" class="border-bt blank-3" maxlength="4"> <input type="hidden" name="cd_phone" id="cd_phone"></td>
+												<td><input type="text" name="tel1" class="border-bt blank-3" maxlength="3"> - <input type="text" name="tel2"
+													class="border-bt blank-3" maxlength="4"
+												> - <input type="text" name="tel3" class="border-bt blank-3" maxlength="4" data-bs-toggle="tooltip" data-bs-placement="right"
+													title="휴대폰 번호를 정확히 입력해주세요."
+												> <input type="hidden" name="cd_phone" id="cd_phone"></td>
 
 											</tr>
 											<tr>
 												<th scope="row"><label for="passwd">카드 기존 비밀번호</label></th>
-												<td><input type="password" id="passwd" name="cd_pw" maxlength="4" class="blank-2 border-bt"></td>
+												<td><input type="password" id="passwd" name="cd_pw" maxlength="4" class="blank-2 border-bt" data-bs-toggle="tooltip"
+													data-bs-placement="right" title="해당 카드의 비밀번호 4자리를 입력해주세요."
+												></td>
 											</tr>
 
 											<tr>
 												<td colspan="2" class="right-btn">
-													<button type="button" class="card-vaild-btn" onclick="validateMeminfo()">인증</button>
+													<button type="button" class="card-vaild-btn" onclick="validateMeminfo() " data-bs-toggle="tooltip" data-bs-placement="left"
+														title="위의 항목을 모두 입력한 뒤 버튼을 눌러주세요."
+													>인증</button>
 												</td>
 
 											</tr>
 											<tr>
-												<th scope="row"><label for="passwd">카드 새 비밀번호</label></th>
-												<td><input type="password" id="password" name="new_pw" maxlength="4" oninput="checkPassword()" class="blank-2 border-bt"> <span id="pw1_message"></span></td>
+												<th scope="row" data-bs-toggle="tooltip"  data-bs-placement="left" title="새롭게 설정할 비밀번호 4자리를 입력해주세요."><label for="passwd" >카드 새 비밀번호</label></th>
+												<td><input type="password" id="password" name="new_pw" maxlength="4" oninput="checkPassword()" class="blank-2 border-bt"> <span
+													id="pw1_message" 
+												></span></td>
 											</tr>
 											<tr>
-												<th scope="row"><label for="passwd">카드 새 비밀번호 확인</label></th>
-												<td><input type="password" id="confirmPassword" maxlength="4" oninput="checkPassword()" class="blank-2 border-bt"> <span id="pw2_message"></span></td>
+												<th scope="row"><label for="passwd" data-bs-toggle="tooltip" data-bs-placement="left" title="설정할 비밀번호 4자리를 다시 입력해주세요.">카드 새 비밀번호 확인</label></th>
+												<td ><input type="password" id="confirmPassword" maxlength="4" oninput="checkPassword()" class="blank-2 border-bt"> <span
+													id="pw2_message"
+												></span></td>
 											</tr>
 
 										</tbody>
@@ -234,7 +270,7 @@
 
 								</div>
 								<div class="btn-div">
-									<button type="submit" class="card-sumit-btn">비밀번호 변경</button>
+									<button type="submit" class="card-sumit-btn" data-bs-toggle="tooltip" data-bs-placement="left" title="반드시 본인인증을 완료하고 새 비밀번호를 입력 후 버튼을 눌러주세요 ">비밀번호 변경</button>
 								</div>
 							</form>
 						</div>
@@ -296,61 +332,101 @@
 		}
 	</script>
 	<script>
-	var is_valid=false;
-	function validateMeminfo() {
-		var name = document.querySelector('input[name="cd_name"]').value;
-		var ssn = document.querySelector('input[name="cd_ssn"]').value;
-		var tel = document.querySelector('input[name="cd_phone"]').value;
-		var pw = document.querySelector('input[name="cd_pw"]').value;
-		
-		console.log("name : ${cardDto.cd_name} ");
+		var is_valid = false;
+		function validateMeminfo() {
+			var name = document.querySelector('input[name="cd_name"]').value;
+			var ssn = document.querySelector('input[name="cd_ssn"]').value;
+			var tel = document.querySelector('input[name="cd_phone"]').value;
+			var pw = document.querySelector('input[name="cd_pw"]').value;
 
-		if (name !== "${cardDto.cd_name}" || ssn !== "${cardDto.cd_ssn}"
-				|| tel !== "${cardDto.cd_phone}"
-				|| pw !== "${cardDto.cd_pw}") {
-			alert("카드 회원 정보가 일치하지 않습니다.")
-			return false;
-		} 
-		alert("본인 인증 완료");
-			is_valid=true;
+			console.log("name : ${cardDto.cd_name} ");
+
+			if (name !== "${cardDto.cd_name}" || ssn !== "${cardDto.cd_ssn}"
+					|| tel !== "${cardDto.cd_phone}"
+					|| pw !== "${cardDto.cd_pw}") {
+				alert("카드 회원 정보가 일치하지 않습니다.")
+				return false;
+			}
+			alert("본인 인증 완료");
+			is_valid = true;
 			return true;
 
-	}
-	
-	function is_vaild(){
-		 var password = document.getElementById("password").value;
-         var confirmPassword = document.getElementById("confirmPassword").value;
-		if(!is_valid){
-			alert("본인 인증이 필요합니다.");
-			return false;
-		}else if(password.length===0 || confirmPassword.length===0||password!==confirmPassword){
-			alert("새 비밀번호를 정확히 입력해주세요.");
-			return false;
 		}
-		return true;
-	}
+
+		function is_vaild() {
+			var password = document.getElementById("password").value;
+			var confirmPassword = document.getElementById("confirmPassword").value;
+			if (!is_valid) {
+				alert("본인 인증이 필요합니다.");
+				return false;
+			} else if (password.length === 0 || confirmPassword.length === 0
+					|| password !== confirmPassword) {
+				alert("새 비밀번호를 정확히 입력해주세요.");
+				return false;
+			}
+			return true;
+		}
 	</script>
 	<script>
-	 //새 비밀번호 일치
-        function checkPassword() {
-            var password = document.getElementById("password").value;
-            var confirmPassword = document.getElementById("confirmPassword").value;
-            var message1 = document.getElementById("pw1_message");
-            var message2 = document.getElementById("pw2_message");
+		//새 비밀번호 일치
+		function checkPassword() {
+			var password = document.getElementById("password").value;
+			var confirmPassword = document.getElementById("confirmPassword").value;
+			var message1 = document.getElementById("pw1_message");
+			var message2 = document.getElementById("pw2_message");
 
-            if (password.length !== 4 ) {
-                message1.innerHTML = "비밀번호는 4자리 입력해야 합니다.";
-            } else {
-                message1.innerHTML = "";
-            }
-            if (password.length === 4 && password !== confirmPassword &&confirmPassword.length!==0) {
-                message2.innerHTML = "비밀번호가 일치하지 않습니다.";
-            } else {
-                message2.innerHTML = "";
-    
-            }
-        }
-        </script>
+			if (password.length !== 4) {
+				message1.innerHTML = "비밀번호는 4자리 입력해야 합니다.";
+			} else {
+				message1.innerHTML = "";
+			}
+			if (password.length === 4 && password !== confirmPassword
+					&& confirmPassword.length !== 0) {
+				message2.innerHTML = "비밀번호가 일치하지 않습니다.";
+			} else {
+				message2.innerHTML = "";
+
+			}
+		}
+	</script>
+
+	<script>
+		$(function() {
+			var tooltipTriggerList = [].slice.call(document
+					.querySelectorAll('[data-bs-toggle="tooltip"]'));
+			var tooltipList = tooltipTriggerList
+					.map(function(tooltipTriggerEl) {
+						return new bootstrap.Tooltip(
+								tooltipTriggerEl,
+								{
+									trigger : 'manual',
+									template : '<div class="tooltip tooltip-warning" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' // 툴팁 말풍선의 클래스 변경
+								});
+					});
+
+			$('#advice-balloonCheckbox').change(function() {
+				if (this.checked) {
+					$('.advice-balloon1').show();
+					$('.advice-balloon2').show();
+					$('.advice-balloon3').show();
+					$('.advice-balloon4').show();
+
+					tooltipList.forEach(function(tooltip) {
+						tooltip.show();
+					});
+				} else {
+					$('.advice-balloon1').hide();
+					$('.advice-balloon2').hide();
+					$('.advice-balloon3').hide();
+					$('.advice-balloon4').hide();
+
+					tooltipList.forEach(function(tooltip) {
+						tooltip.hide();
+					});
+				}
+			});
+		});
+	</script>
 
 	<!-- End Script -->
 

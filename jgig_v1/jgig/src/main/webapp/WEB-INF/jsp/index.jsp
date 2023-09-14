@@ -33,7 +33,7 @@ https://templatemo.com/tm-559-zay-shop
 -->
 </head>
 
-<body>
+<body id="main-body">
 
 	<!-- Header -->
 	<nav class="navbar navbar-expand-lg navbar-light shadow navcolor">
@@ -140,54 +140,38 @@ https://templatemo.com/tm-559-zay-shop
 
 
 	<!-- Start Banner Hero -->
-	<div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+	<div id="template-mo-zay-hero-carousel" class="carousel slide height350" data-bs-ride="carousel">
 		<ol class="carousel-indicators">
 			<li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
 			<li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
 			<li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
 		</ol>
-		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<div class="container height350">
-					<div class="row p-5">
-						<div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-							<img class="img-fluid" src="/./assets/img/banner_img_01.jpg" alt="">
-						</div>
-						<div class="col-lg-6 mb-0 d-flex align-items-center">
-							<div class="text-align-left align-self-center">
-								<h1 class="h1 text-success">
-									<b>Zay</b> eCommerce
-								</h1>
-								<h3 class="h2">Tiny and Perfect eCommerce Template</h3>
-								<p>
-									Zay Shop is an eCommerce HTML5 CSS template with latest version of Bootstrap 5 (beta 1). This template is 100% free provided by <a rel="sponsored" class="text-success" href="https://templatemo.com" target="_blank">TemplateMo</a> website. Image credits go to <a rel="sponsored" class="text-success" href="https://stories.freepik.com/" target="_blank">Freepik Stories</a>, <a rel="sponsored" class="text-success" href="https://unsplash.com/" target="_blank">Unsplash</a> and <a rel="sponsored" class="text-success" href="https://icons8.com/" target="_blank">Icons 8</a>.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="carousel-item">
-				<div class="container">
-					<div class="row p-5 ">
-						<div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-							<img class="img-fluid" src="/./assets/img/banner_img_02.jpg" alt="">
-						</div>
-						<div class="col-lg-6 mb-0 d-flex align-items-center">
-							<div class="text-align-left">
-								<h1 class="h1">Proident occaecat</h1>
-								<h3 class="h2">Aliquip ex ea commodo consequat</h3>
-								<p>
-									You are permitted to use this Zay CSS template for your commercial websites. You are <strong>not permitted</strong> to re-distribute the template ZIP file in any kind of template collection websites.
-								</p>
-							</div>
-						</div>
+		<div class="carousel-inner height350">
+			<div class="carousel-item active height350">
+				<div class="container ">
+					<div class="row  height350">
+					
+					<img class="banner-img" src="/./assets/img/banner-1.png" >
+					
 					</div>
 				</div>
 			</div>
 			<div class="carousel-item">
 				<div class="container ">
-					<div class="row p-5 height350">글쓸</div>
+					<div class="row height350">
+					
+					<img   class="banner-img" src="/./assets/img/banner-2.png" >
+					
+					</div>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<div class="container ">
+					<div class="row  height350">
+					
+					<img  class="banner-img" src="/./assets/img/banner-3.png" >
+					
+					</div>
 				</div>
 			</div>
 		</div>
@@ -199,22 +183,34 @@ https://templatemo.com/tm-559-zay-shop
 
 
 	<!-- Start 공지사항, 회원랭킹 -->
-	<section class="container py-5">
+	<section class="container py-3">
 		<div class="row">
 			<div class="col-lg-8">
+			<div class="main-div text-center">
+			<div class="btn-outer-div">
+					<button type="button"  class="main-btn " id="guid-btn" onclick="window.location.href='/jgig/guide'">
+						<img src="/assets/img/guid.png" height="30px">이용 설명
+					</button> <span>|</span>
+					<button type="button"  class="main-btn "  onclick="window.location.href='/jgig/findStore'">
+						<img src="/assets/img/bank-map.png" height="30px">가까운 지점 찾기
+					</button>
+				</div>	
+				</div>
+				<div class="main-div">
 				<div class="main_board">
 					<div class="tab_menu">
 						<ul class="list">
 							<li class="is_on"><a class="main-brd-a" onclick="showTab('tab1', this)">공지사항</a></li>
 							<li><a class="main-brd-a" onclick="showTab('tab2', this)">게시판</a></li>
 							<li><a class="main-brd-a" onclick="showTab('tab3', this)">Q&A</a></li>
+							<li class="main-brd-plus"><a class="main-brd-a" href="/jgig/add_notice">+</a></li>
 						</ul>
 						<br>
 						<div id="tab1" class="cont">
 							<ul>
 								<c:forEach items="${notice_list}" var="nl">
 
-									<li><a class="brd_title" href="/jgig/notice_detail?no=${nl.ntc_id}"> ${nl.title}</a> <span class="brd_date"> <fmt:formatDate value="${nl.ntc_date_created}" pattern="yyyy-MM-dd" /></span></li>
+									<li><a class="brd_title" href="/jgig/notice_detail?no=${nl.ntc_id}">• ${nl.title}</a> <span class="brd_date"> <fmt:formatDate value="${nl.ntc_date_created}" pattern="yyyy-MM-dd" /></span></li>
 
 
 
@@ -225,7 +221,7 @@ https://templatemo.com/tm-559-zay-shop
 							<ul>
 								<c:forEach items="${free_list}" var="fl">
 
-									<li><a class="brd_title" href="/jgig/board_detail?no=${fl.brd_id}"> ${fl.title}</a> <span class="brd_date"> <fmt:formatDate value="${fl.brd_date_created}" pattern="yyyy-MM-dd" /></span></li>
+									<li><a class="brd_title" href="/jgig/board_detail?no=${fl.brd_id}">• ${fl.title}</a> <span class="brd_date"> <fmt:formatDate value="${fl.brd_date_created}" pattern="yyyy-MM-dd" /></span></li>
 
 
 
@@ -236,7 +232,7 @@ https://templatemo.com/tm-559-zay-shop
 							<ul>
 								<c:forEach items="${question_list}" var="ql">
 
-									<li><a class="brd_title" href="/jgig/board_detail?no=${ql.brd_id}"> ${ql.title}</a> <span class="brd_date"> <fmt:formatDate value="${ql.brd_date_created}" pattern="yyyy-MM-dd" /></span></li>
+									<li><a class="brd_title" href="/jgig/board_detail?no=${ql.brd_id}">• ${ql.title}</a> <span class="brd_date"> <fmt:formatDate value="${ql.brd_date_created}" pattern="yyyy-MM-dd" /></span></li>
 
 
 
@@ -245,18 +241,19 @@ https://templatemo.com/tm-559-zay-shop
 						</div>
 					</div>
 				</div>
+				</div>
 			</div>
 
 
 
 			<div class="col-lg-4">
-				<div class="subcontent text-center">
+				<div class="main-div text-center">
 					<button type="button"  class="att_btn " onclick="return isLogin();">
 						<img src="/assets/img/attendance-icon.png" height="30px">출석체크
 					</button>
 				</div>
 
-				<div class="subcontent">
+				<div class="main-div">
 					<table id="rank-table" class="text-center">
 						<thead>
 							<tr>
@@ -270,10 +267,10 @@ https://templatemo.com/tm-559-zay-shop
 						<c:forEach items="${point_rank}" var="pr" varStatus="loop">
 
 							<tr>
-
+		
 								<td class="left-round fw-bold">${loop.index + 1}</td>
-								<td>${pr.nickname}</td>
-								<td class="right-round text-sm-start"><img src="/assets/img/coins.png" height="20px"> ${pr.score}</td>
+								<td class="text-green">${pr.nickname}</td>
+								<td class="right-round text-sm-start"><img src="/assets/img/point.png" height="20px"> ${pr.score}</td>
 
 							</tr>
 
@@ -341,6 +338,24 @@ https://templatemo.com/tm-559-zay-shop
 			if (clickedButton) {
 				clickedButton.style.color = 'white'; // Change to the desired color
 			}
+			
+			 // Update the href of the + button based on the current tab
+	        var plusButton = document.querySelector('.main-brd-plus a');
+	        if (plusButton) {
+	            switch (tabId) {
+	                case 'tab1':
+	                    plusButton.href = '/jgig/add_notice'; // 공지사항 탭인 경우
+	                    break;
+	                case 'tab2':
+	                    plusButton.href = '/jgig/board_list'; // 자유게시판 탭인 경우
+	                    break;
+	                case 'tab3':
+	                    plusButton.href = '/jgig/board_list'; // Q&A 탭인 경우
+	                    break;
+	                default:
+	                    plusButton.href = ''; // 기본값은 빈 주소
+	            }
+	        }
 		}
 		
 		
@@ -357,6 +372,31 @@ https://templatemo.com/tm-559-zay-shop
 		}
 		
 		
+	</script>
+	
+	<script>
+	// jQuery를 사용하여 반복적으로 페이드 인 애니메이션 적용
+	function applyFadeInAnimation() {
+	    var rows = $('#rank-table tbody tr');
+	    var delay = 1000; // 각 행 간의 딜레이 설정 (밀리초)
+
+	    rows.each(function(index) {
+	        var row = $(this);
+	        setTimeout(function() {
+	            row.addClass('fade-in');
+	        }, delay * index);
+	    });
+
+	    // 애니메이션이 끝나면 행을 초기화하고 다시 반복
+	    setTimeout(function() {
+	        rows.removeClass('fade-in');
+	        setTimeout(applyFadeInAnimation, 500); // 다음 반복까지 대기 시간 설정 (밀리초)
+	    }, delay * rows.length);
+	}
+
+	$(document).ready(function() {
+	    applyFadeInAnimation(); // 애니메이션 시작
+	});
 	</script>
 	<!-- End Script -->
 </body>

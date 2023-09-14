@@ -258,6 +258,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	margin: auto;
 	border-radius: 10px;
 	position: relative;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16);
+    
 }
 
 .tab_menu #tab2, #tab3 {
@@ -291,6 +293,13 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	color: white;
 }
 
+.main-brd-plus{
+    float: right !important;
+    }
+
+.main-brd-plus:after{
+	content: "" !important;
+}
 .cont {
 	margin: 20px auto;
 	background-color: white;
@@ -365,7 +374,9 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 .att_btn {
 	width: 85%;
 	padding: 0.5rem;
-	background-color: #FF4D29;
+	background-image: linear-gradient(119deg, #ffdf74, #ffebb2 100%);
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16);
+    
 	border: none;
 	border-radius: 50px;
 	font-size: 25px;
@@ -382,9 +393,18 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 #template-mo-zay-hero-carousel .carousel-control-next i,
 	#template-mo-zay-hero-carousel .carousel-control-prev i {
-	color: #FFD64B !important;
+	color: #FFFFFF !important;
+}
+#template-mo-zay-hero-carousel { /*슬라이드 배너색깔*/
+    background: #FFC230 !important;
+    height: 350px;
 }
 
+.banner-img{
+	height: 350px;
+    width: auto;
+    margin: auto;
+}
 #rank-table {
 	width: 85%;
 	border-collapse: initial;
@@ -393,7 +413,15 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	margin: auto;
 	border-radius: 10px;
 	padding: 10px;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16);
+    
 }
+
+#template-mo-zay-hero-carousel .carousel-indicators li {
+    margin-top: -50px;
+    background-color: white;
+}
+
 
 #rank-table img {
 	margin: 0 5px;
@@ -542,6 +570,9 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 .text-brown {
 	color: #73685d;
 }
+.text-green{
+	color:green;
+}
 
 #loca-div {
 	display: flex;
@@ -590,6 +621,13 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 .att-title>span {
 	color: #FF4D29;
 	text-shadow: 3px 3px 3px lightgrey;
+}
+
+#stamp-img{
+	position: absolute;
+    top: 3%;
+    right: 5%;
+    width: 110px;
 }
 
 .att-checklist {
@@ -652,6 +690,39 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	padding: 20px;
 }
 
+.main-btn{
+	width: 45%;
+    padding: 0.5rem;
+    background-color: white;
+    border: none;
+    margin:0 6px;
+    font-size: 25px;
+    font-weight: 400;
+}
+
+
+.btn-outer-div{
+ width: 95%;
+    background: #fff;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16);
+    border-radius: 16px;
+    margin: auto;
+}
+
+.btn-outer-div span{
+	    font-size: 30px;
+    color: lightgrey;
+}
+
+.main-btn img{
+	margin-right: 10px;
+}
+
+.main-div{
+	padding:0.5rem;
+}
+
+
 .att-btn button {
 	width: 30%;
 	font-size: 40px;
@@ -709,6 +780,18 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     border-top-color: #f5dc8c;
 }
 
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+#main-body{
+	background: linear-gradient(to bottom, #f9fafc, rgba(239, 242, 247, 0.87) 100%);
+}
 
 /*******************************다윤********************************/
 
