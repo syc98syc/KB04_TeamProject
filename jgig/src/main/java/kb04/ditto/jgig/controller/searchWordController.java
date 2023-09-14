@@ -53,7 +53,6 @@ public class searchWordController {
 		}
 		
 		int mem_age = searchWordMapper.selectAge(memId);
-		System.out.println(mem_age);
 		
 		List<PopularWordDto> list = searchWordMapper.list(mem_age);
 		model.addAttribute("word_list", list);
@@ -74,11 +73,11 @@ public class searchWordController {
 		}
 
 		try {
-			String crawlingResult = crawlingHandler(pw_word, pageNo);
+			String apiResult = apiHandler(pw_word, pageNo);
 			// 결과 값 담을 때 사용할 map
 			List<Map<String, Object>> resultList = new LinkedList<Map<String, Object>>();
 	
-			List<HashMap<String, String>> list = getResultMap(crawlingResult);
+			List<HashMap<String, String>> list = getResultMap(apiResult);
 			for (Map<String, String> tmpMap : list) {
 				Map<String, Object> map = new HashMap<String, Object>();
 				map.put("word", tmpMap.get("fnceDictNm"));
@@ -99,11 +98,11 @@ public class searchWordController {
 	@PostMapping("/jgig/searchWordResult/{pageNo}")
 	public String postSearchWordHandler(@RequestParam("pw_word") String pw_word, @PathVariable("pageNo") String pageNo, Model model) {
 		try {
-			String crawlingResult = crawlingHandler(pw_word, pageNo);
+			String apiResult = apiHandler(pw_word, pageNo);
 			// 결과 값 담을 때 사용할 map
 			List<Map<String, Object>> resultList = new LinkedList<Map<String, Object>>();
 	
-			List<HashMap<String, String>> list = getResultMap(crawlingResult);
+			List<HashMap<String, String>> list = getResultMap(apiResult);
 			for (Map<String, String> tmpMap : list) {
 				Map<String, Object> map = new HashMap<String, Object>();
 				map.put("word", tmpMap.get("fnceDictNm"));
@@ -120,8 +119,8 @@ public class searchWordController {
 		return "search_word/resultList";
 	}
 
-	// 크롤링 처리 함수
-	public String crawlingHandler(String pw_word, String pageNo) {
+	// open api 처리 함수
+	public String apiHandler(String pw_word, String pageNo) {
 		StringBuilder sb = new StringBuilder();
 		try {
 
