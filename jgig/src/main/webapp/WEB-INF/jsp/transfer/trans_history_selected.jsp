@@ -365,6 +365,9 @@
 		            window.history.replaceState({}, document.title, newURL)
 		        } else if(showTable==="false"){
 		        	$("#myModal").modal('show')
+		        	urlParams.delete("showTable")
+		            var newURL = window.location.pathname + '?' + urlParams.toString()
+		            window.history.replaceState({}, document.title, newURL)
 		        }
 		        else {
 		            $("#tableDiv").hide()
