@@ -189,17 +189,7 @@ table.card-info-table {
 	border: none;
 	border-bottom: 1.5px solid gray;
 }
-/* input[name="cd_name"] {
-	width: 80%;
-}
 
-input[name="cd_ssn_1"], input[name="cd_ssn_2"] {
-	width: 39%;
-} */
-
-/* input[name="tel1"], input[name="tel2"], input[name="tel3"] {
-	width: 25%;
-} */
 .table-center {
 	margin: auto;
 }
@@ -259,7 +249,6 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	border-radius: 10px;
 	position: relative;
 	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16);
-    
 }
 
 .tab_menu #tab2, #tab3 {
@@ -293,13 +282,14 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	color: white;
 }
 
-.main-brd-plus{
-    float: right !important;
-    }
+.main-brd-plus {
+	float: right !important;
+}
 
-.main-brd-plus:after{
+.main-brd-plus:after {
 	content: "" !important;
 }
+
 .cont {
 	margin: 20px auto;
 	background-color: white;
@@ -376,7 +366,6 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	padding: 0.5rem;
 	background-image: linear-gradient(119deg, #ffdf74, #ffebb2 100%);
 	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16);
-    
 	border: none;
 	border-radius: 50px;
 	font-size: 25px;
@@ -395,16 +384,18 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	#template-mo-zay-hero-carousel .carousel-control-prev i {
 	color: #FFFFFF !important;
 }
+
 #template-mo-zay-hero-carousel { /*슬라이드 배너색깔*/
-    background: #FFC230 !important;
-    height: 350px;
+	background: #FFC230 !important;
+	height: 350px;
 }
 
-.banner-img{
+.banner-img {
 	height: 350px;
-    width: auto;
-    margin: auto;
+	width: auto;
+	margin: auto;
 }
+
 #rank-table {
 	width: 85%;
 	border-collapse: initial;
@@ -414,14 +405,12 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	border-radius: 10px;
 	padding: 10px;
 	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16);
-    
 }
 
 #template-mo-zay-hero-carousel .carousel-indicators li {
-    margin-top: -50px;
-    background-color: white;
+	margin-top: -50px;
+	background-color: white;
 }
-
 
 #rank-table img {
 	margin: 0 5px;
@@ -570,8 +559,9 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 .text-brown {
 	color: #73685d;
 }
-.text-green{
-	color:green;
+
+.text-green {
+	color: green;
 }
 
 #loca-div {
@@ -623,11 +613,11 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	text-shadow: 3px 3px 3px lightgrey;
 }
 
-#stamp-img{
+#stamp-img {
 	position: absolute;
-    top: 3%;
-    right: 5%;
-    width: 110px;
+	top: 3%;
+	right: 5%;
+	width: 110px;
 }
 
 .att-checklist {
@@ -690,38 +680,36 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	padding: 20px;
 }
 
-.main-btn{
+.main-btn {
 	width: 45%;
-    padding: 0.5rem;
-    background-color: white;
-    border: none;
-    margin:0 6px;
-    font-size: 25px;
-    font-weight: 400;
+	padding: 0.5rem;
+	background-color: white;
+	border: none;
+	margin: 0 6px;
+	font-size: 25px;
+	font-weight: 400;
 }
 
-
-.btn-outer-div{
- width: 95%;
-    background: #fff;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16);
-    border-radius: 16px;
-    margin: auto;
+.btn-outer-div {
+	width: 95%;
+	background: #fff;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16);
+	border-radius: 16px;
+	margin: auto;
 }
 
-.btn-outer-div span{
-	    font-size: 30px;
-    color: lightgrey;
+.btn-outer-div span {
+	font-size: 30px;
+	color: lightgrey;
 }
 
-.main-btn img{
+.main-btn img {
 	margin-right: 10px;
 }
 
-.main-div{
-	padding:0.5rem;
+.main-div {
+	padding: 0.5rem;
 }
-
 
 .att-btn button {
 	width: 30%;
@@ -734,50 +722,54 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	box-shadow: 2px 2px gray;
 }
 
-.checkbox-div{
+.checkbox-div {
 	text-align: right;
-    padding: 5px 20%;
+	padding: 5px 20%;
 }
 
-.checkbox-div label{
+.checkbox-div label {
 	font-size: 20px !important;
 }
 
-#advice-balloonCheckbox{
+#advice-balloonCheckbox {
 	transform: scale(1.5);
-    margin: 5px;
+	margin: 5px;
 }
 
- /* 툴팁 말풍선의 스타일 수정 */
-    .tooltip-warning .tooltip-inner {
-        background-color: #f5dc8c; /* 배경색을 노란색으로 변경 */
-        color: black; /* 텍스트 색상을 검은색으로 변경 */
-         max-width: 350px;
-    }
-    
-    .tooltip .tooltip-arrow{
-        border-top-color: #f5dc8c !important; /* 꼬리의 색상을 빨간색으로 변경 */
-    }
-    
- .bs-tooltip-end .tooltip-arrow::before {
-    right: -1px;
-    border-width: 0.4rem 0.4rem 0.4rem 0;
-    border-right-color: #f5dc8c;
+/* 툴팁 말풍선의 스타일 수정 */
+.tooltip-warning .tooltip-inner {
+	background-color: #f5dc8c; /* 배경색을 노란색으로 변경 */
+	color: black; /* 텍스트 색상을 검은색으로 변경 */
+	max-width: 350px;
 }
+
+.tooltip .tooltip-arrow {
+	border-top-color: #f5dc8c !important; /* 꼬리의 색상을 빨간색으로 변경 */
+}
+
+.bs-tooltip-end .tooltip-arrow::before {
+	right: -1px;
+	border-width: 0.4rem 0.4rem 0.4rem 0;
+	border-right-color: #f5dc8c;
+}
+
 .bs-tooltip-start .tooltip-arrow::before {
-    left: -1px;
-    border-width: 0.4rem 0 0.4rem 0.4rem;
-    border-left-color: #f5dc8c;
+	left: -1px;
+	border-width: 0.4rem 0 0.4rem 0.4rem;
+	border-left-color: #f5dc8c;
 }
+
 .bs-tooltip-bottom .tooltip-arrow::before {
-    bottom: -1px;
-    border-width: 0 0.4rem 0.4rem;
-    border-bottom-color:#f5dc8c;
+	bottom: -1px;
+	border-width: 0 0.4rem 0.4rem;
+	border-bottom-color: #f5dc8c;
 }
-.bs-tooltip-auto[data-popper-placement^=top] .tooltip-arrow::before, .bs-tooltip-top .tooltip-arrow::before {
-    top: -1px;
-    border-width: 0.4rem 0.4rem 0;
-    border-top-color: #f5dc8c;
+
+.bs-tooltip-auto[data-popper-placement^=top] .tooltip-arrow::before,
+	.bs-tooltip-top .tooltip-arrow::before {
+	top: -1px;
+	border-width: 0.4rem 0.4rem 0;
+	border-top-color: #f5dc8c;
 }
 
 @keyframes fadeIn {
@@ -789,10 +781,89 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     animation: fadeIn 0.5s ease-in-out;
 }
 
-#main-body{
-	background: linear-gradient(to bottom, #f9fafc, rgba(239, 242, 247, 0.87) 100%);
+#main-body {
+	background: linear-gradient(to bottom, #f9fafc, rgba(239, 242, 247, 0.87)
+		100%);
 }
 
-/*******************************다윤********************************/
 
- 
+
+.none-a {
+	text-decoration: none !important;
+}
+
+.none-a:hover{
+	text-decoration: underline !important;
+}
+
+
+
+/**슬라이드 배너**/
+#slide-banner {
+    background-color: #FFC230;
+    position: relative; /* 부모로부터 상대적 위치 설정 */
+    overflow: hidden; /* 내용 넘침을 숨김 */
+}
+
+/* 자식 요소들의 높이를 100%로 설정하여 부모의 높이에 맞춤 */
+#slide-banner .carousel-inner,
+#slide-banner .carousel-item,
+#slide-banner .row,
+#slide-banner .col-7,
+#slide-banner .col-6,
+#slide-banner .col-5 {
+    height: 100%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    background: none;
+    border: none;
+}
+
+.center-x {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-inner img {
+    max-height: 100%; /* 이미지의 최대 높이를 부모 요소의 높이에 맞춤 */
+}
+
+.banner-title{
+	font-size:45px !important;
+	font-family: 'Black Han Sans', sans-serif;
+	color: white;
+}
+
+.banner-subtitle{
+	font-size:25px !important;
+	font-family: 'Noto Sans KR', sans-serif;
+	color: white;
+}
+.banner-content{
+	font-size:15px !important;
+	font-family: 'Noto Sans KR', sans-serif;
+	color: white;
+}
+
+.banner-text {
+    display: flex; /* 자식 요소를 가로로 배치하기 위해 */
+    flex-direction: column; /* 자식 요소들을 세로로 배치 */
+    justify-content: center; /* 수직 가운데 정렬 */
+}
+
+.carousel-indicators>button{
+	border:none;
+}
+
+.carousel-indicators>button.active{
+	background-color: gray;
+}
+
+.pd-20p{
+	padding-left: 10%;
+	padding-right: 10%;
+}
+/*******************************다윤********************************/

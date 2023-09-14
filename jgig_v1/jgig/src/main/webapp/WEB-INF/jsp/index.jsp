@@ -24,6 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <!--
     
 TemplateMo 559 Zay Shop
@@ -39,10 +40,13 @@ https://templatemo.com/tm-559-zay-shop
 	<nav class="navbar navbar-expand-lg navbar-light shadow navcolor">
 		<div class="container d-flex justify-content-between align-items-center">
 
-			<a class="navbar-brand text-success logo h1 align-self-center" href="/jgig/"> <img src="/assets/img/KB-logo.png" width="30" height="30" alt=""> <img src="/assets/img/jgig-icon.png" height="45" alt="">
+			<a class="navbar-brand text-success logo h1 align-self-center" href="/jgig/"> <img src="/assets/img/KB-logo.png" width="30" height="30" alt="">
+				<img src="/assets/img/jgig-icon.png" height="45" alt="">
 			</a>
 
-			<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+			>
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<!-- 화면 작아질시 토글바 -->
@@ -50,7 +54,9 @@ https://templatemo.com/tm-559-zay-shop
 			<div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
 				<div class="flex-fill">
 					<ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 금융거래연습 </a>
+						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"
+						> 금융거래연습 </a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="/jgig/open_account1">계좌 개설</a></li>
 								<li><a class="dropdown-item" href="/jgig/account_list">계좌 조회 및 이체</a></li>
@@ -61,25 +67,33 @@ https://templatemo.com/tm-559-zay-shop
 								<hr>
 								<li><a class="dropdown-item" href="/jgig/certification">인증서 발급</a></li>
 							</ul></li>
-						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 금융교육 </a>
+						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"
+						> 금융교육 </a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="/jgig/searchWord">금융 용어 검색</a></li>
 								<li><a class="dropdown-item" href="#">금융 상식 퀴즈</a></li>
 								<hr>
 								<li><a class="dropdown-item" href="#">이용 가이드</a></li>
 							</ul></li>
-						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 커뮤니티 </a>
+						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"
+						> 커뮤니티 </a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="#">공지사항</a></li>
 								<li><a class="dropdown-item" href="/jgig/board_list">게시판</a></li>
 								<li><a class="dropdown-item" href="#">내가 쓴 글</a></li>
 							</ul></li>
-						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 지점찾기 </a>
+						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"
+						> 지점찾기 </a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="/jgig/findStore">지점찾기 및 번호표 발행</a></li>
 								<li><a class="dropdown-item" href="/jgig/detailWaiting">번호표 조회 및 취소</a></li>
 							</ul></li>
-						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 마이포인트 </a>
+						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"
+						> 마이포인트 </a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="/jgig/point_list">포인트 조회</a></li>
 								<li><a class="dropdown-item" href="/jgig/point_conversion">포인트 전환</a></li>
@@ -99,7 +113,9 @@ https://templatemo.com/tm-559-zay-shop
 
 						<!--로그인 했을 때 -->
 						<c:if test="${not empty sessionScope.mem_id}">
-							<li class="nav-item dropdown"><a class="nav-icon position-relative text-decoration-none nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-fw fa-user text-dark mr-3"></i> ${sessionScope.mem_nm}님 <!--session값으로 받아오기 -->
+							<li class="nav-item dropdown"><a class="nav-icon position-relative text-decoration-none nav-link" href="#" role="button"
+								data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+							> <i class="fa fa-fw fa-user text-dark mr-3"></i> ${sessionScope.mem_nm}님 <!--session값으로 받아오기 -->
 							</a>
 								<ul class="dropdown-menu">
 									<li><a class="dropdown-item" href="/jgig/member_detail">마이페이지</a></li>
@@ -138,9 +154,96 @@ https://templatemo.com/tm-559-zay-shop
 	</div>
 
 
+	<div id="slide-banner" class="carousel slide height350 " data-bs-ride="carousel">
+		<div class="carousel-indicators pb-3">
+			<button type="button" data-bs-target="#slide-banner" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+			<button type="button" data-bs-target="#slide-banner" data-bs-slide-to="1" aria-label="Slide 2"></button>
+			<button type="button" data-bs-target="#slide-banner" data-bs-slide-to="2" aria-label="Slide 3"></button>
+		</div>
+		<div class="carousel-inner px-5">
+
+			<div class="carousel-item active">
+				<div class="row pd-20p py-4 height350">
+					<div class="col-6  banner-text">
+						<p class="banner-title">
+							<img src="/assets/img/light-bulb.png" width="50px">금융 거래 연습
+						</p>
+						<p class="banner-subtitle">
+							실제 인터넷 뱅킹을 하다가 실수할까 겁이나시나요? <br>지금입금 서비스를 사용해보세요! 
+						</p>
+						
+						<p class="banner-content">
+							"가상 계좌로 손쉽게 입출금 및 이체 연습을 해보세요."<br>"쉽고 안전하게 카드 발급 및 금융 관리를 경험하세요."
+						</p>
+						
+					</div>
+					<div class="col-6 center-x">
+						<img src="/assets/img/bannericon-1.png" class="img-fluid" alt="Image">
+					</div>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<div class="row pd-20p py-4 height350">
+					<div class="col-6 center-x">
+						<img src="/assets/img/bannericon-3.png" class="img-fluid" alt="Image">
+					</div>
+					<div class="col-6 pe-md-5 text-md-end banner-text">
+						<p class="banner-title">
+							<img src="/assets/img/light-bulb.png" width="50px">금융 용어 검색&퀴즈
+						</p>
+						<p class="banner-subtitle">
+							헷갈리고 어려운 금융 용어 <br>지금 입금이 쉽게 알려드릴게요! 
+						</p>
+						
+						<p class="banner-content">
+							"금융 용어를 검색하고, 퀴즈로 학습하세요."<br>"금융 용어 퀴즈를 통해 지식을 쌓으세요."
+						</p>
+						
+					</div>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<div class="row pd-20p py-4 height350">
+					<div class="col-6 ps-md-5 banner-text">
+						<p class="banner-title">
+							<img src="/assets/img/light-bulb.png" width="50px">포인트 & 랭킹
+						</p>
+						<p class="banner-subtitle">
+							포인트를 쌓으며 재미있게 연습할 수 있어요! 
+						</p>
+						
+						<p class="banner-content">
+							"출석체크, 퀴즈, 연습으로 포인트를 획득하세요."<br>"포인트를 쌓아 랭킹에서 상위에 올라가세요."
+						</p>
+						
+					</div>
+					<div class="col-6 center-x">
+						<img src="/assets/img/bannericon-2.png" class="img-fluid" alt="Image">
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<button class="carousel-control-prev" type="button" data-bs-target="#slide-banner" data-bs-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="visually-hidden">Previous</span>
+		</button>
+		<button class="carousel-control-next" type="button" data-bs-target="#slide-banner" data-bs-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="visually-hidden">Next</span>
+		</button>
+	</div>
+
+
+
+
+
+
+
+
+
+
 
 	<!-- Start Banner Hero -->
-	<div id="template-mo-zay-hero-carousel" class="carousel slide height350" data-bs-ride="carousel">
+	<!--<div id="template-mo-zay-hero-carousel" class="carousel slide height350" data-bs-ride="carousel">
 		<ol class="carousel-indicators">
 			<li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
 			<li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
@@ -148,37 +251,41 @@ https://templatemo.com/tm-559-zay-shop
 		</ol>
 		<div class="carousel-inner height350">
 			<div class="carousel-item active height350">
-				<div class="container ">
+				<div class="container height350 ">
 					<div class="row  height350">
-					
-					<img class="banner-img" src="/./assets/img/banner-1.png" >
-					
+
+						<img class="banner-img" src="/./assets/img/banner-1.png">
+
 					</div>
 				</div>
 			</div>
 			<div class="carousel-item">
 				<div class="container ">
 					<div class="row height350">
-					
-					<img   class="banner-img" src="/./assets/img/banner-2.png" >
-					
+
+						<img class="banner-img" src="/./assets/img/banner-2.png">
+
 					</div>
 				</div>
 			</div>
 			<div class="carousel-item">
 				<div class="container ">
 					<div class="row  height350">
-					
-					<img  class="banner-img" src="/./assets/img/banner-3.png" >
-					
+
+						<img class="banner-img" src="/./assets/img/banner-3.png">
+
 					</div>
 				</div>
 			</div>
 		</div>
-		<a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev"> <i class="fas fa-chevron-left  "></i>
-		</a> <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next"> <i class="fas fa-chevron-right"></i>
+		<a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev"> <i
+			class="fas fa-chevron-left  "
+		></i>
+		</a> <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next"> <i
+			class="fas fa-chevron-right"
+		></i>
 		</a>
-	</div>
+	</div> -->
 	<!-- End Banner Hero -->
 
 
@@ -186,61 +293,68 @@ https://templatemo.com/tm-559-zay-shop
 	<section class="container py-3">
 		<div class="row">
 			<div class="col-lg-8">
-			<div class="main-div text-center">
-			<div class="btn-outer-div">
-					<button type="button"  class="main-btn " id="guid-btn" onclick="window.location.href='/jgig/guide'">
-						<img src="/assets/img/guid.png" height="30px">이용 설명
-					</button> <span>|</span>
-					<button type="button"  class="main-btn "  onclick="window.location.href='/jgig/findStore'">
-						<img src="/assets/img/bank-map.png" height="30px">가까운 지점 찾기
-					</button>
-				</div>	
-				</div>
-				<div class="main-div">
-				<div class="main_board">
-					<div class="tab_menu">
-						<ul class="list">
-							<li class="is_on"><a class="main-brd-a" onclick="showTab('tab1', this)">공지사항</a></li>
-							<li><a class="main-brd-a" onclick="showTab('tab2', this)">게시판</a></li>
-							<li><a class="main-brd-a" onclick="showTab('tab3', this)">Q&A</a></li>
-							<li class="main-brd-plus"><a class="main-brd-a" href="/jgig/add_notice">+</a></li>
-						</ul>
-						<br>
-						<div id="tab1" class="cont">
-							<ul>
-								<c:forEach items="${notice_list}" var="nl">
-
-									<li><a class="brd_title" href="/jgig/notice_detail?no=${nl.ntc_id}">• ${nl.title}</a> <span class="brd_date"> <fmt:formatDate value="${nl.ntc_date_created}" pattern="yyyy-MM-dd" /></span></li>
-
-
-
-								</c:forEach>
-							</ul>
-						</div>
-						<div id="tab2" class="cont">
-							<ul>
-								<c:forEach items="${free_list}" var="fl">
-
-									<li><a class="brd_title" href="/jgig/board_detail?no=${fl.brd_id}">• ${fl.title}</a> <span class="brd_date"> <fmt:formatDate value="${fl.brd_date_created}" pattern="yyyy-MM-dd" /></span></li>
-
-
-
-								</c:forEach>
-							</ul>
-						</div>
-						<div id="tab3" class="cont">
-							<ul>
-								<c:forEach items="${question_list}" var="ql">
-
-									<li><a class="brd_title" href="/jgig/board_detail?no=${ql.brd_id}">• ${ql.title}</a> <span class="brd_date"> <fmt:formatDate value="${ql.brd_date_created}" pattern="yyyy-MM-dd" /></span></li>
-
-
-
-								</c:forEach>
-							</ul>
-						</div>
+				<div class="main-div text-center">
+					<div class="btn-outer-div">
+						<button type="button" class="main-btn " id="guid-btn" onclick="window.location.href='/jgig/guide'">
+							<img src="/assets/img/guid.png" height="30px">이용 설명
+						</button>
+						<span>|</span>
+						<button type="button" class="main-btn " onclick="window.location.href='/jgig/findStore'">
+							<img src="/assets/img/bank-map.png" height="30px">가까운 지점 찾기
+						</button>
 					</div>
 				</div>
+				<div class="main-div">
+					<div class="main_board">
+						<div class="tab_menu">
+							<ul class="list">
+								<li class="is_on"><a class="main-brd-a" onclick="showTab('tab1', this)">공지사항</a></li>
+								<li><a class="main-brd-a" onclick="showTab('tab2', this)">게시판</a></li>
+								<li><a class="main-brd-a" onclick="showTab('tab3', this)">Q&A</a></li>
+								<li class="main-brd-plus"><a class="main-brd-a" href="/jgig/add_notice">+</a></li>
+							</ul>
+							<br>
+							<div id="tab1" class="cont">
+								<ul>
+									<c:forEach items="${notice_list}" var="nl">
+
+										<li><a class="brd_title" href="/jgig/notice_detail?no=${nl.ntc_id}">• ${nl.title}</a> <span class="brd_date"> <fmt:formatDate
+													value="${nl.ntc_date_created}" pattern="yyyy-MM-dd"
+												/></span></li>
+
+
+
+									</c:forEach>
+								</ul>
+							</div>
+							<div id="tab2" class="cont">
+								<ul>
+									<c:forEach items="${free_list}" var="fl">
+
+										<li><a class="brd_title" href="/jgig/board_detail?no=${fl.brd_id}">• ${fl.title}</a> <span class="brd_date"> <fmt:formatDate
+													value="${fl.brd_date_created}" pattern="yyyy-MM-dd"
+												/></span></li>
+
+
+
+									</c:forEach>
+								</ul>
+							</div>
+							<div id="tab3" class="cont">
+								<ul>
+									<c:forEach items="${question_list}" var="ql">
+
+										<li><a class="brd_title" href="/jgig/board_detail?no=${ql.brd_id}">• ${ql.title}</a> <span class="brd_date"> <fmt:formatDate
+													value="${ql.brd_date_created}" pattern="yyyy-MM-dd"
+												/></span></li>
+
+
+
+									</c:forEach>
+								</ul>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 
@@ -248,7 +362,7 @@ https://templatemo.com/tm-559-zay-shop
 
 			<div class="col-lg-4">
 				<div class="main-div text-center">
-					<button type="button"  class="att_btn " onclick="return isLogin();">
+					<button type="button" class="att_btn " onclick="return isLogin();">
 						<img src="/assets/img/attendance-icon.png" height="30px">출석체크
 					</button>
 				</div>
@@ -267,7 +381,7 @@ https://templatemo.com/tm-559-zay-shop
 						<c:forEach items="${point_rank}" var="pr" varStatus="loop">
 
 							<tr>
-		
+
 								<td class="left-round fw-bold">${loop.index + 1}</td>
 								<td class="text-green">${pr.nickname}</td>
 								<td class="right-round text-sm-start"><img src="/assets/img/point.png" height="20px"> ${pr.score}</td>
@@ -338,65 +452,63 @@ https://templatemo.com/tm-559-zay-shop
 			if (clickedButton) {
 				clickedButton.style.color = 'white'; // Change to the desired color
 			}
-			
-			 // Update the href of the + button based on the current tab
-	        var plusButton = document.querySelector('.main-brd-plus a');
-	        if (plusButton) {
-	            switch (tabId) {
-	                case 'tab1':
-	                    plusButton.href = '/jgig/add_notice'; // 공지사항 탭인 경우
-	                    break;
-	                case 'tab2':
-	                    plusButton.href = '/jgig/board_list'; // 자유게시판 탭인 경우
-	                    break;
-	                case 'tab3':
-	                    plusButton.href = '/jgig/board_list'; // Q&A 탭인 경우
-	                    break;
-	                default:
-	                    plusButton.href = ''; // 기본값은 빈 주소
-	            }
-	        }
+
+			// Update the href of the + button based on the current tab
+			var plusButton = document.querySelector('.main-brd-plus a');
+			if (plusButton) {
+				switch (tabId) {
+				case 'tab1':
+					plusButton.href = '/jgig/add_notice'; // 공지사항 탭인 경우
+					break;
+				case 'tab2':
+					plusButton.href = '/jgig/board_list'; // 자유게시판 탭인 경우
+					break;
+				case 'tab3':
+					plusButton.href = '/jgig/board_list'; // Q&A 탭인 경우
+					break;
+				default:
+					plusButton.href = ''; // 기본값은 빈 주소
+				}
+			}
 		}
-		
-		
-		function isLogin(){
-			
-			if("${sessionScope.mem_id}"===''){
+
+		function isLogin() {
+
+			if ("${sessionScope.mem_id}" === '') {
 				alert("로그인이 필요합니다.");
-				window.location.href='/jgig/login';
+				window.location.href = '/jgig/login';
 				return false;
-			}else{
-				window.open( '/jgig/attendance', 'Child', 'width=750px, height=800px, top=50, left=50' );
+			} else {
+				window.open('/jgig/attendance', 'Child',
+						'width=750px, height=800px, top=50, left=50');
 				return true;
 			}
 		}
-		
-		
 	</script>
-	
+
 	<script>
-	// jQuery를 사용하여 반복적으로 페이드 인 애니메이션 적용
-	function applyFadeInAnimation() {
-	    var rows = $('#rank-table tbody tr');
-	    var delay = 1000; // 각 행 간의 딜레이 설정 (밀리초)
+		// jQuery를 사용하여 반복적으로 페이드 인 애니메이션 적용
+		function applyFadeInAnimation() {
+			var rows = $('#rank-table tbody tr');
+			var delay = 1000; // 각 행 간의 딜레이 설정 (밀리초)
 
-	    rows.each(function(index) {
-	        var row = $(this);
-	        setTimeout(function() {
-	            row.addClass('fade-in');
-	        }, delay * index);
-	    });
+			rows.each(function(index) {
+				var row = $(this);
+				setTimeout(function() {
+					row.addClass('fade-in');
+				}, delay * index);
+			});
 
-	    // 애니메이션이 끝나면 행을 초기화하고 다시 반복
-	    setTimeout(function() {
-	        rows.removeClass('fade-in');
-	        setTimeout(applyFadeInAnimation, 500); // 다음 반복까지 대기 시간 설정 (밀리초)
-	    }, delay * rows.length);
-	}
+			// 애니메이션이 끝나면 행을 초기화하고 다시 반복
+			setTimeout(function() {
+				rows.removeClass('fade-in');
+				setTimeout(applyFadeInAnimation, 500); // 다음 반복까지 대기 시간 설정 (밀리초)
+			}, delay * rows.length);
+		}
 
-	$(document).ready(function() {
-	    applyFadeInAnimation(); // 애니메이션 시작
-	});
+		$(document).ready(function() {
+			applyFadeInAnimation(); // 애니메이션 시작
+		});
 	</script>
 	<!-- End Script -->
 </body>

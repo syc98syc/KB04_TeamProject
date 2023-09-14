@@ -207,7 +207,7 @@
 											</tr>
 											<tr>
 												<th scope="row"><label for="주민등록번호1 ">주민등록번호</label></th>
-												<td ><input type="text" name="cd_ssn_1" class="border-bt blank-2" placeholder="앞 6자리" maxlength="6"> - <input type="text" name="cd_ssn_2" class="border-bt blank-2" placeholder="뒤 7자리" maxlength="7" data-bs-toggle="tooltip" data-bs-placement="right" title="주민등록번호 앞6자리와 뒤7자리를 정확히 입력해주세요."> <br> <input type="hidden" name="cd_ssn" id="cd_ssn"></td>
+												<td ><input type="text" name="cd_ssn_1" class="border-bt blank-2" placeholder="앞 6자리" maxlength="6"> - <input type="password" name="cd_ssn_2" class="border-bt blank-2" placeholder="뒤 7자리" maxlength="7" data-bs-toggle="tooltip" data-bs-placement="right" title="주민등록번호 앞6자리와 뒤7자리를 정확히 입력해주세요."> <br> <input type="hidden" name="cd_ssn" id="cd_ssn"></td>
 												<!-- JavaScript를 사용하여 두 입력 값을 결합하여 cd_ssn 필드에 설정 -->
 
 											</tr>

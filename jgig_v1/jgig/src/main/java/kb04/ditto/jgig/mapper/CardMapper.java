@@ -5,9 +5,11 @@ import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.type.JdbcType;
 
 import kb04.ditto.jgig.entity.CardDto;
 
@@ -28,6 +30,10 @@ public interface CardMapper {
 	
 	@Select("select * from card where mem_id=#{mem_id}")
 	public List<CardDto> list(@Param("mem_id") final String mem_id); //소유 카드 리스트.
+	
+	@Select("SELECT *FROM (SELECT card.*,ROWNUM AS rnum FROM (SELECT * FROM card WHERE mem_id=#{mem_id} "
+			+ "ORDER BY start_date DESC) card WHERE ROWNUM < #{pageSize}) WHERE rnum >= #{startRow}")
+	public List<CardDto> list_paging(@Param("mem_id") final String mem_id,@Param("startRow") int startRow,@Param("pageSize")int pageSize); //페이징 처리 카드 리스트
 	
 	@Insert("insert into card (CD_NO,CD_NUM,CD_ITEM,CD_PW,CD_NAME,CD_SSN,CD_PHONE,CD_STATUS,PAY_BANK,PAY_ACCOUNT,PAY_DATE,START_DATE,END_DATE,MEM_ID)"
 			+ "VALUES(CARD_NO_SEQ.NEXTVAL,CARD_NUM_SEQ.NEXTVAL,#{cardDto.cd_item},#{cardDto.cd_pw},#{cardDto.cd_name},#{cardDto.cd_ssn},#{cardDto.cd_phone},'정상',#{cardDto.pay_bank},#{cardDto.pay_account},#{cardDto.pay_date},SYSDATE,add_months(sysdate,+12),#{cardDto.mem_id})")

@@ -40,10 +40,13 @@ https://templatemo.com/tm-559-zay-shop
 	<nav class="navbar navbar-expand-lg navbar-light shadow navcolor">
 		<div class="container d-flex justify-content-between align-items-center">
 
-			<a class="navbar-brand text-success logo h1 align-self-center" href="/jgig/"> <img src="/assets/img/KB-logo.png" width="30" height="30" alt=""> <img src="/assets/img/jgig-icon.png" height="45" alt="">
+			<a class="navbar-brand text-success logo h1 align-self-center" href="/jgig/"> <img src="/assets/img/KB-logo.png" width="30" height="30" alt="">
+				<img src="/assets/img/jgig-icon.png" height="45" alt="">
 			</a>
 
-			<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+			>
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<!-- 화면 작아질시 토글바 -->
@@ -51,7 +54,9 @@ https://templatemo.com/tm-559-zay-shop
 			<div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
 				<div class="flex-fill">
 					<ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 금융거래연습 </a>
+						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"
+						> 금융거래연습 </a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="/jgig/open_account1">계좌 개설</a></li>
 								<li><a class="dropdown-item" href="/jgig/account_list">계좌 조회 및 이체</a></li>
@@ -62,25 +67,33 @@ https://templatemo.com/tm-559-zay-shop
 								<hr>
 								<li><a class="dropdown-item" href="/jgig/certification">인증서 발급</a></li>
 							</ul></li>
-						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 금융교육 </a>
+						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"
+						> 금융교육 </a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="/jgig/searchWord">금융 용어 검색</a></li>
 								<li><a class="dropdown-item" href="#">금융 상식 퀴즈</a></li>
 								<hr>
 								<li><a class="dropdown-item" href="#">이용 가이드</a></li>
 							</ul></li>
-						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 커뮤니티 </a>
+						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"
+						> 커뮤니티 </a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="#">공지사항</a></li>
 								<li><a class="dropdown-item" href="/jgig/board_list">게시판</a></li>
 								<li><a class="dropdown-item" href="#">내가 쓴 글</a></li>
 							</ul></li>
-						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 지점찾기 </a>
+						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"
+						> 지점찾기 </a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="/jgig/findStore">지점찾기 및 번호표 발행</a></li>
 								<li><a class="dropdown-item" href="/jgig/detailWaiting">번호표 조회 및 취소</a></li>
 							</ul></li>
-						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 마이포인트 </a>
+						<li class="nav-item dropdown"><a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"
+						> 마이포인트 </a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="/jgig/point_list">포인트 조회</a></li>
 								<li><a class="dropdown-item" href="/jgig/point_conversion">포인트 전환</a></li>
@@ -100,7 +113,9 @@ https://templatemo.com/tm-559-zay-shop
 
 						<!--로그인 했을 때 -->
 						<c:if test="${not empty sessionScope.mem_id}">
-							<li class="nav-item dropdown"><a class="nav-icon position-relative text-decoration-none nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-fw fa-user text-dark mr-3"></i> ${sessionScope.mem_nm}님 <!--session값으로 받아오기 -->
+							<li class="nav-item dropdown"><a class="nav-icon position-relative text-decoration-none nav-link" href="#" role="button"
+								data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+							> <i class="fa fa-fw fa-user text-dark mr-3"></i> ${sessionScope.mem_nm}님 <!--session값으로 받아오기 -->
 							</a>
 								<ul class="dropdown-menu">
 									<li><a class="dropdown-item" href="/jgig/member_detail">마이페이지</a></li>
@@ -148,7 +163,8 @@ https://templatemo.com/tm-559-zay-shop
 					<h2 class="h3 pt-3 ">금융거래연습</h2>
 					<hr>
 					<ul class="list-unstyled ">
-						<li><a class="collapsed d-flex justify-content-between text-decoration-none" href="/jgig/open_account1"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 --> 계좌 개설
+						<li><a class="collapsed d-flex justify-content-between text-decoration-none" href="/jgig/open_account1"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 -->
+								계좌 개설
 						</a></li>
 						<li><a class="collapsed d-flex justify-content-between  text-decoration-none" href="/jgig/account_list"> 계좌 조회 및 이체 </a></li>
 						<li><a class="collapsed d-flex justify-content-between  text-decoration-none" href="/jgig/trans_history"> 거래 내역 조회 </a></li>
@@ -199,7 +215,47 @@ https://templatemo.com/tm-559-zay-shop
 									<td><button class="cardlistbtn" type="button" onclick="location.href='/jgig/card_cancellation_form?no=${c.cd_no}'">해지</button></td>
 							</c:forEach>
 						</table>
+						
+						
+						<div id="page_control " class="text-center pt-2">
+							
+							<c:choose>
+								<c:when test="${page<=1}">
+									
+								</c:when>
+
+								<c:otherwise>
+									<a class="none-a" href="/jgig/card_list?pageNum=${page-1}">[이전]</a>
+								</c:otherwise>
+							</c:choose>
+
+							<c:forEach begin="${startPage}" end="${endPage}" var="i" step="1">
+								<c:choose>
+									<c:when test="${i eq page}">
+										<span>${i}</span>
+									</c:when>
+
+									<c:otherwise>
+										<a class="none-a" href="/jgig/card_list?pageNum=${i}">${i}</a>
+									</c:otherwise>
+
+								</c:choose>
+							</c:forEach>
+
+							<c:choose>
+								<c:when test="${page>=maxPage}">
+									
+								</c:when>
+								<c:otherwise>
+									<a class="none-a" href="/jgig/card_list?pageNum=${page+1}">[다음]</a>
+								</c:otherwise>
+							</c:choose>
+
+
+
+						</div>
 					</div>
+
 
 				</div>
 

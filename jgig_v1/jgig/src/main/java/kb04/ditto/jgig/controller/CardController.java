@@ -165,14 +165,42 @@ public class CardController {
 
 	/** 카드조회 로직 **/
 	@GetMapping("/jgig/card_list")
-	public String card_list(HttpSession session, Model model) {
+	public String card_list(HttpSession session, Model model,
+			@RequestParam(value = "pageNum", defaultValue = "1") String pageNum) {
 		String returnVal = login_check(session);
 		if (returnVal.equals("redirect:/jgig/login"))
 			return returnVal;
 		String mem_id = returnVal;
 
 		List<CardDto> card_list = cardMapper.list(mem_id);
-		model.addAttribute("card_list", card_list);
+
+		System.out.println(pageNum);
+		int cnt = card_list.size(); // 카드 리스트 개수
+
+		// 페이징
+		int pageSize = 10;// 한 페이지에 출력될 글 수
+		int maxPage = (int) (Math.ceil((double) cnt / pageSize));
+		int blockLimit = 5; // 하단에 보여줄 페이지의 수
+
+		// 첫행번호를 계산
+		int currentPage = Integer.parseInt(pageNum);
+		int startRow = (currentPage - 1) * pageSize + 1;
+		pageSize += startRow;
+
+		int startPage = (int) (Math.ceil((double) currentPage / blockLimit) - 1) * blockLimit + 1;
+		int endPage = startPage + blockLimit - 1;
+		if (endPage > maxPage) {
+			endPage = maxPage;
+		}
+
+		
+		List<CardDto> list_paging = cardMapper.list_paging(mem_id, startRow, pageSize);
+		model.addAttribute("card_list", list_paging);
+		
+		model.addAttribute("page", currentPage);
+		model.addAttribute("startPage", startPage);
+		model.addAttribute("maxPage", maxPage);
+		model.addAttribute("endPage", endPage);
 
 		return "card/list";
 	}
@@ -250,7 +278,7 @@ public class CardController {
 		cardDto.setCd_ssn(cardDto_form1.getCd_ssn());
 		cardDto.setCd_phone(cardDto_form1.getCd_phone());
 		cardDto.setMem_id(mem_id);
-		System.out.println("들어갈 dto : "+cardDto);
+		System.out.println("들어갈 dto : " + cardDto);
 
 		cardMapper.insert(cardDto); // DB insert
 		CardDto card_success = cardMapper.find_last(mem_id);
