@@ -54,7 +54,7 @@ public class TransferController {
 		if (returnVal.equals("redirect:/jgig/login"))
 			return "redirect:/jgig/login";
 		int balance = transferMapper.findByBalance(transferDto.getAccount());
-		if(balance != 0 ) {
+		if(balance != 0 && transferDto.getDepo_mon() <balance) {
 			transferMapper.insert(transferDto);
 			transferMapper.update(transferDto);
 			transferMapper.setPoint(point, "계좌이체", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id

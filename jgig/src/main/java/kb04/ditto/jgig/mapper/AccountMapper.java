@@ -19,7 +19,7 @@ public interface AccountMapper {
 	public List<AccountDto> listWithPaging(String mem_id, int startPage, int endPage);
 	
 	@Insert("insert into Account(account, act_name, act_password, balance, regdate, mem_nm, ssn, phone_num, job, pur_trans, sor_fund, mem_id) values(account_seq.nextval, #{act_name}, "
-			+ "#{act_password}, 50000, sysdate, #{mem_nm}, #{ssn}, #{phone_num}, #{job}, #{pur_trans}, #{sor_fund}, #{mem_id})")
+			+ "#{act_password}, 500000, sysdate, #{mem_nm}, #{ssn}, #{phone_num}, #{job}, #{pur_trans}, #{sor_fund}, #{mem_id})")
 	public int insert(AccountDto dto);
 	
 	@Select("select account from account where mem_nm = #{mem_nm} and rownum = 1 order by account desc ")

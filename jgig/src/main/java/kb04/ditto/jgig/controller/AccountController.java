@@ -188,10 +188,6 @@ public class AccountController {
 	    }
 	    
 	    List<AccountDto> list = accountMapper.listWithPaging(mem_id, currentPage*size-size+1, currentPage*size);
-	    System.out.println(list.size());
-	    for(AccountDto dto : list) {
-	    	System.out.println(dto);
-	    }
 	    
 		if(list.size() == 0 ) {
 			return "account/no_account";
