@@ -24,60 +24,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
-	<style type="text/css">
-		#service-content {
-			position: relative;
-		}
-		.question {
-		    border: 1px solid #F9F9F9;
-		    border-radius: 10px;
-		    padding: 26px 18px;
-		    background-color: #F9F9F9;
-		    margin: 22px 0;
-		}
-		.quiz_ul {
-			display: flex;
-		  	flex-wrap: wrap;
-			justify-content: center;
-			padding-left: 0; 
-			margin-bottom: 4rem;
-		}
-		.quiz_li, .quiz_li.statF {
-			list-style: none;
-			border: 1px solid #6c757d;
-			border-radius: 20px;
-			margin: 10px 5px;
-			padding: 14px 20px;
-			width: 40%;
-		} 
-		.quiz_li.statF {
-			cursor: pointer;
-		}
-		.quiz_li.statF:hover, 
-		.quiz_li.statF.clickedAns,
-		.quiz_li.selectedAns {
-		    background-color: #a39485;
-		    border: 1px solid #a39485;
-		    color: white;
-		}
-		.quiz_li.correctAnsN {    
-		    border: 1px solid #58C9B9;
-			background-color: #58c9b926;
-			color: black;
-		}
-		.quiz-submitBtn {
-			margin-right: 1rem;
-			position: absolute;
-			right: 0;
-		}
-		.quiz-result {
-		 display: flex;
-			justify-content: center;
-		}
-		.quiz-result > span {
-			font-size: x-large;
-		}	
-	</style>
 </head>
 
 <body>
@@ -251,7 +197,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div id="service-content"> 
+					<div class="quiz-service-content" id="service-content"> 
 							<!-- <h1>오늘의 퀴즈</h1> -->
 							
 							<div>다음에 해당하는 금융 용어를 고르세요.</div>

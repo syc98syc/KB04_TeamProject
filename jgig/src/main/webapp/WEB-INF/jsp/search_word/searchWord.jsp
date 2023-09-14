@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>지금입금</title>
+<title>금융용어검색</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,44 +23,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
-    <style type="text/css">
-    	.search_wrap {
-    		display: flex;
-    		border: 1px solid #A0A0A0;
-		    border-radius: 20px;
-			padding: 10px 0px 10px 20px;
-	        margin: 0 auto 30px;
-    		width: 70%;
-    	}
-    	.search_inp {
-    		width: 90%;
-    		outline: none;
-   		 	border: none;
-    	}
-    	#searchBtn > i {
-    		color: #A0A0A0;
-    		font-size: 20px;
-    	}
-    	#searchBtn {
-			border: none;
-			background: none;
-			display: flex;
-			align-items: center;
-		}
-		.pw-table	{
-			margin-top: 10px;
-		}
-		.pw-table tr, .pw-table td {
-			border: 1px solid white;
-		}
-		.pw-table td:first-child {
-			width: 8%
-		}
-		.popular_word_list {
-		    width: 70%;
-    		margin: 0 auto; 
-    	}
-    </style>
 </head>
 <body>
 	<!-- Header -->
@@ -102,7 +64,7 @@
                            	  <li><a class="dropdown-item" href="/jgig/searchWord">금융 용어 검색</a></li>
                              <li><a class="dropdown-item" href="/jgig/quiz">금융 상식 퀴즈</a></li>
                              <hr>
-                             <li><a class="dropdown-item" href="#">이용 가이드</a></li>
+                             <li><a class="dropdown-item" href="/jgig/guide">이용 가이드</a></li>
                         	</ul>
                     	</li>
                     	<li class="nav-item dropdown">
@@ -120,8 +82,8 @@
                             지점찾기
                         	</a>
                         	<ul class="dropdown-menu">
-                           	 <li><a class="dropdown-item" href="/jgig/findStore">지점찾기 및 번호표 발행</a></li>
-                             <li><a class="dropdown-item" href="/jgig/detailWaiting">번호표 조회 및 취소</a></li>
+                           	 <li><a class="dropdown-item" href="/jgig/findStore">지점찾기 및 번호표발행</a></li>
+                             <li><a class="dropdown-item" href="/jgig/detailWaiting">번호표조회 및 취소</a></li>
                         	</ul>
                     	</li>
                     	<li class="nav-item dropdown">
@@ -150,7 +112,7 @@
 						<c:if test="${not empty sessionScope.mem_id}">
 							<li class="nav-item dropdown">
 								<a class="nav-icon position-relative text-decoration-none nav-link"
-									href="/jgig/member_detail" role="button" data-bs-toggle="dropdown"
+									 role="button" data-bs-toggle="dropdown"
 									aria-haspopup="true" aria-expanded="false"> <i
 										class="fa fa-fw fa-user text-dark mr-3"></i>
 									${sessionScope.mem_nm}님 <!--session값으로 받아오기 -->
@@ -215,7 +177,7 @@
 						</li>
 						<hr>
 						<li >
-							<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
+							<a class="collapsed d-flex justify-content-between text-decoration-none" href="/jgig/guide">
 								이용 가이드
 							</a>
 						</li>
@@ -246,7 +208,7 @@
 								<c:forEach items="${word_list}" var="wrd" varStatus="status">
 									<tr>
 										<td>${status.count}</td>
-										<td>${wrd.pw_word }</td>
+										<td class="pw-word">${wrd.pw_word }</td>
 									</tr>
 								</c:forEach>
 							</table>
@@ -286,9 +248,34 @@
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script type="text/javascript">
-		$(function() {
-		
-		})
+		// 인기검색어 클릭 이벤트 
+		function pwWordClickHandler() {
+			var words = document.querySelectorAll(".pw-word");
+			words.forEach(word => {
+				word.addEventListener("click", ()=>{
+					console.log(word.innerText)
+					// Form 데이터를 생성
+			        var form = document.createElement("form");
+			        form.action = "/jgig/searchWordResult";
+			        form.method = "post";
+			        // 검색어와 페이지 번호를 hidden input으로 추가
+			        var pw_wordInput = document.createElement("input");
+			        pw_wordInput.type = "hidden";
+			        pw_wordInput.name = "pw_word";
+			        pw_wordInput.value = word.innerText;
+			        var pageNoInput = document.createElement("input");
+			        pageNoInput.type = "hidden";
+			        pageNoInput.name = "pageNo";
+			        pageNoInput.value = "1";
+			        // Form에 input을 추가하고 submit
+			        form.appendChild(pw_wordInput);
+			        form.appendChild(pageNoInput);
+			        document.body.appendChild(form);
+			        form.submit();
+				});
+			}); 
+		}
+		pwWordClickHandler();
 	</script>
 </body>
 </html>

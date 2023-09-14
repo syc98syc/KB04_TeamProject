@@ -209,64 +209,285 @@ input[name="tel1"], input[name="tel2"], input[name="tel3"] {
 .btn-div {
 	text-align: center;;
 }
+
 .main_board {
-    width: 90%;
-    height: 400px;
-    background-color: #FFDE57;
-    padding: 15px;
-    margin: auto;
-    border-radius: 10px;
-    position: relative;
+	width: 90%;
+	height: 400px;
+	background-color: #FFDE57;
+	padding: 15px;
+	margin: auto;
+	border-radius: 10px;
+	position: relative;
 }
 
-.tab_menu #tab2,#tab3{
+.tab_menu #tab2, #tab3 {
 	display: none;
 }
 
-.tab_menu>ul{
+.tab_menu>ul {
 	list-style: none;
 }
-.tab_menu>ul> li {
-    float: left;
-    margin-right: 10px;
-}
-.tab_menu >ul> li:after {
-  content: " | ";
+
+.tab_menu>ul>li {
+	float: left;
+	margin-right: 10px;
 }
 
-.cont{
-	margin:20px auto;
+.tab_menu>ul>li:after {
+	content: " | ";
+}
+
+.cont {
+	margin: 20px auto;
 	background-color: white;
 	height: 300px;
 	border-radius: 10px;
-	padding:10px 30px;
-	
+	padding: 10px 30px;
 }
-.cont ul{
-	list-style-type:circle;
+
+.cont ul {
+	list-style-type: circle;
 	padding-left: 0;
 }
+
 .cont li {
-	
-    padding: 8px;
-   /*  margin: 0 30px; */
-    display: flex; /* Flexbox를 사용하여 내부 요소를 정렬 */
-    justify-content: space-between; /* 내부 요소를 좌우로 분할 */
+	padding: 8px;
+	/*  margin: 0 30px; */
+	display: flex; /* Flexbox를 사용하여 내부 요소를 정렬 */
+	justify-content: space-between; /* 내부 요소를 좌우로 분할 */
 }
 
 .brd_title {
-    width: 70%; /* 70%의 너비를 가짐 */
-    color: black;
-    text-decoration-line: none;
+	width: 70%; /* 70%의 너비를 가짐 */
+	color: black;
+	text-decoration-line: none;
 }
+
 .brd_title:hover {
-  text-decoration-line: underline ;
+	text-decoration-line: underline;
 }
 
 .brd_date {
-    width: 30%; /* 30%의 너비를 가짐 */
-    text-align: right;
-    /* 다른 스타일 설정 */
+	width: 30%; /* 30%의 너비를 가짐 */
+	text-align: right;
+	/* 다른 스타일 설정 */
 }
 
-*******************************다윤********************************
+/******************************다윤********************************/
+/* 퀴즈 */
+.quiz-service-content {
+	position: relative;
+}
+
+.question {
+	border: 1px solid #F9F9F9;
+	border-radius: 10px;
+	padding: 26px 18px;
+	background-color: #F9F9F9;
+	margin: 22px 0;
+}
+
+.quiz_ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding-left: 0;
+	margin-bottom: 4rem;
+}
+
+.quiz_li, .quiz_li.statF {
+	list-style: none;
+	border: 1px solid #6c757d;
+	border-radius: 20px;
+	margin: 10px 5px;
+	padding: 14px 20px;
+	width: 40%;
+}
+
+.quiz_li.statF {
+	cursor: pointer;
+}
+
+.quiz_li.statF:hover, .quiz_li.statF.clickedAns, .quiz_li.selectedAns {
+	background-color: #a39485;
+	border: 1px solid #a39485;
+	color: white;
+}
+
+.quiz_li.correctAnsN {
+	border: 1px solid #58C9B9;
+	background-color: #58c9b926;
+	color: black;
+}
+
+.quiz-submitBtn {
+	margin-right: 1rem;
+	position: absolute;
+	right: 0;
+}
+
+.quiz-result {
+	display: flex;
+	justify-content: center;
+}
+
+.quiz-result>span {
+	font-size: x-large;
+}
+/* 단어 검색 */
+.search_wrap {
+	display: flex;
+	border: 1px solid #fff;
+	border-radius: 22px;
+	padding: 10px 0px 10px 20px;
+	margin: 0 auto 30px;
+	width: 60%;
+	box-shadow: 0px 0px 5px #c0c0c0
+}
+
+.search_inp {
+	width: 90%;
+	outline: none;
+	border: none;
+}
+
+#searchBtn>i {
+	color: #A0A0A0;
+	font-size: 20px;
+}
+
+#searchBtn {
+	border: none;
+	background: none;
+	display: flex;
+	align-items: center;
+}
+
+.pw-table {
+	margin-top: 10px;
+}
+
+.pw-table tr, .pw-table td {
+	border: 1px solid white;
+}
+
+.pw-table td:first-child {
+	width: 10%
+}
+
+.popular_word_list {
+	width: 60%;
+	margin: 0 auto;
+}
+
+.pw-word {
+	cursor: pointer;
+}
+
+.pw-word:hover {
+	text-decoration: underline;
+	text-underline-position: from-font;
+}
+/* 단어 검색 결과 */
+.word-list li {
+	list-style: none;
+}
+
+ul.word-list {
+	padding-left: 0;
+	border-top: 1px solid #71675D;
+	border-bottom: 1px solid #71675D;
+}
+
+ul.word-list>li .p-conts {
+	border-top: 1px solid #E2E2E2;
+}
+
+ul.word-list>li {
+	border-bottom: 1px solid #E2E2E2;
+	cursor: pointer;
+}
+
+ul.word-list>li:hover, ul.word-list>li.clicked {
+	background-color: #F9F9F9
+}
+
+ul.word-list>li .tit {
+	display: inline-block;
+	width: 100%;
+	padding: 20px;
+}
+
+ul.word-list>li .p-conts {
+	display: none;
+	opacity: 0;
+	transition: all 2s;
+}
+
+ul.word-list>li.clicked .p-conts {
+	display: block;
+	opacity: 1;
+}
+
+ul.word-list>li .inner {
+	padding: 20px;
+}
+
+.quiz-pagination {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+/* 번호표 조회 */
+.waiting_wrap {
+	width: 450px;
+	margin: auto;
+	border: none;
+	box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+	border-radius: 22px;
+	padding: 12px;
+}
+
+.waiting_wrap.noinfo-w-wrap {
+	margin-top: 80px;
+}
+
+.waiting_wrap p {
+	padding: 0px 6px;
+}
+
+.waiting_wrap span {
+	display: block;
+	padding: 0px 6px;
+}
+
+.info-wrap {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.info-table {
+	margin-bottom: 1rem;
+}
+
+.info-table tr, .info-table td {
+	border-bottom: 0
+}
+
+.ccBtn-wrap {
+	display: flex;
+	justify-content: center;
+}
+
+.noinfo-wrap {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 40px 0;
+}
+
+.noinfo-wrap>span {
+	font-size: 60px;
+}
+/*******************************희주********************************/

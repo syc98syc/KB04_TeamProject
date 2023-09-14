@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-    <title>지금입금</title>
+    <title>금융용어검색</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,46 +23,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
-    <style type="text/css">
-    	.word-list li{
-    		list-style: none; 
-    	}
-    	ul.word-list {
-    		padding-left:0;
-   		    border-top: 1px solid #71675D;
-   		    border-bottom: 1px solid #71675D;
-    	}
-    	ul.word-list > li .p-conts {
-   		    border-top: 1px solid #E2E2E2;
-    	}
-    	ul.word-list > li {
-    		border-bottom: 1px solid #E2E2E2;
-    		cursor: pointer;
-    	}
-    	ul.word-list > li:hover,
-    	ul.word-list > li.clicked {
-    		background-color: #F9F9F9
-    	}
-    	ul.word-list > li .tit {
-    	    display: inline-block;
-		    width: 100%;
-		    padding: 20px;
-		}
-		ul.word-list > li .p-conts { 
-			display: none;
-		}
-		ul.word-list > li.clicked .p-conts { 
-			display: block;
-		}
-		ul.word-list > li .inner {
-		    padding: 20px;
-	    }
-	    .quiz-pagination {
-	    	display: flex;
-		    align-items: center;
-		    justify-content: center;
-		} 
-    </style>
 </head>
 <body>
     <!-- Header -->
@@ -104,7 +64,7 @@
                            	  <li><a class="dropdown-item" href="/jgig/searchWord">금융 용어 검색</a></li>
                              <li><a class="dropdown-item" href="/jgig/quiz">금융 상식 퀴즈</a></li>
                              <hr>
-                             <li><a class="dropdown-item" href="#">이용 가이드</a></li>
+                             <li><a class="dropdown-item" href="/jgig/guide">이용 가이드</a></li>
                         	</ul>
                     	</li>
                     	<li class="nav-item dropdown">
@@ -122,8 +82,8 @@
                             지점찾기
                         	</a>
                         	<ul class="dropdown-menu">
-                           	 <li><a class="dropdown-item" href="/jgig/findStore">지점찾기 및 번호표 발행</a></li>
-                             <li><a class="dropdown-item" href="/jgig/detailWaiting">번호표 조회 및 취소</a></li>
+                           	 <li><a class="dropdown-item" href="/jgig/findStore">지점찾기 및 번호표발행</a></li>
+                             <li><a class="dropdown-item" href="/jgig/detailWaiting">번호표조회 및 취소</a></li>
                         	</ul>
                     	</li>
                     	<li class="nav-item dropdown">
@@ -152,7 +112,7 @@
 						<c:if test="${not empty sessionScope.mem_id}">
 							<li class="nav-item dropdown">
 								<a class="nav-icon position-relative text-decoration-none nav-link"
-									href="/jgig/member_detail" role="button" data-bs-toggle="dropdown"
+									role="button" data-bs-toggle="dropdown"
 									aria-haspopup="true" aria-expanded="false"> <i
 										class="fa fa-fw fa-user text-dark mr-3"></i>
 									${sessionScope.mem_nm}님 <!--session값으로 받아오기 -->
@@ -217,7 +177,7 @@
 						</li>
 						<hr>
 						<li >
-							<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
+							<a class="collapsed d-flex justify-content-between text-decoration-none" href="/jgig/guide">
 								이용 가이드
 							</a>
 						</li>
@@ -236,7 +196,7 @@
 				<div class="row">
 					<div id="service-content"> 
 						<!-- 여기에 넣으시며 됩니당 -->
-						<p>총 ${totalCount}건의 금융용어가 검색되었습니다.</p>
+						<p>총 <strong>${totalCount}</strong>건의 금융용어가 검색되었습니다.</p>
 						<div class="search-result">
 							<ul class="word-list">
 						<%-- ${result_list.size()} --%>

@@ -23,35 +23,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
-    <style type="text/css">
-    .waiting_wrap {
-    	width: 450px; 
-    	margin: 0 auto;
-    }
-    .info-wrap {   
-    	display: flex;
-	    flex-direction: column;
-	    align-items: center;
-	}
-	.info-table {
-		margin-bottom: 3rem;
-	}
-	.info-table tr, .info-table td {
-		border-bottom: 0
-	}
-	.ccBtn-wrap {
-		display:flex; 
-		justify-content: center;
-	}
-	.noinfo-wrap {
-		display:flex; 
-	    flex-direction: column;
-	    align-items: center;
-	}
-	.noinfo-wrap > span {
-		font-size: 60px;
-	}
-    </style>
 </head>
 <body>
  <!-- Header -->
@@ -91,7 +62,7 @@
                         	</a>
                         	<ul class="dropdown-menu">
                            	  <li><a class="dropdown-item" href="/jgig/searchWord">금융 용어 검색</a></li>
-                             <li><a class="dropdown-item" href="#">금융 상식 퀴즈</a></li>
+                             <li><a class="dropdown-item" href="/jgig/quiz">금융 상식 퀴즈</a></li>
                              <hr>
                              <li><a class="dropdown-item" href="#">이용 가이드</a></li>
                         	</ul>
@@ -141,7 +112,7 @@
 						<c:if test="${not empty sessionScope.mem_id}">
 							<li class="nav-item dropdown">
 								<a class="nav-icon position-relative text-decoration-none nav-link"
-									href="/jgig/member_detail" role="button" data-bs-toggle="dropdown"
+									role="button" data-bs-toggle="dropdown"
 									aria-haspopup="true" aria-expanded="false"> <i
 										class="fa fa-fw fa-user text-dark mr-3"></i>
 									${sessionScope.mem_nm}님 <!--session값으로 받아오기 -->
@@ -191,17 +162,17 @@
 
 			<div class="col-lg-2">
 				<div class="sidemenubox">
-					<h2 class="h3 pt-3 ">지점 찾기</h2>
+					<h2 class="h3 pt-3 ">지점찾기</h2>
 					<hr>
 					<ul class="list-unstyled ">
 						<li >
 							<a class="collapsed d-flex justify-content-between text-decoration-none" href="/jgig/findStore"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 -->
-								지점 찾기 및 번호표 발행
+								지점찾기 및 번호표발행
 							</a>
 						</li>
 						<li >
 							<a class="collapsed d-flex justify-content-between text-decoration-none selectsidemenu" href="/jgig/detailWaiting">
-								번호표 조회 및 취소
+								번호표조회 및 취소
 							</a>
 						</li>
 					</ul>
@@ -212,7 +183,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<ul class="list-inline shop-top-menu  pt-5 pl-3">
-							<h2>번호표 조회 및 취소</h2>
+							<h2>번호표조회 및 취소</h2>
 						</ul>
 					</div>
 				</div>
@@ -222,36 +193,40 @@
 							<c:set var="detailYn" value="${detailYn == 'N' ? 'N' : 'Y'}" />
 							<c:if test="${detailYn eq 'Y'}">
 								<div class="waiting_wrap">
-									<hr>
 									<div class="info-wrap">
-										<h3>대기번호</h3>
+										<span>대기번호</span>
 										<h2>${dto.wt_no}</h2>
 										<span>${dto.wt_store}</span>
 									</div>
 									<hr>
+									<span style="font-weight: 700;">내 번호표 상세</span>
 									<table class="table info-table">
 										<tr>
 											<td>대기고객</td>
 											<td>${dto.wt_list }명</td>
 										</tr>
 										<tr>
+											<td>예상대기시간</td>
+											<td>20분</td>
+										</tr>
+										<tr>
 											<td>발행시간</td>
 											<td id="wtDate"></td>
 										</tr>
 									</table>
+									<hr>
+									<span style="font-size: 14px; margin-bottom: 40px;">* 예상대기시간은 참고사항으로 지점 상황에 따라 실제 대기시간과 다를 수 있는 점 양해부탁드립니다.</span>
 									<div class="ccBtn-wrap">
 										<button class="btn btn-outline-dark" onclick="waitingCancleHandler('${dto.wt_seq}')">번호표 취소</button>
 									</div>
 								</div>
 							</c:if>
 							<c:if test="${detailYn eq 'N'}">
-								<div class="waiting_wrap">
-									<hr>
+								<div class="waiting_wrap noinfo-w-wrap">
 									<div class="noinfo-wrap">
 										<span><i class="fas fa-exclamation-circle"></i></span>
-								    	<h3>발행받은 번호표가 없습니다.</h3>
+								    	<p style="font-size: 18px;">발행받은 번호표가 없습니다.</p>
 									</div>
-									<hr>
 							    </div>
 							</c:if>
 					</div>
@@ -291,8 +266,6 @@
 	<script>
 	//번호표 취소 이벤트 
 	function waitingCancleHandler(seq){
-		console.log(seq);
-		console.log(seq.toString());
 	 	const wt_data = {wt_seq : seq.toString()};
 		let options = {
 			type: "post",
@@ -300,15 +273,16 @@
 			data: JSON.stringify(wt_data),
 			contentType: 'application/json; charset=utf-8',
 			success : function() {
-				console.log("삭제 성공");
+				//console.log("삭제 성공");
 				// location.reload();
 				// 삭제 성공 div 
 				var waitingWrap = document.querySelector(".waiting_wrap");
 				waitingWrap.innerHTML = "";
+				waitingWrap.setAttribute("class","waiting_wrap noinfo-w-wrap");
 				var el = document.createElement('div');
-				var content = `<hr><div class="noinfo-wrap">`;
-				content += `<span><i class="fas fa-exclamation-circle"></i></span>`;
-				content += `<h3>발행받은 번호표가 없습니다.</h3></div><hr>`;
+				el.setAttribute("class","noinfo-wrap");
+				var content = `<span><i class="fas fa-exclamation-circle"></i></span>`;
+				content += `<span style="font-size: 18px;">발행받은 번호표가 없습니다.</span><hr>`;
 				el.innerHTML = content;
 				waitingWrap.append(el);
 			},
@@ -341,7 +315,7 @@
 	    const seconds = timeParts[2];
 	
 	    // 형식화된 문자열 생성
-	    const formattedDate = `\${month}/\${day} \${hours}시 \${minutes}분 \${seconds}초`;
+	    const formattedDate = `\${month}월 \${day}일 \${hours}시 \${minutes}분 \${seconds}초`;
 	    return formattedDate;
 	}
 	//console.log("${dto.wt_date}");

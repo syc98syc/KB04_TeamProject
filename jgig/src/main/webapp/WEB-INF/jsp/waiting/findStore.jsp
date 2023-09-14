@@ -163,7 +163,7 @@
 						<c:if test="${not empty sessionScope.mem_id}">
 							<li class="nav-item dropdown">
 								<a class="nav-icon position-relative text-decoration-none nav-link"
-									href="/jgig/member_detail" role="button" data-bs-toggle="dropdown"
+									role="button" data-bs-toggle="dropdown"
 									aria-haspopup="true" aria-expanded="false"> <i
 										class="fa fa-fw fa-user text-dark mr-3"></i>
 									${sessionScope.mem_nm}님 <!--session값으로 받아오기 -->
@@ -242,14 +242,14 @@
 					<div id="service-content"> 
 						<!-- 여기에 넣으시며 됩니당 -->
 						<div class="map_wrap">
-						    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+						    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;border-radius: 10px"></div>
 						
 						    <div id="menu_wrap" class="bg_white">
 						        <div class="option">
 						            <div>
 						                <form onsubmit="searchPlaces(); return false;" id="formWrap">
 						                    키워드 : <input type="text" value="국민은행" id="keyword" size="15"> 
-						                    <button type="submit" class="btn btn-outline-dark" id="searchBtn">검색하기</button> 
+						                    <button type="submit" class="btn" id="searchBtn">검색하기</button> 
 						                </form>
 						            </div>
 						        </div>
@@ -321,7 +321,7 @@
 	mapOption = {
 		// center : new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
 		center : new kakao.maps.LatLng(testLat, testLon), // 지도의 중심좌표
-		level : 3
+		level : 3,
 	// 지도의 확대 레벨
 	};
 
@@ -352,7 +352,8 @@
 		// 옵션 추가 
 		var options = {
 				location : new kakao.maps.LatLng(testLat, testLon), // 지도의 중심좌표
-				radius : 5000,
+				radius : 10000,
+				size: 10,
 				sort : kakao.maps.services.SortBy.DISTANCE,
 		}
 
@@ -591,7 +592,7 @@
 		//var store = document.createElement('h3');
 		var content = `<span class="detail-close" onclick="detailCloseHandler()">X</span>`;
 		content += `<span class="wt-store">\${placeInfo.wt_store}</span>`;
-		content += `<span class="wt-list">총 대기고객수 : 2명</span>`;
+		content += `<span class="wt-list">총 대기고객수 : 2명</span><hr>`;
 		content += `<table class="table wt-table">
 				<tr><td>입금/출금/송금</td><td>1명</td></tr>
 				<tr><td>예금/펀드/신탁</td><td>1명</td></tr>
