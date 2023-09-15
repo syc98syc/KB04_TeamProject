@@ -254,7 +254,7 @@
 						    <ul class="pagination_account">
 						        <c:if test="${hasPrevious}">
 								    <li class="page-item">
-								        <a class="page-link_account" href="/jgig/account_list?currentPage=${startPage - 1}" aria-label="Previous">
+								        <a class="page-link_account" href="/jgig/account_list?currentPage=${currentPage - 1}" aria-label="Previous">
 								            <span aria-hidden="true">이전</span>
 								        </a>
 								    </li>
@@ -277,7 +277,7 @@
 						
 						        <c:if test="${hasNext}">
 								    <li class="page-item">
-								        <a class="page-link_account" href="/jgig/account_list?currentPage=${endPage + 1}" aria-label="Next">
+								        <a class="page-link_account" href="/jgig/account_list?currentPage=${currentPage + 1}" aria-label="Next">
 								            <span aria-hidden="true">다음</span>
 								        </a>
 								    </li>

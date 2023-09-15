@@ -15,6 +15,9 @@ public interface TransferMapper {
 	@Select("select act_password from account where account = #{account}")
 	public int findByActPassword(long account);
 	
+	@Select("select count(*) from point where TO_CHAR(point_date, 'YYYY-MM-DD')= #{str_regdate} and mem_id = #{mem_id} and division = #{division}")
+	public int check_practice(String str_regdate, String mem_id, String division);
+	
 	@Select("select balance from account where account = #{account}")
 	public int findByBalance(long account);
 	

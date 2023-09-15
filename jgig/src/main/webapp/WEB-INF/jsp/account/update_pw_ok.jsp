@@ -285,7 +285,7 @@
 					      <!-- Modal content-->
 					      <div class="modal-content">
 					        <div class="modal-header">
-					          <h4 class="modal-title">금융 거래 연습 완료!</h4> 
+					          <h4 class="modal-title">계좌 비밀번호 수정 연습 완료!</h4> 
 					        </div>
 					        <div class="modal-body">
 					          <p>${point}</p>

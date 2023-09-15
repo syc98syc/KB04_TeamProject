@@ -1,6 +1,7 @@
 package kb04.ditto.jgig.controller;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -29,7 +30,8 @@ public class AccountController {
 	
 	//open_form1에서 입력받은 ssn, phone_num, act_name, mem_nm을 open_form2에서도 사용하기 위한 전역변수 설정
 	String ssn, phone_num, actName, memName, mem_id;
-
+	public final int point = 5;
+	
 	@GetMapping("/jgig/login_test")
 	public String loginTest(HttpSession session) {
 		// 로그인 정보를 세션에 저장합니다.
@@ -148,12 +150,21 @@ public class AccountController {
 		
 		accountMapper.insert(dto);
 		long account_num = accountMapper.account_num(dto);
-		accountMapper.setPoint(1, "계좌개설", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
+		LocalDate nowDate = LocalDate.now();
+		String nowDateString = nowDate.toString();
+		
+		int check_practice = accountMapper.check_practice(nowDateString,(String)session.getAttribute("mem_id"), "계좌개설");
 		
 		model.addAttribute("dto", dto);
 		model.addAttribute("account_num", account_num);
+		if(check_practice > 0 ) {
+			model.addAttribute("msg", "해당 계좌의 개설이 완료되었습니다.");
+			model.addAttribute("point", "이미 계좌개설 연습을 하였습니다.");
+			return "account/open_ok";
+		}
+		accountMapper.setPoint(point, "계좌개설", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
 		model.addAttribute("msg", "해당 계좌의 개설이 완료되었습니다.");
-		model.addAttribute("point", "포인트가 "+1+" 적립되었습니다.");
+		model.addAttribute("point", "포인트가 "+point+" 적립되었습니다.");
 		return "account/open_ok";
 	}
 	
@@ -249,10 +260,19 @@ public class AccountController {
 			return "redirect:/jgig/login";
 		
 		accountMapper.update(dto);
-		accountMapper.setPoint(1, "비번수정", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
+		
+		LocalDate nowDate = LocalDate.now();
+		String nowDateString = nowDate.toString();
+		int check_practice = accountMapper.check_practice(nowDateString,(String)session.getAttribute("mem_id"), "비번수정");
 		
 		model.addAttribute("dto", dto);
-		model.addAttribute("point", "포인트가 "+1+" 적립되었습니다.");
+		if(check_practice > 0 ) {
+			model.addAttribute("msg", "비밀번호 수정이 완료되었습니다.");
+			model.addAttribute("point", "이미 계좌 비밀번호 수정 연습을 하였습니다.");
+			return "account/update_pw_ok";
+		}
+		accountMapper.setPoint(point, "비번수정", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
+		model.addAttribute("point", "포인트가 "+point+" 적립되었습니다.");
 		model.addAttribute("msg","비밀번호 수정이 완료되었습니다.");
 		return "account/update_pw_ok";
 	}
@@ -281,11 +301,19 @@ public class AccountController {
 			return "redirect:/jgig/login";
 		
 		int checkPw = accountMapper.checkPw(account);
+		LocalDate nowDate = LocalDate.now();
+		String nowDateString = nowDate.toString();
+		int check_practice = accountMapper.check_practice(nowDateString,(String)session.getAttribute("mem_id"), "계좌해지");
+		
 		if(checkPw == pw) {
 			accountMapper.terminate(dto);
-			
-			accountMapper.setPoint(1, "계좌해지	", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
-			model.addAttribute("point", "포인트가 "+1+" 적립되었습니다.");
+			if(check_practice > 0 ) {
+				model.addAttribute("msg", "계좌 해지가 완료되었습니다.");
+				model.addAttribute("point", "이미 계좌 해지 연습을 하였습니다.");
+				return "account/termination_ok";
+			}
+			accountMapper.setPoint(point, "계좌해지", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
+			model.addAttribute("point", "포인트가 "+point+" 적립되었습니다.");
 			model.addAttribute("msg", "계좌 해지가 완료되었습니다.");
 			
 			return "account/termination_ok";

@@ -31,7 +31,7 @@
 		        })
 		        // 페이지 로드 시 모달을 자동으로 띄우도록 설정
 		        $("#myModal").modal('show')
-		    });
+		    })
 		</script>
 		<style>
 			.no-left-right-border{
@@ -281,7 +281,7 @@
 					      <!-- Modal content-->
 					      <div class="modal-content">
 					        <div class="modal-header">
-					          <h4 class="modal-title">금융 거래 연습 완료!</h4> 
+					          <h4 class="modal-title">계좌 개설 연습 완료!</h4> 
 					        </div>
 					        <div class="modal-body">
 					          <p>${point}</p>

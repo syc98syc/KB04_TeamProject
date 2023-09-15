@@ -309,7 +309,7 @@
 					      <!-- Modal content-->
 					      <div class="modal-content">
 					        <div class="modal-header">
-					          <h4 class="modal-title">금융 거래 연습 완료!</h4> 
+					          <h4 class="modal-title">거래 내역 조회 연습 완료!</h4> 
 					        </div>
 					        <div class="modal-body">
 					          <p>${point}</p>

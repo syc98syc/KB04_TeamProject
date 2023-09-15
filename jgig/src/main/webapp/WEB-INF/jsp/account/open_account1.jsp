@@ -36,12 +36,14 @@
 			            dataType: "json",
 			            success: function (data) {
 			            	isSuccess = data.success
+			            	var modalMessage = $("#modalMessage")
 			                if (data.success) {
-			                	alert("본인인증이 완료되었습니다.")
+			                	 modalMessage.text("본인인증이 완료되었습니다.");
 			                } else {
-			                	alert("본인인증에 실패하였습니다.")
+			                	modalMessage.text("본인인증에 실패하였습니다.");
 			                    $("#submitButton").prop("disabled", true)
 			                }
+			            	 $("#myModal").modal("show")
 			            },
 			            error: function (error) {
 			                console.error("Error:", error)
@@ -77,13 +79,20 @@
 					}
 				})
 			}
-			
+			function modal(){
+				
+	            // 페이지 로드 시 모달을 자동으로 띄우도록 설정
+	            $("#myModal").modal('show')
+			} 
 			
 			$(function () {
 				advice_balloon()
 				$("#submitButton").prop("disabled", true)
 				check_button()
 				check_permission()
+				$('#modalClose').click(function(){
+	                 $('#myModal').modal('hide')
+	            })
 			})
 		</script>
 	</head>
@@ -141,7 +150,7 @@
 	                        	</ul>
 	                    	</li>
 	                    	<li class="nav-item dropdown">
-	                        	<a class="nav-link " href="/jgig/findStore"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                        	<a class="nav-link " href="/jgig/findStore" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	                            지점찾기
 	                        	</a>
 	                        	<ul class="dropdown-menu">
@@ -331,6 +340,21 @@
 									</div>
 									<button type="button" id="checkButton" class="float-right btn button-like-link">본인확인</button>
 								</form>
+								<div class="modal fade" id="myModal" role="dialog"> 
+			                        <div class="modal-dialog">
+			                          <!-- Modal content-->
+			                          <div class="modal-content">
+			                            <div class="modal-header">
+			                              <h4 class="modal-title">본인인증</h4> 
+			                            </div>
+			                            <div class="modal-body" id ="modalMessage">
+			                            </div>
+			                            <div class="modal-footer">
+			                              <button type="button" class="btn btn-default" data-dismiss="modal" id= "modalClose" >Close</button>
+			                            </div>
+			                          </div>
+		                        </div>
+		                      </div>
 								<br>
 								<br>
 								<hr>
