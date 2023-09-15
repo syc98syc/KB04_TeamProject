@@ -306,7 +306,7 @@
 											</tr>
 											<tr>
 												<th class = "bgc">입금계좌번호</th>
-												<td><input type = "text" name = "depo_num" value = "${transDto.depo_num}" minlength = "13" maxlength = "13" required></td>
+												<td><input type = "text" name = "depo_num" value = "${transDto.depo_num}" maxlength = "13" required></td>
 											</tr>
 											<tr>
 												<th class = "bgc">이체금액</th>

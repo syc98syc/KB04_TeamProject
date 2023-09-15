@@ -28,6 +28,9 @@ public interface TransferMapper {
 	@Update("update account set balance = balance - #{depo_mon} where account = #{account}")
 	public void update(TransferDto transferDto);
 	
+	@Update("update account set balance = balance + #{depo_mon} where account = #{depo_num} and mem_nm = #{receive_nm}")
+	public void update_receive_mon(TransferDto transferDto);
+	
 	@Select("select act_name, mem_nm, account, regdate, balance, act_password, mem_id from account where account = #{account}")
 	public AccountDto findByAccount(long account);
 	

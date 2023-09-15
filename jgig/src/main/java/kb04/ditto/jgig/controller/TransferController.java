@@ -62,9 +62,10 @@ public class TransferController {
 		String nowDateString = nowDate.toString();
 		int check_practice = transferMapper.check_practice(nowDateString,(String)session.getAttribute("mem_id"), "계좌이체");
 		
-		if(balance != 0 && transferDto.getDepo_mon() <balance) {
+		if(balance != 0 && transferDto.getDepo_mon() <= balance) {
 			transferMapper.insert(transferDto);
 			transferMapper.update(transferDto);
+			transferMapper.update_receive_mon(transferDto);
 			if(check_practice > 0 ) {
 				model.addAttribute("dto", transferDto);
 				model.addAttribute("msg", "이체가 완료되었습니다.");
