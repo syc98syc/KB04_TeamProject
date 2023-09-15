@@ -207,7 +207,7 @@
 										</tr>
 										<tr>
 											<td>예상대기시간</td>
-											<td>20분</td>
+											<td>${dto.wt_list*10 }분</td>
 										</tr>
 										<tr>
 											<td>발행시간</td>

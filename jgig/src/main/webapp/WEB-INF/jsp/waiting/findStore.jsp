@@ -65,8 +65,10 @@
 #placeDetail {display:none; position:absolute;top:0;left:251px;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.9);z-index: 1;font-size:12px;border-radius: 10px;}
 #placeDetail .detail-wrap {padding: 12px;}
 #placeDetail .wt-store {display: block; font-size: 18px; font-weight: 500; margin-bottom: 20px;}
-#placeDetail .wt-list {display: block; font-size: 15px; font-weight: 350; margin-bottom: 10px;}
-#placeDetail .wt-table {margin: 18px 0;}
+#placeDetail .wt-list {display: block; font-size: 15px; font-weight: 350; background-color: #f2f2f2; padding: 5px; border-radius: 5px;}
+#placeDetail .wt-table {margin-top: 28px; border-top: 1px solid #71675D;}
+#placeDetail .wt-table .tit {font-weight: 400;}
+#placeDetail .wt-table tbody tr:last-child {border-bottom: 1px solid #71675D;}
 #placeDetail .wtBtn-wrap {display:flex; justify-content: center;}
 #placeDetail #wtBtn {padding: 5px 10px;}
 #placeDetail .detail-close {display: flex; justify-content: flex-end; cursor: pointer;}
@@ -577,49 +579,71 @@
 		detailWrap.style.display = "block";	
 		//console.log(store);
 		
-		placeInfo = {
-			wt_no : 3003, // 대기번호 
-			wt_list : 2, // 대기인원 
-			wt_stat : "Y", // 대기상태 
-			wt_store_name : store.querySelector("h5").innerText, // 지점풀네임 
-			wt_store : store.querySelector("h5").innerText.replace('KB국민은행 ', ''), // 지점 
-			wt_juso : store.querySelector(".juso").innerText, // 지점주소  
-		};
-		// console.log(placeInfo);
 		
-		var el = document.createElement('div');
-		el.setAttribute("class","detail-wrap");
-		//var store = document.createElement('h3');
-		var content = `<span class="detail-close" onclick="detailCloseHandler()">X</span>`;
-		content += `<span class="wt-store">\${placeInfo.wt_store}</span>`;
-		content += `<span class="wt-list">총 대기고객수 : 2명</span><hr>`;
-		content += `<table class="table wt-table">
-				<tr><td>입금/출금/송금</td><td>1명</td></tr>
-				<tr><td>예금/펀드/신탁</td><td>1명</td></tr>
-				<tr><td>개인대출</td><td>0명</td></tr>
-				</table>`;
-		el.innerHTML = content;
-		detailWrap.append(el);
+		// 테스트 중 
+		var storeCodeInfo = [
+			{nm:"테헤란로", code:"8392"},
+			{nm:"선릉역종합금융센터", code:"3588"},
+			{nm:"테헤란중앙", code:"3601"},
+			{nm:"한티", code:"0620"},
+			{nm:"도곡렉슬", code:"4657"},
+		];
+
+		// 지점 풀네임에서 앞뒤 자르기 
+		var storeNm = store.querySelector("h5").innerText.replace('KB국민은행 ', ''); 
+		storeNm = storeNm.replace('지점', '');
+		// console.log(storeNm);
 		
-		/* console.log("${wt_stat}");
-		console.log(wtStat);*/
-		var loginId = '<%= session.getAttribute("mem_id") %>';
-		
-		// 발행받은 번호표 체크
-		if(loginId != 'null'){
-			if(("${wt_stat}" === "N" && wtStat !== "Y")) {
-				var btnWrap = document.createElement('div');
-				btnWrap.setAttribute("class","wtBtn-wrap");
-				var btn = document.createElement('button');
-				btn.innerHTML = "번호표 발행";
-				btn.setAttribute("id", "wtBtn");
-				btn.setAttribute("class","btn btn-outline-dark");
-				btn.onclick = function() {
-					 waitingHandler();
+		var storeCode = storeCodeInfo.find(store => store.nm == storeNm);
+		// console.log(storeCode);
+
+		if(storeCode == undefined) {detailWrap.style.display = "none";}
+		if(storeCode != undefined){
+			var data = storeCode;
+			let options = {
+				type: "post",
+				url : "/jgig/waitingClient_test",
+				data: data,
+				success : function(data) {
+					// console.log(data);
+					placeInfo = data;
+					
+					var el = document.createElement('div');
+					el.setAttribute("class","detail-wrap");
+					var content = `<span class="detail-close" onclick="detailCloseHandler()">X</span>`;
+					content += `<span class="wt-store">\${data.wt_store}</span>`;
+					content += `<span class="wt-list">총 대기고객수 : \${data.wt_list}명</span>`;
+					content += `<table class="table wt-table">`;
+					data.wt_table.forEach(function(item) {
+				        content += `<tr><td class="tit">\${item.tit}</td><td>\${item.cont}</td></tr>`;
+				    });
+				    content += `</table>`;
+				    content += `<span style="letter-spacing: -0.6px;">* 조회된 대기고객수는 실제 대기고객수와 차이가 있을 수 있습니다.</span>`;
+					el.innerHTML = content;
+					detailWrap.append(el);
+					
+					// 발행받은 번호표 체크
+					if(data.mem_id != null){
+						if(("${wt_stat}" === "N" && wtStat !== "Y")) {
+							var btnWrap = document.createElement('div');
+							btnWrap.setAttribute("class","wtBtn-wrap");
+							var btn = document.createElement('button');
+							btn.innerHTML = "번호표 발행";
+							btn.setAttribute("id", "wtBtn");
+							btn.setAttribute("class","btn btn-outline-dark");
+							btn.onclick = function() {
+								 waitingHandler();
+							}
+							btnWrap.append(btn);
+							detailWrap.append(btnWrap);
+						}
+					}
+				},	
+				error: function(jqXHR, textStatus, errorThrown) {
+				    console.error("AJAX 오류 발생: " + textStatus, errorThrown);
 				}
-				btnWrap.append(btn);
-				detailWrap.append(btnWrap);
 			}
+			$.ajax(options);
 		}
 	}
 	
