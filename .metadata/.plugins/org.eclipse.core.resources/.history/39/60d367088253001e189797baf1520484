@@ -1,0 +1,40 @@
+package kb04.ditto.jgig.entity;
+
+public class SuggestionDto {
+	String sug_id;
+	int brd_id;
+	
+	public SuggestionDto() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public SuggestionDto(String sug_id, int brd_id) {
+		super();
+		this.sug_id = sug_id;
+		this.brd_id = brd_id;
+	}
+
+	public String getSug_id() {
+		return sug_id;
+	}
+
+	public void setSug_id(String sug_id) {
+		this.sug_id = sug_id;
+	}
+
+	public int getBrd_id() {
+		return brd_id;
+	}
+
+	public void setBrd_id(int brd_id) {
+		this.brd_id = brd_id;
+	}
+
+	@Override
+	public String toString() {
+		return "sug_id=" + sug_id + ", brd_id=" + brd_id;
+	}
+	
+	
+
+}
