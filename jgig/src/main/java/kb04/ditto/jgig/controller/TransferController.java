@@ -66,6 +66,7 @@ public class TransferController {
 			transferMapper.insert(transferDto);
 			transferMapper.update(transferDto);
 			if(check_practice > 0 ) {
+				model.addAttribute("dto", transferDto);
 				model.addAttribute("msg", "이체가 완료되었습니다.");
 				model.addAttribute("point", "이미 계좌 이체 연습을 하였습니다.");
 				return "transfer/transfer_ok";
@@ -169,7 +170,7 @@ public class TransferController {
 		}
 		else {
 			if(check_practice > 0 ) {
-				redirectAttributes.addFlashAttribute("point", "이미 거래 내역 조회(월별조회) 연습을 하였습니다.");
+				redirectAttributes.addFlashAttribute("point", "이미 거래 내역 조회(달력조회) 연습을 하였습니다.");
 				redirectAttributes.addAttribute("showTable", "false");
 				redirectAttributes.addFlashAttribute("msg", "거래내역이 없습니다.");
 				return "redirect:/jgig/trans_history";
