@@ -131,13 +131,13 @@ public class TransferController {
 			if(check_practice > 0 ) {
 				redirectAttributes.addFlashAttribute("point", "이미 거래 내역 조회(월별조회) 연습을 하였습니다.");
 				redirectAttributes.addAttribute("showTable", "false");
-				redirectAttributes.addFlashAttribute("msg", "거래내역이 없습니다.");
+				redirectAttributes.addFlashAttribute("msg", "거래 내역이 없습니다.");
 				return "redirect:/jgig/trans_history";
 			}
 			transferMapper.setPoint(point, "월별조회", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
 			redirectAttributes.addFlashAttribute("point", "포인트가 "+point+" 적립되었습니다.");
 			redirectAttributes.addAttribute("showTable", "false");
-			redirectAttributes.addFlashAttribute("msg", "거래내역이 없습니다.");
+			redirectAttributes.addFlashAttribute("msg", "거래 내역이 없습니다.");
 		}
 		return "redirect:/jgig/trans_history";
 	}
@@ -172,13 +172,13 @@ public class TransferController {
 			if(check_practice > 0 ) {
 				redirectAttributes.addFlashAttribute("point", "이미 거래 내역 조회(달력조회) 연습을 하였습니다.");
 				redirectAttributes.addAttribute("showTable", "false");
-				redirectAttributes.addFlashAttribute("msg", "거래내역이 없습니다.");
+				redirectAttributes.addFlashAttribute("msg", "거래 내역이 없습니다.");
 				return "redirect:/jgig/trans_history";
 			}
 			transferMapper.setPoint(point, "달력조회", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
 			redirectAttributes.addFlashAttribute("point", "포인트가 "+point+" 적립되었습니다.");
 			redirectAttributes.addAttribute("showTable", "false");
-			redirectAttributes.addFlashAttribute("msg", "거래내역이 없습니다.");
+			redirectAttributes.addFlashAttribute("msg", "거래 내역이 없습니다.");
 		}
 		
 		return "redirect:/jgig/trans_history";
@@ -230,13 +230,13 @@ public class TransferController {
 			if(check_practice > 0 ) {
 				redirectAttributes.addFlashAttribute("point", "이미 거래 내역 조회(월별조회) 연습을 하였습니다.");
 				redirectAttributes.addAttribute("showTable", "false");
-				redirectAttributes.addFlashAttribute("msg", "거래내역이 없습니다.");
+				redirectAttributes.addFlashAttribute("msg", "거래 내역이 없습니다.");
 				return "redirect:/jgig/trans_history_selected?account="+account;
 			}
 			transferMapper.setPoint(1, "월별조회", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
 			redirectAttributes.addFlashAttribute("point", "포인트가 "+point+" 적립되었습니다.");
 			redirectAttributes.addAttribute("showTable", "false");
-			redirectAttributes.addFlashAttribute("msg", "거래내역이 없습니다.");
+			redirectAttributes.addFlashAttribute("msg", "거래 내역이 없습니다.");
 		}
 		
 		return "redirect:/jgig/trans_history_selected?account="+account;

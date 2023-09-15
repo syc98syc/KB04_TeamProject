@@ -299,6 +299,7 @@
 							</div>
 						</div>
 							<div style = "text-align : center;">
+									<br><br>
 									<strong class = "trans_history_fail_msg">${msg}</strong>
 									<br><br>
 							</div>
