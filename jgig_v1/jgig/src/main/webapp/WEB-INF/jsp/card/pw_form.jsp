@@ -122,22 +122,25 @@
 	</nav>
 	<!-- Close Header -->
 
-	<!-- Modal -->
-	<div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="w-100 pt-1 mb-5 text-right">
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
-			<form action="" method="get" class="modal-content modal-body border-0 p-0">
-				<div class="input-group mb-2">
-					<input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
-					<button type="submit" class="input-group-text bg-success text-light">
-						<i class="fa fa-fw fa-search text-white"></i>
-					</button>
+	<!-- Start 모달  -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="modal-title"></h4>
 				</div>
-			</form>
+				<div class="modal-body" id="modal-body">
+					<p></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal" id="modalClose">Close</button>
+				</div>
+			</div>
 		</div>
 	</div>
+<!-- End 모달  -->
+
 
 	<!-- Start Content -->
 	<div class="container py-5">
@@ -344,10 +347,10 @@
 			if (name !== "${cardDto.cd_name}" || ssn !== "${cardDto.cd_ssn}"
 					|| tel !== "${cardDto.cd_phone}"
 					|| pw !== "${cardDto.cd_pw}") {
-				alert("카드 회원 정보가 일치하지 않습니다.")
+				openModal("카드 비밀번호 변경","카드 회원 정보가 일치하지 않습니다.");
 				return false;
 			}
-			alert("본인 인증 완료");
+			openModal("카드 비밀번호 변경","본인 인증이 완료되었습니다.");
 			is_valid = true;
 			return true;
 
@@ -357,11 +360,12 @@
 			var password = document.getElementById("password").value;
 			var confirmPassword = document.getElementById("confirmPassword").value;
 			if (!is_valid) {
-				alert("본인 인증이 필요합니다.");
+				openModal("카드 비밀번호 변경","본인 인증이 필요합니다.");
 				return false;
 			} else if (password.length === 0 || confirmPassword.length === 0
 					|| password !== confirmPassword) {
-				alert("새 비밀번호를 정확히 입력해주세요.");
+				openModal("카드 비밀번호 변경","새 비밀번호를 정확히 입력해주세요.");
+
 				return false;
 			}
 			return true;
@@ -426,6 +430,25 @@
 				}
 			});
 		});
+	</script>
+	
+	<script>
+	//모달 창닫기
+	$(function() {
+		$('#modalClose').click(function() {
+			$('#myModal').modal('hide')
+		})
+	})
+
+	//모달창 띄우기
+	
+	function openModal(title,body){
+	var modalTitle = document.getElementById("modal-title");
+	modalTitle.innerHTML = title; //모달 제목
+	var modalTitle = document.getElementById("modal-body");
+	modalTitle.innerHTML = body; //모달 내용
+		 $("#myModal").modal('show');
+	}
 	</script>
 
 	<!-- End Script -->

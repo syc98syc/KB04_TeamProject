@@ -78,6 +78,8 @@ public class CertificationController {
 		if (returnVal.equals("redirect:/jgig/login"))
 			return returnVal;
 		String mem_id = returnVal;
+		
+		
 
 		// test
 		System.out.println("로그인 아이디 : " + mem_id);
@@ -92,6 +94,7 @@ public class CertificationController {
 		 
 		 	response.setContentType("text/html;charset=UTF-8");
 	        response.getWriter().write("<script>window.opener.location.reload();</script>");
+	       
 	        response.getWriter().write("<script>window.close();</script>");
 
 	       

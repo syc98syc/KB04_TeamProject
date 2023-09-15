@@ -107,22 +107,7 @@
 	</nav>
 	<!-- Close Header -->
 
-	<!-- Modal -->
-	<div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="w-100 pt-1 mb-5 text-right">
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
-			<form action="" method="get" class="modal-content modal-body border-0 p-0">
-				<div class="input-group mb-2">
-					<input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
-					<button type="submit" class="input-group-text bg-success text-light">
-						<i class="fa fa-fw fa-search text-white"></i>
-					</button>
-				</div>
-			</form>
-		</div>
-	</div>
+	
 
 	<!-- Start Content -->
 	<div class="container py-5">
@@ -246,6 +231,26 @@
 		</div>
 	</div>
 	<!-- End Content -->
+	
+		<!-- Start 모달  -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="modal-title"></h4>
+				</div>
+				<div class="modal-body" id="modal-body">
+					<p></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal" id="modalClose">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- End 모달  -->
+	
 
 	<!-- Start Footer -->
 	<footer class="footer-cust" id="tempaltemo_footer">
@@ -309,10 +314,11 @@
 			if (name !== "${cardDto.cd_name}" || ssn !== "${cardDto.cd_ssn}"
 					|| tel !== "${cardDto.cd_phone}"
 					|| pw !== "${cardDto.cd_pw}") {
-				alert("카드 회원 정보가 일치하지 않습니다.")
+				openModal("카드 분실신고/취소","카드 회원 정보가 일치하지 않습니다.");
+
 				return false;
 			}
-			alert("본인 인증 완료");
+			openModal("카드 분실신고/취소","본인 인증이 완료되었습니다.");
 			is_valid = true;
 			return true;
 
@@ -320,7 +326,7 @@
 
 		function is_vaild() {
 			if (!is_valid) {
-				alert("본인 인증이 필요합니다.");
+				openModal("카드 분실신고/취소","본인 인증이 필요합니다.");
 				return false;
 			}
 			return true;
@@ -364,6 +370,26 @@
 			});
 		});
 	</script>
+	
+	<script>
+	//모달 창닫기
+	$(function() {
+		$('#modalClose').click(function() {
+			$('#myModal').modal('hide')
+		})
+	})
+
+	//모달창 띄우기
+	
+	function openModal(title,body){
+	var modalTitle = document.getElementById("modal-title");
+	modalTitle.innerHTML = title; //모달 제목
+	var modalTitle = document.getElementById("modal-body");
+	modalTitle.innerHTML = body; //모달 내용
+		 $("#myModal").modal('show');
+	}
+	</script>
+	
 
 	<!-- End Script -->
 

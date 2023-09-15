@@ -249,6 +249,25 @@
 	</div>
 	<!-- End Content -->
 
+	<!-- Start 모달  -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="modal-title"></h4>
+				</div>
+				<div class="modal-body" id="modal-body">
+					<p></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal" id="modalClose">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- End 모달  -->
+
 
 
 	<!-- Start Footer -->
@@ -357,5 +376,39 @@
 			});
 		});
 	</script>
+	
+	<script>
+	//모달 창닫기
+	$(function() {
+		$('#modalClose').click(function() {
+			$('#myModal').modal('hide')
+		})
+	})
+
+	//모달창 띄우기
+	
+	function openModal(title,body){
+	var modalTitle = document.getElementById("modal-title");
+	modalTitle.innerHTML = title; //모달 제목
+	var modalTitle = document.getElementById("modal-body");
+	modalTitle.innerHTML = body; //모달 내용
+		 $("#myModal").modal('show');
+	}
+
+	</script>
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	
+	<script>
+window.onload = function(){
+    document.getElementById("address").addEventListener("click", function(){ //주소입력칸을 클릭하면
+        //카카오 지도 발생
+        new daum.Postcode({
+            oncomplete: function(data) { //선택시 입력값 세팅
+                document.getElementById("address").value = data.address; // 주소 넣기
+            }
+        }).open();
+    });
+}
+</script>
 </body>
 </html>

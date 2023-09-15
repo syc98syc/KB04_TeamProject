@@ -867,3 +867,11 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	padding-right: 10%;
 }
 /*******************************다윤********************************/
+
+#modalClose{
+    background-color: #a39485;
+    font-weight: bold;
+}
+#modalClose:hover {
+   background-color: #c2b3a5;
+}

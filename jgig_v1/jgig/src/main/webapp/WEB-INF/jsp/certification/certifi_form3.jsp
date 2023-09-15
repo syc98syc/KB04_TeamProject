@@ -107,22 +107,25 @@
 	</nav>
 	<!-- Close Header -->
 
-	<!-- Modal -->
-	<div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="w-100 pt-1 mb-5 text-right">
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
-			<form action="" method="get" class="modal-content modal-body border-0 p-0">
-				<div class="input-group mb-2">
-					<input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
-					<button type="submit" class="input-group-text bg-success text-light">
-						<i class="fa fa-fw fa-search text-white"></i>
-					</button>
+	<!-- Start 모달  -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="modal-title"></h4>
 				</div>
-			</form>
+				<div class="modal-body" id="modal-body">
+					<p></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal" id="modalClose">Close</button>
+				</div>
+			</div>
 		</div>
 	</div>
+<!-- End 모달  -->
+
 
 	<!-- Start Content -->
 	<div class="container py-5">
@@ -154,6 +157,9 @@
 				</div>
 				<div class="row">
 					<div id="service-content">
+					<div class="subcontent checkbox-div">
+							<label for="advice-balloonCheckbox">도움말</label> <input type="checkbox" id="advice-balloonCheckbox">
+						</div>
 						<!-- 여기에 넣으시며 됩니당 -->
 						<form action="certification_action" method="post" onsubmit="return validateForm();">
 
@@ -161,7 +167,7 @@
 								<h3 class="h3-subtitle">인증서 저장 위치</h3>
 								<div class="subcontent">
 									<span>* 저장 위치는 연습을 위한 양식입니다. 실제 지정 위치에 저장되지 않습니다. </span> <br>
-									<div id="loca-div">
+									<div id="loca-div" data-bs-toggle="tooltip" data-bs-placement="bottom" title="4가지 저장 위치 중 하나를 선택해 주세요.">
 									<label><input type="radio" name="save_loca" > 하드 디스크</label>
 									<label><input type="radio" name="save_loca">이동식 디스크</label>
 									<label><input type="radio" name="save_loca">보안 토큰</label>
@@ -184,11 +190,11 @@
 
 											<tr>
 												<th>암호</th>
-												<td class="p-sm-2 text-sm-start"><input id="ct_pw" type="password"></td>
+												<td class="p-sm-2 text-sm-start"><input id="ct_pw" type="password" data-bs-toggle="tooltip" data-bs-placement="right" title="암호를 설정해 주세요."></td>
 											</tr>
 											<tr>
 												<th>암호 확인</th>
-												<td class="p-sm-2 text-sm-start"><input type="password" id="ct_pw_confirm" oninput="checkPassword()"> <span id="pw2_message"></span></td>
+												<td class="p-sm-2 text-sm-start"><input type="password" id="ct_pw_confirm" oninput="checkPassword()" data-bs-toggle="tooltip" data-bs-placement="bottom" title="위 암호와 동일하게 입력해주세요."> <span id="pw2_message"></span></td>
 											</tr>
 											
 
@@ -261,10 +267,11 @@
 			var ct_pw_confirm=document.getElementById('ct_pw_confirm').value;
 			
 			if(save_loca.length === 0){
-				alert("인증서 저장 위치를 선택해 주세요");
+				openModal("인증서 발급","인증서 저장 위치를 선택해 주세요.");
+
 				return false;
 			}else if(ct_pw===''||ct_pw_confirm===''){
-				alert("암호를 설정해주세요.")
+				openModal("인증서 발급","암호를 설정해 주세요.");
 				return false;
 			}
 			
@@ -273,6 +280,57 @@
 			return true;
 		}
 		
+	</script>
+	<script>
+	//도움말
+		$(function() {
+			var tooltipTriggerList = [].slice.call(document
+					.querySelectorAll('[data-bs-toggle="tooltip"]'));
+			var tooltipList = tooltipTriggerList
+					.map(function(tooltipTriggerEl) {
+						return new bootstrap.Tooltip(
+								tooltipTriggerEl,
+								{
+									trigger : 'manual',
+									template : '<div class="tooltip tooltip-warning" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' // 툴팁 말풍선의 클래스 변경
+								});
+					});
+
+			$('#advice-balloonCheckbox').change(function() {
+				if (this.checked) {
+					
+
+					tooltipList.forEach(function(tooltip) {
+						tooltip.show();
+					});
+				} else {
+				
+
+					tooltipList.forEach(function(tooltip) {
+						tooltip.hide();
+					});
+				}
+			});
+		});
+
+	</script>
+	<script>
+	//모달 창닫기
+	$(function() {
+		$('#modalClose').click(function() {
+			$('#myModal').modal('hide')
+		})
+	})
+
+	//모달창 띄우기
+	
+	function openModal(title,body){
+	var modalTitle = document.getElementById("modal-title");
+	modalTitle.innerHTML = title; //모달 제목
+	var modalTitle = document.getElementById("modal-body");
+	modalTitle.innerHTML = body; //모달 내용
+		 $("#myModal").modal('show');
+	}
 	</script>
 	<!-- End Script -->
 

@@ -21,8 +21,65 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/assets/js/jquery-1.11.0.min.js"></script>
+<script src="/assets/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/templatemo.js"></script>
+<script src="/assets/js/custom.js"></script>
+
+<!-- JavaScript 코드 -->
+<script>
+       
+
+        // 페이지 로딩시 초기에 실행되는 JavaScript 코드
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            // 모달 창닫기
+            $(function() {
+                $('#modalClose').click(function() {
+                    $('#myModal').modal('hide');
+                });
+            });
+
+            // 모달창 띄우기
+            function openModal(title, body) {
+                var modalTitle = document.getElementById("modal-title");
+                modalTitle.innerHTML = title; // 모달 제목
+                var modalBody = document.getElementById("modal-body");
+                modalBody.innerHTML = body; // 모달 내용
+                $("#myModal").modal('show');
+            }
+            
+            
+            var isARSSuccess = ${sessionScope.isARS};
+            if (typeof isARSSuccess !== 'undefined' && isARSSuccess !== null) {
+                if (isARSSuccess === true) {
+                    openModal("인증서발급", "ARS 인증이 완료되었습니다.");
+                } 
+                
+            }
+            
+        });
+    </script>
+
+<!-- JavaScript 코드 -->
+<c:if test="${not empty sessionScope.isARS}">
+	<c:choose>
+		<c:when test="${sessionScope.isARS eq true}">
+			<script>
+				openModal("인증서 발급","인증 완료되었습니다.");
+
+            </script>
+		</c:when>
+		
+	</c:choose>
+</c:if>
 </head>
 <body>
+
+
 	<!-- Header -->
 	<nav class="navbar navbar-expand-lg navbar-light shadow navcolor">
 		<div class="container d-flex justify-content-between align-items-center">
@@ -106,23 +163,25 @@
 		</div>
 	</nav>
 	<!-- Close Header -->
-
-	<!-- Modal -->
-	<div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="w-100 pt-1 mb-5 text-right">
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
-			<form action="certification_issuance3" method="post" class="modal-content modal-body border-0 p-0">
-				<div class="input-group mb-2">
-					<input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
-					<button type="submit" class="input-group-text bg-success text-light">
-						<i class="fa fa-fw fa-search text-white"></i>
-					</button>
+	
+<!-- Start 모달  -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="modal-title"></h4>
 				</div>
-			</form>
+				<div class="modal-body" id="modal-body">
+					<p></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal" id="modalClose">Close</button>
+				</div>
+			</div>
 		</div>
 	</div>
+<!-- End 모달  -->
 
 	<!-- Start Content -->
 	<div class="container py-5">
@@ -155,6 +214,9 @@
 				</div>
 				<div class="row">
 					<div id="service-content">
+					<div class="subcontent checkbox-div">
+							<label for="advice-balloonCheckbox">도움말</label> <input type="checkbox" id="advice-balloonCheckbox">
+						</div>
 						<!-- 여기에 넣으시며 됩니당 -->
 						<form action="certification_issuance3" method="post" onsubmit="return validateForm_user();">
 
@@ -176,7 +238,7 @@
 
 								</div>
 								<div class="btn-div">
-									<button type="button" class="card-vaild-btn " onclick="openARS();">ARS 인증</button>
+									<button type="button" class="card-vaild-btn " onclick="openARS();" data-bs-toggle="tooltip" data-bs-placement="right" title="ARS인증을 위해 버튼을 눌러주세요.">ARS 인증</button>
 								</div>
 							</div>
 
@@ -192,33 +254,33 @@
 
 											<tr>
 												<th>출금계좌</th>
-												<td class="p-sm-2 text-sm-start"><input id="ct_account"></td>
+												<td class="p-sm-2 text-sm-start"><input id="ct_account" data-bs-toggle="tooltip" data-bs-placement="right" title="계좌번호를 입력해주세요."></td>
 											</tr>
 											<tr>
 												<th>계좌 비밀번호</th>
-												<td class="p-sm-2 text-sm-start"><input type="password" id="ct_account_pw"></td>
+												<td class="p-sm-2 text-sm-start"><input type="password" id="ct_account_pw" data-bs-toggle="tooltip" data-bs-placement="right" title="해당 계좌의 비밀번호를 입력해주세요."></td>
 											</tr>
 											<tr>
 												<th>인증 구분</th>
-												<td class="p-sm-2 text-sm-start"><input type="radio" id="ct_div_smartotp" name="ct_div" value="smartotp">스마트OTP <input type="radio" id="ct_div_card" name="ct_div" value="card">보안카드</td>
+												<td class="p-sm-2 text-sm-start"  ><input type="radio" id="ct_div_smartotp" name="ct_div" value="smartotp"><span>스마트OTP</span> <input type="radio" id="ct_div_card" name="ct_div" value="card"><span data-bs-toggle="tooltip" data-bs-placement="right" title="원하는 인증방법을 선택해주세요.">보안카드</span></td>
 											</tr>
 											<tr id="smartotp_image" class="hidden">
 												<th>일회용 비밀번호</th>
 
-												<td class="p-sm-2 text-sm-start"><input  id="ct_otp_input" name="ct_otp_input"><br>
-												<span>일회용비밀번호생성기(OTP)의 일회용 비밀번호 6자리를 입력해주세요.</span><br> <img src="/assets/img/otp.png" alt="스마트OTP 이미지"> <br><span>위 그림은 연습을 위한 가상의 OTP입니다.</span></td>
+												<td class="p-sm-2 text-sm-start"><input  id="ct_otp_input" name="ct_otp_input" ><br>
+												<span>일회용비밀번호생성기(OTP)의 일회용 비밀번호 6자리를 입력해주세요.</span><br> <img id="otp-image"src="/assets/img/otp.png" alt="스마트OTP 이미지"> <br><span>위 그림은 연습을 위한 가상의 OTP입니다.</span></td>
 											</tr>
 											
 											
 											<tr id="card_num" class="hidden">
 												<th>보안카드 일련번호</th>
-												<td class="p-sm-2 text-sm-start">보안카드 일련번호 <input type="password" id="ct_secu_input1" maxlength="4"> 일련번호 끝 4자리 입력
+												<td class="p-sm-2 text-sm-start">보안카드 일련번호 <input type="password" id="ct_secu_input1" maxlength="4" > 일련번호 끝 4자리 입력
 												</td>
 
 											</tr>
 											<tr id="card_image" class="hidden">
 												<th>보안카드 비밀번호</th>
-												<td class="p-sm-2 text-sm-start"><input type="password" id="ct_secu_input2" maxlength="2" name="ct_secu_input2"> ●● <span class="text-red">[29]</span> 앞의 두자리<br> ●● <input type="password" maxlength="2" id="ct_secu_input3" name="ct_secu_input3"> <span class="text-blue">[25]</span> 뒤의 두자리 <img src="/assets/img/securitycard.png" alt="보안카드 이미지"></td>
+												<td class="p-sm-2 text-sm-start"><input type="password" id="ct_secu_input2" maxlength="2" name="ct_secu_input2"> ●● <span class="text-red">[29]</span> 앞의 두자리<br> ●● <input type="password" maxlength="2" id="ct_secu_input3" name="ct_secu_input3"> <span class="text-blue">[25]</span> 뒤의 두자리 <br> <img id="security-image" src="/assets/img/securitycard.png" alt="보안카드 이미지"></td>
 											</tr>
 
 										</tbody>
@@ -252,12 +314,6 @@
 	</footer>
 	<!-- End Footer -->
 
-	<!-- Start Script -->
-	<script src="/assets/js/jquery-1.11.0.min.js"></script>
-	<script src="/assets/js/jquery-migrate-1.2.1.min.js"></script>
-	<script src="/assets/js/bootstrap.bundle.min.js"></script>
-	<script src="/assets/js/templatemo.js"></script>
-	<script src="/assets/js/custom.js"></script>
 
 
 
@@ -299,13 +355,14 @@
 		//ars 확인 함수
 		function check_ars() {
 			var isars = ${sessionScope.isARS};
-			console.log("isars" + isars);
+			//console.log("isars" + isars);
 
 			if (isars === true) {
 				//console.log("isARS exists:", isars);
 				return true;
 			} else {
-				alert("ARS 인증이 필요합니다.");
+				openModal("인증서 발급","ARS 인증이 필요합니다.");
+
 				return false;
 			}
 
@@ -321,7 +378,8 @@
 			var ct_div = document.querySelectorAll('input[name="ct_div"]:checked');
 			
 			if(ct_account===''||ct_account_pw===''||ct_div.length === 0){
-				alert("추가 본인확인이 완료되지 않았습니다.");
+				openModal("인증서 발급","추가 본인확인이 완료되지 않았습니다.");
+
 				return false;
 			}
 			
@@ -331,7 +389,8 @@
 			if (checked_certi_div === "smartotp") {
 				var ct_otp_input = document.getElementById('ct_otp_input').value;
 				if (ct_otp_input !== '050109') {
-					alert("일회용 비밀번호가 다릅니다.");
+					openModal("인증서 발급","일회용 비밀번호가 다릅니다.");
+
 					return false;
 				}
 			}
@@ -342,7 +401,8 @@
 				var ct_secu_input3 = document.getElementById('ct_secu_input3').value;
 				
 				if (ct_secu_input1!=='2938' ||ct_secu_input2!=='01'||ct_secu_input3!=='75') {
-					alert("보안카드 비밀번호가 다릅니다");
+					openModal("인증서 발급","보안카드 비밀번호가 다릅니다.");
+
 				return false;
 				}
 
@@ -363,6 +423,61 @@
         };
     }
 </script>
+<script>
+	//도움말
+		$(function() {
+			var tooltipTriggerList = [].slice.call(document
+					.querySelectorAll('[data-bs-toggle="tooltip"]'));
+			var tooltipList = tooltipTriggerList
+					.map(function(tooltipTriggerEl) {
+						return new bootstrap.Tooltip(
+								tooltipTriggerEl,
+								{
+									trigger : 'manual',
+									template : '<div class="tooltip tooltip-warning" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' // 툴팁 말풍선의 클래스 변경
+								});
+					});
+
+			$('#advice-balloonCheckbox').change(function() {
+				if (this.checked) {
+					
+					    var securityImage = document.getElementById("security-image");
+					    var secu_newImagePath = "/assets/img/securitycard-hint.png";
+					    securityImage.src = secu_newImagePath;
+					    
+					    var otpImage = document.getElementById("otp-image");
+					    var otp_newImagePath = "/assets/img/otp-hint.png";
+					    otpImage.src = otp_newImagePath;
+
+					tooltipList.forEach(function(tooltip) {
+						tooltip.show();
+						  // 이미지 요소를 JavaScript로 선택합니다.
+
+					    // 새로운 이미지 경로를 설정합니다.
+					    
+					   
+					});
+				} else {
+				
+					var securityImage = document.getElementById("security-image");
+				    var newImagePath = "/assets/img/securitycard.png";
+				    securityImage.src = newImagePath;
+
+				    
+				    var otpImage = document.getElementById("otp-image");
+				    var otp_newImagePath = "/assets/img/otp.png";
+				    otpImage.src = otp_newImagePath;
+				    
+				    
+					tooltipList.forEach(function(tooltip) {
+						tooltip.hide();
+					});
+				}
+			});
+		});
+
+	</script>
+
 	<!-- End Script -->
 
 </body>

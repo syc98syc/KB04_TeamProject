@@ -144,7 +144,10 @@ public class PointController {
 			// 이미 출석체크한 경우 처리 (예: 에러 메시지 전달)
 			session.setAttribute("checkinSuccess", false);
 			
-			//response.getWriter().write("<script>alert('이미 출석체크를 하셨습니다.')</script>");
+//		response.getWriter().write("<script>\r\n"
+//				+ "				openModal(\"출석체크\",\"이미 출석체크 하셨습니다.\");\r\n"
+//				+ "\r\n"
+//				+ "        console.log(\"출첵이미함\");   </script>");
 			
 		} else {
 			PointDto point = new PointDto();

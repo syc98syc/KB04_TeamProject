@@ -24,7 +24,29 @@
 </head>
 <body>
 
+
+
 	<div id="service-content">
+	
+		<!-- Start 모달  -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="modal-title"></h4>
+				</div>
+				<div class="modal-body" id="modal-body">
+					<p></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal" id="modalClose">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- End 모달  -->
+	
 		<!-- 여기에 넣으시며 됩니당 -->
 
 		<div class="p-4">
@@ -82,17 +104,26 @@
 							<button onclick="clearInput()">⬅</button>
 						</div>
 					</div>
+				</div>
+					<div class="text-center pt-3">
 					<form action="ars_action" method="post" onsubmit="return validateARS();">
 						<input type="hidden" name="isARS" value="true">
 						<button type="submit" class="card-sumit-btn">확인</button>
 					</form>
-				</div>
+					</div>
 			</div>
 		</div>
 
 	</div>
 
 </body>
+
+	<!-- Start Script -->
+	<script src="/assets/js/jquery-1.11.0.min.js"></script>
+	<script src="/assets/js/jquery-migrate-1.2.1.min.js"></script>
+	<script src="/assets/js/bootstrap.bundle.min.js"></script>
+	<script src="/assets/js/templatemo.js"></script>
+	<script src="/assets/js/custom.js"></script>
 
 <script>
     function appendNumber(number) {
@@ -104,23 +135,39 @@
         var inputArsText = document.getElementById('input-ars-text');
         inputArsText.value = '';
     }
-    
-    function validateARS(){
-    	var randnum=${ran};
-    	var inputnum=document.getElementById('input-ars-text').value;
-    	console.log(randnum);
-    	console.log(randnum);
-    	if(randnum!=inputnum){
-    		alert("입력값이 다릅니다.");
-    		return false;
-    	}
-    	
-    	alert("ARS 인증 성공");
-    	
-   
-    	return true;
+
+    function validateARS() {
+        var randnum = ${ran};
+        var inputnum = document.getElementById('input-ars-text').value;
+
+        if (randnum != inputnum) {
+            openModal("ARS인증", "입력값이 다릅니다.");
+           	clearInput();
+            return false;
+        }
+
+        return true;
     }
-    
-   
+
+    // 모달 창 닫기
+    $(function() {
+        $('#modalClose').click(function() {
+            $('#myModal').modal('hide');
+        });
+    });
+
+    // 모달 창 띄우기
+    function openModal(title, body) {
+        var modalTitle = document.getElementById("modal-title");
+        modalTitle.innerHTML = title; // 모달 제목
+        var modalBody = document.getElementById("modal-body");
+        modalBody.innerHTML = body; // 모달 내용
+        $("#myModal").modal('show');
+    }
 </script>
+
+
+
+
+
 </html>

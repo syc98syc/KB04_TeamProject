@@ -29,26 +29,9 @@ public class CardController {
 		if (returnVal.equals("redirect:/jgig/login"))
 			return returnVal;
 
-		// 본인인증 유효성 체크
 		CardDto select_card = (CardDto) session.getAttribute("select_card");
-		String cd_nm = select_card.getCd_name();
-		String cd_tel = select_card.getCd_phone();
-		String cd_ssn = select_card.getCd_ssn();
-		String cd_pw = select_card.getCd_pw();
+
 		int cd_no = select_card.getCd_no();
-
-		String input_nm = cardDto.getCd_name();
-		String input_tel = cardDto.getCd_phone();
-		String input_ssn = cardDto.getCd_ssn();
-		String input_pw = cardDto.getCd_pw();
-
-		if (!cd_nm.equals(input_nm) || !cd_tel.equals(input_tel) || !cd_ssn.equals(input_ssn)
-				|| !cd_pw.equals(input_pw)) {
-			// 본인 인증 실패: 경고 메시지를 생성하고 JavaScript의 alert 함수를 사용하여 표시
-			String errorMessage = "카드 정보와 입력정보가 다릅니다.";
-			session.setAttribute("errorMessage", errorMessage); // 실패 메시지를 세션에 저장
-			return "redirect:/jgig/card_status_form?no=" + cd_no; // 실패한 경우, 다시 카드 비빌번호변경 입력폼 페이지로 리다이렉트
-		}
 
 		cardMapper.update_pw(cd_no, new_pw);
 		CardDto update_card = cardMapper.select_card(cd_no);
@@ -76,26 +59,9 @@ public class CardController {
 		if (returnVal.equals("redirect:/jgig/login"))
 			return returnVal;
 
-//		 본인인증 유효성 체크
 		CardDto select_card = (CardDto) session.getAttribute("select_card");
-		String cd_nm = select_card.getCd_name();
-		String cd_tel = select_card.getCd_phone();
-		String cd_ssn = select_card.getCd_ssn();
-		String cd_pw = select_card.getCd_pw();
 		int cd_no = select_card.getCd_no();
 
-		String input_nm = cardDto.getCd_name();
-		String input_tel = cardDto.getCd_phone();
-		String input_ssn = cardDto.getCd_ssn();
-		String input_pw = cardDto.getCd_pw();
-
-		if (!cd_nm.equals(input_nm) || !cd_tel.equals(input_tel) || !cd_ssn.equals(input_ssn)
-				|| !cd_pw.equals(input_pw)) {
-			// 본인 인증 실패: 경고 메시지를 생성하고 JavaScript의 alert 함수를 사용하여 표시
-			String errorMessage = "카드 정보와 입력정보가 다릅니다.";
-			session.setAttribute("errorMessage", errorMessage); // 실패 메시지를 세션에 저장
-			return "redirect:/jgig/card_status_form?no=" + cd_no; // 실패한 경우, 다시 카드 상태변경 입력폼 페이지로 리다이렉트
-		}
 
 		cardMapper.update_status(cd_no);
 		CardDto update_card = cardMapper.select_card(cd_no);
@@ -123,26 +89,9 @@ public class CardController {
 		if (returnVal.equals("redirect:/jgig/login"))
 			return returnVal;
 
-		// 본인인증 유효성 체크
 		CardDto select_card = (CardDto) session.getAttribute("select_card");
-		String cd_nm = select_card.getCd_name();
-		String cd_tel = select_card.getCd_phone();
-		String cd_ssn = select_card.getCd_ssn();
-		String cd_pw = select_card.getCd_pw();
 		int cd_no = select_card.getCd_no();
 
-		String input_nm = cardDto.getCd_name();
-		String input_tel = cardDto.getCd_phone();
-		String input_ssn = cardDto.getCd_ssn();
-		String input_pw = cardDto.getCd_pw();
-
-		if (!cd_nm.equals(input_nm) || !cd_tel.equals(input_tel) || !cd_ssn.equals(input_ssn)
-				|| !cd_pw.equals(input_pw)) {
-			// 본인 인증 실패: 경고 메시지를 생성하고 JavaScript의 alert 함수를 사용하여 표시
-			String errorMessage = "카드 정보와 입력정보가 다릅니다.";
-			session.setAttribute("errorMessage", errorMessage); // 실패 메시지를 세션에 저장
-			return "redirect:/jgig/card_cancellation_form?no=" + cd_no; // 실패한 경우, 다시 카드 해지 입력폼 페이지로 리다이렉트
-		}
 
 		cardMapper.delete(cd_no);
 		model.addAttribute("cardDto", select_card);
@@ -174,11 +123,10 @@ public class CardController {
 
 		List<CardDto> card_list = cardMapper.list(mem_id);
 
-		System.out.println(pageNum);
 		int cnt = card_list.size(); // 카드 리스트 개수
 
 		// 페이징
-		int pageSize = 10;// 한 페이지에 출력될 글 수
+		int pageSize = 5;// 한 페이지에 출력될 글 수
 		int maxPage = (int) (Math.ceil((double) cnt / pageSize));
 		int blockLimit = 5; // 하단에 보여줄 페이지의 수
 
@@ -215,9 +163,6 @@ public class CardController {
 			return returnVal;
 		String mem_id = returnVal;
 
-		// test
-		System.out.println("form1 로그인 아이디 : " + mem_id);
-
 		return "card/issuance_form1";
 	}
 
@@ -229,36 +174,7 @@ public class CardController {
 			return returnVal;
 		String mem_id = returnVal;
 
-		// 본인인증
-		String mem_nm = (String) session.getAttribute("mem_nm");
-		String mem_tel = (String) session.getAttribute("phone_num");
-		String mem_ssn = (String) session.getAttribute("ssn");
 
-		String input_nm = cardDto.getCd_name();
-		String input_tel = cardDto.getCd_phone();
-		String input_ssn = cardDto.getCd_ssn();
-
-		if (!mem_nm.equals(input_nm) || !mem_tel.equals(input_tel) || !mem_ssn.equals(input_ssn)) {
-			// 본인 인증 실패: 경고 메시지를 생성하고 JavaScript의 alert 함수를 사용하여 표시
-			System.out.println("입력값(form1): " + cardDto);
-			String errorMessage = "본인 인증에 실패했습니다. 회원 정보와 다릅니다. ";
-			session.setAttribute("errorMessage", errorMessage); // 실패 메시지를 세션에 저장
-			return "redirect:/jgig/card_issuance"; // 실패한 경우, 다시 form1 페이지로 리다이렉트
-		}
-
-		// 약관동의 체크
-		if (!agree.equals("동의")) {
-			String errorMessage = "약관에 동의하여야 카드 발급이 가능합니다.";
-			session.setAttribute("errorMessage", errorMessage); // 실패 메시지를 세션에 저장
-			return "redirect:/jgig/card_issuance"; // 실패한 경우, 다시 form1 페이지로 리다이렉트
-		}
-
-		// 입력 받은 DTO를 세션에 저장
-		session.setAttribute("cardDto_form1", cardDto);
-
-		// test
-		System.out.println("form2 로그인 아이디 : " + mem_id);
-		System.out.println("입력값(form1): " + cardDto);
 
 		return "card/issuance_form2";
 	}
@@ -283,11 +199,6 @@ public class CardController {
 		cardMapper.insert(cardDto); // DB insert
 		CardDto card_success = cardMapper.find_last(mem_id);
 		model.addAttribute("card_success", card_success);
-
-		// test
-		System.out.println("action 로그인 아이디 : " + mem_id);
-		System.out.println("cardDto_form2 : " + cardDto);
-		System.out.println("card insert 성공");
 
 		return "card/issuance_ok";
 	}

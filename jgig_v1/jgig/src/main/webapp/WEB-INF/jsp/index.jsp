@@ -136,22 +136,7 @@ https://templatemo.com/tm-559-zay-shop
 	<!-- Close Header -->
 
 
-	<!-- Modal -->
-	<div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="w-100 pt-1 mb-5 text-right">
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
-			<form action="" method="get" class="modal-content modal-body border-0 p-0">
-				<div class="input-group mb-2">
-					<input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
-					<button type="submit" class="input-group-text bg-success text-light">
-						<i class="fa fa-fw fa-search text-white"></i>
-					</button>
-				</div>
-			</form>
-		</div>
-	</div>
+	
 
 
 	<div id="slide-banner" class="carousel slide height350 " data-bs-ride="carousel">
@@ -242,51 +227,7 @@ https://templatemo.com/tm-559-zay-shop
 
 
 
-	<!-- Start Banner Hero -->
-	<!--<div id="template-mo-zay-hero-carousel" class="carousel slide height350" data-bs-ride="carousel">
-		<ol class="carousel-indicators">
-			<li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
-			<li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
-			<li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
-		</ol>
-		<div class="carousel-inner height350">
-			<div class="carousel-item active height350">
-				<div class="container height350 ">
-					<div class="row  height350">
-
-						<img class="banner-img" src="/./assets/img/banner-1.png">
-
-					</div>
-				</div>
-			</div>
-			<div class="carousel-item">
-				<div class="container ">
-					<div class="row height350">
-
-						<img class="banner-img" src="/./assets/img/banner-2.png">
-
-					</div>
-				</div>
-			</div>
-			<div class="carousel-item">
-				<div class="container ">
-					<div class="row  height350">
-
-						<img class="banner-img" src="/./assets/img/banner-3.png">
-
-					</div>
-				</div>
-			</div>
-		</div>
-		<a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev"> <i
-			class="fas fa-chevron-left  "
-		></i>
-		</a> <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next"> <i
-			class="fas fa-chevron-right"
-		></i>
-		</a>
-	</div> -->
-	<!-- End Banner Hero -->
+	
 
 
 	<!-- Start 공지사항, 회원랭킹 -->
@@ -479,6 +420,7 @@ https://templatemo.com/tm-559-zay-shop
 				window.location.href = '/jgig/login';
 				return false;
 			} else {
+				
 				window.open('/jgig/attendance', 'Child',
 						'width=750px, height=800px, top=50, left=50');
 				return true;
