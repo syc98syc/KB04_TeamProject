@@ -221,7 +221,7 @@
 						<div id="service-content"> 
 							<!-- 여기에 넣으시며 됩니당 -->
 							<fieldset>
-							<form action="trans_history_action" method="post" id = "f1" onsubmit="return validateForm();">
+							<form action="trans_history_action" method="post" id = "form1">
 								<div class = "accountListCss">
 								<strong class="advice-balloon advice-balloon2_trans_his1">1. 계좌를 선택해주세요.</strong>
 								<strong class="advice-balloon advice-balloon3_trans_his1">2-1. 월별조회 버튼을 눌러주세요.</strong>
@@ -229,64 +229,50 @@
 										<tr>
 											<th class ="bgc" style = "width:24%;">계좌 선택</th>
 											<td>
-												<select name="selectedAccount" id="selectedAccount"
-													onchange="copyAccountNumber()">
-														<option selected>선택</option>
-														<c:forEach items="${list}" var="acclist" varStatus="status">
-															<option value="${acclist.account}">${acclist.account}</option>
-														</c:forEach>
-												</select>
+												<select name="selectedAccount" id="selectedAccount">
+													<option selected>선택</option>
+													<c:forEach items="${accountList}" var="acclist" varStatus="status">
+														<option value="${acclist.account}">${acclist.account}</option>
+													</c:forEach>
+												</select> 
 											</td>
 										</tr>
 										<tr>
 											<th class ="bgc" style = "width:24%;">월별 조회</th>
 											<td>
-												<select id="year" name="year" class="form-control"
-													style="display: inline-block; width: auto;">
-														<c:forEach var="i" begin="15" end="23">
-															<option value="${i}" selected>20${i}</option>
+												<select id="year" name="year" class="form-control" style="display: inline-block; width: auto;">
+													<c:forEach var="i" begin="15" end="25">
+														<option value="${i}">20${i}</option>
+													</c:forEach>
+												</select> <span>년</span> 
+												<select id="month" name="month" class="form-control" style="display: inline-block; width: auto;">
+													<c:forEach var="i" begin="1" end="12">
+														<c:choose>
+															<c:when test="${i lt 10 }">
+																<option value="0${i}">0${i}</option>
+															</c:when>
+															<c:otherwise>
+																<option value="${i}">${i}</option>
+															</c:otherwise>
+														</c:choose>
 														</c:forEach>
-												</select> <span>년</span> <select id="month" name="month"
-													class="form-control"
-													style="display: inline-block; width: auto;">
-														<c:forEach var="i" begin="1" end="12">
-															<c:choose>
-																<c:when test="${i lt 10 }">
-																	<option value="0${i}">0${i}</option>
-																</c:when>
-																<c:otherwise>
-																	<option value="${i}">${i}</option>
-																</c:otherwise>
-															</c:choose>
-														</c:forEach>
-												</select> <span>월</span> 
+												</select> <span>월</span>
 												<Button type="submit"  class="btn button-like-link">월별조회</Button>
 											</td>
 										</tr>
 									</table>
 								</div>
 							  </form>
-							  
-							  <script>
-								function validateForm() {
-								  var selectedAccount = document.getElementById("selectedAccount").value;
-								  if (selectedAccount === "선택") {
-								    alert("계좌를 선택하세요.");
-								    return false; // 폼 제출을 중지합니다.
-								  }
-								  return true; // 폼 제출을 허용합니다.
-								}
-								</script>
-							<form action="trans_history_action2" method="post" onsubmit="return validateForm2();">
+							<form action="trans_history_selected_action2" method="post" id="form2">
 								<input type="hidden" id="accountNumber" name="selectedAccount">
 								<div class ="accountListCss">
 									<table style = "border: none;">
 										<tr>
 											<th class ="bgc" style="width: 24%;">조회 기간</th>
 											<td>
-												<input type="text" id="datepicker-start" name="startDate">
+												<input type="text" id="datepicker-start" class = "startDate" name="startDate">
 										        <label for="datepicker-end">~</label>
-										        <input type="text" id="datepicker-end" name="endDate">
+										        <input type="text" id="datepicker-end" class = "endDate"name="endDate">
 										        <strong class="advice-balloon advice-balloon4_trans_his1">2-2-1. 조회기간을 선택해주세요</strong>
 										        <Button type="submit" class="btn button-like-link">조회</Button>
 										        <strong class="advice-balloon advice-balloon5_trans_his1">2-2-2. 조회버튼을 선택해주세요</strong>
@@ -295,51 +281,11 @@
 									</table>
 								</div>
 						    </form>
-						    
-						    <script>
-								function validateForm2() {
-								  var selectedAccount = document.getElementById("accountNumber").value;
-								  if (selectedAccount === "선택" || selectedAccount === "") {
-								    alert("계좌를 선택하세요.");
-								    return false; // 폼 제출을 중지합니다.
-								  }
-								  return true; // 폼 제출을 허용합니다.
-								}
-							</script>
 						</fieldset>
 						<br>
-						<div id="tableDiv" style="display: none;">
-							<h4>계좌번호 ${selectedAccount}</h4>
-							<br>
-							<div class = "accountListCss">
-								<table>
-						        <thead>
-						            <tr>
-						                <th class = "bgc">거래일시</th>
-						                <th class = "bgc">보내는분</th>
-						                <th class = "bgc">받는분</th>
-						                <th class = "bgc">받은금액(원)</th>
-						                <th class = "bgc">보낸금액(원)</th>
-						            </tr>
-						        </thead>
-						        <tbody>
-						            <c:forEach items="${transferList}" var="transferDto">
-						                <tr>
-						                    <td><fmt:formatDate value="${transferDto.trans_date}" pattern="yyyy/MM/dd HH:mm:ss" /></td>
-						                    <td>${transferDto.send_nm}</td>
-						                    <td>${transferDto.receive_nm}</td>
-						                    <td><fmt:formatNumber value="${transferDto.withdr_mon}" pattern="#,###"/>원</td>
-						                    <td><fmt:formatNumber value="${transferDto.depo_mon}" pattern="#,###"/>원</td>
-						                </tr>
-						            </c:forEach>
-						        </tbody>
-						    	</table>
-							</div>
-						</div>
-						<div style = "text-align : center;">
-							<br><br>
-							<strong class = "trans_history_fail_msg">${msg}</strong>
-							<br><br>
+						<div id="transHistoryTable">
+						
+						
 						</div>
 					</div>
 					</div>
@@ -391,25 +337,9 @@
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<script>
 		    $(function() {
+		    	monthForm()
+		    	calendarForm()
 		    	advice_balloon()
-		        var urlParams = new URLSearchParams(window.location.search)
-		        var showTable = urlParams.get("showTable")
-		
-		        if (showTable === "true") {
-		        	$("#myModal").modal('show')
-		            $("#tableDiv").show()
-		            urlParams.delete("showTable")
-		            var newURL = window.location.pathname
-		            window.history.replaceState({}, document.title, newURL)
-		        }else if(showTable==="false"){
-		        	$("#myModal").modal('show')
-		        	urlParams.delete("showTable")
-		            var newURL = window.location.pathname
-		            window.history.replaceState({}, document.title, newURL)
-		        }
-		        else {
-		            $("#tableDiv").hide()
-		        }
 		        $("#datepicker-start").datepicker()
 	            $("#datepicker-end").datepicker()
 	            
@@ -417,11 +347,6 @@
 		            $('#myModal').modal('hide')
 		        })
 		    })
-		    
-		    function copyAccountNumber() {
-	            var selectedAccount = document.getElementById("selectedAccount").value
-	            document.getElementById("accountNumber").value = selectedAccount
-	        }
 		    function advice_balloon(){
 				$('#advice-balloonCheckbox').change(function() {
 					if (this.checked) {
@@ -440,6 +365,80 @@
 						console.log('말풍선을 숨깁니다.')
 					}
 				})
+			}
+		    function monthForm(){
+				$("#form1").submit(function(event) {
+					// 기본 폼 제출 동작을 막습니다.
+					event.preventDefault();
+					
+					// 선택한 계좌와 월별 조회 정보를 가져옵니다.
+					var selectedAccount = $("#selectedAccount").val();
+					var year = $("#year").val();
+					var month = $("#month").val();
+					var tdata = {
+							selectedAccount : selectedAccount,
+							year : year,
+							month : month
+					};
+					console.log(selectedAccount)
+					console.log(year)
+					console.log(month)
+					// Ajax 요청을 보냅니다.
+					$.ajax(
+						{
+						url : "trans_history_action", // 서버 엔드포인트 URL을 적절하게 변경하세요.
+						type : "post", // HTTP 메소드 (POST)
+						data : tdata,
+						success : function(response) {
+							// 서버로부터의 응답을 처리합니다.
+							console.log("Ajax 요청 성공!");
+							$('#transHistoryTable').html(response);
+							// 이곳에서 서버로부터의 응답을 처리하는 코드를 추가하세요.
+						},
+						error : function(error) {
+							// Ajax 요청이 실패한 경우 처리합니다.
+							console.log("Ajax 요청 실패!");
+							// 이곳에서 오류 처리 코드를 추가하세요.
+						}
+					});
+				});	
+			}
+			function calendarForm(){
+				$("#form2").submit(function(event) {
+					// 기본 폼 제출 동작을 막습니다.
+					event.preventDefault();
+					
+					// 선택한 계좌와 월별 조회 정보를 가져옵니다.
+					var selectedAccount = $("#selectedAccount").val();
+					var startDate = $(".startDate").val();
+					var endDate = $(".endDate").val();
+					var tdata = {
+							selectedAccount : selectedAccount,
+							startDate : startDate,
+							endDate : endDate
+					};
+					console.log(selectedAccount)
+					console.log(startDate)
+					console.log(endDate)
+					// Ajax 요청을 보냅니다.
+					$.ajax(
+						{
+						url : "trans_history_action2", // 서버 엔드포인트 URL을 적절하게 변경하세요.
+						type : "post", // HTTP 메소드 (POST)
+						data : tdata,
+						success : function(response) {
+							// 서버로부터의 응답을 처리합니다.
+							console.log("Ajax 요청 성공!");
+							$('#transHistoryTable').html(response);
+							// 이곳에서 서버로부터의 응답을 처리하는 코드를 추가하세요.
+						},
+						error : function(error) {
+							// Ajax 요청이 실패한 경우 처리합니다.
+							console.log("Ajax 요청 실패!");
+							// 이곳에서 오류 처리 코드를 추가하세요.
+						}
+					});
+				});	
 			}
 		</script>
 		<!-- End Script -->

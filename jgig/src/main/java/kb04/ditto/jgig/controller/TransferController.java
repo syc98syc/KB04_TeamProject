@@ -92,14 +92,13 @@ public class TransferController {
 		
 		String mem_id = returnVal;
 		List<TransferDto> accountList = transferMapper.accountList(mem_id);
-		model.addAttribute("list", accountList);
+		model.addAttribute("accountList", accountList);
 		return "transfer/trans_history";
 	}
 	
 	//거래내역조회 액션1(월별조회)
 	@PostMapping("jgig/trans_history_action")
-	public String trans_history_action(@RequestParam("selectedAccount") long selectedAccount, @RequestParam("year") int year, @RequestParam("month") int month, 
-			RedirectAttributes redirectAttributes, HttpSession session, Model model) {
+	public String trans_history_action(@RequestParam("selectedAccount") long selectedAccount, @RequestParam("year") int year, @RequestParam("month") int month, HttpSession session, Model model) {
 		String returnVal = login_check(session);
 		if (returnVal.equals("redirect:/jgig/login"))
 			return "redirect:/jgig/login";
@@ -111,78 +110,31 @@ public class TransferController {
 		String yearMon = year + "/" + input_month;
 		List<TransferDto> transferList = transferMapper.list(selectedAccount, yearMon);
 		
-		redirectAttributes.addFlashAttribute("selectedAccount", selectedAccount);
-		redirectAttributes.addFlashAttribute("transferList", transferList);
 		
 		LocalDate nowDate = LocalDate.now();
 		String nowDateString = nowDate.toString();
 		int check_practice = transferMapper.check_practice(nowDateString,(String)session.getAttribute("mem_id"), "월별조회");
 		
-		if(transferList.size() != 0) {
-			if(check_practice > 0 ) {
-				redirectAttributes.addFlashAttribute("point", "이미 거래 내역 조회(월별조회) 연습을 하였습니다.");
-				redirectAttributes.addAttribute("showTable", "true");
-				return "redirect:/jgig/trans_history";
-			}
-			transferMapper.setPoint(point, "월별조회", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
-			redirectAttributes.addFlashAttribute("point", "포인트가 "+point+" 적립되었습니다.");
-			redirectAttributes.addAttribute("showTable", "true");
-		}
-		else {
-			if(check_practice > 0 ) {
-				redirectAttributes.addFlashAttribute("point", "이미 거래 내역 조회(월별조회) 연습을 하였습니다.");
-				redirectAttributes.addAttribute("showTable", "false");
-				redirectAttributes.addFlashAttribute("msg", "거래 내역이 없습니다.");
-				return "redirect:/jgig/trans_history";
-			}
-			transferMapper.setPoint(point, "월별조회", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
-			redirectAttributes.addFlashAttribute("point", "포인트가 "+point+" 적립되었습니다.");
-			redirectAttributes.addAttribute("showTable", "false");
-			redirectAttributes.addFlashAttribute("msg", "거래 내역이 없습니다.");
-		}
-		return "redirect:/jgig/trans_history";
+		model.addAttribute("transferList", transferList);
+		
+		return "transfer/transfer_history_table";
 	}
 	
 	//거래내역조회 액션2(달력조회)
 	@PostMapping("jgig/trans_history_action2")
-	public String trans_history_action2(@RequestParam("selectedAccount") long selectedAccount, @RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, 
-			RedirectAttributes redirectAttributes, HttpSession session, Model model) {
+	public String trans_history_action2(@RequestParam("selectedAccount") long selectedAccount, @RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, HttpSession session, Model model) {
 		String returnVal = login_check(session);
 		if (returnVal.equals("redirect:/jgig/login"))
 			return "redirect:/jgig/login";
 		List<TransferDto> transferList = transferMapper.listCalender(startDate, endDate, selectedAccount);
 		
-		redirectAttributes.addFlashAttribute("selectedAccount", selectedAccount);
-		redirectAttributes.addFlashAttribute("transferList", transferList);
 		
 		LocalDate nowDate = LocalDate.now();
 		String nowDateString = nowDate.toString();
 		int check_practice = transferMapper.check_practice(nowDateString,(String)session.getAttribute("mem_id"), "달력조회");
 		
-		if(transferList.size() != 0) {
-			if(check_practice > 0 ) {
-				redirectAttributes.addFlashAttribute("point", "이미 거래 내역 조회(달력조회) 연습을 하였습니다.");
-				redirectAttributes.addAttribute("showTable", "true");
-				return "redirect:/jgig/trans_history";
-			}
-			transferMapper.setPoint(point, "달력조회", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
-			redirectAttributes.addFlashAttribute("point", "포인트가 "+point+" 적립되었습니다.");
-			redirectAttributes.addAttribute("showTable", "true");
-		}
-		else {
-			if(check_practice > 0 ) {
-				redirectAttributes.addFlashAttribute("point", "이미 거래 내역 조회(달력조회) 연습을 하였습니다.");
-				redirectAttributes.addAttribute("showTable", "false");
-				redirectAttributes.addFlashAttribute("msg", "거래 내역이 없습니다.");
-				return "redirect:/jgig/trans_history";
-			}
-			transferMapper.setPoint(point, "달력조회", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
-			redirectAttributes.addFlashAttribute("point", "포인트가 "+point+" 적립되었습니다.");
-			redirectAttributes.addAttribute("showTable", "false");
-			redirectAttributes.addFlashAttribute("msg", "거래 내역이 없습니다.");
-		}
-		
-		return "redirect:/jgig/trans_history";
+		model.addAttribute("transferList", transferList);
+		return "transfer/transfer_history_table";
 	}
 	
 	
@@ -198,91 +150,42 @@ public class TransferController {
 	
 	//거래내역조회 액션1(계좌관리에서 해당 계좌로 들어온 경우)(월별조회)
 	@PostMapping("jgig/trans_history_selected_action")
-	public String trans_history_selected_action(@RequestParam("account") long account, @RequestParam("year") int year, @RequestParam("month") int month, 
-			RedirectAttributes redirectAttributes, HttpSession session, Model model) {
+	public String trans_history_selected_action(@RequestParam("selectedAccount") long selectedAccount, @RequestParam("year") int year, @RequestParam("month") int month, HttpSession session ,Model model) {
 		String returnVal = login_check(session);
 		if (returnVal.equals("redirect:/jgig/login"))
 			return "redirect:/jgig/login";
+		
 		String input_month = "0";
 		if(month >= 0 && month <=9) {
 			input_month += month;
 		}
 		String yearMon = year + "/" + input_month;
-		List<TransferDto> transferList = transferMapper.list(account, yearMon);
-		
-		redirectAttributes.addFlashAttribute("account", account);
-		redirectAttributes.addFlashAttribute("transferList", transferList);
+		List<TransferDto> transferList = transferMapper.list(selectedAccount, yearMon);
 		
 		LocalDate nowDate = LocalDate.now();
 		String nowDateString = nowDate.toString();
 		int check_practice = transferMapper.check_practice(nowDateString,(String)session.getAttribute("mem_id"), "월별조회");
 		
-		if(transferList.size() != 0 ) {
-			if(check_practice > 0 ) {
-				redirectAttributes.addFlashAttribute("point", "이미 거래 내역 조회(월별조회) 연습을 하였습니다.");
-				redirectAttributes.addAttribute("showTable", "true");
-				return "redirect:/jgig/trans_history_selected?account="+account;
-			}
-			transferMapper.setPoint(1, "월별조회", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
-			redirectAttributes.addFlashAttribute("point", "포인트가 "+point+" 적립되었습니다.");
-			redirectAttributes.addAttribute("showTable", "true");
-		}
-		else {
-			if(check_practice > 0 ) {
-				redirectAttributes.addFlashAttribute("point", "이미 거래 내역 조회(월별조회) 연습을 하였습니다.");
-				redirectAttributes.addAttribute("showTable", "false");
-				redirectAttributes.addFlashAttribute("msg", "거래 내역이 없습니다.");
-				return "redirect:/jgig/trans_history_selected?account="+account;
-			}
-			transferMapper.setPoint(1, "월별조회", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
-			redirectAttributes.addFlashAttribute("point", "포인트가 "+point+" 적립되었습니다.");
-			redirectAttributes.addAttribute("showTable", "false");
-			redirectAttributes.addFlashAttribute("msg", "거래 내역이 없습니다.");
-		}
+		model.addAttribute("transferList", transferList);
 		
-		return "redirect:/jgig/trans_history_selected?account="+account;
+		return "transfer/transfer_history_table";
 	}
 	
 	//거래내역조회 액션2(계좌관리에서 해당 계좌로 들어온 경우)(달력조회)
 	@PostMapping("jgig/trans_history_selected_action2")
-	public String trans_history_selected_action2(@RequestParam("account") long account, @RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, 
-			RedirectAttributes redirectAttributes, HttpSession session, Model model) {
+	public String trans_history_selected_action2(@RequestParam("selectedAccount") long selectedAccount, @RequestParam("startDate") String startDate, HttpSession session, @RequestParam("endDate") String endDate, Model model) {
 		String returnVal = login_check(session);
 		if (returnVal.equals("redirect:/jgig/login"))
 			return "redirect:/jgig/login";
-		List<TransferDto> transferList = transferMapper.listCalender(startDate, endDate, account);
+		List<TransferDto> transferList = transferMapper.listCalender(startDate, endDate, selectedAccount);
 		
-		redirectAttributes.addFlashAttribute("account", account);
-		redirectAttributes.addFlashAttribute("transferList", transferList);
+		model.addAttribute("transferList", transferList);
 		
 		LocalDate nowDate = LocalDate.now();
 		String nowDateString = nowDate.toString();
 		int check_practice = transferMapper.check_practice(nowDateString,(String)session.getAttribute("mem_id"), "달력조회");
 		
-		if(transferList.size() != 0 ) {
-			if(check_practice > 0 ) {
-				redirectAttributes.addFlashAttribute("point", "이미 거래 내역 조회(달력조회) 연습을 하였습니다.");
-				redirectAttributes.addAttribute("showTable", "true");
-				return "redirect:/jgig/trans_history_selected?account="+account;
-			}
-			transferMapper.setPoint(point, "달력조회", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
-			redirectAttributes.addFlashAttribute("point", "포인트가 "+point+" 적립되었습니다.");
-			redirectAttributes.addAttribute("showTable", "true");
-		}
-		else {
-			if(check_practice > 0 ) {
-				redirectAttributes.addFlashAttribute("point", "이미 거래 내역 조회(달력조회) 연습을 하였습니다.");
-				redirectAttributes.addAttribute("showTable", "false");
-				redirectAttributes.addFlashAttribute("msg", "거래내역이 없습니다.");
-				return "redirect:/jgig/trans_history_selected?account="+account;
-			}
-			transferMapper.setPoint(point, "달력조회", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
-			redirectAttributes.addFlashAttribute("point", "포인트가 "+point+" 적립되었습니다.");
-			redirectAttributes.addAttribute("showTable", "false");
-			redirectAttributes.addFlashAttribute("msg", "거래내역이 없습니다.");
-		}
-		
-		return "redirect:/jgig/trans_history_selected?account="+account;
+		return "transfer/transfer_history_table";
 	}
 	
 	private String login_check(HttpSession session) {

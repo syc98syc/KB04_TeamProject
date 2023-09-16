@@ -217,8 +217,8 @@
 						<div id="service-content" class = "month-search">
 							<!-- 여기에 넣으시며 됩니당 -->
 							<fieldset>
-							<form action="trans_history_selected_action" method="post" id = "f1" >
-								<input type="hidden" name="account" value = "${account}">
+							<form action="trans_history_action" method="post" id = "form1">
+								<input type="hidden" id = "selectedAccount" name="selectedAccount" value = "${account}">
 								<div class = "accountListCss">
 									<table>
 											<tr>
@@ -228,23 +228,22 @@
 											<tr>
 												<th class="bgc" style = "width:24%;">월별 조회</th>
 												<td>
-													<select id="year" name="year" class="form-control" style="display: inline-block; width: auto;">
-													<c:forEach var="i" begin="15" end="23">
-														<option value="${i}" selected>20${i}</option>
-													</c:forEach>
-													</select>년
-													<select id="month" name="month" class="form-control" style="display: inline-block; width: auto;">
-													<c:forEach var="i" begin="1" end="12">
-														<c:choose>
-															<c:when test="${i lt 10 }">
-																<option value="0${i}">0${i}</option>
-															</c:when>
-															<c:otherwise>
-																<option value="${i}">${i}</option>
-															</c:otherwise>
-														</c:choose>
-													</c:forEach>
-													</select>월
+													<select id="year" name="year" class="form-control " style="display: inline-block; width: auto;">
+														<c:forEach var="i" begin="15" end="25">
+															<option value="${i}">20${i}</option>
+														</c:forEach>
+													</select> <span>년</span> <select id="month" name="month" class="form-control" style="display: inline-block; width: auto;">
+														<c:forEach var="i" begin="1" end="12">
+															<c:choose>
+																<c:when test="${i lt 10 }">
+																	<option value="0${i}">0${i}</option>
+																</c:when>
+																<c:otherwise>
+																	<option value="${i}">${i}</option>
+																</c:otherwise>
+															</c:choose>
+														</c:forEach>
+													</select> <span>월</span> 
 													<Button id = "monthlyModal" type="submit"  class="btn button-like-link">월별조회</Button>
 												</td>
 											</tr>
@@ -252,18 +251,16 @@
 									<strong class="advice-balloon advice-balloon3_trans_his_selected">2-1. 월별조회 버튼을 눌러주세요.</strong>
 								</div>
 							</form>
-							<form action="trans_history_selected_action2" method="post">
-								<input type="hidden" name="account" value = "${account}">
+							<form action="trans_history_selected_action2" method="post" id="form2">
 								<div class ="accountListCss">
 									<table style = "border: none;">
 										<tr>
 											<th class ="bgc" style="width: 24%;">조회 기간</th>
 											<td>
-												<input type="text" id="datepicker-start" name="startDate">
-												<label for="datepicker-end">~</label>
-												<input type="text" id="datepicker-end" name="endDate">
-												<strong class="advice-balloon advice-balloon4_trans_his_selected">2-2-1. 조회기간을 선택해주세요</strong>
-						        				<Button type="submit"  class="btn button-like-link">조회</Button>
+												<input type="text" id="datepicker-start" class = "startDate" name="startDate">
+												<label for="datepicker-end">~</label> 
+												<input type="text" id="datepicker-end" class = "endDate"name="endDate">
+												<Button type="submit" class="btn button-like-link">조회</Button>
 						        				<strong class="advice-balloon advice-balloon5_trans_his_selected">2-2-2. 조회버튼을 선택해주세요</strong>
 											</td>
 										</tr>
@@ -272,38 +269,7 @@
 						    </form>
 						    <br>
 						</fieldset>
-						<div id="tableDiv" style="display: none;">
-							<div class = "accountListCss">
-								<table>
-						        <thead>
-						            <tr>
-						                <th class = "bgc">거래일시</th>
-						                <th class = "bgc">보내는분</th>
-						                <th class = "bgc">받는분</th>
-						                <th class = "bgc">받은금액(원)</th>
-						                <th class = "bgc">보낸금액(원)</th>
-						            </tr>
-						        </thead>
-						        <tbody>
-						            <c:forEach items="${transferList}" var="transferDto">
-						                <tr>
-						                    <td><fmt:formatDate value="${transferDto.trans_date}" pattern="yyyy/MM/dd HH:mm:ss" /></td>
-						                    <td>${transferDto.send_nm}</td>
-						                    <td>${transferDto.receive_nm}</td>
-						                    <td><fmt:formatNumber value="${transferDto.withdr_mon}" pattern="#,###"/>원</td>
-						                    <td><fmt:formatNumber value="${transferDto.depo_mon}" pattern="#,###"/>원</td>
-						                </tr>
-						            </c:forEach>
-						        </tbody>
-						    </table>
-							</div>
-						</div>
-							<div style = "text-align : center;">
-									<br><br>
-									<strong class = "trans_history_fail_msg">${msg}</strong>
-									<br><br>
-							</div>
-						</div>
+						<div id="transHistoryTable">
 					</div>
 					<div class="modal fade" id="myModal" role="dialog"> 
 					    <div class="modal-dialog">
@@ -354,25 +320,17 @@
 		
 		<script>
 		    $(function() {
+		    	monthForm()
+		    	calendarForm()
 		    	advice_balloon()
-		        var urlParams = new URLSearchParams(window.location.search)
-		        var showTable = urlParams.get("showTable")
 		        
-		        if (showTable === "true") {
-		        	$("#myModal").modal('show')
-		            $("#tableDiv").show()
-		            urlParams.delete("showTable")
-		            var newURL = window.location.pathname + '?' + urlParams.toString()
-		            window.history.replaceState({}, document.title, newURL)
-		        } else if(showTable==="false"){
-		        	$("#myModal").modal('show')
-		        	urlParams.delete("showTable")
-		            var newURL = window.location.pathname + '?' + urlParams.toString()
-		            window.history.replaceState({}, document.title, newURL)
-		        }
-		        else {
-		            $("#tableDiv").hide()
-		        }
+		       	$("#datepicker-start").datepicker()
+	            $("#datepicker-end").datepicker()
+	            
+	            $('#modalClose').click(function(){
+		            $('#myModal').modal('hide')
+		        })
+		        
 		        $("#datepicker-start").datepicker()
 	            $("#datepicker-end").datepicker()
 	            $('#modalClose').click(function(){
@@ -396,6 +354,80 @@
 						console.log('말풍선을 숨깁니다.')
 					}
 				})
+			}
+		    function monthForm(){
+				$("#form1").submit(function(event) {
+					// 기본 폼 제출 동작을 막습니다.
+					event.preventDefault();
+					
+					// 선택한 계좌와 월별 조회 정보를 가져옵니다.
+					var selectedAccount = $("#selectedAccount").val();
+					var year = $("#year").val();
+					var month = $("#month").val();
+					var tdata = {
+							selectedAccount : selectedAccount,
+							year : year,
+							month : month
+					};
+					console.log(selectedAccount)
+					console.log(year)
+					console.log(month)
+					// Ajax 요청을 보냅니다.
+					$.ajax(
+						{
+						url : "trans_history_selected_action", // 서버 엔드포인트 URL을 적절하게 변경하세요.
+						type : "post", // HTTP 메소드 (POST)
+						data : tdata,
+						success : function(response) {
+							// 서버로부터의 응답을 처리합니다.
+							console.log("Ajax 요청 성공!");
+							$('#transHistoryTable').html(response);
+							// 이곳에서 서버로부터의 응답을 처리하는 코드를 추가하세요.
+						},
+						error : function(error) {
+							// Ajax 요청이 실패한 경우 처리합니다.
+							console.log("Ajax 요청 실패!");
+							// 이곳에서 오류 처리 코드를 추가하세요.
+						}
+					});
+				});	
+			}
+			function calendarForm(){
+				$("#form2").submit(function(event) {
+					// 기본 폼 제출 동작을 막습니다.
+					event.preventDefault();
+					
+					// 선택한 계좌와 월별 조회 정보를 가져옵니다.
+					var selectedAccount = $("#selectedAccount").val();
+					var startDate = $(".startDate").val();
+					var endDate = $(".endDate").val();
+					var tdata = {
+							selectedAccount : selectedAccount,
+							startDate : startDate,
+							endDate : endDate
+					};
+					console.log(selectedAccount)
+					console.log(startDate)
+					console.log(endDate)
+					// Ajax 요청을 보냅니다.
+					$.ajax(
+						{
+						url : "trans_history_selected_action2", // 서버 엔드포인트 URL을 적절하게 변경하세요.
+						type : "post", // HTTP 메소드 (POST)
+						data : tdata,
+						success : function(response) {
+							// 서버로부터의 응답을 처리합니다.
+							console.log("Ajax 요청 성공!");
+							$('#transHistoryTable').html(response);
+							// 이곳에서 서버로부터의 응답을 처리하는 코드를 추가하세요.
+						},
+						error : function(error) {
+							// Ajax 요청이 실패한 경우 처리합니다.
+							console.log("Ajax 요청 실패!");
+							// 이곳에서 오류 처리 코드를 추가하세요.
+						}
+					});
+				});	
 			}
 		</script>
 		<!-- End Script -->
