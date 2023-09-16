@@ -47,7 +47,7 @@
 					<c:if test="${hasPrevious}">
 						<li class="page-item">
 						<a class="page-link_account"
-							onclick="pagetest('${currentPage-1}')"
+							onclick="pagetest2('${currentPage-1}')"
 							aria-label="Previous"> <span aria-hidden="true">이전</span>
 						</a></li>
 					</c:if>
@@ -61,7 +61,7 @@
 							</c:when>
 							<c:otherwise>
 								<li class="page-item">
-								<a class="page-link_account"onclick="pagetest('${page}')">${page}</a>
+								<a class="page-link_account"onclick="pagetest2('${page}')">${page}</a>
 								</li>
 							</c:otherwise>
 						</c:choose>
@@ -69,7 +69,7 @@
 		
 					<c:if test="${hasNext}">
 						<li class="page-item">
-						<a class="page-link_account"onclick="pagetest('${currentPage+1}')" aria-label="Next"> <span aria-hidden="true">다음</span></a>
+						<a class="page-link_account"onclick="pagetest2('${currentPage+1}')" aria-label="Next"> <span aria-hidden="true">다음</span></a>
 						</li>
 					</c:if>
 				</ul>

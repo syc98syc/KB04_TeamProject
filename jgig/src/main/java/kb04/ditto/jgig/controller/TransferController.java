@@ -98,43 +98,120 @@ public class TransferController {
 	
 	//거래내역조회 액션1(월별조회)
 	@PostMapping("jgig/trans_history_action")
-	public String trans_history_action(@RequestParam("selectedAccount") long selectedAccount, @RequestParam("year") int year, @RequestParam("month") int month, HttpSession session, Model model) {
+	public String trans_history_action(@RequestParam("selectedAccount") long selectedAccount, @RequestParam(name = "currentPage", defaultValue = "1") int currentPage, @RequestParam("year") int year, @RequestParam("month") int month, HttpSession session, Model model) {
 		String returnVal = login_check(session);
 		if (returnVal.equals("redirect:/jgig/login"))
 			return "redirect:/jgig/login";
-		String input_month = "0";
 		
+		String input_month = "0";
 		if(month >= 0 && month <=9) {
 			input_month += month;
 		}
 		String yearMon = year + "/" + input_month;
-		List<TransferDto> transferList = transferMapper.list(selectedAccount, yearMon);
+		
+		int total = transferMapper.list(selectedAccount, yearMon);
+		System.out.println(total);
+		
+		int size = 3;
+        
+        int pagingCount = 4;
+        
+        int totalPages = total/size;
+        
+        if(total % size > 0){
+            totalPages++;
+        }
+        
+        int startPage = currentPage / pagingCount * pagingCount + 1;
+        if(currentPage % pagingCount == 0){ 
+            startPage -= pagingCount; 
+        }
+        
+        int endPage = startPage + (pagingCount - 1);
+        if(endPage > totalPages){
+            endPage = totalPages; 
+        }
+		
+        List<TransferDto> transferList = transferMapper.listWithPaging(selectedAccount, yearMon, currentPage * size - size + 1, currentPage * size);
+        for(TransferDto dto : transferList) {
+            System.out.println(dto);
+        }
+        
+        boolean hasPrevious = startPage > 1;
+        boolean hasNext = endPage < totalPages;
+        
+        model.addAttribute("total", total);
+        model.addAttribute("startPage", startPage);
+        model.addAttribute("endPage", endPage);
+        model.addAttribute("currentPage", currentPage);
+        model.addAttribute("size", size);
+        model.addAttribute("hasPrevious", hasPrevious);
+        model.addAttribute("hasNext", hasNext);
+        
+        model.addAttribute("transferList", transferList);
 		
 		
 		LocalDate nowDate = LocalDate.now();
 		String nowDateString = nowDate.toString();
 		int check_practice = transferMapper.check_practice(nowDateString,(String)session.getAttribute("mem_id"), "월별조회");
 		
-		model.addAttribute("transferList", transferList);
-		
 		return "transfer/transfer_history_table";
 	}
 	
 	//거래내역조회 액션2(달력조회)
 	@PostMapping("jgig/trans_history_action2")
-	public String trans_history_action2(@RequestParam("selectedAccount") long selectedAccount, @RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, HttpSession session, Model model) {
+	public String trans_history_action2(@RequestParam("selectedAccount") long selectedAccount,@RequestParam(name = "currentPage", defaultValue = "1") int currentPage , @RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, HttpSession session, Model model) {
 		String returnVal = login_check(session);
 		if (returnVal.equals("redirect:/jgig/login"))
 			return "redirect:/jgig/login";
-		List<TransferDto> transferList = transferMapper.listCalender(startDate, endDate, selectedAccount);
+		int total = transferMapper.listCalendar(startDate, endDate, selectedAccount);
 		
+		System.out.println(total);
 		
-		LocalDate nowDate = LocalDate.now();
-		String nowDateString = nowDate.toString();
-		int check_practice = transferMapper.check_practice(nowDateString,(String)session.getAttribute("mem_id"), "달력조회");
+		int size = 3;
+        
+        int pagingCount = 4;
+        
+        int totalPages = total/size;
+        
+        if(total % size > 0){
+            totalPages++;
+        }
+        
+        int startPage = currentPage / pagingCount * pagingCount + 1;
+        if(currentPage % pagingCount == 0){ 
+            startPage -= pagingCount; 
+        }
+        
+        int endPage = startPage + (pagingCount - 1);
+        if(endPage > totalPages){
+            endPage = totalPages; 
+        }
+		
+		List<TransferDto> transferList = transferMapper.listCalendarWithPaging(startDate, endDate, selectedAccount, currentPage * size - size + 1, currentPage * size);
+		for (TransferDto dto : transferList) {
+			System.out.println(dto);
+		}
+		
+		boolean hasPrevious = startPage > 1;
+		boolean hasNext = endPage < totalPages;
+
+		model.addAttribute("total", total);
+		model.addAttribute("startPage", startPage);
+		model.addAttribute("endPage", endPage);
+		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("size", size);
+		model.addAttribute("hasPrevious", hasPrevious);
+		model.addAttribute("hasNext", hasNext);
 		
 		model.addAttribute("transferList", transferList);
-		return "transfer/transfer_history_table";
+		
+		
+		//LocalDate nowDate = LocalDate.now();
+		//String nowDateString = nowDate.toString();
+		//int check_practice = transferMapper.check_practice(nowDateString,(String)session.getAttribute("mem_id"), "달력조회");
+		
+		return "transfer/transfer_history_table2";
 	}
 	
 	
@@ -150,7 +227,7 @@ public class TransferController {
 	
 	//거래내역조회 액션1(계좌관리에서 해당 계좌로 들어온 경우)(월별조회)
 	@PostMapping("jgig/trans_history_selected_action")
-	public String trans_history_selected_action(@RequestParam("selectedAccount") long selectedAccount, @RequestParam("year") int year, @RequestParam("month") int month, HttpSession session ,Model model) {
+	public String trans_history_selected_action(@RequestParam("selectedAccount") long selectedAccount, @RequestParam(name = "currentPage", defaultValue = "1") int currentPage, @RequestParam("year") int year, @RequestParam("month") int month, HttpSession session ,Model model) {
 		String returnVal = login_check(session);
 		if (returnVal.equals("redirect:/jgig/login"))
 			return "redirect:/jgig/login";
@@ -160,32 +237,109 @@ public class TransferController {
 			input_month += month;
 		}
 		String yearMon = year + "/" + input_month;
-		List<TransferDto> transferList = transferMapper.list(selectedAccount, yearMon);
 		
+		int total = transferMapper.list(selectedAccount, yearMon);
+		System.out.println(total);
+		
+		int size = 3;
+        
+        int pagingCount = 4;
+        
+        int totalPages = total/size;
+        
+        if(total % size > 0){
+            totalPages++;
+        }
+        
+        int startPage = currentPage / pagingCount * pagingCount + 1;
+        if(currentPage % pagingCount == 0){ 
+            startPage -= pagingCount; 
+        }
+        
+        int endPage = startPage + (pagingCount - 1);
+        if(endPage > totalPages){
+            endPage = totalPages; 
+        }
+		
+        List<TransferDto> transferList = transferMapper.listWithPaging(selectedAccount, yearMon, currentPage * size - size + 1, currentPage * size);
+        for(TransferDto dto : transferList) {
+            System.out.println(dto);
+        }
+        
+        boolean hasPrevious = startPage > 1;
+        boolean hasNext = endPage < totalPages;
+        
 		LocalDate nowDate = LocalDate.now();
 		String nowDateString = nowDate.toString();
 		int check_practice = transferMapper.check_practice(nowDateString,(String)session.getAttribute("mem_id"), "월별조회");
 		
-		model.addAttribute("transferList", transferList);
+		model.addAttribute("total", total);
+        model.addAttribute("startPage", startPage);
+        model.addAttribute("endPage", endPage);
+        model.addAttribute("currentPage", currentPage);
+        model.addAttribute("size", size);
+        model.addAttribute("hasPrevious", hasPrevious);
+        model.addAttribute("hasNext", hasNext);
+        
+        model.addAttribute("transferList", transferList);
 		
 		return "transfer/transfer_history_table";
 	}
 	
 	//거래내역조회 액션2(계좌관리에서 해당 계좌로 들어온 경우)(달력조회)
 	@PostMapping("jgig/trans_history_selected_action2")
-	public String trans_history_selected_action2(@RequestParam("selectedAccount") long selectedAccount, @RequestParam("startDate") String startDate, HttpSession session, @RequestParam("endDate") String endDate, Model model) {
+	public String trans_history_selected_action2(@RequestParam("selectedAccount") long selectedAccount,@RequestParam(name = "currentPage", defaultValue = "1") int currentPage,@RequestParam("startDate") String startDate, HttpSession session, @RequestParam("endDate") String endDate, Model model) {
 		String returnVal = login_check(session);
 		if (returnVal.equals("redirect:/jgig/login"))
 			return "redirect:/jgig/login";
-		List<TransferDto> transferList = transferMapper.listCalender(startDate, endDate, selectedAccount);
 		
-		model.addAttribute("transferList", transferList);
+		int total = transferMapper.listCalendar(startDate, endDate, selectedAccount);
+		
+		System.out.println(total);
+		
+		int size = 3;
+        
+        int pagingCount = 4;
+        
+        int totalPages = total/size;
+        
+        if(total % size > 0){
+            totalPages++;
+        }
+        
+        int startPage = currentPage / pagingCount * pagingCount + 1;
+        if(currentPage % pagingCount == 0){ 
+            startPage -= pagingCount; 
+        }
+        
+        int endPage = startPage + (pagingCount - 1);
+        if(endPage > totalPages){
+            endPage = totalPages; 
+        }
+		
+		List<TransferDto> transferList = transferMapper.listCalendarWithPaging(startDate, endDate, selectedAccount, currentPage * size - size + 1, currentPage * size);
+		for (TransferDto dto : transferList) {
+			System.out.println(dto);
+		}
+		
+		boolean hasPrevious = startPage > 1;
+		boolean hasNext = endPage < totalPages;
 		
 		LocalDate nowDate = LocalDate.now();
 		String nowDateString = nowDate.toString();
 		int check_practice = transferMapper.check_practice(nowDateString,(String)session.getAttribute("mem_id"), "달력조회");
 		
-		return "transfer/transfer_history_table";
+		model.addAttribute("total", total);
+		model.addAttribute("startPage", startPage);
+		model.addAttribute("endPage", endPage);
+		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("size", size);
+		model.addAttribute("hasPrevious", hasPrevious);
+		model.addAttribute("hasNext", hasNext);
+		
+		model.addAttribute("transferList", transferList);
+		
+		return "transfer/transfer_history_table2";
 	}
 	
 	private String login_check(HttpSession session) {

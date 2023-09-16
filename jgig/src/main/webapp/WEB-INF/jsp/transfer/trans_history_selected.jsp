@@ -364,10 +364,13 @@
 					var selectedAccount = $("#selectedAccount").val();
 					var year = $("#year").val();
 					var month = $("#month").val();
+					var currentPage = '${param.currentPage}';
+					
 					var tdata = {
 							selectedAccount : selectedAccount,
 							year : year,
-							month : month
+							month : month,
+							currentPage:currentPage
 					};
 					console.log(selectedAccount)
 					console.log(year)
@@ -401,10 +404,12 @@
 					var selectedAccount = $("#selectedAccount").val();
 					var startDate = $(".startDate").val();
 					var endDate = $(".endDate").val();
+					var currentPage = '${param.currentPage}';
 					var tdata = {
 							selectedAccount : selectedAccount,
 							startDate : startDate,
-							endDate : endDate
+							endDate : endDate,
+							currentPage:currentPage
 					};
 					console.log(selectedAccount)
 					console.log(startDate)
@@ -428,6 +433,58 @@
 						}
 					});
 				});	
+			}
+			function pagetest(page){
+				var selectedAccount = $("#selectedAccount").val();
+				var year = $("#year").val();
+				var month = $("#month").val();
+				
+				console.log(selectedAccount)
+				console.log(year)
+				console.log(month)
+				console.log(page)
+				var tdata = {
+					selectedAccount : selectedAccount,
+					year : year,
+					month : month,
+					currentPage : page
+				};
+				$.ajax({
+					type : 'POST', // POST 방식으로 변경
+					url : 'trans_history_selected_action',
+					data : tdata, // 필터 데이터를 POST로 전달
+					success : function(response) {
+						// 포인트 테이블의 tbody를 가져와서 데이터를 삽입합니다.
+						$('#transHistoryTable').html(response);
+					},
+					error : function(error) {
+						console.error('데이터 로드 중 오류 발생:',error);
+					}
+				});
+			}
+			function pagetest2(page){
+				var selectedAccount = $("#selectedAccount").val();
+				var startDate = $(".startDate").val();
+				var endDate = $(".endDate").val();
+				
+				var tdata = {
+					selectedAccount : selectedAccount,
+					startDate : startDate,
+					endDate : endDate,
+					currentPage : page
+				};
+				$.ajax({
+					type : 'POST', // POST 방식으로 변경
+					url : 'trans_history_selected_action2',
+					data : tdata, // 필터 데이터를 POST로 전달
+					success : function(response) {
+						// 포인트 테이블의 tbody를 가져와서 데이터를 삽입합니다.
+						$('#transHistoryTable').html(response);
+					},
+					error : function(error) {
+						console.error('데이터 로드 중 오류 발생:',error);
+					}
+				});
 			}
 		</script>
 		<!-- End Script -->
