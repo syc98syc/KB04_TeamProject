@@ -7,22 +7,6 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>거래테이블</title>
-		
-		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<!-- Bootstrap JavaScript 파일 -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-		
-		<script>
-			var $j = jQuery.noConflict();
-		    
-		    $j(function(){
-		        $j("#myModal").modal('show');
-		    });
-		    $j('#modalClose').click(function(){
-	            $j('#myModal').modal('hide')
-	        })
-		</script>
 	</head>
 	<body>
 		<div class="accountListCss">
@@ -56,22 +40,6 @@
 					</c:forEach>
 				</tbody>
 			</table>
-			<div class="modal fade" id="myModal" role="dialog">
-				<div class="modal-dialog">
-					<!-- Modal content-->
-					<div class="modal-content">
-						<div class="modal-header">
-							<h4 class="modal-title">거래 내역 조회 연습 완료!</h4>
-						</div>
-						<div class="modal-body">
-							<p>${point}</p>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default" data-dismiss="modal" id="modalClose">Close</button>
-						</div>
-					</div>
-				</div>
-			</div>
 			<br>
 			<nav aria-label="Page navigation example"
 				class="nav justify-content-center">
@@ -83,7 +51,6 @@
 							aria-label="Previous"> <span aria-hidden="true">이전</span>
 						</a></li>
 					</c:if>
-		
 					<c:forEach begin="${startPage}" end="${endPage}" var="page">
 						<c:choose>
 							<c:when test="${page == currentPage}">
@@ -98,7 +65,6 @@
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
-		
 					<c:if test="${hasNext}">
 						<li class="page-item">
 						<a class="page-link_account"onclick="pagetest2('${currentPage+1}')" aria-label="Next"> <span aria-hidden="true">다음</span></a>

@@ -241,8 +241,8 @@
 											<th class ="bgc" style = "width:24%;">월별 조회</th>
 											<td>
 												<select id="year" name="year" class="form-control" style="display: inline-block; width: auto;">
-													<c:forEach var="i" begin="15" end="25">
-														<option value="${i}">20${i}</option>
+													<c:forEach var="i" begin="15" end="23">
+														<option value="${i}" selected>20${i}</option>
 													</c:forEach>
 												</select> <span>년</span> 
 												<select id="month" name="month" class="form-control" style="display: inline-block; width: auto;">
@@ -294,10 +294,11 @@
 					      <!-- Modal content-->
 					      <div class="modal-content">
 					        <div class="modal-header">
-					          <h4 class="modal-title">거래 내역 조회 연습 완료!</h4> 
+					          <h4 class="modal-title">거래 내역 조회 연습 완료</h4> 
 					        </div>
 					        <div class="modal-body">
-					        
+					        	<p>거래 내역 조회 연습을 완료하였습니다.</p>
+					        	<p>포인트는 하루에 한번만 획득 가능합니다.(+5)</p>
 					        </div>
 					        <div class="modal-footer">
 					          <button type="button" class="btn btn-default" data-dismiss="modal" id= "modalClose" >Close</button>
@@ -306,7 +307,6 @@
 					    </div>
 				  	</div>
 				</div>
-	
 			</div>
 		</div>
 		<!-- End Content -->
@@ -336,13 +336,16 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<script>
+			var checkCount = 1
 		    $(function() {
 		    	monthForm()
 		    	calendarForm()
 		    	advice_balloon()
 		        $("#datepicker-start").datepicker()
 	            $("#datepicker-end").datepicker()
-	            
+	            $('#modalClose').click(function(){
+		            $('#myModal').modal('hide')
+		        })
 		    })
 		    function advice_balloon(){
 				$('#advice-balloonCheckbox').change(function() {
@@ -367,7 +370,8 @@
 				$("#form1").submit(function(event) {
 					// 기본 폼 제출 동작을 막습니다.
 					event.preventDefault()
-					
+					$("#myModal").modal('show')
+
 					// 선택한 계좌와 월별 조회 정보를 가져옵니다.
 					var selectedAccount = $("#selectedAccount").val()
 					var year = $("#year").val()
@@ -404,6 +408,7 @@
 				$("#form2").submit(function(event) {
 					// 기본 폼 제출 동작을 막습니다.
 					event.preventDefault()
+					$("#myModal").modal('show')
 					
 					// 선택한 계좌와 월별 조회 정보를 가져옵니다.
 					var selectedAccount = $("#selectedAccount").val()

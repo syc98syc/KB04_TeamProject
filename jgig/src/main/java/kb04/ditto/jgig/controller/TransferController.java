@@ -114,7 +114,7 @@ public class TransferController {
 		
 		int size = 3;
         
-        int pagingCount = 4;
+        int pagingCount = 2;
         
         int totalPages = total/size;
         
@@ -156,12 +156,10 @@ public class TransferController {
 		int check_practice = transferMapper.check_practice(nowDateString,(String)session.getAttribute("mem_id"), "월별조회");
 		
 		if(check_practice != 0 ) {
-			model.addAttribute("point", "이미 거래 내역 조회(월별조회) 연습을 하였습니다.");
 			return "transfer/transfer_history_table";
 			
 		}
 		transferMapper.setPoint(point, "월별조회", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
-		model.addAttribute("point", "포인트가 "+ point+ " 적립되었습니다.");
 		
 		return "transfer/transfer_history_table";
 	}
@@ -178,7 +176,7 @@ public class TransferController {
 		
 		int size = 3;
         
-        int pagingCount = 4;
+        int pagingCount = 2;
         
         int totalPages = total/size;
         
@@ -220,12 +218,10 @@ public class TransferController {
 		int check_practice = transferMapper.check_practice(nowDateString,(String)session.getAttribute("mem_id"), "달력조회");
 		
 		if(check_practice != 0 ) {
-			model.addAttribute("point", "이미 거래 내역 조회(달력조회) 연습을 하였습니다.");
 			return "transfer/transfer_history_table2";
 			
 		}
 		transferMapper.setPoint(point, "달력조회", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
-		model.addAttribute("point", "포인트가 "+point+" 적립되었습니다.");
 		
 		return "transfer/transfer_history_table2";
 	}
@@ -259,7 +255,7 @@ public class TransferController {
 		
 		int size = 3;
         
-        int pagingCount = 4;
+        int pagingCount = 2;
         
         int totalPages = total/size;
         
@@ -301,13 +297,11 @@ public class TransferController {
 		int check_practice = transferMapper.check_practice(nowDateString,(String)session.getAttribute("mem_id"), "월별조회");
 		
 		if(check_practice != 0 ) {
-			model.addAttribute("point", "이미 거래 내역 조회(월별조회) 연습을 하였습니다.");
 			return "transfer/transfer_history_table";
 			
 		}
 	    
 		transferMapper.setPoint(point, "월별조회", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
-		model.addAttribute("point", "포인트가 "+point+" 적립되었습니다.");
 		
 		return "transfer/transfer_history_table";
 	}
@@ -325,7 +319,7 @@ public class TransferController {
 		
 		int size = 3;
         
-        int pagingCount = 4;
+        int pagingCount = 2;
         
         int totalPages = total/size;
         
@@ -367,12 +361,10 @@ public class TransferController {
 		int check_practice = transferMapper.check_practice(nowDateString,(String)session.getAttribute("mem_id"), "달력조회");
 		
 		if(check_practice != 0 ) {
-			model.addAttribute("point", "이미 거래 내역 조회(달력조회) 연습을 하였습니다.");
 			return "transfer/transfer_history_table2";
 			
 		}
 		transferMapper.setPoint(point, "달력조회", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
-		model.addAttribute("point", "포인트가 "+point+" 적립되었습니다.");
 		
 		return "transfer/transfer_history_table2";
 	}

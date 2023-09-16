@@ -181,7 +181,7 @@ public class AccountController {
 		int size = 3;
 		
 		int total = accountMapper.list(mem_id);
-	    int pagingCount = 4;
+	    int pagingCount = 2;
 	    
 	    int totalPages = total/size;
 	    if(total % size > 0){
