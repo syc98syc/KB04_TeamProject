@@ -278,8 +278,7 @@
 					        <div class="modal-header">
 					          <h4 class="modal-title">거래 내역 조회 연습 완료!</h4> 
 					        </div>
-					        <div class="modal-body">
-					          <p>${point}</p>
+					        <div class="modal-body" id="modalBody">
 					        </div>
 					        <div class="modal-footer">
 					          <button type="button" class="btn btn-default" data-dismiss="modal" id= "modalClose" >Close</button>
@@ -323,19 +322,11 @@
 		    	monthForm()
 		    	calendarForm()
 		    	advice_balloon()
-		        
 		       	$("#datepicker-start").datepicker()
 	            $("#datepicker-end").datepicker()
 	            
-	            $('#modalClose').click(function(){
-		            $('#myModal').modal('hide')
-		        })
-		        
 		        $("#datepicker-start").datepicker()
 	            $("#datepicker-end").datepicker()
-	            $('#modalClose').click(function(){
-		            $('#myModal').modal('hide')
-		        })
 		    })
 		    
 		    function advice_balloon(){
@@ -385,6 +376,8 @@
 							// 서버로부터의 응답을 처리합니다.
 							console.log("Ajax 요청 성공!");
 							$('#transHistoryTable').html(response);
+							$('#myModal #modalBody').html(response.message);
+
 							// 이곳에서 서버로부터의 응답을 처리하는 코드를 추가하세요.
 						},
 						error : function(error) {

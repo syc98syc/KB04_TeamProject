@@ -155,6 +155,14 @@ public class TransferController {
 		String nowDateString = nowDate.toString();
 		int check_practice = transferMapper.check_practice(nowDateString,(String)session.getAttribute("mem_id"), "월별조회");
 		
+		if(check_practice != 0 ) {
+			model.addAttribute("point", "이미 거래 내역 조회(월별조회) 연습을 하였습니다.");
+			return "transfer/transfer_history_table";
+			
+		}
+		transferMapper.setPoint(point, "월별조회", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
+		model.addAttribute("point", "포인트가 "+ point+ " 적립되었습니다.");
+		
 		return "transfer/transfer_history_table";
 	}
 	
@@ -207,9 +215,17 @@ public class TransferController {
 		model.addAttribute("transferList", transferList);
 		
 		
-		//LocalDate nowDate = LocalDate.now();
-		//String nowDateString = nowDate.toString();
-		//int check_practice = transferMapper.check_practice(nowDateString,(String)session.getAttribute("mem_id"), "달력조회");
+		LocalDate nowDate = LocalDate.now();
+		String nowDateString = nowDate.toString();
+		int check_practice = transferMapper.check_practice(nowDateString,(String)session.getAttribute("mem_id"), "달력조회");
+		
+		if(check_practice != 0 ) {
+			model.addAttribute("point", "이미 거래 내역 조회(달력조회) 연습을 하였습니다.");
+			return "transfer/transfer_history_table2";
+			
+		}
+		transferMapper.setPoint(point, "달력조회", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
+		model.addAttribute("point", "포인트가 "+point+" 적립되었습니다.");
 		
 		return "transfer/transfer_history_table2";
 	}
@@ -269,9 +285,6 @@ public class TransferController {
         boolean hasPrevious = startPage > 1;
         boolean hasNext = endPage < totalPages;
         
-		LocalDate nowDate = LocalDate.now();
-		String nowDateString = nowDate.toString();
-		int check_practice = transferMapper.check_practice(nowDateString,(String)session.getAttribute("mem_id"), "월별조회");
 		
 		model.addAttribute("total", total);
         model.addAttribute("startPage", startPage);
@@ -282,6 +295,19 @@ public class TransferController {
         model.addAttribute("hasNext", hasNext);
         
         model.addAttribute("transferList", transferList);
+        
+        LocalDate nowDate = LocalDate.now();
+		String nowDateString = nowDate.toString();
+		int check_practice = transferMapper.check_practice(nowDateString,(String)session.getAttribute("mem_id"), "월별조회");
+		
+		if(check_practice != 0 ) {
+			model.addAttribute("point", "이미 거래 내역 조회(월별조회) 연습을 하였습니다.");
+			return "transfer/transfer_history_table";
+			
+		}
+	    
+		transferMapper.setPoint(point, "월별조회", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
+		model.addAttribute("point", "포인트가 "+point+" 적립되었습니다.");
 		
 		return "transfer/transfer_history_table";
 	}
@@ -325,9 +351,6 @@ public class TransferController {
 		boolean hasPrevious = startPage > 1;
 		boolean hasNext = endPage < totalPages;
 		
-		LocalDate nowDate = LocalDate.now();
-		String nowDateString = nowDate.toString();
-		int check_practice = transferMapper.check_practice(nowDateString,(String)session.getAttribute("mem_id"), "달력조회");
 		
 		model.addAttribute("total", total);
 		model.addAttribute("startPage", startPage);
@@ -338,6 +361,18 @@ public class TransferController {
 		model.addAttribute("hasNext", hasNext);
 		
 		model.addAttribute("transferList", transferList);
+		
+		LocalDate nowDate = LocalDate.now();
+		String nowDateString = nowDate.toString();
+		int check_practice = transferMapper.check_practice(nowDateString,(String)session.getAttribute("mem_id"), "달력조회");
+		
+		if(check_practice != 0 ) {
+			model.addAttribute("point", "이미 거래 내역 조회(달력조회) 연습을 하였습니다.");
+			return "transfer/transfer_history_table2";
+			
+		}
+		transferMapper.setPoint(point, "달력조회", (String)session.getAttribute("mem_id")); //매개변수 점수, 연습종류, mem_id
+		model.addAttribute("point", "포인트가 "+point+" 적립되었습니다.");
 		
 		return "transfer/transfer_history_table2";
 	}

@@ -297,7 +297,7 @@
 					          <h4 class="modal-title">거래 내역 조회 연습 완료!</h4> 
 					        </div>
 					        <div class="modal-body">
-					          <p>${point}</p>
+					        
 					        </div>
 					        <div class="modal-footer">
 					          <button type="button" class="btn btn-default" data-dismiss="modal" id= "modalClose" >Close</button>
@@ -343,9 +343,6 @@
 		        $("#datepicker-start").datepicker()
 	            $("#datepicker-end").datepicker()
 	            
-	            $('#modalClose').click(function(){
-		            $('#myModal').modal('hide')
-		        })
 		    })
 		    function advice_balloon(){
 				$('#advice-balloonCheckbox').change(function() {
@@ -369,23 +366,20 @@
 		    function monthForm(){
 				$("#form1").submit(function(event) {
 					// 기본 폼 제출 동작을 막습니다.
-					event.preventDefault();
+					event.preventDefault()
 					
 					// 선택한 계좌와 월별 조회 정보를 가져옵니다.
-					var selectedAccount = $("#selectedAccount").val();
-					var year = $("#year").val();
-					var month = $("#month").val();
-					var currentPage = '${param.currentPage}';
+					var selectedAccount = $("#selectedAccount").val()
+					var year = $("#year").val()
+					var month = $("#month").val()
+					var currentPage = '${param.currentPage}'
 					
 					var tdata = {
 							selectedAccount : selectedAccount,
 							year : year,
 							month : month,
 							currentPage:currentPage
-					};
-					console.log(selectedAccount)
-					console.log(year)
-					console.log(month)
+					}
 					// Ajax 요청을 보냅니다.
 					$.ajax(
 						{
@@ -394,37 +388,34 @@
 						data : tdata,
 						success : function(response) {
 							// 서버로부터의 응답을 처리합니다.
-							console.log("Ajax 요청 성공!");
-							$('#transHistoryTable').html(response);
+							console.log("Ajax 요청 성공!")
+							$('#transHistoryTable').html(response)
 							// 이곳에서 서버로부터의 응답을 처리하는 코드를 추가하세요.
 						},
 						error : function(error) {
 							// Ajax 요청이 실패한 경우 처리합니다.
-							console.log("Ajax 요청 실패!");
+							console.log("Ajax 요청 실패!")
 							// 이곳에서 오류 처리 코드를 추가하세요.
 						}
-					});
-				});	
+					})
+				})
 			}
 			function calendarForm(){
 				$("#form2").submit(function(event) {
 					// 기본 폼 제출 동작을 막습니다.
-					event.preventDefault();
+					event.preventDefault()
 					
 					// 선택한 계좌와 월별 조회 정보를 가져옵니다.
-					var selectedAccount = $("#selectedAccount").val();
-					var startDate = $(".startDate").val();
-					var endDate = $(".endDate").val();
-					var currentPage = '${param.currentPage}';
+					var selectedAccount = $("#selectedAccount").val()
+					var startDate = $(".startDate").val()
+					var endDate = $(".endDate").val()
+					var currentPage = '${param.currentPage}'
 					var tdata = {
 							selectedAccount : selectedAccount,
 							startDate : startDate,
 							endDate : endDate,
 							currentPage:currentPage
-					};
-					console.log(selectedAccount)
-					console.log(startDate)
-					console.log(endDate)
+					}
 					// Ajax 요청을 보냅니다.
 					$.ajax(
 						{
@@ -434,6 +425,7 @@
 						success : function(response) {
 							// 서버로부터의 응답을 처리합니다.
 							console.log("Ajax 요청 성공!");
+							console.log(response)
 							$('#transHistoryTable').html(response);
 							// 이곳에서 서버로부터의 응답을 처리하는 코드를 추가하세요.
 						},
@@ -442,59 +434,61 @@
 							console.log("Ajax 요청 실패!");
 							// 이곳에서 오류 처리 코드를 추가하세요.
 						}
-					});
-				});	
+					})
+				})	
 			}
 			function pagetest(page){
-				var selectedAccount = $("#selectedAccount").val();
-				var year = $("#year").val();
-				var month = $("#month").val();
+				var selectedAccount = $("#selectedAccount").val()
+				var year = $("#year").val()
+				var month = $("#month").val()
+				
 				console.log(selectedAccount)
 				console.log(year)
 				console.log(month)
 				console.log(page)
+				
 				var tdata = {
 					selectedAccount : selectedAccount,
 					year : year,
 					month : month,
 					currentPage : page
-				};
+				}
 				$.ajax({
 					type : 'POST', // POST 방식으로 변경
 					url : 'trans_history_action',
 					data : tdata, // 필터 데이터를 POST로 전달
 					success : function(response) {
 						// 포인트 테이블의 tbody를 가져와서 데이터를 삽입합니다.
-						$('#transHistoryTable').html(response);
+						$('#transHistoryTable').html(response)
 					},
 					error : function(error) {
-						console.error('데이터 로드 중 오류 발생:',error);
+						console.error('데이터 로드 중 오류 발생:',error)
 					}
-				});
+				})
 			}
 			function pagetest2(page){
-				var selectedAccount = $("#selectedAccount").val();
-				var startDate = $(".startDate").val();
-				var endDate = $(".endDate").val();
+				var selectedAccount = $("#selectedAccount").val()
+				var startDate = $(".startDate").val()
+				var endDate = $(".endDate").val()
 				
 				var tdata = {
 					selectedAccount : selectedAccount,
 					startDate : startDate,
 					endDate : endDate,
 					currentPage : page
-				};
+				}
 				$.ajax({
 					type : 'POST', // POST 방식으로 변경
 					url : 'trans_history_action2',
 					data : tdata, // 필터 데이터를 POST로 전달
 					success : function(response) {
 						// 포인트 테이블의 tbody를 가져와서 데이터를 삽입합니다.
-						$('#transHistoryTable').html(response);
+						$('#transHistoryTable').html(response)
 					},
 					error : function(error) {
-						console.error('데이터 로드 중 오류 발생:',error);
+						console.error('데이터 로드 중 오류 발생:',error)
 					}
-				});
+				})
 			}
 		</script>
 		<!-- End Script -->
