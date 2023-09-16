@@ -25,11 +25,15 @@ public interface TransferMapper {
 			+ "values(trans_seq.nextval, #{depo_bank}, #{depo_num}, #{receive_nm}, #{send_nm}, #{depo_mon}, 0, sysdate, #{mem_id}, #{account})")
 	public int insert(TransferDto dto);
 	
+	@Insert("insert into transfer(trans_seq, depo_bank, depo_num, receive_nm, send_nm, depo_mon, withdr_mon, trans_date, mem_id, account)"
+			+ "values(trans_seq.nextval, #{depo_bank}, #{depo_num}, #{receive_nm}, #{send_nm}, 0, #{depo_mon}, sysdate, #{mem_id}, #{depo_num})")
+	public void receive(TransferDto transferDto);
+	
 	@Update("update account set balance = balance - #{depo_mon} where account = #{account}")
 	public void update(TransferDto transferDto);
 	
 	@Update("update account set balance = balance + #{depo_mon} where account = #{depo_num} and mem_nm = #{receive_nm}")
-	public void update_receive_mon(TransferDto transferDto);
+	public int update_receive_mon(TransferDto transferDto);
 	
 	@Select("select act_name, mem_nm, account, regdate, balance, act_password, mem_id from account where account = #{account}")
 	public AccountDto findByAccount(long account);
@@ -51,4 +55,6 @@ public interface TransferMapper {
 
 	@Insert("insert into Point(point_seq, point, point_date, division, mem_id) values(point_seq.nextval, #{point}, sysdate, #{division}, #{mem_id})")
 	public void setPoint(int point, String division, String mem_id);
+
+	
 }

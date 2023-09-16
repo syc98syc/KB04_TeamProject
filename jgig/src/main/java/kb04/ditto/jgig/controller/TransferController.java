@@ -65,7 +65,10 @@ public class TransferController {
 		if(balance != 0 && transferDto.getDepo_mon() <= balance) {
 			transferMapper.insert(transferDto);
 			transferMapper.update(transferDto);
-			transferMapper.update_receive_mon(transferDto);
+			int update_receive_mon = transferMapper.update_receive_mon(transferDto);
+			if(update_receive_mon != 0) {
+				transferMapper.receive(transferDto);
+			}
 			if(check_practice > 0 ) {
 				model.addAttribute("dto", transferDto);
 				model.addAttribute("msg", "이체가 완료되었습니다.");
@@ -112,7 +115,7 @@ public class TransferController {
 		int total = transferMapper.list(selectedAccount, yearMon);
 		System.out.println(total);
 		
-		int size = 3;
+		int size = 5;
         
         int pagingCount = 2;
         
@@ -174,7 +177,7 @@ public class TransferController {
 		
 		System.out.println(total);
 		
-		int size = 3;
+		int size = 5;
         
         int pagingCount = 2;
         
@@ -253,7 +256,7 @@ public class TransferController {
 		int total = transferMapper.list(selectedAccount, yearMon);
 		System.out.println(total);
 		
-		int size = 3;
+		int size = 5;
         
         int pagingCount = 2;
         
@@ -317,7 +320,7 @@ public class TransferController {
 		
 		System.out.println(total);
 		
-		int size = 3;
+		int size = 5;
         
         int pagingCount = 2;
         
