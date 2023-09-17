@@ -113,12 +113,9 @@ public class TransferController {
 		String yearMon = year + "/" + input_month;
 		
 		int total = transferMapper.list(selectedAccount, yearMon);
-		System.out.println(total);
 		
 		int size = 5;
-        
         int pagingCount = 2;
-        
         int totalPages = total/size;
         
         if(total % size > 0){
@@ -126,6 +123,7 @@ public class TransferController {
         }
         
         int startPage = currentPage / pagingCount * pagingCount + 1;
+        
         if(currentPage % pagingCount == 0){ 
             startPage -= pagingCount; 
         }
@@ -136,9 +134,6 @@ public class TransferController {
         }
 		
         List<TransferDto> transferList = transferMapper.listWithPaging(selectedAccount, yearMon, currentPage * size - size + 1, currentPage * size);
-        for(TransferDto dto : transferList) {
-            System.out.println(dto);
-        }
         
         boolean hasPrevious = startPage > 1;
         boolean hasNext = endPage < totalPages;
@@ -175,12 +170,8 @@ public class TransferController {
 			return "redirect:/jgig/login";
 		int total = transferMapper.listCalendar(startDate, endDate, selectedAccount);
 		
-		System.out.println(total);
-		
 		int size = 5;
-        
         int pagingCount = 2;
-        
         int totalPages = total/size;
         
         if(total % size > 0){
@@ -198,9 +189,6 @@ public class TransferController {
         }
 		
 		List<TransferDto> transferList = transferMapper.listCalendarWithPaging(startDate, endDate, selectedAccount, currentPage * size - size + 1, currentPage * size);
-		for (TransferDto dto : transferList) {
-			System.out.println(dto);
-		}
 		
 		boolean hasPrevious = startPage > 1;
 		boolean hasNext = endPage < totalPages;
@@ -254,12 +242,9 @@ public class TransferController {
 		String yearMon = year + "/" + input_month;
 		
 		int total = transferMapper.list(selectedAccount, yearMon);
-		System.out.println(total);
 		
 		int size = 5;
-        
         int pagingCount = 2;
-        
         int totalPages = total/size;
         
         if(total % size > 0){
@@ -277,9 +262,6 @@ public class TransferController {
         }
 		
         List<TransferDto> transferList = transferMapper.listWithPaging(selectedAccount, yearMon, currentPage * size - size + 1, currentPage * size);
-        for(TransferDto dto : transferList) {
-            System.out.println(dto);
-        }
         
         boolean hasPrevious = startPage > 1;
         boolean hasNext = endPage < totalPages;
@@ -318,12 +300,8 @@ public class TransferController {
 		
 		int total = transferMapper.listCalendar(startDate, endDate, selectedAccount);
 		
-		System.out.println(total);
-		
 		int size = 5;
-        
         int pagingCount = 2;
-        
         int totalPages = total/size;
         
         if(total % size > 0){
@@ -331,6 +309,7 @@ public class TransferController {
         }
         
         int startPage = currentPage / pagingCount * pagingCount + 1;
+       
         if(currentPage % pagingCount == 0){ 
             startPage -= pagingCount; 
         }
@@ -341,9 +320,6 @@ public class TransferController {
         }
 		
 		List<TransferDto> transferList = transferMapper.listCalendarWithPaging(startDate, endDate, selectedAccount, currentPage * size - size + 1, currentPage * size);
-		for (TransferDto dto : transferList) {
-			System.out.println(dto);
-		}
 		
 		boolean hasPrevious = startPage > 1;
 		boolean hasNext = endPage < totalPages;

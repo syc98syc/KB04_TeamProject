@@ -160,7 +160,6 @@
 		<!-- Start Content -->
 		<div class="container py-5">
 			<div class="row">
-	
 				<div class="col-lg-2">
 					<div class="sidemenubox">
 							<h2 class="h3 pt-3 ">금융 거래 연습</h2>
@@ -201,10 +200,12 @@
 				</div>
 	
 				<div class="col-lg-9">
-					<fieldset class = "advice-location">
-								<label for="tooltipCheckbox">도움말</label>
-								<input type="checkbox" id="advice-balloonCheckbox">
-					</fieldset>
+					<div class = "advice-tooltip">
+						<fieldset class = "advice-location">
+							<label for="tooltipCheckbox"><strong class= "advice-tooltip">도움말</strong></label>
+							<input type="checkbox" id="advice-balloonCheckbox">
+						</fieldset>
+					</div>
 					<div class="row">
 						<div class="col-md-6">
 							<ul class="list-inline shop-top-menu  pt-5 pl-3">
@@ -271,25 +272,26 @@
 						</fieldset>
 						<div id="transHistoryTable">
 						</div>
-						<div class="modal fade" id="myModal" role="dialog"> 
-						    <div class="modal-dialog">
-						      <!-- Modal content-->
-						      <div class="modal-content">
-						        <div class="modal-header">
-						          <h4 class="modal-title">거래 내역 조회 연습 완료</h4> 
-						        </div>
-						        <div class="modal-body">
-						        	<p>거래 내역 조회 연습을 완료하였습니다.</p>
-						        	<p>포인트는 하루에 한번만 획득 가능합니다.(+5)</p>
-						        </div>
-						        <div class="modal-footer">
-						          <button type="button" class="btn btn-default" data-dismiss="modal" id= "modalClose" >Close</button>
-						        </div>
-						      </div>
-						    </div>
-					  	</div>
+							<div class="modal fade" id="myModal" role="dialog"> 
+							    <div class="modal-dialog">
+							      <!-- Modal content-->
+							      <div class="modal-content">
+							        <div class="modal-header">
+							          <h4 class="modal-title">거래 내역 조회 연습 완료</h4> 
+							        </div>
+							        <div class="modal-body">
+							        	<p>거래 내역 조회 연습을 완료하였습니다.</p>
+							        	<p>포인트는 하루에 한번만 획득 가능합니다.(+5)</p>
+							        </div>
+							        <div class="modal-footer">
+							          <button type="button" class="btn btn-default" data-dismiss="modal" id= "modalClose" >Close</button>
+							        </div>
+							      </div>
+							    </div>
+					  		</div>
+						</div>
+					</div>
 				</div>
-	
 			</div>
 		</div>
 		<!-- End Content -->
@@ -374,31 +376,25 @@
 					// Ajax 요청을 보냅니다.
 					$.ajax(
 						{
-						url : "trans_history_selected_action", // 서버 엔드포인트 URL을 적절하게 변경하세요.
-						type : "post", // HTTP 메소드 (POST)
+						url : "trans_history_selected_action",
+						type : "post",
 						data : tdata,
 						success : function(response) {
 							// 서버로부터의 응답을 처리합니다.
 							console.log("Ajax 요청 성공!");
 							$('#transHistoryTable').html(response);
 							$('#myModal #modalBody').html(response.message);
-
-							// 이곳에서 서버로부터의 응답을 처리하는 코드를 추가하세요.
 						},
 						error : function(error) {
-							// Ajax 요청이 실패한 경우 처리합니다.
 							console.log("Ajax 요청 실패!");
-							// 이곳에서 오류 처리 코드를 추가하세요.
 						}
 					});
 				});	
 			}
 			function calendarForm(){
 				$("#form2").submit(function(event) {
-					// 기본 폼 제출 동작을 막습니다.
 					event.preventDefault();
 					$("#myModal").modal('show')
-					// 선택한 계좌와 월별 조회 정보를 가져옵니다.
 					var selectedAccount = $("#selectedAccount").val();
 					var startDate = $(".startDate").val();
 					var endDate = $(".endDate").val();
@@ -409,25 +405,17 @@
 							endDate : endDate,
 							currentPage:currentPage
 					};
-					console.log(selectedAccount)
-					console.log(startDate)
-					console.log(endDate)
-					// Ajax 요청을 보냅니다.
 					$.ajax(
 						{
-						url : "trans_history_selected_action2", // 서버 엔드포인트 URL을 적절하게 변경하세요.
+						url : "trans_history_selected_action2",
 						type : "post", // HTTP 메소드 (POST)
 						data : tdata,
 						success : function(response) {
-							// 서버로부터의 응답을 처리합니다.
 							console.log("Ajax 요청 성공!");
 							$('#transHistoryTable').html(response);
-							// 이곳에서 서버로부터의 응답을 처리하는 코드를 추가하세요.
 						},
 						error : function(error) {
-							// Ajax 요청이 실패한 경우 처리합니다.
 							console.log("Ajax 요청 실패!");
-							// 이곳에서 오류 처리 코드를 추가하세요.
 						}
 					});
 				});	
@@ -437,10 +425,6 @@
 				var year = $("#year").val();
 				var month = $("#month").val();
 				
-				console.log(selectedAccount)
-				console.log(year)
-				console.log(month)
-				console.log(page)
 				var tdata = {
 					selectedAccount : selectedAccount,
 					year : year,
@@ -448,7 +432,7 @@
 					currentPage : page
 				};
 				$.ajax({
-					type : 'POST', // POST 방식으로 변경
+					type : 'POST',
 					url : 'trans_history_selected_action',
 					data : tdata, // 필터 데이터를 POST로 전달
 					success : function(response) {
@@ -472,11 +456,10 @@
 					currentPage : page
 				};
 				$.ajax({
-					type : 'POST', // POST 방식으로 변경
+					type : 'POST',
 					url : 'trans_history_selected_action2',
 					data : tdata, // 필터 데이터를 POST로 전달
 					success : function(response) {
-						// 포인트 테이블의 tbody를 가져와서 데이터를 삽입합니다.
 						$('#transHistoryTable').html(response);
 					},
 					error : function(error) {

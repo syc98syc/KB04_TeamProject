@@ -270,10 +270,13 @@
 			</div>
 
 			<div class="col-lg-9">
-					<fieldset class = "advice-location">
-						<label for="tooltipCheckbox">도움말</label>
-						<input type="checkbox" id="advice-balloonCheckbox">
+				<div class="advice-tooltip">
+					<fieldset class="advice-location">
+						<label for="tooltipCheckbox"><strong
+							class="advice-tooltip">도움말</strong></label> <input type="checkbox"
+							id="advice-balloonCheckbox">
 					</fieldset>
+				</div>
 				<div class="row">
 					<div class="col-md-6">
 						<ul class="list-inline shop-top-menu  pt-5 pl-3">
@@ -316,11 +319,14 @@
 									<option value ="자영업">자영업</option>
 									<option value ="주부">주부</option>
 									<option value ="무직">무직</option>
+									<option value ="학생">학생</option>
 								</select>
 								<br><br>
 								<div style="display:inline-block; width: 130px; text-align: left;">거래목적</div>
 								<select name = "pur_trans" style="width: 150px;">
 									<option value ="급여">급여</option>
+									<option value ="용돈">용돈</option>
+									<option value ="아르바이트">아르바이트</option>
 									<option value ="법인">법인</option>
 									<option value ="모임">모임</option>
 									<option value ="사업자금">사업자금</option>

@@ -205,10 +205,12 @@
 				</div>
 	
 				<div class="col-lg-9">
-					<fieldset class = "advice-location">
-								<label for="tooltipCheckbox">도움말</label>
-								<input type="checkbox" id="advice-balloonCheckbox">
-					</fieldset>
+					<div class = "advice-tooltip">
+						<fieldset class = "advice-location">
+							<label for="tooltipCheckbox"><strong class= "advice-tooltip">도움말</strong></label>
+							<input type="checkbox" id="advice-balloonCheckbox">
+						</fieldset>
+					</div>
 					<div class="row">
 						<div class="col-md-6">
 							<ul class="list-inline shop-top-menu  pt-5 pl-3">
@@ -384,22 +386,17 @@
 							month : month,
 							currentPage:currentPage
 					}
-					// Ajax 요청을 보냅니다.
 					$.ajax(
 						{
-						url : "trans_history_action", // 서버 엔드포인트 URL을 적절하게 변경하세요.
-						type : "post", // HTTP 메소드 (POST)
+						url : "trans_history_action",
+						type : "post",
 						data : tdata,
 						success : function(response) {
-							// 서버로부터의 응답을 처리합니다.
 							console.log("Ajax 요청 성공!")
 							$('#transHistoryTable').html(response)
-							// 이곳에서 서버로부터의 응답을 처리하는 코드를 추가하세요.
 						},
 						error : function(error) {
-							// Ajax 요청이 실패한 경우 처리합니다.
 							console.log("Ajax 요청 실패!")
-							// 이곳에서 오류 처리 코드를 추가하세요.
 						}
 					})
 				})
@@ -421,23 +418,18 @@
 							endDate : endDate,
 							currentPage:currentPage
 					}
-					// Ajax 요청을 보냅니다.
 					$.ajax(
 						{
-						url : "trans_history_action2", // 서버 엔드포인트 URL을 적절하게 변경하세요.
-						type : "post", // HTTP 메소드 (POST)
+						url : "trans_history_action2",
+						type : "post",
 						data : tdata,
 						success : function(response) {
-							// 서버로부터의 응답을 처리합니다.
-							console.log("Ajax 요청 성공!");
+							console.log("Ajax 요청 성공");
 							console.log(response)
 							$('#transHistoryTable').html(response);
-							// 이곳에서 서버로부터의 응답을 처리하는 코드를 추가하세요.
 						},
 						error : function(error) {
-							// Ajax 요청이 실패한 경우 처리합니다.
-							console.log("Ajax 요청 실패!");
-							// 이곳에서 오류 처리 코드를 추가하세요.
+							console.log("Ajax 요청 실패");
 						}
 					})
 				})	
@@ -447,11 +439,6 @@
 				var year = $("#year").val()
 				var month = $("#month").val()
 				
-				console.log(selectedAccount)
-				console.log(year)
-				console.log(month)
-				console.log(page)
-				
 				var tdata = {
 					selectedAccount : selectedAccount,
 					year : year,
@@ -459,11 +446,10 @@
 					currentPage : page
 				}
 				$.ajax({
-					type : 'POST', // POST 방식으로 변경
+					type : 'POST',
 					url : 'trans_history_action',
-					data : tdata, // 필터 데이터를 POST로 전달
+					data : tdata,
 					success : function(response) {
-						// 포인트 테이블의 tbody를 가져와서 데이터를 삽입합니다.
 						$('#transHistoryTable').html(response)
 					},
 					error : function(error) {
@@ -483,11 +469,10 @@
 					currentPage : page
 				}
 				$.ajax({
-					type : 'POST', // POST 방식으로 변경
+					type : 'POST',
 					url : 'trans_history_action2',
-					data : tdata, // 필터 데이터를 POST로 전달
+					data : tdata, 
 					success : function(response) {
-						// 포인트 테이블의 tbody를 가져와서 데이터를 삽입합니다.
 						$('#transHistoryTable').html(response)
 					},
 					error : function(error) {

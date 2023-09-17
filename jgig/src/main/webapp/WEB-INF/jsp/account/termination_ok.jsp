@@ -216,10 +216,12 @@
 				</div>
 	
 				<div class="col-lg-9">
-					<fieldset class = "advice-location">
-								<label for="tooltipCheckbox">도움말</label>
-								<input type="checkbox" id="advice-balloonCheckbox">
-					</fieldset>
+					<div class = "advice-tooltip">
+						<fieldset class = "advice-location">
+							<label for="tooltipCheckbox"><strong class= "advice-tooltip">도움말</strong></label>
+							<input type="checkbox" id="advice-balloonCheckbox">
+						</fieldset>
+					</div>
 					<div class="row">
 						<div class="col-md-6">
 							<ul class="list-inline shop-top-menu  pt-5 pl-3">

@@ -279,10 +279,12 @@
 				</div>
 	
 				<div class="col-lg-9">
+					<div class = "advice-tooltip">
 						<fieldset class = "advice-location">
-							<label for="tooltipCheckbox">도움말</label>
+							<label for="tooltipCheckbox"><strong class= "advice-tooltip">도움말</strong></label>
 							<input type="checkbox" id="advice-balloonCheckbox">
 						</fieldset>
+					</div>
 					<div class="row">
 						<div class="col-md-6">
 							<ul class="list-inline shop-top-menu  pt-5 pl-3">
@@ -360,14 +362,19 @@
 								<form action = "open_account2" method = "post" >
 									<h3 class="font-weight-bold">약관동의</h3>
 									<fieldset class = "check_user">
-										<strong>개인(신용)정보 수집-이용에 동의</strong>
-										<p>
-											본인은 귀사가 「개인정보보호법」 및 「신용정보의 이용 및 보호에 관한 법률」 에 따라 본인의 개인(신용)정보를 다음과 같이 수집·이용하는 것에 동의합니다
-											개인(신용)정보 수집·이용 목적 : 비대면 계좌개설 신청여부 확인
-											수집·이용할 개인(신용)정보의 내용 : 주민등록번호
-											개인(신용)정보의 보유·이용기간 : 신청일로부터 30일 이내
-											※ 상기 동의를 거부하실 경우 비대면 계좌개설이 불가합니다.
-										</p>
+										<div style="overflow:scroll; width:100%; height:120px;">
+											<strong>개인(신용)정보 수집-이용에 동의</strong>
+											<p>
+												본인은 귀사가 「개인정보보호법」 및 「신용정보의 이용 및 보호에 관한 법률」 에 따라 본인의 개인(신용)정보를 다음과 같이 수집·이용하는 것에 동의합니다
+												<strong>개인(신용)정보 수집·이용 목적</strong> : 비대면 계좌개설 신청여부 확인
+												수집·이용할 개인(신용)정보의 내용 : 주민등록번호
+												<br>
+												<strong>개인(신용)정보의 보유·이용기간</strong> : 신청일로부터 30일 이내 
+												<br>
+												※ 상기 동의를 거부하실 경우 비대면 계좌개설이 불가합니다.
+												
+											</p>
+										</div>
 									</fieldset>
 									<strong class="advice-balloon advice-balloon4">3. 약관동의에 동의를 눌러준 후 다음버튼을 눌러주세요.</strong>
 									<div class = "float-right">
