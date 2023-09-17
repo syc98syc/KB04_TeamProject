@@ -227,7 +227,9 @@
 				</div>
 				<div class="row">
 					<div id="service-content">
-						<p class = "total-accountBalCss">총 예금 잔액 <fmt:formatNumber value="${totalBalance}" pattern="#,###"/>원 (${total}계좌)</p>
+						<div style = "text-align : right; ">
+							<strong style = "font-size : 130%;">총 예금 잔액 <fmt:formatNumber value="${totalBalance}" pattern="#,###"/>원 (${total}계좌)</strong>
+						</div>
 						<div class = "accountListCss">
 						<table>
 							<c:forEach items="${account_list}" var ="acc">

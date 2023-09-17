@@ -573,13 +573,6 @@ input[id = "input_text"] {
 
 /*계좌개설2 말풍선 끝*/
 
-/*계좌목록페이지의 총예금잔액 및 계좌수css*/
-.total-accountBalCss{
-	text-align: right;
-	font-weight : bold;
-	font-size: 50px;
-}
-
 .password-ok-msg{
 	float : right;	
 }

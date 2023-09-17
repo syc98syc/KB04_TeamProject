@@ -313,7 +313,8 @@
 							
 							<div style = "text-align:center">
 								<div style="display:inline-block; width: 130px; text-align: left;">직업구분</div>
-								<select name = "job" style="width: 150px;">
+								<select name = "job" style="width: 150px;" required>
+									<option value = "" disabled selected>직업</option>
 									<option value ="회사원">회사원</option>
 									<option value ="전문직">전문직</option>
 									<option value ="자영업">자영업</option>
@@ -323,7 +324,8 @@
 								</select>
 								<br><br>
 								<div style="display:inline-block; width: 130px; text-align: left;">거래목적</div>
-								<select name = "pur_trans" style="width: 150px;">
+								<select name = "pur_trans" style="width: 150px;"required>
+									<option value = "" disabled selected>거래목적</option>
 									<option value ="급여">급여</option>
 									<option value ="용돈">용돈</option>
 									<option value ="아르바이트">아르바이트</option>

@@ -258,9 +258,9 @@
 										<tr>
 											<th class ="bgc" style="width: 24%;">조회 기간</th>
 											<td>
-												<input type="text" id="datepicker-start" class = "startDate" name="startDate">
+												<input type="text" id="datepicker-start" class = "startDate" name="startDate" required>
 												<label for="datepicker-end">~</label> 
-												<input type="text" id="datepicker-end" class = "endDate"name="endDate">
+												<input type="text" id="datepicker-end" class = "endDate"name="endDate" required>
 												<Button type="submit" class="btn button-like-link">조회</Button>
 						        				<strong class="advice-balloon advice-balloon5_trans_his_selected">2-2-2. 조회버튼을 선택해주세요</strong>
 											</td>

@@ -299,6 +299,7 @@
 								<form id = "memberCheckForm" action="member_check" method = "post">
 									<span class="font-weight-bold">상품명</span>
 									<select name = "act_name" required>
+										<option value = "" disabled selected>선택</option>
 										<option value ="KBablePlus통장">KBablePlus통장</option>
 										<option value ="직장인우대종합통장">직장인우대종합통장</option>
 										<option value ="KB두근두근외화적금">KB두근두근외화적금</option>

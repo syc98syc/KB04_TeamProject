@@ -231,8 +231,8 @@
 										<tr>
 											<th class ="bgc" style = "width:24%;">계좌 선택</th>
 											<td>
-												<select name="selectedAccount" id="selectedAccount">
-													<option selected>선택</option>
+												<select name="selectedAccount" id="selectedAccount" required>
+													<option value = "" disabled selected>선택</option>
 													<c:forEach items="${accountList}" var="acclist" varStatus="status">
 														<option value="${acclist.account}">${acclist.account}</option>
 													</c:forEach>
@@ -242,12 +242,12 @@
 										<tr>
 											<th class ="bgc" style = "width:24%;">월별 조회</th>
 											<td>
-												<select id="year" name="year" class="form-control" style="display: inline-block; width: auto;">
+												<select id="year" name="year" class="form-control" style="display: inline-block; width: auto;" required>
 													<c:forEach var="i" begin="15" end="23">
 														<option value="${i}" selected>20${i}</option>
 													</c:forEach>
 												</select> <span>년</span> 
-												<select id="month" name="month" class="form-control" style="display: inline-block; width: auto;">
+												<select id="month" name="month" class="form-control" style="display: inline-block; width: auto;" required>
 													<c:forEach var="i" begin="1" end="12">
 														<c:choose>
 															<c:when test="${i lt 10 }">
@@ -272,9 +272,9 @@
 										<tr>
 											<th class ="bgc" style="width: 24%;">조회 기간</th>
 											<td>
-												<input type="text" id="datepicker-start" class = "startDate" name="startDate">
+												<input type="text" id="datepicker-start" class = "startDate" name="startDate" required>
 										        <label for="datepicker-end">~</label>
-										        <input type="text" id="datepicker-end" class = "endDate"name="endDate">
+										        <input type="text" id="datepicker-end" class = "endDate"name="endDate" required>
 										        <strong class="advice-balloon advice-balloon4_trans_his1">2-2-1. 조회기간을 선택해주세요</strong>
 										        <Button type="submit" class="btn button-like-link">조회</Button>
 										        <strong class="advice-balloon advice-balloon5_trans_his1">2-2-2. 조회버튼을 선택해주세요</strong>
