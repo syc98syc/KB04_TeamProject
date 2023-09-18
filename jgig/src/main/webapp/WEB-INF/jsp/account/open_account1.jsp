@@ -357,7 +357,7 @@
 								<hr>
 								<form action = "open_account2" method = "post" >
 									<h3 class="font-weight-bold">약관동의</h3>
-									<fieldset class = "check_user">
+									<fieldset class = "check_user" style="border-radius : 7px;">
 										<div style="overflow:scroll; width:100%; height:120px;">
 											<strong>개인(신용)정보 수집-이용에 동의</strong>
 											<p>
