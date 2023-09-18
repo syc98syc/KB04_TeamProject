@@ -233,8 +233,8 @@
 							<tr class = "no-left-right-border">
 								<th colspan=3 class = "bgc">입출금 계좌</th>
 							</tr>
-							<tr>
-								<td>${acc.account}<br>${acc.act_name}</td>
+							<tr class = "accountListCss">
+								<td class= "accountListCss">${acc.account}<br>${acc.act_name}</td>
 								<td class = "no-left-right-border">잔액 <fmt:formatNumber value="${acc.balance}" pattern="#,###"/>원</td>
 								<td class = "no-left-right-border" style = "text-align :right">
 									<a href = "account_management?account=${acc.account}" class ="button-like-link " style="width: 105px; text-align : center; font-weight : bold;">
