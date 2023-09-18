@@ -1,0 +1,40 @@
+package kb04.ditto.jgig.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import kb04.ditto.jgig.entity.NoticeDto;
+import kb04.ditto.jgig.entity.Criteria;
+import kb04.ditto.jgig.mapper.NoticeMapper;
+
+@Controller
+public class NoticeController {
+	
+	@Autowired
+	private NoticeMapper noticeMapper;
+	
+	
+	@GetMapping("jgig/notice_list")
+	public String board_list_withPaging(@RequestParam(value="pageNum", required=false) Integer pageNum, Model model) {
+		int total = noticeMapper.getTotal();
+		
+		if(pageNum==null)
+			pageNum=1;
+		
+		Criteria criteria = new Criteria(pageNum,total);
+		List<NoticeDto> list = noticeMapper.listWithPaging(criteria);
+		
+		model.addAttribute("total", total);
+		model.addAttribute("board_list",list);
+		model.addAttribute("criteria", criteria);
+		
+		return "notice/list";
+	}
+	
+}

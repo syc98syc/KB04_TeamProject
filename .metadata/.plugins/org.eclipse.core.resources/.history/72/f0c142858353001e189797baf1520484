@@ -1,0 +1,41 @@
+package kb04.ditto.jgig.mapper;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
+
+import kb04.ditto.jgig.entity.Criteria;
+import kb04.ditto.jgig.entity.NoticeDto;
+
+@Mapper
+public interface NoticeMapper {
+	@Select("select * from notice order by ntc_id desc")
+	List<NoticeDto> list();
+
+	@Select("select * from notice where ntc_id = #{ntc_id}")
+	public NoticeDto findByNo(int no);
+
+	@Update("update notice SET ntc_view=ntc_view + 1 where ntc_id = #{ntc_id}")
+	void updateView(NoticeDto dto);
+
+	@Select("select count(*) from notice")
+	public int getTotal();
+
+	@Select("SELECT ntc_id, title, mem_id, ntc_date_created, ntc_view FROM (SELECT rownum rnum, ntc_id, title, mem_id, ntc_date_created, ntc_view FROM (SELECT ntc_id, title, mem_id, ntc_date_created, ntc_view FROM notice ORDER BY ntc_id DESC) WHERE rownum <= #{pageNum} * #{amount}) WHERE rnum > (#{pageNum}-1)*#{amount} order by rnum asc")
+	List<NoticeDto> listWithPaging(Criteria criteria);
+
+	@Select("SELECT ntc_id, title, mem_id, ntc_date_created, ntc_view FROM (SELECT rownum rnum, ntc_id, title, mem_id, ntc_date_created, ntc_view FROM (SELECT ntc_id, title, mem_id, ntc_date_created, ntc_view FROM notice WHERE title=#{keyword} ORDER BY ntc_id DESC) WHERE rownum <= #{pageNum} * #{amount}) WHERE rnum > (#{pageNum}-1)*#{amount} order by rnum asc")
+	List<NoticeDto> searchListWithPagingByTitle(Criteria criteria);
+
+	@Select("select count(*) from notice where title=#{keyword}")
+	public int getSearchTotalByTitle(String keyword);
+
+	@Select("SELECT ntc_id, title, mem_id, ntc_date_created, ntc_view FROM (SELECT rownum rnum, ntc_id, title, mem_id, ntc_date_created, ntc_view FROM (SELECT ntc_id, title, mem_id, ntc_date_created, ntc_view FROM notice WHERE mem_id=#{keyword} ORDER BY ntc_id DESC) WHERE rownum <= #{pageNum} * #{amount}) WHERE rnum > (#{pageNum}-1)*#{amount} order by rnum asc")
+	List<NoticeDto> searchListWithPagingByMem(Criteria criteria);
+
+	@Select("select count(*) from notice where mem_id=#{keyword}")
+	public int getSearchTotalByMem(String keyword);
+
+}

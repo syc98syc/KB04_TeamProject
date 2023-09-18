@@ -1,0 +1,83 @@
+package kb04.ditto.jgig.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import kb04.ditto.jgig.entity.NoticeDto;
+import kb04.ditto.jgig.entity.BoardDto;
+import kb04.ditto.jgig.entity.Criteria;
+import kb04.ditto.jgig.mapper.CommentMapper;
+import kb04.ditto.jgig.mapper.NoticeMapper;
+
+@Controller
+public class NoticeController {
+	
+	@Autowired
+	private NoticeMapper noticeMapper;
+	
+	
+	@GetMapping("jgig/notice_list")
+	public String notice_list_withPaging(@RequestParam(value="pageNum", required=false) Integer pageNum, Model model) {
+		int total = noticeMapper.getTotal();
+		
+		if(pageNum==null)
+			pageNum=1;
+		
+		Criteria criteria = new Criteria(pageNum,total);
+		List<NoticeDto> list = noticeMapper.listWithPaging(criteria);
+		
+		model.addAttribute("total", total);
+		model.addAttribute("notice_list",list);
+		model.addAttribute("criteria", criteria);
+		
+		return "notice/list";
+	}
+	
+	@GetMapping("jgig/notice_detail")
+	public String notice_detail(@RequestParam("no") int no, Model model) {
+		
+		NoticeDto dto = noticeMapper.findByNo(no);
+		noticeMapper.updateView(dto);
+		model.addAttribute("dto",dto);
+
+		return "notice/detail";
+	}
+	
+	@GetMapping("jgig/comment_search_action")
+	public String comment_search_list_withPaging(@RequestParam(value="searchTag", required=false) String searchTag, @RequestParam(value="keyword", required=false) String keyword, @RequestParam(value="pageNum", required=false) Integer pageNum, Model model) {
+		
+		
+		if(pageNum==null)
+			pageNum=1;
+		
+		Criteria criteria;
+		List<BoardDto> list;
+		
+		if(searchTag.equals("제목")) {
+			int total = CommentMapper.getSearchTotalByTitle(keyword);
+			criteria = new Criteria(pageNum,searchTag,keyword,total);
+			 list = CommentMapper.searchListWithPagingByTitle(criteria);
+			 model.addAttribute("total", total);
+		}
+		else {
+			int total = CommentMapper.getSearchTotalByMem(keyword);
+			criteria = new Criteria(pageNum,searchTag,keyword,total);
+			list = CommentMapper.searchListWithPagingByMem(criteria);
+			model.addAttribute("total", total);
+		}
+		
+		
+		
+		
+		model.addAttribute("search_list",list);
+		model.addAttribute("criteria", criteria);
+		
+		return "board/search_list";
+	}
+	
+}

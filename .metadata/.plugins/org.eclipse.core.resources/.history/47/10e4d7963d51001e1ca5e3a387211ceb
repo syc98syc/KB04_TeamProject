@@ -1,0 +1,8 @@
+package kb04.ditto.jgig.entity;
+
+public class CommentDto {
+	int cmt_id, brd_id, cmt_declaration, cmt_suggestion;
+	String cmt_regdate, cmt_content, mem_id;
+
+	
+}
