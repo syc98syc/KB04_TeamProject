@@ -1233,7 +1233,7 @@ input[id = "input_text"] {
 .advice-balloon {
 	display: none;
 	position: absolute;
-	color: black;
+	color: #black;
 	font-weight : bold;
 	padding: 5px;
 	border-radius: 5px;
