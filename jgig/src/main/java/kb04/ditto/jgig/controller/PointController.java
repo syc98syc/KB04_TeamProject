@@ -165,7 +165,7 @@ public class PointController {
 	}
 
 	@PostMapping("jgig/checkin")
-	public String checkIn(HttpSession session, Model model) {
+	public String checkIn(HttpSession session, Model model,HttpServletResponse response) throws IOException{
 		// 출석체크 로직을 수행하고 포인트 적립
 		String memId = (String) session.getAttribute("mem_id");
 		MemberDto dto = memberMapper.detail(memId); // 사용자 아이디를 실제로 가져오는 코드로 대체
@@ -174,11 +174,18 @@ public class PointController {
 
 		boolean alreadyCheckedIn = false; // 출석체크 여부를 확인하는 로직이 필요
 		int count = pointMapper.countDailyCheckIn(memId);
+		response.setContentType("text/html;charset=UTF-8");
 
 		if (count >= 1) {
 			// 출석체크 로직 구현
 			// 이미 출석체크한 경우 처리 (예: 에러 메시지 전달)
-			model.addAttribute("checkinSuccess", false);
+			session.setAttribute("checkinSuccess", false);
+			
+//		response.getWriter().write("<script>\r\n"
+//				+ "				openModal(\"출석체크\",\"이미 출석체크 하셨습니다.\");\r\n"
+//				+ "\r\n"
+//				+ "        console.log(\"출첵이미함\");   </script>");
+			
 		} else {
 			PointDto point = new PointDto();
 			point.setPoint(10); // 출석체크 시 10 포인트 적립
@@ -188,10 +195,12 @@ public class PointController {
 			pointMapper.checkPoint(memId, point.getPoint());
 
 			// 출석체크 완료 메시지를 JSP로 전달
-			model.addAttribute("checkinSuccess", true);
+			session.setAttribute("checkinSuccess", true);
+			//response.getWriter().write("<script>alert('출석체크가 완료되었습니다. 포인트 10점이 적립되었습니다.')</script>");
+		
 		}
 
-		return "login/login_main";
+		return "redirect:/jgig/attendance"; //다윤 변경
 	}
 
 }
