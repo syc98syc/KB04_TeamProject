@@ -1143,7 +1143,9 @@ input[id = "input_text"] {
 }
 .no-left-right-border{
 	border-left: none;
+	border-right: none;
 }
+
 .bgc{
 	background-color: #DEDEDE;
 }
@@ -1224,9 +1226,8 @@ input[id = "input_text"] {
     border-collapse: collapse;
 }
 
-.accountListCss th,.accountListCss td {
+.accountListCss th, .accountListCss td {
     border-bottom: 1px solid #444444;
-    border-left: 1px solid #444444;
     padding: 10px;
 }
 
