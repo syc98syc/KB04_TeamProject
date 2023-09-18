@@ -25,7 +25,7 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
- <!-- Header -->
+    <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-light shadow navcolor">
         <div class="container d-flex justify-content-between align-items-center">
 
@@ -64,7 +64,7 @@
                            	  <li><a class="dropdown-item" href="/jgig/searchWord">금융 용어 검색</a></li>
                              <li><a class="dropdown-item" href="/jgig/quiz">금융 상식 퀴즈</a></li>
                              <hr>
-                             <li><a class="dropdown-item" href="#">이용 가이드</a></li>
+                             <li><a class="dropdown-item" href="/jgig/guide">이용 가이드</a></li>
                         	</ul>
                     	</li>
                     	<li class="nav-item dropdown">
@@ -72,9 +72,9 @@
                             커뮤니티
                         	</a>
                         	<ul class="dropdown-menu">
-                           	 <li><a class="dropdown-item" href="#">공지사항</a></li>
+                           	 <li><a class="dropdown-item" href="/jgig/notice_list">공지사항</a></li>
                              <li><a class="dropdown-item" href="/jgig/board_list">게시판</a></li>
-                             <li><a class="dropdown-item" href="#">내가 쓴 글</a></li>
+                             <li><a class="dropdown-item" href="/jgig/board_my_list_action">내가 쓴 글</a></li>
                         	</ul>
                     	</li>
                     	<li class="nav-item dropdown">
@@ -112,7 +112,7 @@
 						<c:if test="${not empty sessionScope.mem_id}">
 							<li class="nav-item dropdown">
 								<a class="nav-icon position-relative text-decoration-none nav-link"
-									role="button" data-bs-toggle="dropdown"
+									 role="button" data-bs-toggle="dropdown"
 									aria-haspopup="true" aria-expanded="false"> <i
 										class="fa fa-fw fa-user text-dark mr-3"></i>
 									${sessionScope.mem_nm}님 <!--session값으로 받아오기 -->
@@ -138,7 +138,7 @@
 		</div>
 	</nav>
 	<!-- Close Header -->
-
+	
 	<!-- Modal -->
 	<div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">
@@ -167,12 +167,12 @@
 					<ul class="list-unstyled ">
 						<li >
 							<a class="collapsed d-flex justify-content-between text-decoration-none" href="/jgig/findStore"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 -->
-								지점찾기 및 번호표발행
+								지점찾기 및 번호표 발행
 							</a>
 						</li>
 						<li >
 							<a class="collapsed d-flex justify-content-between text-decoration-none selectsidemenu" href="/jgig/detailWaiting">
-								번호표조회 및 취소
+								번호표 조회 및 취소
 							</a>
 						</li>
 					</ul>
@@ -183,7 +183,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<ul class="list-inline shop-top-menu  pt-5 pl-3">
-							<h2>번호표조회 및 취소</h2>
+							<h2>번호표 조회 및 취소</h2>
 						</ul>
 					</div>
 				</div>
