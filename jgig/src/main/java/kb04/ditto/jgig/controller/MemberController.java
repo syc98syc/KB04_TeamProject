@@ -33,14 +33,16 @@ public class MemberController {
 	}
 
 	@PostMapping("/jgig/register")
-	public String signup(MemberDto dto) { // 회원가입
-		try {
-			memberMapper.signup(dto);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "redirect:/jgig/login";
-	}
+    public String signup(MemberDto dto, @RequestParam("ssn_1") String ssn_1, @RequestParam("ssn_2") String ssn_2) { // 회원가입
+        try {
+            String ssn = ssn_1 + ssn_2;
+            dto.setSsn(ssn);
+            memberMapper.signup(dto);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "redirect:/jgig/login";
+    }
 
 	@GetMapping("/jgig/login")
 	public String toLoginPage(HttpSession session) { // 로그인 페이지
