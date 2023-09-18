@@ -198,24 +198,19 @@
 							</li>
 							<hr>
 							<li >
-								<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
-									카드 발급
+								<a class="collapsed d-flex justify-content-between text-decoration-none" href="card_issuance">
+									카드발급
 								</a>
 							</li>
 							<li >
-								<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
-									카드 조회
+								<a class="collapsed d-flex justify-content-between text-decoration-none" href="card_list">
+									카드 조회 및 관리
 								</a>
 							</li>
 							<hr>
 							<li >
-								<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
-									공인인증서 발급
-								</a>
-							</li>
-							<li >
-								<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
-									하위메뉴
+								<a class="collapsed d-flex justify-content-between text-decoration-none" href="certification">
+									인증서 발급
 								</a>
 							</li>
 						</ul>
