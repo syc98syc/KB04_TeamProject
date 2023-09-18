@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-    <title>금융용어검색</title>
+    <title>금융상식퀴즈</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -24,7 +25,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
 </head>
+
 <body>
+
     <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-light shadow navcolor">
         <div class="container d-flex justify-content-between align-items-center">
@@ -82,8 +85,8 @@
                             지점찾기
                         	</a>
                         	<ul class="dropdown-menu">
-                           	 <li><a class="dropdown-item" href="/jgig/findStore">지점찾기 및 번호표발행</a></li>
-                             <li><a class="dropdown-item" href="/jgig/detailWaiting">번호표조회 및 취소</a></li>
+                           	 <li><a class="dropdown-item" href="/jgig/findStore">지점찾기 및 번호표 발행</a></li>
+                             <li><a class="dropdown-item" href="/jgig/detailWaiting">번호표 조회 및 취소</a></li>
                         	</ul>
                     	</li>
                     	<li class="nav-item dropdown">
@@ -112,7 +115,7 @@
 						<c:if test="${not empty sessionScope.mem_id}">
 							<li class="nav-item dropdown">
 								<a class="nav-icon position-relative text-decoration-none nav-link"
-									role="button" data-bs-toggle="dropdown"
+									 role="button" data-bs-toggle="dropdown"
 									aria-haspopup="true" aria-expanded="false"> <i
 										class="fa fa-fw fa-user text-dark mr-3"></i>
 									${sessionScope.mem_nm}님 <!--session값으로 받아오기 -->
@@ -166,12 +169,12 @@
 					<hr>
 					<ul class="list-unstyled ">
 						<li >
-							<a class="collapsed d-flex justify-content-between text-decoration-none selectsidemenu" href="/jgig/searchWord"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 -->
+							<a class="collapsed d-flex justify-content-between text-decoration-none" href="/jgig/searchWord"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 -->
 								금융 용어 검색
 							</a>
 						</li>
 						<li >
-							<a class="collapsed d-flex justify-content-between text-decoration-none" href="/jgig/quiz">
+							<a class="collapsed d-flex justify-content-between text-decoration-none selectsidemenu" href="/jgig/quiz">
 								금융 상식 퀴즈
 							</a>
 						</li>
@@ -189,55 +192,39 @@
 				<div class="row">
 					<div class="col-md-6">
 						<ul class="list-inline shop-top-menu  pt-5 pl-3">
-							<h2>"${word}" 검색 결과</h2>
+							<h2>오늘의 퀴즈</h2>
 						</ul>
 					</div>
 				</div>
 				<div class="row">
-					<div id="service-content"> 
-						<!-- 여기에 넣으시며 됩니당 -->
-						<p>총 <strong>${totalCount}</strong>건의 금융용어가 검색되었습니다.</p>
-						<div class="search-result">
-							<ul class="word-list">
-						<%-- ${result_list.size()} --%>
-							<c:forEach items="${result_list}" var="item">
-								<li>
-									<div class="p-title">
-										<span class="tit">${item.word}</span>
-									</div>
-									<div class="p-conts">
-										<div class="inner">${item.content}</div>
-									</div>
-								</li>
-							</c:forEach>
-							</ul>
-						</div>
-						<div class="word-pagination quiz-pagination">
-							<nav aria-label="Page navigation example">
-							  <ul class="pagination">
-							    <li class="page-item">
-							      <a class="page-link" onclick="ajaxPagination('1')" aria-label="Previous">
-							        <span aria-hidden="true">&laquo;</span>
-							      </a>
-							    </li>
-							    
-							    <c:set var="pageCount" value="${Math.ceil(totalCount / 10)}" />
-								<c:forEach begin="1" end="${pageCount}" var="pageNum">
-								    <li class="page-item page-items"><a class="page-link">${pageNum}</a></li>
-								</c:forEach>
-								
-							    <li class="page-item">
-							      <a class="page-link" onclick="ajaxPagination(${pageCount})" aria-label="Next">
-							        <span aria-hidden="true">&raquo;</span>
-							      </a>
-							    </li>
-							  </ul>
-							</nav>
-						</div>
+					<div class="quiz-service-content" id="service-content"> 
+							<!-- <h1>오늘의 퀴즈</h1> -->
+							
+							<div>다음에 해당하는 금융 용어를 고르세요.</div>
+					        <div class="question">${resultList[ans].inner}</div>
+						    <ul class="quiz_ul">
+							<c:forEach items="${resultList}" var="item" varStatus="status">
+						        <li class="opt quiz_li statF" id="opt${status.index}" value="${status.index }">${item.tit}</li>
+						    </c:forEach>
+						    </ul>
+						    <div class="quiz-result">
+							    <c:set var="quizStat" value="${quiz_stat}" />
+							    <c:if test="${quizStat eq 'Y'}">
+							   	<span>정답입니다. 10포인트 획득!</span>
+							    </c:if>
+							    <c:if test="${quizStat eq 'N'}">
+							   	<span>오답입니다. 내일 다시 도전하세요!</span>
+							    </c:if>
+						    </div>
+							<c:if test="${quizStat eq 'F'}">
+							<button class="quiz-submitBtn btn btn-outline-warning" id="submitBtn" onclick="submitQuiz()">정답 제출</button>
+							</c:if>
+							<%-- <c:if test="${quizStat eq 'Y' || quizStat eq 'N'}">
+							<button disabled>제출완료</button>
+							</c:if> --%>
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 	<!-- End Content -->
@@ -265,43 +252,85 @@
 	<script src="/assets/js/templatemo.js"></script>
 	<script src="/assets/js/custom.js"></script>
 	<!-- End Script -->
-
 	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script type="text/javascript">
-	function wordClickHandler() {
-		var list = document.querySelectorAll(".word-list > li");
-		list.forEach(item => {
-			item.addEventListener("click", () => {
-				item.classList.toggle("clicked");
-			});
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+	<script>
+	//console.log("${quiz_stat}")
+	// 문제 클릭 이벤트 
+	let selectedOpt;
+	
+	function clickEventHandler(opt) { 
+		var options = document.querySelectorAll(".opt");
+		// 모든 리스트에서 clickedAns 클래스 제거
+        options.forEach(otherOpt => {
+            otherOpt.classList.remove("clickedAns");
+        });
+
+        // 클릭한 리스트에 clickedAns 클래스 추가
+        opt.classList.add("clickedAns");
+        selectedOpt = opt.value;
+	}
+	
+	function quizClickHandler() {
+		var options = document.querySelectorAll(".opt");
+		options.forEach(opt => {
+			opt.addEventListener("click", () => clickEventHandler(opt));
 		}); 
 	}
-	function paginationHandler() {
-		var pages = document.querySelectorAll(".page-items");
-		pages.forEach(page => {
-			page.addEventListener("click", () => {
-				var word = "${word}";
-				var pageNo = page.querySelector("a").innerText;
-				ajaxPagination(pageNo);
-			});
+	function removeQuizClickHandler() {
+		var options = document.querySelectorAll(".opt");
+		options.forEach(opt => {
+			opt.removeEventListener("click", () => clickEventHandler(opt));
+			opt.classList.remove("statF");
+		 	opt.classList.remove("clickedAns");
 		});
 	}
-	wordClickHandler();
-	paginationHandler();
-	
-	function ajaxPagination(pageNo) {
-		var word = "${word}";
-		var data  = {
-				pw_word: word
+
+	if("${quiz_stat}" == "F") { // 문제를 안풀었을 경우 클릭이벤트 실행 
+		quizClickHandler();		
+	} else { // 풀었을 경우 클릭이벤트 지우기 
+		removeQuizClickHandler();
+		if("${quiz_stat}" == "N") {
+			var selectedAns = document.querySelector("#opt${my_answer}");
+			selectedAns.classList.add("selectedAns");
+			var correctAnsN = document.querySelector("#opt${answer}");
+			correctAnsN.classList.add("correctAnsN");
+		} else if("${quiz_stat}" == "Y") {
+			var selectedAns = document.querySelector("#opt${answer}");
+			selectedAns.classList.add("selectedAns");
 		}
-	   	let options = {
+	}
+	
+	// 정답 제출 이벤트 
+	function submitQuiz() {
+		let options = {
 			type: "post",
-			url : "/jgig/searchWordResult/" + pageNo,
-			data: data,
+			url : "/jgig/submitQuiz",
+			data: {selectedOpt : selectedOpt},
 			success : function(data) {
-				document.querySelector(".search-result").innerHTML = data;
-				wordClickHandler();
+				console.log(data);
+				removeQuizClickHandler();
+				
+				var submitBtn = document.querySelector("#submitBtn");
+				submitBtn.style.display = "none";
+				
+				var selectedAns = document.querySelector("#opt"+data.my_answer);
+				selectedAns.classList.add("selectedAns");
+
+				var el = document.createElement('div');
+				el.setAttribute("class", "quiz-result");
+				if(data.quiz_stat == 'Y') {
+					var content = "<span>정답입니다. 10포인트 획득!</span>";
+					el.innerHTML = content;
+					document.querySelector(".quiz_ul").after(el);
+				} else if(data.quiz_stat == 'N') {
+					var content = "<span>오답입니다. 내일 다시 도전하세요!</span>";
+					el.innerHTML = content;
+					document.querySelector(".quiz_ul").after(el);
+					
+					var correctAnsN = document.querySelector("#opt"+data.answer);
+					correctAnsN.classList.add("correctAnsN");
+				}
 			},
 			error: function(jqXHR, textStatus, errorThrown) {
 			    console.error("AJAX 오류 발생: " + textStatus, errorThrown);
@@ -309,7 +338,7 @@
 		}
 		$.ajax(options);
 	}
-
 	</script>
 </body>
+
 </html>
