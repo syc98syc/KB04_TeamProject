@@ -54,6 +54,8 @@ public class MemberController {
 	@PostMapping("/jgig/login")
 	public String login(MemberDto dto, HttpSession session, Model model, HttpServletResponse response,  @RequestParam(value = "remember_me", required = false) String rememberMe) { // 로그인
 		MemberDto loginDto = memberMapper.login(dto);
+		// 세션에서 로그인 정보를 확인
+		
 		if (loginDto == null) { // 로그인 실패
 	        String errorMessage = "아이디나 비밀번호를 다시 확인해주세요.";
 	        model.addAttribute("loginError", errorMessage);
@@ -61,6 +63,7 @@ public class MemberController {
 
 			return "login/login_form";
 		}
+		session.setAttribute("loggedIn", true);
 		String id = loginDto.getMem_id();
 		session.setAttribute("mem_id", id);
 		String ssn = loginDto.getSsn();
@@ -81,7 +84,7 @@ public class MemberController {
 	        response.addCookie(rememberMeCookie);
 	    }
 		
-		return "index";
+		return "redirect:/jgig/";
 	} 
 	
 //	@GetMapping("/jgig/main")
@@ -94,11 +97,13 @@ public class MemberController {
 		session.invalidate();
 		return "redirect:/jgig/login";
 	}
+	
 //	@PostMapping("/jgig/logout")
 //	public String logout(HttpSession session) { // 로그아웃
 //		session.invalidate();
 //		return "redirect:/jgig/login";
 //	}
+	
 //	@GetMapping("/jgig/member_detail")
 //	public String todetailPage(@RequestParam("mem_id") , HttpSession session, Model model) { // 회원 정보 수정 페이지
 //		String mem_id = (String) session.getAttribute("mem_id");
