@@ -1272,8 +1272,8 @@ input[id = "input_text"] {
 .advice-balloon1 {
 	/* 첫 번째 말풍선의 스타일 */
 	background-color: #f5dc8c;
-	top: 180px;
-	left: 850px;
+	top: 175px;
+	left: 40%;
 }
 
 .advice-balloon1:after{ /* 위쪽 꼬리만들기 */
@@ -1292,7 +1292,7 @@ input[id = "input_text"] {
 .advice-balloon2 { /* 두 번째 말풍선의 스타일 */
 	background-color: #dee2e6;
 	top: 240px;
-	left: 850px;
+	left: 45%;
 }
 .advice-balloon2:after{ /* 왼쪽 꼬리만들기 */
 	display: block;
