@@ -1,5 +1,6 @@
 package kb04.ditto.jgig.controller;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -58,16 +59,60 @@ public class PointController {
 	}
 
 	@GetMapping("/jgig/point_list") // 포인트 내역 조회 페이지
-	public String pointListPage() {
+	public String pointListPage(HttpSession session) {
+		String memId = (String) session.getAttribute("mem_id");
+		if (memId == null) {
+			return "redirect:/jgig/login";
+		}
+
 		return "point/list";
 	}
 
 	@PostMapping("/jgig/point_list") // 필터링된 포인트 내역 조회
-	public String filterPointList(@RequestParam("filter") String filter, HttpSession session, Model model) {
+	public String filterPointList(@RequestParam("filter") String filter, HttpSession session, @RequestParam(name = "currentPage", defaultValue = "1") int currentPage, Model model) {
 		String memId = (String) session.getAttribute("mem_id");
-
+		int size = 5;
+		
+		int total = pointMapper.getFilteredPointByMemberId(memId, filter);
+		
+		// 전체 페이지 개수
+		int totalPages = total / size;
+		if(total % size > 0) {
+			totalPages++;
+		}
+		
+		int startPage = currentPage / size * size + 1;
+		if(currentPage % size == 0) {
+			startPage -= size;
+		}
+		
+		int endPage = startPage + (size - 1);
+		if(endPage > totalPages) {
+			endPage = totalPages;
+		}
+		
+		boolean hasPrevious = currentPage > 1;
+        boolean hasNext = currentPage < totalPages;
+	    
 		if (memId != null) {
-			List<PointDto> pointList = pointMapper.getFilteredPointByMemberId(memId, filter);
+			List<PointDto> pointList = pointMapper.listWithPaging(memId, filter, currentPage*size-size+1, currentPage*size);
+			
+			for(PointDto dto : pointList) {
+				System.out.println(dto);
+			}
+			
+			System.out.println(startPage);
+			System.out.println(endPage);
+			
+			model.addAttribute("total", total);
+			model.addAttribute("startPage", startPage);
+			model.addAttribute("endPage", endPage);
+			model.addAttribute("currentPage", currentPage);
+			model.addAttribute("size", size);
+
+			model.addAttribute("hasPrevious", hasPrevious);
+			model.addAttribute("hasNext", hasNext);
+		        
 			model.addAttribute("pointList", pointList);
 			model.addAttribute("filter", filter); // 필터링 옵션 유지
 			return "point/list_filter";
@@ -84,36 +129,69 @@ public class PointController {
 		}
 		return totalPoint;
 	}
-	 @GetMapping("/jgig/point_transform") // 포인트 전환 페이지
-	    public String pointConversionPage(Model model, HttpSession session) {
-	        String memId = (String) session.getAttribute("mem_id");
-	        if (memId != null) {
-	            int totalPoint = calculateTotalPoint(pointMapper.getPointByMemberId(memId));
-	            model.addAttribute("totalPoint", totalPoint); // 현재 보유 포인트를 모델에 추가
-	            return "point/transform";
-	        }
-	        return "redirect:/jgig/login";
-	    }
 
-	 @PostMapping("/jgig/point_transform") // 포인트 전환 처리
-	 public String convertPoints(@RequestParam("insertPoint") int insertPoint, HttpSession session, Model model) {
-	     String memId = (String) session.getAttribute("mem_id");
-	     if (memId != null) {
-	         int totalPoint = calculateTotalPoint(pointMapper.getPointByMemberId(memId)); // 현재 보유 포인트
-	         int remainingPoint = totalPoint - insertPoint; // 잔여 포인트 계산
+	@GetMapping("/jgig/point_conversion") // 포인트 전환 페이지
+	public String pointConversionPage(Model model, HttpSession session) {
+		String memId = (String) session.getAttribute("mem_id");
+		if (memId != null) {
+			int totalPoint = calculateTotalPoint(pointMapper.getPointByMemberId(memId));
+			model.addAttribute("totalPoint", totalPoint); // 현재 보유 포인트를 모델에 추가
+			return "point/transform";
+		}
+		return "redirect:/jgig/login";
+	}
 
-	         // 잔여 포인트가 음수가 될 경우 처리 (예: 전환 포인트가 현재 포인트보다 많을 경우)
-	         if (remainingPoint < 0) {
-	             return "point/conversion_error"; // 에러 페이지로 리다이렉트 또는 다른 처리 방식을 선택하세요.
-	         }
-	         pointMapper.insertPoint(memId, -insertPoint); // 포인트 차감
+	@PostMapping("/jgig/point_conversion") // 포인트 전환 처리
+	public String convertPoints(@RequestParam("conversionPoint") int conversionPoint, HttpSession session,
+			Model model) {
+		String memId = (String) session.getAttribute("mem_id");
+		if (memId != null) {
+			int totalPoint = calculateTotalPoint(pointMapper.getPointByMemberId(memId)); // 현재 보유 포인트
+			int remainingPoint = totalPoint - conversionPoint; // 잔여 포인트 계산
 
-	         model.addAttribute("totalPoint", totalPoint); // 현재 보유 포인트
-	         model.addAttribute("remainingPoint", remainingPoint); // 잔여 포인트를 모델에 추가
-	         model.addAttribute("conversionSuccess", true); // 전환 성공 메시지를 전달하기 위한 플래그
+			// 잔여 포인트가 음수가 될 경우 처리 (예: 전환 포인트가 현재 포인트보다 많을 경우)
+			if (remainingPoint < 0) {
+				return "point/conversion_error"; // 에러 페이지로 리다이렉트 또는 다른 처리 방식을 선택하세요.
+			}
+			pointMapper.conversionPoint(memId, -conversionPoint); // 포인트 차감
 
-	         return "point/transform";
-	     }
-	     return "redirect:/jgig/login";
-	 }
+			model.addAttribute("totalPoint", totalPoint); // 현재 보유 포인트
+			model.addAttribute("remainingPoint", remainingPoint); // 잔여 포인트를 모델에 추가
+			model.addAttribute("conversionSuccess", true); // 전환 성공 메시지를 전달하기 위한 플래그
+
+			return "point/transform";
+		}
+		return "redirect:/jgig/login";
+	}
+
+	@PostMapping("jgig/checkin")
+	public String checkIn(HttpSession session, Model model) {
+		// 출석체크 로직을 수행하고 포인트 적립
+		String memId = (String) session.getAttribute("mem_id");
+		MemberDto dto = memberMapper.detail(memId); // 사용자 아이디를 실제로 가져오는 코드로 대체
+		model.addAttribute("memberDto", dto);
+		// 출석체크 기록 확인 로직 (예: 오늘 이미 출석체크를 했는지 여부를 체크)
+
+		boolean alreadyCheckedIn = false; // 출석체크 여부를 확인하는 로직이 필요
+		int count = pointMapper.countDailyCheckIn(memId);
+
+		if (count >= 1) {
+			// 출석체크 로직 구현
+			// 이미 출석체크한 경우 처리 (예: 에러 메시지 전달)
+			model.addAttribute("checkinSuccess", false);
+		} else {
+			PointDto point = new PointDto();
+			point.setPoint(10); // 출석체크 시 10 포인트 적립
+
+			point.setMem_id(memId);
+
+			pointMapper.checkPoint(memId, point.getPoint());
+
+			// 출석체크 완료 메시지를 JSP로 전달
+			model.addAttribute("checkinSuccess", true);
+		}
+
+		return "login/login_main";
+	}
+
 }

@@ -42,26 +42,14 @@ public interface MemberMapper {
 	+ " WHERE mem_id = #{mem_id}")
 	void update(MemberDto Dto);
 
-//시퀀스 설정
-//	@Insert(" INSERT INTO MEMBER\r\n"
-//			+ "            (mem_id, mem_pw, mem_nm, nickname, phone_num, ssn, mem_stat, score, authority)\r\n"
-//			+ "        VALUES\r\n"
-//			+ "            (mem_id.nextval, #{mem_pw}, #{mem_nm}, #{nickname}, #{phone_num}, #{ssn}, 'y', #{score}, 0)")
-//	@Delete("DELETE FROM MEMBER WHERE mem_id = #{mem_id} AND mem_pw = #{mem_pw}")
-//	void delete(@Param("mem_id") String mem_id, @Param("mem_pw") String mem_pw);
-//
-//	
 	
 	// 회원 탈퇴
     // 비밀번호 조회
     @Select("SELECT mem_pw FROM MEMBER WHERE mem_id = #{mem_id}")
     String getPassword(@Param("mem_id") String mem_id);
 
-    // 회원 삭제
-//    @Delete("DELETE FROM MEMBER WHERE mem_id = #{mem_id}")
-//    void delete(@Param("mem_id") String mem_id);
-    
-    
+  
+    //회원 삭제
 	@Delete("DELETE FROM MEMBER WHERE mem_id = #{mem_id}")
 	void delete(String mem_id);
 
