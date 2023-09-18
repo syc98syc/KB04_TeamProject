@@ -9,5 +9,4 @@ public class JgigApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(JgigApplication.class, args);
 	}
-
 }

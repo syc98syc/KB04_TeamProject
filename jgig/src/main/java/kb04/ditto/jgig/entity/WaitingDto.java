@@ -1,29 +1,31 @@
 package kb04.ditto.jgig.entity;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 public class WaitingDto {
 	private int wt_seq;
 	private int wt_no;
 	private int wt_list;
 	private Date wt_date;
-	private String wt_stat;
 	private String wt_store;
 	private String mem_id;
+	private List<Map<String, String>> wt_table;
 
 	public WaitingDto() {
 	}
 
-	public WaitingDto(int wt_seq, int wt_no, int wt_list, Date wt_date, String wt_stat, String wt_store,
-			String mem_id) {
+	public WaitingDto(int wt_seq, int wt_no, int wt_list, Date wt_date, String wt_store, String mem_id,
+			List<Map<String, String>> wt_table) {
 		super();
 		this.wt_seq = wt_seq;
 		this.wt_no = wt_no;
 		this.wt_list = wt_list;
 		this.wt_date = wt_date;
-		this.wt_stat = wt_stat;
 		this.wt_store = wt_store;
 		this.mem_id = mem_id;
+		this.wt_table = wt_table;
 	}
 
 	public int getWt_seq() {
@@ -58,14 +60,6 @@ public class WaitingDto {
 		this.wt_date = wt_date;
 	}
 
-	public String getWt_stat() {
-		return wt_stat;
-	}
-
-	public void setWt_stat(String wt_stat) {
-		this.wt_stat = wt_stat;
-	}
-
 	public String getWt_store() {
 		return wt_store;
 	}
@@ -82,10 +76,18 @@ public class WaitingDto {
 		this.mem_id = mem_id;
 	}
 
+	public List<Map<String, String>> getWt_table() {
+		return wt_table;
+	}
+
+	public void setWt_table(List<Map<String, String>> wt_table) {
+		this.wt_table = wt_table;
+	}
+
 	@Override
 	public String toString() {
 		return "WaitingDto [wt_seq=" + wt_seq + ", wt_no=" + wt_no + ", wt_list=" + wt_list + ", wt_date=" + wt_date
-				+ ", wt_stat=" + wt_stat + ", wt_store=" + wt_store + ", mem_id=" + mem_id + "]";
+				+ ", wt_store=" + wt_store + ", mem_id=" + mem_id + ", wt_table=" + wt_table + "]";
 	}
 
 }
