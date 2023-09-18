@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 
 
 <!DOCTYPE html>
@@ -259,9 +261,7 @@ https://templatemo.com/tm-559-zay-shop
 								<ul>
 									<c:forEach items="${notice_list}" var="nl">
 
-										<li><a class="brd_title" href="/jgig/notice_detail?no=${nl.ntc_id}">• ${nl.title}</a> <span class="brd_date"> <fmt:formatDate
-													value="${nl.ntc_date_created}" pattern="yyyy-MM-dd"
-												/></span></li>
+										<li><a class="brd_title" href="/jgig/notice_detail?no=${nl.ntc_id}">• ${nl.title}</a> <span class="brd_date"><c:out value="${fn:substring(nl.ntc_date_created, 0, 10)}" /></span></li>
 
 
 
@@ -272,9 +272,7 @@ https://templatemo.com/tm-559-zay-shop
 								<ul>
 									<c:forEach items="${free_list}" var="fl">
 
-										<li><a class="brd_title" href="/jgig/board_detail?no=${fl.brd_id}">• ${fl.title}</a> <span class="brd_date"> <fmt:formatDate
-													value="${fl.brd_date_created}" pattern="yyyy-MM-dd"
-												/></span></li>
+										<li><a class="brd_title" href="/jgig/board_detail?no=${fl.brd_id}">• ${fl.title}</a> <span class="brd_date"><c:out value="${fn:substring(fl.brd_date_created, 0, 10)}" /></span></li>
 
 
 
@@ -285,9 +283,8 @@ https://templatemo.com/tm-559-zay-shop
 								<ul>
 									<c:forEach items="${question_list}" var="ql">
 
-										<li><a class="brd_title" href="/jgig/board_detail?no=${ql.brd_id}">• ${ql.title}</a> <span class="brd_date"> <fmt:formatDate
-													value="${ql.brd_date_created}" pattern="yyyy-MM-dd"
-												/></span></li>
+										<li><a class="brd_title" href="/jgig/board_detail?no=${ql.brd_id}">• ${ql.title}</a> <span class="brd_date"><c:out value="${fn:substring(ql.brd_date_created, 0, 10)}" /></span>
+</li>
 
 
 
