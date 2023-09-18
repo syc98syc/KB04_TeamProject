@@ -1,4 +1,4 @@
-<!-- 게시글 보기 -->
+<!-- 공지사항 리스트 -->
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -92,7 +92,7 @@
 							role="button" data-bs-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> 커뮤니티 </a>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="/jgig/notice_list">공지사항</a></li>
+								<li><a class="dropdown-item" href="#">공지사항</a></li>
 								<li><a class="dropdown-item" href="/jgig/board_list">게시판</a></li>
 								<li><a class="dropdown-item" href="board_my_list_action">내가
 										쓴 글</a></li>
@@ -194,12 +194,12 @@
 					<hr>
 					<ul class="list-unstyled ">
 						<li><a
-							class="collapsed d-flex justify-content-between text-decoration-none"
+							class="collapsed d-flex justify-content-between text-decoration-none selectsidemenu"
 							href="notice_list"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 -->
 								공지사항
 						</a></li>
 						<li><a
-							class="collapsed d-flex justify-content-between text-decoration-none selectsidemenu"
+							class="collapsed d-flex justify-content-between text-decoration-none"
 							href="board_list"> 게시판 </a></li>
 						<li><a
 							class="collapsed d-flex justify-content-between text-decoration-none"
@@ -214,96 +214,85 @@
 				<div class="row">
 					<div class="col-md-6">
 						<ul class="list-inline shop-top-menu  pt-5 pl-3">
-							<h2>게시판</h2>
+							<h2>공지사항</h2>
 						</ul>
 					</div>
 				</div>
 				<div class="row">
 					<div id="service-content">
 						<!-- 여기에 넣으시며 됩니당 -->
-						<table class="table">
-							<tr align="center" style="background-color: #F7D358;">
-								<th>번호</th>
-								<td>${dto.brd_id}</td>
-								<th>카테고리</th>
-								<td>${dto.brd_category}</td>
-								<th>제목</th>
-								<td>${dto.title}</td>
-								<th>작성자</th>
-								<td>${dto.mem_id}</td>
-								<th>작성일</th>
-								<td>${dto.brd_date_created}</td>
-								<th>조회수</th>
-								<td>${dto.brd_view+1}</td>
-							</tr>
-							<tr>
-								<td colspan="12"><text rows="3" cols="60">${dto.brd_content}</text></td>
-							</tr>
-							<tr align="center">
-								<th colspan="2">공감해요 <img src="/assets/img/good.png" width="30"></th>
-								<td colspan="2">${dto.brd_suggestion}</td>
-								<td colspan="3"><a href="/jgig/board_suggestion_action?brd_id=${dto.brd_id}"><button class="btn btn-outline-warning btn-sm">공감</button></a></td>
-								<th colspan="2">반대해요 <img src="/assets/img/bad.png" width="30"></th>
-								<td colspan="1">${dto.brd_declaration}</td>
-								<td colspan="2"><a href="/jgig/board_declaration_action?brd_id=${dto.brd_id}"><button class="btn btn-outline-warning btn-sm">반대</button></a></td>
-							</tr>
-
-						</table>
-
-						<c:choose>
-							<c:when test="${sessionScope.mem_id eq dto.mem_id}">
-								<!-- 해당 세션 아이디와 일치할 때 버튼을 표시합니다. -->
-								<a href="board_delete_form?no=${dto.brd_id}"><button
-										class="btn btn-outline-warning" style="float: right; margin-left: 10px;">게시물 삭제</button></a>
-								<a href="board_update_form?no=${dto.brd_id}"><button
-										class="btn btn-outline-warning" style="float: right;">게시물
-										수정</button></a>
-							</c:when>
-							<c:otherwise>
-								<!-- 해당 세션 아이디와 일치하지 않을 때 버튼을 표시하지 않습니다. -->
-							</c:otherwise>
-						</c:choose>
-						<br>
-						<br>
-						<br> <a href="board_list"><button class="btn btn-outline-warning">게시판
-								목록</button></a>
-						<hr>
-						<h4>댓글 (${requestScope.cmt_total })</h4>
-						<table class="table table-hover">
-							<tr style="background-color: #D8D8D8;">
-								<th>작성자</th>
-								<th>내용</th>
-								<th>작성일</th>
-							</tr>
-
-							<c:forEach items="${cmt_list}" var="cmt">
+						<div id="content">
+							<table class="table table-hover">
+								<caption>공지사항
+									-------------------------------------------------- 총 게시글:
+									${requestScope.total }
+									--------------------------------------------------- 총 페이지:
+									${criteria.totalPage }</caption>
 								<tr>
-									<td>${cmt.mem_id }</td>
-									<td>${cmt.cmt_content }</td>
-									<td>${cmt.cmt_regdate }<c:choose>
-											<c:when test="${sessionScope.mem_id eq cmt.mem_id}">
-												<!-- 해당 세션 아이디와 일치할 때 버튼을 표시합니다. -->
-												<a
-													href="comment_delete_form?no=${dto.brd_id}&cmt_no=${cmt.cmt_id}">
-													<button class="btn btn-outline-warning btn-sm" style="float: right; margin-left: 10px;">댓글
-														삭제</button>
-												</a>
-												<a href="comment_update_form?cmt_no=${cmt.cmt_id}">
-													<button class="btn btn-outline-warning btn-sm"
-														style="float: right; margin-left: 10px;">댓글 수정</button>
-												</a>
-											</c:when>
-											<c:otherwise>
-												<!-- 해당 세션 아이디와 일치하지 않을 때 버튼을 표시하지 않습니다. -->
-											</c:otherwise>
-										</c:choose>
-								</tr>
-							</c:forEach>
+									<th>번호</th>
+									<th>제목</th>
+									<th>작성자</th>
+									<th>작성일</th>
+									<th>조회수</th>
+									<c:forEach items="${notice_list}" var="ntc">
+										<tr onclick="goToNoticeDetail(${ntc.ntc_id})">
+											<td>${ntc.ntc_id }</td>
+											<td>${ntc.title}</td>
+											<td>${ntc.mem_id }</td>
+											<td>${ntc.ntc_date_created }</td>
+											<td>${ntc.ntc_view }</td>
+										</tr>
+									</c:forEach>
+							</table>
 
-						</table>
+							<script>
+							  function goToNoticeDetail(noticeId) {
+							    // 게시물 상세 페이지 URL을 동적으로 생성
+							    var noticeDetailUrl = 'notice_detail?no=' + noticeId;
+							
+							    // 페이지 이동 (예: JavaScript의 window.location 사용)
+							    window.location.href = noticeDetailUrl;
+							  }
+							</script>
 
-						<a href="comment_insert_form?no=${dto.brd_id}"><button
-								class="btn btn-outline-warning" style="float: right;">댓글 작성</button></a> <br>
+							<nav aria-label="Page navigation example"
+								class="nav justify-content-center">
+								<ul class="pagination">
+									<c:if test="${criteria.prev}">
+										<li class="page-item"><a class="page-link"
+											href="notice_list?pageNum=${criteria.pageNum-1 }">이전</a></li>
+									</c:if>
+									<c:forEach begin="${criteria.beginPage}" end="${criteria.endPage}" var="idx">
+									  <c:set var="isCurrentPage" value="${idx eq criteria.pageNum}" />
+									  <li class="page-item ${isCurrentPage ? 'active' : ''}">
+									    <a class="page-link" href="notice_list?pageNum=${idx}">
+									      ${idx}
+									    </a>
+									  </li>
+									</c:forEach>
+									<c:if test="${criteria.next}">
+										<li class="page-item"><a class="page-link"
+											href="notice_list?pageNum=${criteria.pageNum+1 }">다음</a></li>
+									</c:if>
+								</ul>
+							</nav>
+
+							<form action="notice_search_action" method="get"
+								class="nav justify-content-center">
+								<fieldset>
+									<table>
+										<th><select name="searchTag" class="form-select">
+												<option value="제목" selected="selected">제목</option>
+												<option value="작성자">작성자</option>
+										</select></th>
+										<th><input type="text" name="keyword"
+											class="form-control"></th>
+										<th><input type="submit" value="검색"
+											class="btn btn-warning"></th>
+									</table>
+								</fieldset>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -337,4 +326,3 @@
 </body>
 
 </html>
-
