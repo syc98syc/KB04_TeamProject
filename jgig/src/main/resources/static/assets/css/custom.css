@@ -3,6 +3,13 @@ Custom Css 클래스 이름 겹치지 않게 아래 추가해주시면 됩니다
 */
 
 /**  공통 네비바 css start **/
+
+#templatemo_main_nav a {
+    color: #212934;
+    font-size: 20px !important;
+    font-weight: 400 !important;
+}
+
 .navcolor {
 	background-color: #FFFDE5;
 }
@@ -655,6 +662,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	width: 95%;
 	height: 95%;
 	margin: auto;
+	
 }
 
 .att-table {
@@ -677,13 +685,15 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 .att-table td {
 	border-bottom: 2px dotted lightgrey;
-	margin: 2px;
+	
 	margin: 2px; /* 셀 간격 조정을 위한 마진 설정 */
 	width: 20%;
 	text-align: center;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	border-left: none !important;
+	border-right: none !important;
 }
 
 .att-table span {
