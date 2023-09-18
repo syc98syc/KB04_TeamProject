@@ -102,11 +102,6 @@ public class AccountController {
 		String mem_id = (String) session.getAttribute("mem_id"); //login_check(session);
 		String mem_phone_num = (String) session.getAttribute("phone_num");
 		String mem_ssn = (String) session.getAttribute("ssn");
-		System.out.println(mem_id);
-		System.out.println(mem_id);
-		
-		System.out.println(ssn);
-		System.out.println(mem_ssn);
 		
 		
 		System.out.println(mem_phone_num);

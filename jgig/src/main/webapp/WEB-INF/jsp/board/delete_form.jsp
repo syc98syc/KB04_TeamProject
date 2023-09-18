@@ -125,7 +125,7 @@
                                     ${sessionScope.mem_nm}님 <!--session값으로 받아오기 -->
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="/jgig/member_detail">마이페이지</a></li>
+                                    <li><a class="dropdown-item" href="/jgig/member_detail?mem_id=${sessionScope.mem_id}">마이페이지</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item"><a class="nav-link" href="/jgig/logout">로그아웃</a>
