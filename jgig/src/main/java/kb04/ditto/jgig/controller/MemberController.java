@@ -46,7 +46,7 @@ public class MemberController {
 	public String toLoginPage(HttpSession session) { // 로그인 페이지
 		String mem_id = (String) session.getAttribute("mem_id");
 		if (mem_id != null) { // 로그인된 상태
-			return "login/login_main";
+			return "index";
 		}
 		return "login/login_form"; // 로그인되지 않은 상태
 	}
@@ -81,7 +81,7 @@ public class MemberController {
 	        response.addCookie(rememberMeCookie);
 	    }
 		
-		return "login/login_main";
+		return "index";
 	} 
 	
 //	@GetMapping("/jgig/main")
