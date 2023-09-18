@@ -218,29 +218,4 @@ public class CardController {
 		String mem_id = (String) session.getAttribute("mem_id");
 		return mem_id;
 	}
-
-	// 테스트용 로그인 처리 로직
-	@GetMapping("/jgig/login_test")
-	public String loginTest(HttpSession session) {
-		// 로그인 정보를 세션에 저장합니다.
-		session.setAttribute("loggedIn", true);
-		session.setAttribute("mem_id", "kb0002"); // 테스트용 아이디
-		session.setAttribute("mem_nm", "김철수"); // 테스트용 이름
-		session.setAttribute("phone_num", "01054237895"); // 테스트용 폰번호
-		session.setAttribute("ssn", "990101-0000000"); // 테스트용 주민번호
-
-		// 로그인 정보를 저장한 후, 다음 페이지로 리다이렉트합니다.
-		return "redirect:/jgig/card_issuance"; // 로그인 후의 페이지로 리다이렉트
-	}
-
-	// 테스트용 로그아웃 처리 로직
-	@GetMapping("/jgig/logout_test")
-	public String logoutTest(HttpSession session) {
-		if (session != null) {
-			session.invalidate();
-		}
-
-		return "redirect:/jgig/card_issuance"; // 로그인 후의 페이지로 리다이렉트
-	}
-
 }

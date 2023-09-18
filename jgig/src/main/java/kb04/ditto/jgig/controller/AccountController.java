@@ -45,15 +45,6 @@ public class AccountController {
 		return "redirect:/jgig/open_account1"; // 로그인 후의 페이지로 리다이렉트
 	}
 	
-	// 테스트용 로그아웃 처리 로직
-	@GetMapping("/jgig/logout")
-	public String logoutTest(HttpSession session) {
-		if (session != null) {
-			session.invalidate();
-		}
-
-		return "redirect:/jgig/open_account1"; // 로그인 후의 페이지로 리다이렉트
-	}
 
 	// 로그인 체크 함수
 	public String login_check(HttpSession session) {
