@@ -34,11 +34,13 @@ public class waitingController {
 	public String loadfindStore(Model model, HttpSession session) {
 		// 발급 유무 확인후 발급 버튼 display 결정 
 		String mem_id = (String) session.getAttribute("mem_id");
-		WaitingDto dto = waitingMapper.detailWaiting(mem_id);
-		if(dto != null) {
-			model.addAttribute("wt_stat", "Y");
-		} else {
-			model.addAttribute("wt_stat", "N");
+		if(mem_id != null) {
+			WaitingDto dto = waitingMapper.detailWaiting(mem_id);
+			if(dto != null) {
+				model.addAttribute("wt_stat", "Y");
+			} else {
+				model.addAttribute("wt_stat", "N");
+			}
 		}
 		return "waiting/findStore";
 	}
