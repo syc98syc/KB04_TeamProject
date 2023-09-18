@@ -1,4 +1,4 @@
-<!-- 게시글 보기 -->
+<!-- 댓글 CUD 메시지 -->
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -221,89 +221,13 @@
 				<div class="row">
 					<div id="service-content">
 						<!-- 여기에 넣으시며 됩니당 -->
-						<table class="table">
-							<tr align="center" style="background-color: #F7D358;">
-								<th>번호</th>
-								<td>${dto.brd_id}</td>
-								<th>카테고리</th>
-								<td>${dto.brd_category}</td>
-								<th>제목</th>
-								<td>${dto.title}</td>
-								<th>작성자</th>
-								<td>${dto.mem_id}</td>
-								<th>작성일</th>
-								<td>${dto.brd_date_created}</td>
-								<th>조회수</th>
-								<td>${dto.brd_view+1}</td>
-							</tr>
-							<tr>
-								<td colspan="12"><text rows="3" cols="60">${dto.brd_content}</text></td>
-							</tr>
-							<tr align="center">
-								<th colspan="2">공감해요 <img src="/assets/img/good.png" width="30"></th>
-								<td colspan="2">${dto.brd_suggestion}</td>
-								<td colspan="3"><a href="/jgig/board_suggestion_action?brd_id=${dto.brd_id}"><button class="btn btn-outline-warning btn-sm">공감</button></a></td>
-								<th colspan="2">반대해요 <img src="/assets/img/bad.png" width="30"></th>
-								<td colspan="1">${dto.brd_declaration}</td>
-								<td colspan="2"><a href="/jgig/board_declaration_action?brd_id=${dto.brd_id}"><button class="btn btn-outline-warning btn-sm">반대</button></a></td>
-							</tr>
-
-						</table>
-
-						<c:choose>
-							<c:when test="${sessionScope.mem_id eq dto.mem_id}">
-								<!-- 해당 세션 아이디와 일치할 때 버튼을 표시합니다. -->
-								<a href="board_delete_form?no=${dto.brd_id}"><button
-										class="btn btn-outline-warning" style="float: right; margin-left: 10px;">게시물 삭제</button></a>
-								<a href="board_update_form?no=${dto.brd_id}"><button
-										class="btn btn-outline-warning" style="float: right;">게시물
-										수정</button></a>
-							</c:when>
-							<c:otherwise>
-								<!-- 해당 세션 아이디와 일치하지 않을 때 버튼을 표시하지 않습니다. -->
-							</c:otherwise>
-						</c:choose>
-						<br>
-						<br>
-						<br> <a href="board_list"><button class="btn btn-outline-warning">게시판
-								목록</button></a>
+						메시지: ${msg}
 						<hr>
-						<h4>댓글 (${requestScope.cmt_total })</h4>
-						<table class="table table-hover">
-							<tr style="background-color: #D8D8D8;">
-								<th>작성자</th>
-								<th>내용</th>
-								<th>작성일</th>
-							</tr>
 
-							<c:forEach items="${cmt_list}" var="cmt">
-								<tr>
-									<td>${cmt.mem_id }</td>
-									<td>${cmt.cmt_content }</td>
-									<td>${cmt.cmt_regdate }<c:choose>
-											<c:when test="${sessionScope.mem_id eq cmt.mem_id}">
-												<!-- 해당 세션 아이디와 일치할 때 버튼을 표시합니다. -->
-												<a
-													href="comment_delete_form?no=${dto.brd_id}&cmt_no=${cmt.cmt_id}">
-													<button class="btn btn-outline-warning btn-sm" style="float: right; margin-left: 10px;">댓글
-														삭제</button>
-												</a>
-												<a href="comment_update_form?cmt_no=${cmt.cmt_id}">
-													<button class="btn btn-outline-warning btn-sm"
-														style="float: right; margin-left: 10px;">댓글 수정</button>
-												</a>
-											</c:when>
-											<c:otherwise>
-												<!-- 해당 세션 아이디와 일치하지 않을 때 버튼을 표시하지 않습니다. -->
-											</c:otherwise>
-										</c:choose>
-								</tr>
-							</c:forEach>
+						<a href="board_detail?no= ${requestScope.brd_id }"><button
+								class="btn btn-outline-warning">보던 글</button></a> <a href="board_list"><button
+								class="btn btn-outline-warning">게시판 목록</button></a>
 
-						</table>
-
-						<a href="comment_insert_form?no=${dto.brd_id}"><button
-								class="btn btn-outline-warning" style="float: right;">댓글 작성</button></a> <br>
 					</div>
 				</div>
 			</div>
@@ -337,4 +261,3 @@
 </body>
 
 </html>
-
