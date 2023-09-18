@@ -173,7 +173,7 @@ public class CardController {
 		if (returnVal.equals("redirect:/jgig/login"))
 			return returnVal;
 		String mem_id = returnVal;
-
+		session.setAttribute("cardDto_form1", cardDto);
 
 
 		return "card/issuance_form2";

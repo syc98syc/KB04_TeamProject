@@ -3,6 +3,13 @@ Custom Css 클래스 이름 겹치지 않게 아래 추가해주시면 됩니다
 */
 
 /**  공통 네비바 css start **/
+
+#templatemo_main_nav a {
+    color: #212934;
+    font-size: 20px !important;
+    font-weight: 400 !important;
+}
+
 .navcolor {
 	background-color: #FFFDE5;
 }
@@ -67,7 +74,7 @@ body, ul, li, p, a, label, input, div {
 
 .h1, .h2, .h3 {
 	font-family: 'IBM Plex Sans KR', sans-serif;
-	font-weight: 300;
+	font-weight: 500;
 }
 
 .pl-3 {
@@ -105,7 +112,8 @@ body, ul, li, p, a, label, input, div {
 .cardlistcss td {
 	border-bottom: 1px solid rgba(0, 0, 0, .1);
 	background: #fff;
-	font-size: 14px;
+	font-size: 16px;
+	border:none;
 }
 
 .cardlistcss a {
@@ -148,7 +156,7 @@ body, ul, li, p, a, label, input, div {
 }
 
 .cardlistbtn {
-	font-size: 10px;
+	font-size: 15px;
 	background-color: #FFD64B;
 	border: none;
 	border-radius: 5px;
@@ -163,6 +171,10 @@ body, ul, li, p, a, label, input, div {
 
 .subcontent {
 	padding: 0 0 1rem 1rem;
+}
+
+#issu_info_table td{
+	border:none;
 }
 
 table.card-info-table {
@@ -194,6 +206,16 @@ table.card-info-table {
 	margin: auto;
 }
 
+.border-none{
+ border:none;	
+}
+
+#certifi_info_table td{
+	border:none;
+}
+.subcontent .card-info td{
+	border:none;
+}
 /*숫자 input 화살표 제거*/
 input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
@@ -274,7 +296,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 .main-brd-a {
 	font-size: 25px !important;
 	text-decoration: none;
-	font-weight: bolder;
+	font-weight: bolder !important;
 	color: black;
 }
 
@@ -414,6 +436,10 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 #rank-table img {
 	margin: 0 5px;
+}
+
+#rank-table td{
+	border:none;
 }
 
 .horizontal-center {
@@ -636,6 +662,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	width: 95%;
 	height: 95%;
 	margin: auto;
+	
 }
 
 .att-table {
@@ -658,13 +685,15 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 .att-table td {
 	border-bottom: 2px dotted lightgrey;
-	margin: 2px;
+	
 	margin: 2px; /* 셀 간격 조정을 위한 마진 설정 */
 	width: 20%;
 	text-align: center;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	border-left: none !important;
+	border-right: none !important;
 }
 
 .att-table span {
@@ -865,6 +894,10 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 .pd-20p{
 	padding-left: 10%;
 	padding-right: 10%;
+}
+
+.cardlistcss table thead th{
+	font-size: 15px;
 }
 /*******************************다윤********************************/
 
@@ -1191,7 +1224,7 @@ input[id = "input_text"] {
     border-collapse: collapse;
 }
 
-.accountListCss th, td {
+.accountListCss th,.accountListCss td {
     border-bottom: 1px solid #444444;
     border-left: 1px solid #444444;
     padding: 10px;
@@ -2067,12 +2100,12 @@ input[id = "input_text"] {
     border-collapse: collapse;
 }
 
-.table-css th, td {
+.table-css th, .table-css td {
     border-bottom: 1px solid #444444;
     padding: 10px;
 }
 
-.table-css th:first-child, td:first-child {
+.table-css th:first-child,.table-css td:first-child {
     border-left: none;
 }
 
@@ -2185,3 +2218,4 @@ input[id = "input_text"] {
     padding: 5px 10px;
 }
 /*******************************수현**********************************/
+/*test*//*test*/

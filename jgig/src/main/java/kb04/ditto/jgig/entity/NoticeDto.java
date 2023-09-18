@@ -3,6 +3,8 @@ package kb04.ditto.jgig.entity;
 public class NoticeDto {
 	private int ntc_id, ntc_view;
 	private String title, ntc_content, mem_id, ntc_date_created;
+	
+	
 
 	public NoticeDto() {
 	}
