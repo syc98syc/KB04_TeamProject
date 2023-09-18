@@ -25,7 +25,7 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
-	<!-- Header -->
+     <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-light shadow navcolor">
         <div class="container d-flex justify-content-between align-items-center">
 
@@ -72,9 +72,9 @@
                             커뮤니티
                         	</a>
                         	<ul class="dropdown-menu">
-                           	 <li><a class="dropdown-item" href="#">공지사항</a></li>
+                           	 <li><a class="dropdown-item" href="/jgig/notice_list">공지사항</a></li>
                              <li><a class="dropdown-item" href="/jgig/board_list">게시판</a></li>
-                             <li><a class="dropdown-item" href="#">내가 쓴 글</a></li>
+                             <li><a class="dropdown-item" href="/jgig/board_my_list_action">내가 쓴 글</a></li>
                         	</ul>
                     	</li>
                     	<li class="nav-item dropdown">
@@ -82,8 +82,8 @@
                             지점찾기
                         	</a>
                         	<ul class="dropdown-menu">
-                           	 <li><a class="dropdown-item" href="/jgig/findStore">지점찾기 및 번호표발행</a></li>
-                             <li><a class="dropdown-item" href="/jgig/detailWaiting">번호표조회 및 취소</a></li>
+                           	 <li><a class="dropdown-item" href="/jgig/findStore">지점찾기 및 번호표 발행</a></li>
+                             <li><a class="dropdown-item" href="/jgig/detailWaiting">번호표 조회 및 취소</a></li>
                         	</ul>
                     	</li>
                     	<li class="nav-item dropdown">
@@ -138,7 +138,7 @@
 		</div>
 	</nav>
 	<!-- Close Header -->
-
+	
 	<!-- Modal -->
 	<div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">
