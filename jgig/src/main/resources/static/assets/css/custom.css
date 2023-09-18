@@ -2097,7 +2097,7 @@ input[id = "input_text"] {
 
 .table-css thead {
     width: 100%;
-    border-top: 2px solid #444444;
+    border-top: 1px solid #444444;
     border-collapse: collapse;
 }
 
@@ -2112,6 +2112,7 @@ input[id = "input_text"] {
 
 .table-css-bgc {
     background-color: #a39485;
+    color: white;
 }
 
 .point_table {
@@ -2127,15 +2128,11 @@ input[id = "input_text"] {
 }
 
 .button_tag {
-    border: 0;
-    outline: none;
-    font-size: 15px;
-    margin: 10px;
-    background: #a39485;
-    color: black;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 10px;
+    font-size: 16px;
+    background-color: #FFD64B;
+    border: none;
+    border-radius: 5px;
+    padding: 0.3rem 0.5rem;
 }
 
 .conversionBox {
