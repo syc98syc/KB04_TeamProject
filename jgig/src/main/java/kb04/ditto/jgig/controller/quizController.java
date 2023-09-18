@@ -37,7 +37,6 @@ public class quizController {
 	
 	@GetMapping("/jgig/quiz")
 	public String loadQuizData(Model model, HttpSession session) throws IOException {
-		
 		// 로그인체크 후 안했으면 로그인 화면으로 이동
 		String memId = (String) session.getAttribute("mem_id");
 		if(memId == null) {

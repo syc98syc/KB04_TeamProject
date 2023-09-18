@@ -43,7 +43,6 @@ public class searchWordController {
 
 	@GetMapping("/jgig/searchWord")
 	public String loadSearchWord(Model model, HttpSession session) {
-
 		// 로그인 유무에 따라 전체 인기 검색어 or 나이대별 검색어 분기처리하기
 		String memId = (String) session.getAttribute("mem_id");
 		if(memId == null) {

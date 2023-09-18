@@ -579,7 +579,6 @@
 		detailWrap.style.display = "block";	
 		//console.log(store);
 		
-		
 		// 테스트 중 
 		var storeCodeInfo = [
 			{nm:"테헤란로", code:"8392"},
