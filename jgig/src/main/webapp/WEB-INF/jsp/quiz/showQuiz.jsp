@@ -75,9 +75,9 @@
                             커뮤니티
                         	</a>
                         	<ul class="dropdown-menu">
-                           	 <li><a class="dropdown-item" href="#">공지사항</a></li>
+                           	 <li><a class="dropdown-item" href="/jgig/notice_list">공지사항</a></li>
                              <li><a class="dropdown-item" href="/jgig/board_list">게시판</a></li>
-                             <li><a class="dropdown-item" href="#">내가 쓴 글</a></li>
+                             <li><a class="dropdown-item" href="/jgig/board_my_list_action">내가 쓴 글</a></li>
                         	</ul>
                     	</li>
                     	<li class="nav-item dropdown">

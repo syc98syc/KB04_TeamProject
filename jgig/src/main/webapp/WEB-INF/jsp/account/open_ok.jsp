@@ -195,7 +195,7 @@
 	
 				<div class="col-lg-2">
 					<div class="sidemenubox">
-						<h2 class="h3 pt-3 ">금융 거래 연습</h2>
+						<h2 class="h3 pt-3 ">금융거래연습</h2>
 						<hr>
 						<ul class="list-unstyled ">
 							<li>
@@ -215,24 +215,19 @@
 							</li>
 							<hr>
 							<li >
-								<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
-									카드 발급
+								<a class="collapsed d-flex justify-content-between text-decoration-none" href="card_issuance">
+									카드발급
 								</a>
 							</li>
 							<li >
-								<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
-									카드 조회
+								<a class="collapsed d-flex justify-content-between text-decoration-none" href="card_list">
+									카드 조회 및 관리
 								</a>
 							</li>
 							<hr>
 							<li >
-								<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
-									공인인증서 발급
-								</a>
-							</li>
-							<li >
-								<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
-									하위메뉴
+								<a class="collapsed d-flex justify-content-between text-decoration-none" href="certification">
+									인증서 발급
 								</a>
 							</li>
 						</ul>

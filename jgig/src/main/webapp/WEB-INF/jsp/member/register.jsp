@@ -24,7 +24,7 @@
 	    		// 입력 길이가 6보다 큰 경우
 	    		if (ssn.length > 6) {
 	    			// 입력을 "000000-0000000" 형식으로 수정합니다.
-	    			ssn = ssn.substr(0, 6) + '-' + ssn.substr(6, 7);
+	    			ssn = ssn.substr(0, 6) + ssn.substr(6, 7);
 
 	    			// 7자리 이상의 입력에 대해 경고 메시지를 표시합니다.
 	    			if (ssn.length > 14) {
@@ -137,7 +137,11 @@
 		
 		            <input type="text" name="mem_nm" class="input" placeholder="이름을 입력해주세요"/>
 		       
-		            <input type="text" name="ssn"  class="input" placeholder="주민등록번호를 입력해주세요" oninput="formatSSN(this)" />
+		                                <div style=" border-bottom : 1px solid #0000001f; display: flex; justify-content: space-between;">
+                    <input type="text" style=" border-bottom : none;" name="ssn_1" class="input" placeholder="주민등록번호 앞자리" oninput="formatSSN(this)" maxlength = 6/>
+                      <hr style=" border: 1px solid #0000001f;">
+                      <input type="text" name="ssn_2" class="input" placeholder="주민등록번호 뒷자리" oninput="formatSSN(this)"  maxlength =7 />
+                    </div>
 		       
 		            <input type="text" name="phone_num"class="input" placeholder="전화번호를 입력해주세요"/>
 		       

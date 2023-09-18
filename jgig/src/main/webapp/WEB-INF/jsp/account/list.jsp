@@ -180,7 +180,7 @@
 
 			<div class="col-lg-2">
 				<div class="sidemenubox">
-					<h2 class="h3 pt-3 ">금융 거래 연습</h2>
+					<h2 class="h3 pt-3 ">금융거래연습</h2>
 					<hr>
 					<ul class="list-unstyled ">
 						<li><a class="collapsed d-flex justify-content-between text-decoration-none" href="open_account1"> <!--선택된 메뉴는 selectsidemenu 클래스 추가 --> 계좌 개설</a>
@@ -194,17 +194,14 @@
 						<hr>
 						<li><a
 							class="collapsed d-flex justify-content-between text-decoration-none"
-							href="#"> 카드 발급 </a></li>
+							href="card_issuance"> 카드발급 </a></li>
 						<li><a
 							class="collapsed d-flex justify-content-between text-decoration-none"
-							href="#"> 카드 조회 </a></li>
+							href="card_list"> 카드 조회 및 관리 </a></li>
 						<hr>
 						<li><a
 							class="collapsed d-flex justify-content-between text-decoration-none"
-							href="#"> 공인인증서 발급 </a></li>
-						<li><a
-							class="collapsed d-flex justify-content-between text-decoration-none"
-							href="#"> 하위메뉴 </a></li>
+							href="certification"> 인증서 발급 </a></li>
 					</ul>
 				</div>
 			</div>
@@ -236,8 +233,8 @@
 							<tr class = "no-left-right-border">
 								<th colspan=3 class = "bgc">입출금 계좌</th>
 							</tr>
-							<tr>
-								<td>${acc.account}<br>${acc.act_name}</td>
+							<tr class = "accountListCss">
+								<td class= "accountListCss">${acc.account}<br>${acc.act_name}</td>
 								<td class = "no-left-right-border">잔액 <fmt:formatNumber value="${acc.balance}" pattern="#,###"/>원</td>
 								<td class = "no-left-right-border" style = "text-align :right">
 									<a href = "account_management?account=${acc.account}" class ="button-like-link " style="width: 105px; text-align : center; font-weight : bold;">
