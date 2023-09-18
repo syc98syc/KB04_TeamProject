@@ -67,7 +67,7 @@ body, ul, li, p, a, label, input, div {
 
 .h1, .h2, .h3 {
 	font-family: 'IBM Plex Sans KR', sans-serif;
-	font-weight: 300;
+	font-weight: 500;
 }
 
 .pl-3 {
@@ -105,7 +105,8 @@ body, ul, li, p, a, label, input, div {
 .cardlistcss td {
 	border-bottom: 1px solid rgba(0, 0, 0, .1);
 	background: #fff;
-	font-size: 14px;
+	font-size: 16px;
+	border:none;
 }
 
 .cardlistcss a {
@@ -148,7 +149,7 @@ body, ul, li, p, a, label, input, div {
 }
 
 .cardlistbtn {
-	font-size: 10px;
+	font-size: 15px;
 	background-color: #FFD64B;
 	border: none;
 	border-radius: 5px;
@@ -163,6 +164,10 @@ body, ul, li, p, a, label, input, div {
 
 .subcontent {
 	padding: 0 0 1rem 1rem;
+}
+
+#issu_info_table td{
+	border:none;
 }
 
 table.card-info-table {
@@ -194,6 +199,16 @@ table.card-info-table {
 	margin: auto;
 }
 
+.border-none{
+ border:none;	
+}
+
+#certifi_info_table td{
+	border:none;
+}
+.subcontent .card-info td{
+	border:none;
+}
 /*숫자 input 화살표 제거*/
 input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
@@ -274,7 +289,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 .main-brd-a {
 	font-size: 25px !important;
 	text-decoration: none;
-	font-weight: bolder;
+	font-weight: bolder !important;
 	color: black;
 }
 
@@ -414,6 +429,10 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 #rank-table img {
 	margin: 0 5px;
+}
+
+#rank-table td{
+	border:none;
 }
 
 .horizontal-center {

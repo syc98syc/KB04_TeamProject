@@ -304,7 +304,7 @@
 		ssn2.addEventListener('input', updateSsn);
 
 		function updateSsn() {
-			cdSsn.value = ssn1.value + '-' + ssn2.value;
+			cdSsn.value = ssn1.value + ssn2.value;
 		}
 	</script>
 	<script>
