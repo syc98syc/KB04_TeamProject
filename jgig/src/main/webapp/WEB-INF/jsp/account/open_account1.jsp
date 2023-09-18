@@ -234,7 +234,7 @@
 	
 				<div class="col-lg-2">
 					<div class="sidemenubox">
-						<h2 class="h3 pt-3 ">금융 거래 연습</h2>
+						<h2 class="h3 pt-3 ">금융거래연습</h2>
 						<hr>
 						<ul class="list-unstyled ">
 							<li>
@@ -254,24 +254,19 @@
 							</li>
 							<hr>
 							<li >
-								<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
-									카드 발급
+								<a class="collapsed d-flex justify-content-between text-decoration-none" href="card_issuance">
+									카드발급
 								</a>
 							</li>
 							<li >
-								<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
-									카드 조회
+								<a class="collapsed d-flex justify-content-between text-decoration-none" href="card_list">
+									카드 조회 및 관리
 								</a>
 							</li>
 							<hr>
 							<li >
-								<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
-									공인인증서 발급
-								</a>
-							</li>
-							<li >
-								<a class="collapsed d-flex justify-content-between text-decoration-none" href="#">
-									하위메뉴
+								<a class="collapsed d-flex justify-content-between text-decoration-none" href="certification">
+									인증서 발급
 								</a>
 							</li>
 						</ul>
@@ -367,10 +362,10 @@
 											<strong>개인(신용)정보 수집-이용에 동의</strong>
 											<p>
 												본인은 귀사가 「개인정보보호법」 및 「신용정보의 이용 및 보호에 관한 법률」 에 따라 본인의 개인(신용)정보를 다음과 같이 수집·이용하는 것에 동의합니다
-												<strong>개인(신용)정보 수집·이용 목적</strong> : 비대면 계좌개설 신청여부 확인
+												<strong>* 개인(신용)정보 수집·이용 목적</strong> : 비대면 계좌개설 신청여부 확인
 												수집·이용할 개인(신용)정보의 내용 : 주민등록번호
 												<br>
-												<strong>개인(신용)정보의 보유·이용기간</strong> : 신청일로부터 30일 이내 
+												<strong>* 개인(신용)정보의 보유·이용기간</strong> : 신청일로부터 30일 이내 
 												<br>
 												※ 상기 동의를 거부하실 경우 비대면 계좌개설이 불가합니다.
 												
