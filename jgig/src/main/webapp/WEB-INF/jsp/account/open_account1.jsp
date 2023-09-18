@@ -327,16 +327,10 @@
 									        <input id = "input_text" type="text" name="ssn2" id="ssn2" minlength="7" maxlength="7" required>
 									    </div>
 									    <div class="form-group">
-<<<<<<< Updated upstream
 									        <label id = "input_text" class = "label_open_account" for="phone_num1">휴대폰번호</label>
 									        <input id = "input_text" type="text" name="phone_num1" id="phone_num1" required minlength="2" maxlength="3">
 									        -
 									        <input id = "input_text" type="text" name="phone_num2" id="phone_num2" minlength="3" maxlength="4" required>
-=======
-									        <label class = "label_open_account" for="phone_num1">휴대폰번호</label>
-									        <input type="text" name="phone_num1" id="phone_num1" required minlength="2" maxlength="3">
-									        <input type="text" name="phone_num2" id="phone_num2" minlength="3" maxlength="4" required>
->>>>>>> Stashed changes
 									        -
 									        <input id = "input_text" type="text" name="phone_num3" id="phone_num3" minlength="3" maxlength="4" required>
 									    </div>
