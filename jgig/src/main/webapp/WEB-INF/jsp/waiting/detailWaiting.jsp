@@ -282,7 +282,7 @@
 				var el = document.createElement('div');
 				el.setAttribute("class","noinfo-wrap");
 				var content = `<span><i class="fas fa-exclamation-circle"></i></span>`;
-				content += `<span style="font-size: 18px;">발행받은 번호표가 없습니다.</span><hr>`;
+				content += `<p style="font-size: 18px;">발행받은 번호표가 없습니다.</p>`;
 				el.innerHTML = content;
 				waitingWrap.append(el);
 			},

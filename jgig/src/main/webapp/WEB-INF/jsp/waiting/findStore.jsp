@@ -65,9 +65,9 @@
 #placeDetail {display:none; position:absolute;top:0;left:251px;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.9);z-index: 1;font-size:12px;border-radius: 10px;}
 #placeDetail .detail-wrap {padding: 12px;}
 #placeDetail .wt-store {display: block; font-size: 18px; font-weight: 500; margin-bottom: 20px;}
-#placeDetail .wt-list {display: block; font-size: 15px; font-weight: 350; background-color: #f2f2f2; padding: 5px; border-radius: 5px;}
+#placeDetail .wt-list {display: block; font-size: 15px; font-weight: 350; background-color: #f2f2f2; padding: 8px; border-radius: 10px;}
 #placeDetail .wt-table {margin-top: 28px; border-top: 1px solid #71675D;}
-#placeDetail .wt-table .tit {font-weight: 400;}
+#placeDetail .wt-table .tit {font-weight: 400; background-color: #f2f2f2;}
 #placeDetail .wt-table tbody tr:last-child {border-bottom: 1px solid #71675D;}
 #placeDetail .wtBtn-wrap {display:flex; justify-content: center;}
 #placeDetail #wtBtn {padding: 5px 10px;}
@@ -602,7 +602,7 @@
 			var data = storeCode;
 			let options = {
 				type: "post",
-				url : "/jgig/waitingClient_test",
+				url : "/jgig/waitingClient",
 				data: data,
 				success : function(data) {
 					// console.log(data);

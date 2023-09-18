@@ -78,9 +78,9 @@ public class waitingController {
 	}
 	
 	// 지점별 대기인원수 받아오기 
-	@PostMapping("/jgig/waitingClient_test")
+	@PostMapping("/jgig/waitingClient")
 	@ResponseBody
-	public WaitingDto waiting_test(@RequestParam("code") String code, HttpSession session, Model model) throws IOException {
+	public WaitingDto waitingClient(@RequestParam("code") String code, HttpSession session, Model model) throws IOException {
 		String URL = "https://omoney.kbstar.com/quics?page=C019288&cc=b028364:b050822";
 		Document doc = Jsoup.connect(URL)
 				.data("부점코드", code)

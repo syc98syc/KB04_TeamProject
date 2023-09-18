@@ -213,7 +213,7 @@
 							   	<span>정답입니다. 10포인트 획득!</span>
 							    </c:if>
 							    <c:if test="${quizStat eq 'N'}">
-							   	<span>오답입니다.</span>
+							   	<span>오답입니다. 내일 다시 도전하세요!</span>
 							    </c:if>
 						    </div>
 							<c:if test="${quizStat eq 'F'}">
@@ -324,7 +324,7 @@
 					el.innerHTML = content;
 					document.querySelector(".quiz_ul").after(el);
 				} else if(data.quiz_stat == 'N') {
-					var content = "<span>오답입니다.</span>";
+					var content = "<span>오답입니다. 내일 다시 도전하세요!</span>";
 					el.innerHTML = content;
 					document.querySelector(".quiz_ul").after(el);
 					
