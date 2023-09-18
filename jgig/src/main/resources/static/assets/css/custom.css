@@ -1220,7 +1220,7 @@ input[id = "input_text"] {
     border-collapse: collapse;
 }
 
-.accountListCss th, td {
+.accountListCss th,.accountListCss td {
     border-bottom: 1px solid #444444;
     border-left: 1px solid #444444;
     padding: 10px;
@@ -2096,12 +2096,12 @@ input[id = "input_text"] {
     border-collapse: collapse;
 }
 
-.table-css th, td {
+.table-css th, .table-css td {
     border-bottom: 1px solid #444444;
     padding: 10px;
 }
 
-.table-css th:first-child, td:first-child {
+.table-css th:first-child,.table-css td:first-child {
     border-left: none;
 }
 
