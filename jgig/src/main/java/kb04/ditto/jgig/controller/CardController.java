@@ -222,7 +222,6 @@ public class CardController {
 		cardDto.setCd_ssn(cardDto_form1.getCd_ssn());
 		cardDto.setCd_phone(cardDto_form1.getCd_phone());
 		cardDto.setMem_id(mem_id);
-		System.out.println("들어갈 dto : " + cardDto);
 
 		cardMapper.insert(cardDto); // DB insert
 		CardDto card_success = cardMapper.find_last(mem_id);
