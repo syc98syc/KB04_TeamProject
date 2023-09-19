@@ -28,7 +28,7 @@ public class CardController {
 		String returnVal = login_check(session);
 		if (returnVal.equals("redirect:/jgig/login"))
 			return returnVal;
-
+		String mem_id = returnVal;
 		CardDto select_card = (CardDto) session.getAttribute("select_card");
 
 		int cd_no = select_card.getCd_no();
@@ -36,6 +36,15 @@ public class CardController {
 		cardMapper.update_pw(cd_no, new_pw);
 		CardDto update_card = cardMapper.select_card(cd_no);
 		model.addAttribute("cardDto", update_card);
+		
+		int countDailyCheckIn = cardMapper.countDailyCheckIn(mem_id, "카드PW");
+		if(countDailyCheckIn==0) {
+			cardMapper.checkPoint(mem_id, 10, "카드PW");
+			cardMapper.updatePoint(mem_id, 10); //멤버 포인트 업데이트
+			model.addAttribute("card_pw_point", "10 포인트가 적립되었습니다.");
+		}else {
+			model.addAttribute("card_pw_point", "이미 포인트가 지급되었습니다.");
+		}
 
 		return "card/pw_ok";
 	}
@@ -58,7 +67,7 @@ public class CardController {
 		String returnVal = login_check(session);
 		if (returnVal.equals("redirect:/jgig/login"))
 			return returnVal;
-
+		String mem_id = returnVal;
 		CardDto select_card = (CardDto) session.getAttribute("select_card");
 		int cd_no = select_card.getCd_no();
 
@@ -66,6 +75,15 @@ public class CardController {
 		cardMapper.update_status(cd_no);
 		CardDto update_card = cardMapper.select_card(cd_no);
 		model.addAttribute("cardDto", update_card);
+		
+		int countDailyCheckIn = cardMapper.countDailyCheckIn(mem_id, "카드ST");
+		if(countDailyCheckIn==0) {
+			cardMapper.checkPoint(mem_id, 10, "카드ST");
+			cardMapper.updatePoint(mem_id, 10); //멤버 포인트 업데이트
+			model.addAttribute("card_st_point", "10 포인트가 적립되었습니다.");
+		}else {
+			model.addAttribute("card_st_point", "이미 포인트가 지급되었습니다.");
+		}
 
 		return "card/status_ok";
 	}
@@ -88,13 +106,23 @@ public class CardController {
 		String returnVal = login_check(session);
 		if (returnVal.equals("redirect:/jgig/login"))
 			return returnVal;
-
+		String mem_id = returnVal;
+		
 		CardDto select_card = (CardDto) session.getAttribute("select_card");
 		int cd_no = select_card.getCd_no();
 
 
 		cardMapper.delete(cd_no);
 		model.addAttribute("cardDto", select_card);
+		
+		int countDailyCheckIn = cardMapper.countDailyCheckIn(mem_id, "카드해지");
+		if(countDailyCheckIn==0) {
+			cardMapper.checkPoint(mem_id, 10, "카드해지");
+			cardMapper.updatePoint(mem_id, 10); //멤버 포인트 업데이트
+			model.addAttribute("card_cancel_point", "10 포인트가 적립되었습니다.");
+		}else {
+			model.addAttribute("card_cancel_point", "이미 포인트가 지급되었습니다.");
+		}
 
 		return "card/cancellation_ok";
 	}
@@ -199,6 +227,16 @@ public class CardController {
 		cardMapper.insert(cardDto); // DB insert
 		CardDto card_success = cardMapper.find_last(mem_id);
 		model.addAttribute("card_success", card_success);
+		
+		int countDailyCheckIn = cardMapper.countDailyCheckIn(mem_id, "카드발급");
+		if(countDailyCheckIn==0) {
+			cardMapper.checkPoint(mem_id, 10, "카드발급");
+			cardMapper.updatePoint(mem_id, 10); //멤버 포인트 업데이트
+			model.addAttribute("card_issu_point", "10 포인트가 적립되었습니다.");
+		}else {
+			model.addAttribute("card_issu_point", "이미 포인트가 지급되었습니다.");
+		}
+		
 
 		return "card/issuance_ok";
 	}

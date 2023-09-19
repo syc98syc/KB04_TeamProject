@@ -40,5 +40,16 @@ public interface CardMapper {
 	@Select("select * from card where mem_id=#{mem_id} AND CD_NO=(select MAX(CD_NO) from card)")
 	public CardDto find_last(@Param("mem_id") final String mem_id); //최근 발급한 카드 정보 조회
 	
-	
+	 // 포인트 적립
+    @Insert("INSERT INTO POINT (POINT_SEQ, POINT, POINT_DATE, DIVISION, MEM_ID) " +
+            "VALUES (POINT_SEQ.NEXTVAL, #{point, jdbcType=NUMERIC}, SYSDATE, #{division}, #{memId, jdbcType=VARCHAR})")
+    int checkPoint(@Param("memId") String memId, @Param("point") int point, @Param("division") String division);
+    
+    //멤버 포인트 업데이트
+    @Update("update member set score=score+#{point} where mem_id=#{memId}")
+    int updatePoint(@Param("memId") String memId, @Param("point") int point);
+    
+    // 포인트 중복확인!
+    @Select("SELECT COUNT(*) FROM POINT WHERE MEM_ID = #{memId} AND TRUNC(POINT_DATE) = TRUNC(SYSDATE) AND DIVISION=#{division}")
+    int countDailyCheckIn(@Param("memId") String memId, @Param("division") String division);
 }

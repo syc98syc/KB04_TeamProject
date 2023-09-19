@@ -183,10 +183,7 @@ public class PointController {
 			// 이미 출석체크한 경우 처리 (예: 에러 메시지 전달)
 			session.setAttribute("checkinSuccess", false);
 			
-//		response.getWriter().write("<script>\r\n"
-//				+ "				openModal(\"출석체크\",\"이미 출석체크 하셨습니다.\");\r\n"
-//				+ "\r\n"
-//				+ "        console.log(\"출첵이미함\");   </script>");
+
 			
 		} else {
 			PointDto point = new PointDto();
@@ -195,10 +192,10 @@ public class PointController {
 			point.setMem_id(memId);
 
 			pointMapper.checkPoint(memId, point.getPoint());
+			pointMapper.updatePoint(memId, 10);
 
 			// 출석체크 완료 메시지를 JSP로 전달
 			session.setAttribute("checkinSuccess", true);
-			//response.getWriter().write("<script>alert('출석체크가 완료되었습니다. 포인트 10점이 적립되었습니다.')</script>");
 		
 		}
 
