@@ -5,7 +5,6 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -26,7 +25,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
@@ -90,6 +88,7 @@ public class searchWordController {
 		}
 		model.addAttribute("word", pw_word);
 		model.addAttribute("totalCount", totalCount);
+		model.addAttribute("currentPage", "1");
 
 		return "search_word/searchWordResult";
 	}
@@ -123,7 +122,7 @@ public class searchWordController {
 		StringBuilder sb = new StringBuilder();
 		try {
 
-			String serviceKey = "0OhBU7ZCGIobDVKDeBJDpmDRqK3IRNF6jlf%2FJB2diFAf%2FfR2czYO9A4UTGcsOwppV6W2HVUeho%2FFPwXoL6DwqA%3D%3D";
+			String serviceKey = "gfZIEuYu6OT%2Br8PNu78IYHzGerjvx0Lz8tfR90DZ9u1dJakIv42vQSVjK9803ivmD%2FO9eReLqIIrFuZd%2F6LoHg%3D%3D";
 
 			StringBuilder urlBuilder = new StringBuilder(
 					"https://api.seibro.or.kr/openapi/service/FnTermSvc/getFinancialTermMeaning"); /* URL */

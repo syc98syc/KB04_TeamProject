@@ -358,7 +358,7 @@
 								<form action = "open_account2" method = "post" >
 									<h3 class="font-weight-bold">약관동의</h3>
 									<fieldset class = "check_user" style="border-radius : 7px;">
-										<div style="overflow:scroll; width:100%; height:120px;">
+										<div style="overflow:scroll; padding : 10px; width:100%; height:120px;">
 											<strong>개인(신용)정보 수집-이용에 동의</strong>
 											<p>
 												본인은 귀사가 「개인정보보호법」 및 「신용정보의 이용 및 보호에 관한 법률」 에 따라 본인의 개인(신용)정보를 다음과 같이 수집·이용하는 것에 동의합니다
