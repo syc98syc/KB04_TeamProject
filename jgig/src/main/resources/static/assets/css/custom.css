@@ -2052,7 +2052,6 @@ input[id = "input_text"] {
     color: black; /* �뀓�뒪�듃 �깋�긽�쓣 諛앹� �깋�긽�쑝濡� 蹂�寃� */
 }
 
-<<<<<<< HEAD
 /*******************************�룄�쁽********************************/
 .button-like-link {
     display: inline-block;
@@ -2065,9 +2064,6 @@ input[id = "input_text"] {
     font-weight: bold;
     margin: 2px;
 }
-=======
-/*******************************도현********************************/
->>>>>>> 8f34b02628c427903f60d177c27c02b57eadb4a0
 
 .table-hover tr:hover {
   background-color: #f5f5f5; /* �샇踰� �떆 諛곌꼍�깋�쓣 蹂�寃쏀븯�꽭�슂. */
@@ -2219,12 +2215,8 @@ input[id = "input_text"] {
     border-radius: 5px;
     padding: 5px 10px;
 }
-<<<<<<< HEAD
-/*******************************�닔�쁽**********************************/
-=======
+
 .nav.jus.tify-content-center {
     justify-content: center;
 } 
 /*******************************수현**********************************/
->>>>>>> 8f34b02628c427903f60d177c27c02b57eadb4a0
-/*test*//*test*/
