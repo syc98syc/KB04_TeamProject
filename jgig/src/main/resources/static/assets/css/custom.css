@@ -1,8 +1,8 @@
 /*
-Custom Css 클래스 이름 겹치지 않게 아래 추가해주시면 됩니다.
+Custom Css �겢�옒�뒪 �씠由� 寃뱀튂吏� �븡寃� �븘�옒 異붽��빐二쇱떆硫� �맗�땲�떎.
 */
 
-/**  공통 네비바 css start **/
+/**  怨듯넻 �꽕鍮꾨컮 css start **/
 
 #templatemo_main_nav a {
     color: #212934;
@@ -14,19 +14,19 @@ Custom Css 클래스 이름 겹치지 않게 아래 추가해주시면 됩니다
 	background-color: #FFFDE5;
 }
 
-/* 드롭다운 메뉴를 초기에 숨김 */
+/* �뱶濡��떎�슫 硫붾돱瑜� 珥덇린�뿉 �닲源� */
 .nav-item .dropdown-menu {
 	display: none;
 	position: absolute;
-	background-color: #FFFDE5; /* 드롭다운 배경색 설정 */
+	background-color: #FFFDE5; /* �뱶濡��떎�슫 諛곌꼍�깋 �꽕�젙 */
 	border: none;
 	text-align: center;
-	top: 100%; /* 커뮤니티 메뉴 바로 아래에 나타나도록 설정 */
-	left: 50%; /* 부모 요소의 가로 중앙에 위치 */
-	transform: translateX(-50%); /* 가로 중앙 정렬을 위한 변형(transform) 설정 */
+	top: 100%; /* 而ㅻ�ㅻ땲�떚 硫붾돱 諛붾줈 �븘�옒�뿉 �굹���굹�룄濡� �꽕�젙 */
+	left: 50%; /* 遺�紐� �슂�냼�쓽 媛�濡� 以묒븰�뿉 �쐞移� */
+	transform: translateX(-50%); /* 媛�濡� 以묒븰 �젙�젹�쓣 �쐞�븳 蹂��삎(transform) �꽕�젙 */
 }
 
-/* 메뉴 호버 시 드롭다운 메뉴 표시 */
+/* 硫붾돱 �샇踰� �떆 �뱶濡��떎�슫 硫붾돱 �몴�떆 */
 .nav-item:hover .dropdown-menu {
 	display: block;
 }
@@ -36,13 +36,13 @@ Custom Css 클래스 이름 겹치지 않게 아래 추가해주시면 됩니다
 	margin-right: 1rem;
 }
 
-/**  공통 footer css start **/
+/**  怨듯넻 footer css start **/
 .footer-cust {
-	border-top: 0.5px solid #E8E8E8; /* 위쪽에 1px 두께의 검정색 실선 테두리 설정 */
-	background-color: none; /* 배경색 설정 */
+	border-top: 0.5px solid #E8E8E8; /* �쐞履쎌뿉 1px �몢猿섏쓽 寃��젙�깋 �떎�꽑 �뀒�몢由� �꽕�젙 */
+	background-color: none; /* 諛곌꼍�깋 �꽕�젙 */
 }
 
-/** 공통 sidemenu css start **/
+/** 怨듯넻 sidemenu css start **/
 .sidemenubox {
 	margin: 1rem;
 	padding: 0.5rem;
@@ -67,7 +67,7 @@ Custom Css 클래스 이름 겹치지 않게 아래 추가해주시면 됩니다
 	padding: 1rem;
 }
 
-/** 폰트 변경 **/
+/** �룿�듃 蹂�寃� **/
 body, ul, li, p, a, label, input, div {
 	font-family: 'IBM Plex Sans KR', sans-serif;
 }
@@ -81,7 +81,7 @@ body, ul, li, p, a, label, input, div {
 	padding-left: 1rem;
 }
 
-/***************************공통 css end****************************************/
+/***************************怨듯넻 css end****************************************/
 .cardlistcss table {
 	border: 1px #a39485 solid;
 	font-size: .9em;
@@ -216,17 +216,17 @@ table.card-info-table {
 .subcontent .card-info td{
 	border:none;
 }
-/*숫자 input 화살표 제거*/
+/*�닽�옄 input �솕�궡�몴 �젣嫄�*/
 input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 	margin: 0;
 }
 
-/**약관동의 내용**/
+/**�빟愿��룞�쓽 �궡�슜**/
 .terms-container {
-	max-height: 250px; /* 원하는 높이 설정 */
-	overflow-y: auto; /* 스크롤 추가 */
-	border: 1px solid #ccc; /* 테두리 스타일 설정 */
+	max-height: 250px; /* �썝�븯�뒗 �넂�씠 �꽕�젙 */
+	overflow-y: auto; /* �뒪�겕濡� 異붽� */
+	border: 1px solid #ccc; /* �뀒�몢由� �뒪���씪 �꽕�젙 */
 	border-radius: 5px;
 	padding: 10px;
 	background-color: #F2F2F2;
@@ -248,7 +248,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 .card-vaild-btn {
 	font-size: 18px;
-	background-color: #FFD64B;
+	background-color: #FFD64A;
+	/*background-color: #FFD64B;*/
 	border: none;
 	border-radius: 5px;
 	padding: 0.3rem 0.5rem;
@@ -329,12 +330,12 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	font-size: 15px !important;
 	padding: 8px;
 	margin: auto 30px;
-	display: flex; /* Flexbox를 사용하여 내부 요소를 정렬 */
-	justify-content: space-between; /* 내부 요소를 좌우로 분할 */
+	display: flex; /* Flexbox瑜� �궗�슜�븯�뿬 �궡遺� �슂�냼瑜� �젙�젹 */
+	justify-content: space-between; /* �궡遺� �슂�냼瑜� 醫뚯슦濡� 遺꾪븷 */
 }
 
 .brd_title {
-	width: 70%; /* 70%의 너비를 가짐 */
+	width: 70%; /* 70%�쓽 �꼫鍮꾨�� 媛�吏� */
 	color: black;
 	text-decoration-line: none;
 }
@@ -344,9 +345,9 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 .brd_date {
-	width: 30%; /* 30%의 너비를 가짐 */
+	width: 30%; /* 30%�쓽 �꼫鍮꾨�� 媛�吏� */
 	text-align: right;
-	/* 다른 스타일 설정 */
+	/* �떎瑜� �뒪���씪 �꽕�젙 */
 }
 
 .ok-table {
@@ -407,7 +408,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	color: #FFFFFF !important;
 }
 
-#template-mo-zay-hero-carousel { /*슬라이드 배너색깔*/
+#template-mo-zay-hero-carousel { /*�뒳�씪�씠�뱶 諛곕꼫�깋源�*/
 	background: #FFC230 !important;
 	height: 350px;
 }
@@ -450,7 +451,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 .horizontal-center img {
-	margin-right: 10px; /* 이미지와 텍스트 사이의 간격을 조정할 수 있습니다. */
+	margin-right: 10px; /* �씠誘몄��� �뀓�뒪�듃 �궗�씠�쓽 媛꾧꺽�쓣 議곗젙�븷 �닔 �엳�뒿�땲�떎. */
 }
 
 #rank-table tbody tr {
@@ -686,7 +687,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 .att-table td {
 	border-bottom: 2px dotted lightgrey;
 	
-	margin: 2px; /* 셀 간격 조정을 위한 마진 설정 */
+	margin: 2px; /* �� 媛꾧꺽 議곗젙�쓣 �쐞�븳 留덉쭊 �꽕�젙 */
 	width: 20%;
 	text-align: center;
 	display: flex;
@@ -765,15 +766,15 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	margin: 5px;
 }
 
-/* 툴팁 말풍선의 스타일 수정 */
+/* �댋�똻 留먰뭾�꽑�쓽 �뒪���씪 �닔�젙 */
 .tooltip-warning .tooltip-inner {
-	background-color: #f5dc8c; /* 배경색을 노란색으로 변경 */
-	color: black; /* 텍스트 색상을 검은색으로 변경 */
+	background-color: #f5dc8c; /* 諛곌꼍�깋�쓣 �끂���깋�쑝濡� 蹂�寃� */
+	color: black; /* �뀓�뒪�듃 �깋�긽�쓣 寃����깋�쑝濡� 蹂�寃� */
 	max-width: 350px;
 }
 
 .tooltip .tooltip-arrow {
-	border-top-color: #f5dc8c !important; /* 꼬리의 색상을 빨간색으로 변경 */
+	border-top-color: #f5dc8c !important; /* 瑗щ━�쓽 �깋�긽�쓣 鍮④컙�깋�쑝濡� 蹂�寃� */
 }
 
 .bs-tooltip-end .tooltip-arrow::before {
@@ -827,14 +828,14 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 
 
-/**슬라이드 배너**/
+/**�뒳�씪�씠�뱶 諛곕꼫**/
 #slide-banner {
     background-color: #FFC230;
-    position: relative; /* 부모로부터 상대적 위치 설정 */
-    overflow: hidden; /* 내용 넘침을 숨김 */
+    position: relative; /* 遺�紐⑤줈遺��꽣 �긽���쟻 �쐞移� �꽕�젙 */
+    overflow: hidden; /* �궡�슜 �꽆移⑥쓣 �닲源� */
 }
 
-/* 자식 요소들의 높이를 100%로 설정하여 부모의 높이에 맞춤 */
+/* �옄�떇 �슂�냼�뱾�쓽 �넂�씠瑜� 100%濡� �꽕�젙�븯�뿬 遺�紐⑥쓽 �넂�씠�뿉 留욎땄 */
 #slide-banner .carousel-inner,
 #slide-banner .carousel-item,
 #slide-banner .row,
@@ -857,7 +858,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 .carousel-inner img {
-    max-height: 100%; /* 이미지의 최대 높이를 부모 요소의 높이에 맞춤 */
+    max-height: 100%; /* �씠誘몄��쓽 理쒕� �넂�씠瑜� 遺�紐� �슂�냼�쓽 �넂�씠�뿉 留욎땄 */
 }
 
 .banner-title{
@@ -878,9 +879,9 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 .banner-text {
-    display: flex; /* 자식 요소를 가로로 배치하기 위해 */
-    flex-direction: column; /* 자식 요소들을 세로로 배치 */
-    justify-content: center; /* 수직 가운데 정렬 */
+    display: flex; /* �옄�떇 �슂�냼瑜� 媛�濡쒕줈 諛곗튂�븯湲� �쐞�빐 */
+    flex-direction: column; /* �옄�떇 �슂�냼�뱾�쓣 �꽭濡쒕줈 諛곗튂 */
+    justify-content: center; /* �닔吏� 媛��슫�뜲 �젙�젹 */
 }
 
 .carousel-indicators>button{
@@ -899,9 +900,9 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 .cardlistcss table thead th{
 	font-size: 15px;
 }
-/*******************************다윤********************************/
+/*******************************�떎�쑄********************************/
 
-/* 퀴즈 */
+/* �댁쫰 */
 .quiz-service-content {
 	position: relative;
 }
@@ -961,7 +962,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 .quiz-result>span {
 	font-size: x-large;
 }
-/* 단어 검색 */
+/* �떒�뼱 寃��깋 */
 .search_wrap {
 	display: flex;
 	border: 1px solid #fff;
@@ -1015,7 +1016,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	text-decoration: underline;
 	text-underline-position: from-font;
 }
-/* 단어 검색 결과 */
+/* �떒�뼱 寃��깋 寃곌낵 */
 .word-list li {
 	list-style: none;
 }
@@ -1065,7 +1066,7 @@ ul.word-list>li .inner {
 	align-items: center;
 	justify-content: center;
 }
-/* 번호표 조회 */
+/* 踰덊샇�몴 議고쉶 */
 .waiting_wrap {
 	width: 450px;
 	margin: auto;
@@ -1117,7 +1118,7 @@ ul.word-list>li .inner {
 .noinfo-wrap>span {
 	font-size: 60px;
 }
-/*******************************희주********************************/
+/*******************************�씗二�********************************/
 .check_user{
 	background-color: #EEEEEE;	
 	border: none;
@@ -1128,7 +1129,7 @@ ul.word-list>li .inner {
 }
 
 #checkButton {
-    width: 115px; /* 원하는 너비로 조정하세요 */
+    width: 115px; /* �썝�븯�뒗 �꼫鍮꾨줈 議곗젙�븯�꽭�슂 */
 }
 
 #option1{
@@ -1136,10 +1137,10 @@ ul.word-list>li .inner {
 }
 
 input[id = "input_text"] {
-	border: none; /* 테두리 제거 */
-	border-bottom: 1px solid #000; /* 아래쪽에 1px 두께의 줄 생성 */
-	background: transparent; /* 배경을 투명하게 설정 */
-	outline: none; /* 포커스 효과 제거 */
+	border: none; /* �뀒�몢由� �젣嫄� */
+	border-bottom: 1px solid #000; /* �븘�옒履쎌뿉 1px �몢猿섏쓽 以� �깮�꽦 */
+	background: transparent; /* 諛곌꼍�쓣 �닾紐낇븯寃� �꽕�젙 */
+	outline: none; /* �룷而ㅼ뒪 �슚怨� �젣嫄� */
 }
 .no-left-right-border{
 	border-left: none;
@@ -1152,7 +1153,7 @@ input[id = "input_text"] {
 .button-like-link {
 	display: inline-block;
 	padding: 7px 15px;
-	background-color: #FFD64B;
+	background-color: #FFD64A;
 	color: #000000;
 	text-decoration: none;
  	cursor: pointer;
@@ -1161,7 +1162,7 @@ input[id = "input_text"] {
 	margin: 2px;
 }
 
-/* 버튼에 호버 효과 추가 */
+/* 踰꾪듉�뿉 �샇踰� �슚怨� 異붽� */
 .button-like-link:hover {
 	color : black;
 	background-color: #E5CC7C;
@@ -1173,31 +1174,31 @@ input[id = "input_text"] {
 
 .form-container {
     display: flex;
-    flex-direction: column; /* 수직으로 정렬 */
-    align-items: flex-start; /* 왼쪽 정렬 */
-    gap: 10px; /* 요소들 사이의 간격 설정 */
+    flex-direction: column; /* �닔吏곸쑝濡� �젙�젹 */
+    align-items: flex-start; /* �쇊履� �젙�젹 */
+    gap: 10px; /* �슂�냼�뱾 �궗�씠�쓽 媛꾧꺽 �꽕�젙 */
 }
 
 .form-group {
     display: flex;
-    align-items: center; /* 요소들을 수직 가운데로 정렬 */
+    align-items: center; /* �슂�냼�뱾�쓣 �닔吏� 媛��슫�뜲濡� �젙�젹 */
 }
 .form-container {
     display: flex;
-    flex-direction: column; /* 수직으로 정렬 */
-    align-items: flex-start; /* 왼쪽 정렬 */
-    gap: 10px; /* 요소들 사이의 간격 설정 */
+    flex-direction: column; /* �닔吏곸쑝濡� �젙�젹 */
+    align-items: flex-start; /* �쇊履� �젙�젹 */
+    gap: 10px; /* �슂�냼�뱾 �궗�씠�쓽 媛꾧꺽 �꽕�젙 */
 }
 
 .form-group {
     display: flex;
-    align-items: center; /* 요소들을 수직 가운데로 정렬 */
+    align-items: center; /* �슂�냼�뱾�쓣 �닔吏� 媛��슫�뜲濡� �젙�젹 */
 }
 
 .label_open_account {
-    width: 150px; /* 라벨의 고정된 너비 설정 */
-    text-align: 200px; /* 라벨을 오른쪽 정렬 */
-    margin-right: 10px; /* 라벨과 입력 필드 사이의 간격 설정 */
+    width: 150px; /* �씪踰⑥쓽 怨좎젙�맂 �꼫鍮� �꽕�젙 */
+    text-align: 200px; /* �씪踰⑥쓣 �삤瑜몄そ �젙�젹 */
+    margin-right: 10px; /* �씪踰④낵 �엯�젰 �븘�뱶 �궗�씠�쓽 媛꾧꺽 �꽕�젙 */
 }
 
 .bold-text {
@@ -1205,18 +1206,18 @@ input[id = "input_text"] {
 }
 
 #checkButton {
-    float: right; /* 오른쪽으로 이동 */
+    float: right; /* �삤瑜몄そ�쑝濡� �씠�룞 */
 }
 
 .float-right{
 	 float: right;
 }
 
-#submitButton{ /*계좌개설 약관동의 후 "다음 버튼" 위치*/
+#submitButton{ /*怨꾩쥖媛쒖꽕 �빟愿��룞�쓽 �썑 "�떎�쓬 踰꾪듉" �쐞移�*/
 	width : 115px
 }
 
-.check_user{/* 계좌개설 약관동의 배경화면*/
+.check_user{/* 怨꾩쥖媛쒖꽕 �빟愿��룞�쓽 諛곌꼍�솕硫�*/
 	background-color: #DFDFE0;
 }
 
@@ -1254,10 +1255,10 @@ input[id = "input_text"] {
 }
 
 #advice-balloonCheckbox {
-  transform: scale(1.3); /* 2배 크기로 확대 */
+  transform: scale(1.3); /* 2諛� �겕湲곕줈 �솗�� */
 }
 
-/*공통 말풍선*/
+/*怨듯넻 留먰뭾�꽑*/
 .advice-balloon {
 	display: none;
 	position: absolute;
@@ -1265,85 +1266,85 @@ input[id = "input_text"] {
 	font-weight : bold;
 	padding: 5px;
 	border-radius: 5px;
-	width: auto; /* 말풍선 너비 자동 조정 */
+	width: auto; /* 留먰뭾�꽑 �꼫鍮� �옄�룞 議곗젙 */
 }
 
-/*계좌개설1 말풍선 시작*/
+/*怨꾩쥖媛쒖꽕1 留먰뭾�꽑 �떆�옉*/
 .advice-balloon1 {
-	/* 첫 번째 말풍선의 스타일 */
+	/* 泥� 踰덉㎏ 留먰뭾�꽑�쓽 �뒪���씪 */
 	background-color: #f5dc8c;
-	top: 180px;
-	left: 850px;
+	top: 175px;
+	left: 40%;
 }
 
-.advice-balloon1:after{ /* 위쪽 꼬리만들기 */
+.advice-balloon1:after{ /* �쐞履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
-	top: 10px; /* 꼬리 위치 조정 */
-	left: -8px; /* 꼬리 위치 조정 */
+	top: 10px; /* 瑗щ━ �쐞移� 議곗젙 */
+	left: -8px; /* 瑗щ━ �쐞移� 議곗젙 */
 	width: 0px;
 	height: 0px;
 	border-top: 8px solid transparent;
 	border-bottom: 8px solid transparent;
-	border-right: 8px solid #f5dc8c; /* 꼬리 색상 설정 */
+	border-right: 8px solid #f5dc8c; /* 瑗щ━ �깋�긽 �꽕�젙 */
 } 
 
-.advice-balloon2 { /* 두 번째 말풍선의 스타일 */
+.advice-balloon2 { /* �몢 踰덉㎏ 留먰뭾�꽑�쓽 �뒪���씪 */
 	background-color: #dee2e6;
 	top: 240px;
-	left: 850px;
+	left: 45%;
 }
-.advice-balloon2:after{ /* 왼쪽 꼬리만들기 */
+.advice-balloon2:after{ /* �쇊履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
-	top: 10px; /* 꼬리 위치 조정 */
-	left: -8px; /* 꼬리 위치 조정 */
+	top: 10px; /* 瑗щ━ �쐞移� 議곗젙 */
+	left: -8px; /* 瑗щ━ �쐞移� 議곗젙 */
 	width: 0px;
 	height: 0px;
 	border-top: 8px solid transparent;
 	border-bottom: 8px solid transparent;
-	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+	border-right: 8px solid #dee2e6; /* 瑗щ━ �깋�긽 �꽕�젙 */
 } 
 
 .advice-balloon3 {
-	/* 세 번째 말풍선의 스타일 */
+	/* �꽭 踰덉㎏ 留먰뭾�꽑�쓽 �뒪���씪 */
 	background-color: #dee2e6;
 	top: 300px;
 	left: 1280px;
 }
-.advice-balloon3:after{ /* 왼쪽 꼬리만들기 */
+.advice-balloon3:after{ /* �쇊履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
-	top: 10px; /* 꼬리 위치 조정 */
-	left: -8px; /* 꼬리 위치 조정 */
+	top: 10px; /* 瑗щ━ �쐞移� 議곗젙 */
+	left: -8px; /* 瑗щ━ �쐞移� 議곗젙 */
 	width: 0px;
 	height: 0px;
 	border-top: 8px solid transparent;
 	border-bottom: 8px solid transparent;
-	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+	border-right: 8px solid #dee2e6; /* 瑗щ━ �깋�긽 �꽕�젙 */
 } 
 
 .advice-balloon4 {
-	/* 세 번째 말풍선의 스타일 */
+	/* �꽭 踰덉㎏ 留먰뭾�꽑�쓽 �뒪���씪 */
 	background-color: #dee2e6;
 	top: 685px;
 	left: 1100px;
 }
 
- .advice-balloon4:after{ /* 왼쪽 꼬리만들기 */
+ .advice-balloon4:after{ /* �쇊履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
-	top: 10px; /* 꼬리 위치 조정 */
-	right: -8px; /* 꼬리 위치 조정 */
+	top: 10px; /* 瑗щ━ �쐞移� 議곗젙 */
+	right: -8px; /* 瑗щ━ �쐞移� 議곗젙 */
 	width: 0px;
  	height: 0px;
 	border-top: 8px solid transparent;
    	border-bottom: 8px solid transparent;
-	border-left: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+	border-left: 8px solid #dee2e6; /* 瑗щ━ �깋�긽 �꽕�젙 */
 } 
 
 .advice-location{
@@ -1352,103 +1353,103 @@ input[id = "input_text"] {
 	border-radius: 5px;
 }
 
-/*계좌개설1 말풍선 끝*/
+/*怨꾩쥖媛쒖꽕1 留먰뭾�꽑 �걹*/
 
-/*계좌개설2 말풍선 시작*/
+/*怨꾩쥖媛쒖꽕2 留먰뭾�꽑 �떆�옉*/
 .advice-balloon1_account2 {
-	/* 세 번째 말풍선의 스타일 */
+	/* �꽭 踰덉㎏ 留먰뭾�꽑�쓽 �뒪���씪 */
 	background-color: #dee2e6;
 	top: 300px;
 	left: 1280px;
 }
-.advice-balloon1_account2:after{ /* 왼쪽 꼬리만들기 */
+.advice-balloon1_account2:after{ /* �쇊履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
-	top: 10px; /* 꼬리 위치 조정 */
-	left: -8px; /* 꼬리 위치 조정 */
+	top: 10px; /* 瑗щ━ �쐞移� 議곗젙 */
+	left: -8px; /* 瑗щ━ �쐞移� 議곗젙 */
 	width: 0px;
 	height: 0px;
 	border-top: 8px solid transparent;
 	border-bottom: 8px solid transparent;
-	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+	border-right: 8px solid #dee2e6; /* 瑗щ━ �깋�긽 �꽕�젙 */
 } 
 
 .advice-balloon2_account2 {
-	/* 세 번째 말풍선의 스타일 */
+	/* �꽭 踰덉㎏ 留먰뭾�꽑�쓽 �뒪���씪 */
 	background-color: #dee2e6;
 	top: 530px;
 	left: 1280px;
 }
-.advice-balloon2_account2:after{ /* 왼쪽 꼬리만들기 */
+.advice-balloon2_account2:after{ /* �쇊履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
-	top: 10px; /* 꼬리 위치 조정 */
-	left: -8px; /* 꼬리 위치 조정 */
+	top: 10px; /* 瑗щ━ �쐞移� 議곗젙 */
+	left: -8px; /* 瑗щ━ �쐞移� 議곗젙 */
 	width: 0px;
 	height: 0px;
 	border-top: 8px solid transparent;
 	border-bottom: 8px solid transparent;
-	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+	border-right: 8px solid #dee2e6; /* 瑗щ━ �깋�긽 �꽕�젙 */
 } 
 
 .advice-balloon3_account2 {
-	/* 세 번째 말풍선의 스타일 */
+	/* �꽭 踰덉㎏ 留먰뭾�꽑�쓽 �뒪���씪 */
 	background-color: #f5dc8c;
 	top: 675px;
 	left: 1100px;
 }
 
- .advice-balloon3_account2:after{ /* 왼쪽 꼬리만들기 */
+ .advice-balloon3_account2:after{ /* �쇊履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
-	top: 10px; /* 꼬리 위치 조정 */
-	right: -8px; /* 꼬리 위치 조정 */
+	top: 10px; /* 瑗щ━ �쐞移� 議곗젙 */
+	right: -8px; /* 瑗щ━ �쐞移� 議곗젙 */
 	width: 0px;
  	height: 0px;
 	border-top: 8px solid transparent;
    	border-bottom: 8px solid transparent;
-	border-left: 8px solid #f5dc8c; /* 꼬리 색상 설정 */
+	border-left: 8px solid #f5dc8c; /* 瑗щ━ �깋�긽 �꽕�젙 */
 } 
 
-/*계좌개설2 말풍선 끝*/
+/*怨꾩쥖媛쒖꽕2 留먰뭾�꽑 �걹*/
 
 .password-ok-msg{
 	float : right;	
 }
 
-/*계좌 목록 말풍선 시작*/
+/*怨꾩쥖 紐⑸줉 留먰뭾�꽑 �떆�옉*/
 .advice-balloon1_accountList {
-	/* 첫 번째 말풍선의 스타일 */
+	/* 泥� 踰덉㎏ 留먰뭾�꽑�쓽 �뒪���씪 */
 	background-color: #f5dc8c;
 	top: 350px;
 	left: 1030px;
 }
 
-.advice-balloon1_accountList:after{ /* 위쪽 꼬리만들기 */
+.advice-balloon1_accountList:after{ /* �쐞履� 瑗щ━留뚮뱾湲� */
     display: block;
     content: '';
     position: absolute;
-    top: 10px; /* 꼬리 위치 조정 */
-    right: -8px; /* 꼬리 위치 조정 */
+    top: 10px; /* 瑗щ━ �쐞移� 議곗젙 */
+    right: -8px; /* 瑗щ━ �쐞移� 議곗젙 */
     width: 0px;
     height: 0px;
     border-top: 8px solid transparent;
     border-bottom: 8px solid transparent;
-    border-left: 8px solid #f5dc8c; /* 꼬리 색상 설정 */
+    border-left: 8px solid #f5dc8c; /* 瑗щ━ �깋�긽 �꽕�젙 */
 } 
-/*계좌 목록 말풍선 끝*/
+/*怨꾩쥖 紐⑸줉 留먰뭾�꽑 �걹*/
 
 
-/*계좌 관리 말풍선 시작 */
+/*怨꾩쥖 愿�由� 留먰뭾�꽑 �떆�옉 */
 .advice-balloon1_accountManage{
 	background-color: #f5dc8c;
 	top: 510px;
 	left: 1065px;
 }
-.advice-balloon1_accountManage:after{ /* 위쪽 꼬리만들기 */
+.advice-balloon1_accountManage:after{ /* �쐞履� 瑗щ━留뚮뱾湲� */
      display: block; 
      content: ''; 
      position: absolute; 
@@ -1459,17 +1460,17 @@ input[id = "input_text"] {
      border-top: 8px solid none; 
      border-left: 8px solid transparent; 
      border-right: 8px solid transparent; 
-     border-bottom: 8px solid #f5dc8c; /*꼬리색깔 바꾸기 */
+     border-bottom: 8px solid #f5dc8c; /*瑗щ━�깋源� 諛붽씀湲� */
 } 
-/*계좌 관리 말풍선 끝 */
+/*怨꾩쥖 愿�由� 留먰뭾�꽑 �걹 */
 
-/*비밀번호 수정 말풍선 시작*/
+/*鍮꾨�踰덊샇 �닔�젙 留먰뭾�꽑 �떆�옉*/
 .advice-balloon1_update-password{
 	background-color: #dee2e6;
 	top: 395px;
 	left: 985px;
 }
-.advice-balloon1_update-password:after{ /* 위쪽 꼬리만들기 */
+.advice-balloon1_update-password:after{ /* �쐞履� 瑗щ━留뚮뱾湲� */
      display: block; 
      content: ''; 
      position: absolute; 
@@ -1480,14 +1481,14 @@ input[id = "input_text"] {
      border-top: 8px solid none; 
      border-left: 8px solid transparent; 
      border-right: 8px solid transparent; 
-     border-bottom: 8px solid #dee2e6; /*꼬리색깔 바꾸기 */
+     border-bottom: 8px solid #dee2e6; /*瑗щ━�깋源� 諛붽씀湲� */
 } 
 .advice-balloon2_update-password{
 	background-color: #dee2e6;
 	top: 460px;
 	left: 1360px;
 }
-.advice-balloon2_update-password:after{ /* 위쪽 꼬리만들기 */
+.advice-balloon2_update-password:after{ /* �쐞履� 瑗щ━留뚮뱾湲� */
      display: block; 
      content: ''; 
      position: absolute; 
@@ -1498,14 +1499,14 @@ input[id = "input_text"] {
      border-top: 8px solid none; 
      border-left: 8px solid transparent; 
      border-right: 8px solid transparent; 
-     border-bottom: 8px solid #dee2e6; /*꼬리색깔 바꾸기 */
+     border-bottom: 8px solid #dee2e6; /*瑗щ━�깋源� 諛붽씀湲� */
 } 
 .advice-balloon1_accountPassword_ok{
 	background-color: #dee2e6;
 	top: 510px;
 	left: 1105px;
 }
-.advice-balloon1_accountPassword_ok:after{ /* 위쪽 꼬리만들기 */
+.advice-balloon1_accountPassword_ok:after{ /* �쐞履� 瑗щ━留뚮뱾湲� */
      display: block; 
      content: ''; 
      position: absolute; 
@@ -1516,17 +1517,17 @@ input[id = "input_text"] {
      border-top: 8px solid none; 
      border-left: 8px solid transparent; 
      border-right: 8px solid transparent; 
-     border-bottom: 8px solid #dee2e6; /*꼬리색깔 바꾸기 */
+     border-bottom: 8px solid #dee2e6; /*瑗щ━�깋源� 諛붽씀湲� */
 } 
-/*비밀번호 수정 말풍선 끝*/
+/*鍮꾨�踰덊샇 �닔�젙 留먰뭾�꽑 �걹*/
 
-/*계좌 이체 잔액부족시 나오는 메세지*/
+/*怨꾩쥖 �씠泥� �옍�븸遺�議깆떆 �굹�삤�뒗 硫붿꽭吏�*/
 .transfer_fail_msg{
 	font-weight: bold;
 	font-size: 30px;
 }
 
-/*계좌 해지시 약관동의 박스*/
+/*怨꾩쥖 �빐吏��떆 �빟愿��룞�쓽 諛뺤뒪*/
 .check_termination_account_box{
 	background-color: #dee2e6;
 	border-radius: 5px;
@@ -1536,29 +1537,29 @@ input[id = "input_text"] {
 	font-size: 30px;
 }
 
-/*거래 내역 조회시 내역이 없는 경우*/
+/*嫄곕옒 �궡�뿭 議고쉶�떆 �궡�뿭�씠 �뾾�뒗 寃쎌슦*/
 .trans_history_fail_msg{
 	font-weight: bold;
 	font-size: 30px;
 }
 
-/*계좌해지 시 말풍선 시작*/
+/*怨꾩쥖�빐吏� �떆 留먰뭾�꽑 �떆�옉*/
 .advice-balloon1_accountStop{
 	background-color: #f5dc8c;
 	top: 180px;
 	left: 850px;
 }
-.advice-balloon1_accountStop:after{ /* 왼쪽 꼬리만들기 */
+.advice-balloon1_accountStop:after{ /* �쇊履� 瑗щ━留뚮뱾湲� */
 	display: block;
     content: '';
     position: absolute;
-    top: 10px; /* 꼬리 위치 조정 */
-    left: -8px; /* 꼬리 위치 조정 */
+    top: 10px; /* 瑗щ━ �쐞移� 議곗젙 */
+    left: -8px; /* 瑗щ━ �쐞移� 議곗젙 */
     width: 0px;
     height: 0px;
     border-top: 8px solid transparent;
     border-bottom: 8px solid transparent;
-    border-right: 8px solid #f5dc8c; /* 꼬리 색상 설정 */
+    border-right: 8px solid #f5dc8c; /* 瑗щ━ �깋�긽 �꽕�젙 */
 }
 
 .advice-balloon2_accountStop{
@@ -1566,23 +1567,23 @@ input[id = "input_text"] {
 	top: 459px;
 	left: 1200px;
 } 
-.advice-balloon2_accountStop:after{ /* 왼쪽 꼬리만들기 */
+.advice-balloon2_accountStop:after{ /* �쇊履� 瑗щ━留뚮뱾湲� */
 	display: block;
     content: '';
     position: absolute;
-    top: 10px; /* 꼬리 위치 조정 */
-    left: -8px; /* 꼬리 위치 조정 */
+    top: 10px; /* 瑗щ━ �쐞移� 議곗젙 */
+    left: -8px; /* 瑗щ━ �쐞移� 議곗젙 */
     width: 0px;
     height: 0px;
     border-top: 8px solid transparent;
     border-bottom: 8px solid transparent;
-    border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+    border-right: 8px solid #dee2e6; /* 瑗щ━ �깋�긽 �꽕�젙 */
 }
 .advice-balloon3_accountStop{
 	background-color: #dee2e6;
 	top: 620px;
 	left: 580px;
-} .advice-balloon3_accountStop:after{ /* 위쪽 꼬리만들기 */
+} .advice-balloon3_accountStop:after{ /* �쐞履� 瑗щ━留뚮뱾湲� */
     display: block; 
     content: ''; 
     position: absolute; 
@@ -1593,31 +1594,31 @@ input[id = "input_text"] {
     border-top: 8px solid none; 
     border-left: 8px solid transparent; 
     border-right: 8px solid transparent; 
-    border-bottom: 8px solid #dee2e6; /*꼬리색깔 바꾸기 */
+    border-bottom: 8px solid #dee2e6; /*瑗щ━�깋源� 諛붽씀湲� */
 }
 .advice-balloon4_accountStop{
 	background-color: #dee2e6;
 	top: 620px;
 	left: 1200px;
 } 
-.advice-balloon4_accountStop:after{ /* 위쪽 꼬리만들기 */
+.advice-balloon4_accountStop:after{ /* �쐞履� 瑗щ━留뚮뱾湲� */
    display: block;
    content: '';
    position: absolute;
-   top: 10px; /* 꼬리 위치 조정 */
-   right: -8px; /* 꼬리 위치 조정 */
+   top: 10px; /* 瑗щ━ �쐞移� 議곗젙 */
+   right: -8px; /* 瑗щ━ �쐞移� 議곗젙 */
    width: 0px;
    height: 0px;
    border-top: 8px solid transparent;
    border-bottom: 8px solid transparent;
-   border-left: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+   border-left: 8px solid #dee2e6; /* 瑗щ━ �깋�긽 �꽕�젙 */
 } 
 .advice-balloon1_accountStopOk{
 	background-color: #dee2e6;
 	top: 420px;
 	left: 1155px;
 }
-.advice-balloon1_accountStopOk:after{ /* 위쪽 꼬리만들기 */
+.advice-balloon1_accountStopOk:after{ /* �쐞履� 瑗щ━留뚮뱾湲� */
     display: block; 
     content: ''; 
     position: absolute; 
@@ -1628,131 +1629,131 @@ input[id = "input_text"] {
     border-top: 8px solid none; 
     border-left: 8px solid transparent; 
     border-right: 8px solid transparent; 
-    border-bottom: 8px solid #dee2e6; /*꼬리색깔 바꾸기 */
+    border-bottom: 8px solid #dee2e6; /*瑗щ━�깋源� 諛붽씀湲� */
 } 
-/*계좌해지 시 말풍선 끝*/
+/*怨꾩쥖�빐吏� �떆 留먰뭾�꽑 �걹*/
 
-/*계좌 이체 말풍선 시작*/
-.advice-balloon1_transferform{ /* 두 번째 말풍선의 스타일 */
+/*怨꾩쥖 �씠泥� 留먰뭾�꽑 �떆�옉*/
+.advice-balloon1_transferform{ /* �몢 踰덉㎏ 留먰뭾�꽑�쓽 �뒪���씪 */
 	background-color: #f5dc8c;
 	top: 240px;
 	left: 750px;
 }
-.advice-balloon1_transferform:after{ /* 왼쪽 꼬리만들기 */
+.advice-balloon1_transferform:after{ /* �쇊履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
-	top: 10px; /* 꼬리 위치 조정 */
-	left: -8px; /* 꼬리 위치 조정 */
+	top: 10px; /* 瑗щ━ �쐞移� 議곗젙 */
+	left: -8px; /* 瑗щ━ �쐞移� 議곗젙 */
 	width: 0px;
 	height: 0px;
 	border-top: 8px solid transparent;
 	border-bottom: 8px solid transparent;
-	border-right: 8px solid #f5dc8c; /* 꼬리 색상 설정 */
+	border-right: 8px solid #f5dc8c; /* 瑗щ━ �깋�긽 �꽕�젙 */
 }
 
-.advice-balloon2_transferform{ /* 두 번째 말풍선의 스타일 */
+.advice-balloon2_transferform{ /* �몢 踰덉㎏ 留먰뭾�꽑�쓽 �뒪���씪 */
 	background-color: #dee2e6;
 	top: 360px;
 	left: 1250px;
 }
-.advice-balloon2_transferform:after{ /* 왼쪽 꼬리만들기 */
+.advice-balloon2_transferform:after{ /* �쇊履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
-	top: 10px; /* 꼬리 위치 조정 */
-	left: -8px; /* 꼬리 위치 조정 */
+	top: 10px; /* 瑗щ━ �쐞移� 議곗젙 */
+	left: -8px; /* 瑗щ━ �쐞移� 議곗젙 */
 	width: 0px;
 	height: 0px;
 	border-top: 8px solid transparent;
 	border-bottom: 8px solid transparent;
-	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+	border-right: 8px solid #dee2e6; /* 瑗щ━ �깋�긽 �꽕�젙 */
 }
-.advice-balloon3_transferform{ /* 두 번째 말풍선의 스타일 */
+.advice-balloon3_transferform{ /* �몢 踰덉㎏ 留먰뭾�꽑�쓽 �뒪���씪 */
 	background-color: #dee2e6;
 	top: 410px;
 	left: 1250px;
 }
-.advice-balloon3_transferform:after{ /* 왼쪽 꼬리만들기 */
+.advice-balloon3_transferform:after{ /* �쇊履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
-	top: 10px; /* 꼬리 위치 조정 */
-	left: -8px; /* 꼬리 위치 조정 */
+	top: 10px; /* 瑗щ━ �쐞移� 議곗젙 */
+	left: -8px; /* 瑗щ━ �쐞移� 議곗젙 */
 	width: 0px;
 	height: 0px;
 	border-top: 8px solid transparent;
 	border-bottom: 8px solid transparent;
-	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+	border-right: 8px solid #dee2e6; /* 瑗щ━ �깋�긽 �꽕�젙 */
 }  
-.advice-balloon4_transferform{ /* 두 번째 말풍선의 스타일 */
+.advice-balloon4_transferform{ /* �몢 踰덉㎏ 留먰뭾�꽑�쓽 �뒪���씪 */
 	background-color: #dee2e6;
 	top: 455px;
 	left: 1250px;
 }
-.advice-balloon4_transferform:after{ /* 왼쪽 꼬리만들기 */
+.advice-balloon4_transferform:after{ /* �쇊履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
-	top: 10px; /* 꼬리 위치 조정 */
-	left: -8px; /* 꼬리 위치 조정 */
+	top: 10px; /* 瑗щ━ �쐞移� 議곗젙 */
+	left: -8px; /* 瑗щ━ �쐞移� 議곗젙 */
 	width: 0px;
 	height: 0px;
 	border-top: 8px solid transparent;
 	border-bottom: 8px solid transparent;
-	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+	border-right: 8px solid #dee2e6; /* 瑗щ━ �깋�긽 �꽕�젙 */
 } 
-.advice-balloon5_transferform{ /* 두 번째 말풍선의 스타일 */
+.advice-balloon5_transferform{ /* �몢 踰덉㎏ 留먰뭾�꽑�쓽 �뒪���씪 */
 	background-color: #dee2e6;
 	top: 502px;
 	left: 1250px;
 }
-.advice-balloon5_transferform:after{ /* 왼쪽 꼬리만들기 */
+.advice-balloon5_transferform:after{ /* �쇊履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
-	top: 10px; /* 꼬리 위치 조정 */
-	left: -8px; /* 꼬리 위치 조정 */
+	top: 10px; /* 瑗щ━ �쐞移� 議곗젙 */
+	left: -8px; /* 瑗щ━ �쐞移� 議곗젙 */
 	width: 0px;
 	height: 0px;
 	border-top: 8px solid transparent;
 	border-bottom: 8px solid transparent;
-	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+	border-right: 8px solid #dee2e6; /* 瑗щ━ �깋�긽 �꽕�젙 */
 }       
 
-.advice-balloon6_transferform{ /* 두 번째 말풍선의 스타일 */
+.advice-balloon6_transferform{ /* �몢 踰덉㎏ 留먰뭾�꽑�쓽 �뒪���씪 */
 	background-color: #dee2e6;
 	top: 550px;
 	left: 1250px;
 }
-.advice-balloon6_transferform:after{ /* 왼쪽 꼬리만들기 */
+.advice-balloon6_transferform:after{ /* �쇊履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
-	top: 10px; /* 꼬리 위치 조정 */
-	left: -8px; /* 꼬리 위치 조정 */
+	top: 10px; /* 瑗щ━ �쐞移� 議곗젙 */
+	left: -8px; /* 瑗щ━ �쐞移� 議곗젙 */
 	width: 0px;
 	height: 0px;
 	border-top: 8px solid transparent;
 	border-bottom: 8px solid transparent;
-	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+	border-right: 8px solid #dee2e6; /* 瑗щ━ �깋�긽 �꽕�젙 */
 } 
-.advice-balloon7_transferform{ /* 두 번째 말풍선의 스타일 */
+.advice-balloon7_transferform{ /* �몢 踰덉㎏ 留먰뭾�꽑�쓽 �뒪���씪 */
 	background-color: #dee2e6;
 	top: 620px;
 	left: 1250px;
 }
-.advice-balloon7_transferform:after{ /* 왼쪽 꼬리만들기 */
+.advice-balloon7_transferform:after{ /* �쇊履� 瑗щ━留뚮뱾湲� */
     display: block;
     content: '';
     position: absolute;
-    top: 10px; /* 꼬리 위치 조정 */
-    right: -8px; /* 꼬리 위치 조정 */
+    top: 10px; /* 瑗щ━ �쐞移� 議곗젙 */
+    right: -8px; /* 瑗щ━ �쐞移� 議곗젙 */
     width: 0px;
     height: 0px;
     border-top: 8px solid transparent;
     border-bottom: 8px solid transparent;
-    border-left: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+    border-left: 8px solid #dee2e6; /* 瑗щ━ �깋�긽 �꽕�젙 */
 } 
 .advice-balloon1_transferform2{
 	background-color: #dee2e6;
@@ -1760,7 +1761,7 @@ input[id = "input_text"] {
 	left: 1300px;
 }
 
-.advice-balloon1_transferform2:after { /* 위쪽 꼬리만들기 */
+.advice-balloon1_transferform2:after { /* �쐞履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
@@ -1771,7 +1772,7 @@ input[id = "input_text"] {
 	border-top: 8px solid none;
 	border-left: 8px solid transparent;
 	border-right: 8px solid transparent;
-	border-bottom: 8px solid #dee2e6; /*꼬리색깔 바꾸기 */
+	border-bottom: 8px solid #dee2e6; /*瑗щ━�깋源� 諛붽씀湲� */
 }
 .advice-balloon2_transferform2{
 	background-color: #dee2e6;
@@ -1779,7 +1780,7 @@ input[id = "input_text"] {
 	left: 1500px;
 }
 
-.advice-balloon2_transferform2:after { /* 위쪽 꼬리만들기 */
+.advice-balloon2_transferform2:after { /* �쐞履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
@@ -1790,14 +1791,14 @@ input[id = "input_text"] {
 	border-top: 8px solid none;
 	border-left: 8px solid transparent;
 	border-right: 8px solid transparent;
-	border-bottom: 8px solid #dee2e6; /*꼬리색깔 바꾸기 */
+	border-bottom: 8px solid #dee2e6; /*瑗щ━�깋源� 諛붽씀湲� */
 }
 .advice-balloon1_accountTransferOk{
 	background-color: #dee2e6;
 	top: 570px;
 	left: 1155px;
 }
-.advice-balloon1_accountTransferOk:after { /* 위쪽 꼬리만들기 */
+.advice-balloon1_accountTransferOk:after { /* �쐞履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
@@ -1808,14 +1809,14 @@ input[id = "input_text"] {
 	border-top: 8px solid none;
 	border-left: 8px solid transparent;
 	border-right: 8px solid transparent;
-	border-bottom: 8px solid #dee2e6; /*꼬리색깔 바꾸기 */
+	border-bottom: 8px solid #dee2e6; /*瑗щ━�깋源� 諛붽씀湲� */
 }
 .advice-balloon1_accountTransferfFail{
 	background-color: #dee2e6;
 	top: 480px;
 	left: 1155px;
 }
-.advice-balloon1_accountTransferfFail:after { /* 위쪽 꼬리만들기 */
+.advice-balloon1_accountTransferfFail:after { /* �쐞履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
@@ -1826,9 +1827,9 @@ input[id = "input_text"] {
 	border-top: 8px solid none;
 	border-left: 8px solid transparent;
 	border-right: 8px solid transparent;
-	border-bottom: 8px solid #dee2e6; /*꼬리색깔 바꾸기 */
+	border-bottom: 8px solid #dee2e6; /*瑗щ━�깋源� 諛붽씀湲� */
 }
-/*계좌 이체 말풍선 끝*/
+/*怨꾩쥖 �씠泥� 留먰뭾�꽑 �걹*/
 .button-container {
     display: flex;
     align-items: center;
@@ -1836,23 +1837,23 @@ input[id = "input_text"] {
     float: right;
 }
 
-/* 거래내역 조회 */
+/* 嫄곕옒�궡�뿭 議고쉶 */
 .advice-balloon1_trans_his1{
 	background-color: #f5dc8c;
 	top: 175px;
 	left: 800px;
 }
-.advice-balloon1_trans_his1:after { /* 위쪽 꼬리만들기 */
+.advice-balloon1_trans_his1:after { /* �쐞履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
-	top: 10px; /* 꼬리 위치 조정 */
-	left: -8px; /* 꼬리 위치 조정 */
+	top: 10px; /* 瑗щ━ �쐞移� 議곗젙 */
+	left: -8px; /* 瑗щ━ �쐞移� 議곗젙 */
 	width: 0px;
 	height: 0px;
 	border-top: 8px solid transparent;
 	border-bottom: 8px solid transparent;
-	border-right: 8px solid #f5dc8c; /* 꼬리 색상 설정 */
+	border-right: 8px solid #f5dc8c; /* 瑗щ━ �깋�긽 �꽕�젙 */
 }
 
 .advice-balloon2_trans_his1{
@@ -1860,41 +1861,41 @@ input[id = "input_text"] {
 	top: 255px;
 	left: 1100px;
 }
-.advice-balloon2_trans_his1:after { /* 위쪽 꼬리만들기 */
+.advice-balloon2_trans_his1:after { /* �쐞履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
-	top: 10px; /* 꼬리 위치 조정 */
-	left: -8px; /* 꼬리 위치 조정 */
+	top: 10px; /* 瑗щ━ �쐞移� 議곗젙 */
+	left: -8px; /* 瑗щ━ �쐞移� 議곗젙 */
 	width: 0px;
 	height: 0px;
 	border-top: 8px solid transparent;
 	border-bottom: 8px solid transparent;
-	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+	border-right: 8px solid #dee2e6; /* 瑗щ━ �깋�긽 �꽕�젙 */
 }
 .advice-balloon3_trans_his1{
 	background-color: #dee2e6;
 	top: 310px;
 	left: 1100px;
 }
-.advice-balloon3_trans_his1:after { /* 위쪽 꼬리만들기 */
+.advice-balloon3_trans_his1:after { /* �쐞履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
-	top: 10px; /* 꼬리 위치 조정 */
-	left: -8px; /* 꼬리 위치 조정 */
+	top: 10px; /* 瑗щ━ �쐞移� 議곗젙 */
+	left: -8px; /* 瑗щ━ �쐞移� 議곗젙 */
 	width: 0px;
 	height: 0px;
 	border-top: 8px solid transparent;
 	border-bottom: 8px solid transparent;
-	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+	border-right: 8px solid #dee2e6; /* 瑗щ━ �깋�긽 �꽕�젙 */
 }
 .advice-balloon4_trans_his1{
 	background-color: #dee2e6;
 	top: 420px;
 	left: 950px;
 }
-.advice-balloon4_trans_his1:after { /* 위쪽 꼬리만들기 */
+.advice-balloon4_trans_his1:after { /* �쐞履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
@@ -1905,45 +1906,45 @@ input[id = "input_text"] {
 	border-top: 8px solid none;
 	border-left: 8px solid transparent;
 	border-right: 8px solid transparent;
-	border-bottom: 8px solid #dee2e6; /*꼬리색깔 바꾸기 */}
+	border-bottom: 8px solid #dee2e6; /*瑗щ━�깋源� 諛붽씀湲� */}
 	
 .advice-balloon5_trans_his1{
 	background-color: #dee2e6;
 	top: 370px;
 	left: 1370px;
 }
-.advice-balloon5_trans_his1:after { /* 위쪽 꼬리만들기 */
+.advice-balloon5_trans_his1:after { /* �쐞履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
-	top: 10px; /* 꼬리 위치 조정 */
-	left: -8px; /* 꼬리 위치 조정 */
+	top: 10px; /* 瑗щ━ �쐞移� 議곗젙 */
+	left: -8px; /* 瑗щ━ �쐞移� 議곗젙 */
 	width: 0px;
 	height: 0px;
 	border-top: 8px solid transparent;
 	border-bottom: 8px solid transparent;
-	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+	border-right: 8px solid #dee2e6; /* 瑗щ━ �깋�긽 �꽕�젙 */
 }
 
-/* 거래 내역 조회 끝*/
+/* 嫄곕옒 �궡�뿭 議고쉶 �걹*/
 
-/* 거래 내역 조회(계좌목로에서 들어오는 경우)*/
+/* 嫄곕옒 �궡�뿭 議고쉶(怨꾩쥖紐⑸줈�뿉�꽌 �뱾�뼱�삤�뒗 寃쎌슦)*/
 .advice-balloon1_trans_his_selected{
 	background-color: #f5dc8c;
 	top: 175px;
 	left: 800px;
 }
-.advice-balloon1_trans_his_selected:after { /* 위쪽 꼬리만들기 */
+.advice-balloon1_trans_his_selected:after { /* �쐞履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
-	top: 10px; /* 꼬리 위치 조정 */
-	left: -8px; /* 꼬리 위치 조정 */
+	top: 10px; /* 瑗щ━ �쐞移� 議곗젙 */
+	left: -8px; /* 瑗щ━ �쐞移� 議곗젙 */
 	width: 0px;
 	height: 0px;
 	border-top: 8px solid transparent;
 	border-bottom: 8px solid transparent;
-	border-right: 8px solid #f5dc8c; /* 꼬리 색상 설정 */
+	border-right: 8px solid #f5dc8c; /* 瑗щ━ �깋�긽 �꽕�젙 */
 }
 
 .advice-balloon3_trans_his_selected{
@@ -1951,17 +1952,17 @@ input[id = "input_text"] {
 	top: 305px;
 	left: 1100px;
 }
-.advice-balloon3_trans_his_selected:after { /* 위쪽 꼬리만들기 */
+.advice-balloon3_trans_his_selected:after { /* �쐞履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
-	top: 10px; /* 꼬리 위치 조정 */
-	left: -8px; /* 꼬리 위치 조정 */
+	top: 10px; /* 瑗щ━ �쐞移� 議곗젙 */
+	left: -8px; /* 瑗щ━ �쐞移� 議곗젙 */
 	width: 0px;
 	height: 0px;
 	border-top: 8px solid transparent;
 	border-bottom: 8px solid transparent;
-	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+	border-right: 8px solid #dee2e6; /* 瑗щ━ �깋�긽 �꽕�젙 */
 }
 
 .advice-balloon4_trans_his_selected{
@@ -1969,7 +1970,7 @@ input[id = "input_text"] {
 	top: 410px;
 	left: 950px;
 }
-.advice-balloon4_trans_his_selected:after { /* 위쪽 꼬리만들기 */
+.advice-balloon4_trans_his_selected:after { /* �쐞履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
@@ -1980,24 +1981,24 @@ input[id = "input_text"] {
 	border-top: 8px solid none;
 	border-left: 8px solid transparent;
 	border-right: 8px solid transparent;
-	border-bottom: 8px solid #dee2e6; /*꼬리색깔 바꾸기 */}
+	border-bottom: 8px solid #dee2e6; /*瑗щ━�깋源� 諛붽씀湲� */}
 	
 .advice-balloon5_trans_his_selected{
 	background-color: #dee2e6;
 	top: 370px;
 	left: 1360px;
 }
-.advice-balloon5_trans_his_selected:after { /* 위쪽 꼬리만들기 */
+.advice-balloon5_trans_his_selected:after { /* �쐞履� 瑗щ━留뚮뱾湲� */
 	display: block;
 	content: '';
 	position: absolute;
-	top: 10px; /* 꼬리 위치 조정 */
-	left: -8px; /* 꼬리 위치 조정 */
+	top: 10px; /* 瑗щ━ �쐞移� 議곗젙 */
+	left: -8px; /* 瑗щ━ �쐞移� 議곗젙 */
 	width: 0px;
 	height: 0px;
 	border-top: 8px solid transparent;
 	border-bottom: 8px solid transparent;
-	border-right: 8px solid #dee2e6; /* 꼬리 색상 설정 */
+	border-right: 8px solid #dee2e6; /* 瑗щ━ �깋�긽 �꽕�젙 */
 }
 #modalClose{
 	background-color: #a39485;
@@ -2037,22 +2038,23 @@ input[id = "input_text"] {
 	background-color: #a39485;
     border-radius: 5px;
     padding: 5px 10px;
-    color: #fff; /* 텍스트 색상을 밝은 색상으로 변경 */
+    color: #fff; /* �뀓�뒪�듃 �깋�긽�쓣 諛앹� �깋�긽�쑝濡� 蹂�寃� */
 }
 .pagination_account .page-link_account:hover {
     background-color: #fff;
     border-radius: 5px;
     padding: 5px 10px;
-    color: black; /* 텍스트 색상을 밝은 색상으로 변경 */
+    color: black; /* �뀓�뒪�듃 �깋�긽�쓣 諛앹� �깋�긽�쑝濡� 蹂�寃� */
 }
 .page-link_account_choice{
 	background-color: #c0c0c0;
     border-radius: 5px;
     padding: 5px 10px;
-    color: black; /* 텍스트 색상을 밝은 색상으로 변경 */
+    color: black; /* �뀓�뒪�듃 �깋�긽�쓣 諛앹� �깋�긽�쑝濡� 蹂�寃� */
 }
 
-/*******************************도현********************************/
+<<<<<<< HEAD
+/*******************************�룄�쁽********************************/
 .button-like-link {
     display: inline-block;
     padding: 7px 15px;
@@ -2064,18 +2066,21 @@ input[id = "input_text"] {
     font-weight: bold;
     margin: 2px;
 }
+=======
+/*******************************도현********************************/
+>>>>>>> 8f34b02628c427903f60d177c27c02b57eadb4a0
 
 .table-hover tr:hover {
-  background-color: #f5f5f5; /* 호버 시 배경색을 변경하세요. */
-  cursor: pointer; /* 마우스 커서를 포인터로 변경하세요. */
+  background-color: #f5f5f5; /* �샇踰� �떆 諛곌꼍�깋�쓣 蹂�寃쏀븯�꽭�슂. */
+  cursor: pointer; /* 留덉슦�뒪 而ㅼ꽌瑜� �룷�씤�꽣濡� 蹂�寃쏀븯�꽭�슂. */
 }
 
-/* 현재 활성 페이지 링크 스타일 변경 */
+/* �쁽�옱 �솢�꽦 �럹�씠吏� 留곹겕 �뒪���씪 蹂�寃� */
 .pagination .page-item.active .page-link {
-  color: #000; /* 활성 페이지 링크 텍스트 색상 변경 */
-  font-weight: bold; /* 활성 페이지 링크 텍스트 굵게 설정 */
-  background-color: #ffcc00; /* 활성 페이지 링크 배경색을 노랑색으로 변경 */
-  border-color: #ffcc00; /* 활성 페이지 링크 테두리 색상 변경 */
+  color: #000; /* �솢�꽦 �럹�씠吏� 留곹겕 �뀓�뒪�듃 �깋�긽 蹂�寃� */
+  font-weight: bold; /* �솢�꽦 �럹�씠吏� 留곹겕 �뀓�뒪�듃 援듦쾶 �꽕�젙 */
+  background-color: #ffcc00; /* �솢�꽦 �럹�씠吏� 留곹겕 諛곌꼍�깋�쓣 �끂�옉�깋�쑝濡� 蹂�寃� */
+  border-color: #ffcc00; /* �솢�꽦 �럹�씠吏� 留곹겕 �뀒�몢由� �깋�긽 蹂�寃� */
 }
 
 .page-link {
@@ -2088,7 +2093,7 @@ input[id = "input_text"] {
     background-color: #ffcc00 !important;
 }
 
-/*******************************윤철**********************************/
+/*******************************�쑄泥�**********************************/
 .table-css table {
     width: 100%;
     border-top: 1px solid #444444;
@@ -2097,7 +2102,7 @@ input[id = "input_text"] {
 
 .table-css thead {
     width: 100%;
-    border-top: 2px solid #444444;
+    border-top: 1px solid #444444;
     border-collapse: collapse;
 }
 
@@ -2112,6 +2117,7 @@ input[id = "input_text"] {
 
 .table-css-bgc {
     background-color: #a39485;
+    color: white;
 }
 
 .point_table {
@@ -2127,15 +2133,11 @@ input[id = "input_text"] {
 }
 
 .button_tag {
-    border: 0;
-    outline: none;
-    font-size: 15px;
-    margin: 10px;
-    background: #a39485;
-    color: black;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 10px;
+    font-size: 16px;
+    background-color: #FFD64B;
+    border: none;
+    border-radius: 5px;
+    padding: 0.3rem 0.5rem;
 }
 
 .conversionBox {
@@ -2147,8 +2149,8 @@ input[id = "input_text"] {
 
 .column {
     display: inline-block;
-    vertical-align: top; /* 컬럼을 위쪽에 정렬합니다. */
-    margin-right: 1px; /* 필요한 경우 컬럼 사이의 간격을 조절합니다. */
+    vertical-align: top; /* 而щ읆�쓣 �쐞履쎌뿉 �젙�젹�빀�땲�떎. */
+    margin-right: 1px; /* �븘�슂�븳 寃쎌슦 而щ읆 �궗�씠�쓽 媛꾧꺽�쓣 議곗젅�빀�땲�떎. */
      padding: 40px;
 }
 
@@ -2166,8 +2168,8 @@ input[id = "input_text"] {
     border-bottom: 1px solid #333; 
     padding: 5px; 
     outline: none; 
-    width: 100%; 
-    font-size: 16px; 
+    width: 30%; 
+    font-size: 16px;
 }
 
 
@@ -2218,5 +2220,12 @@ input[id = "input_text"] {
     border-radius: 5px;
     padding: 5px 10px;
 }
+<<<<<<< HEAD
+/*******************************�닔�쁽**********************************/
+=======
+.nav.jus.tify-content-center {
+    justify-content: center;
+} 
 /*******************************수현**********************************/
+>>>>>>> 8f34b02628c427903f60d177c27c02b57eadb4a0
 /*test*//*test*/

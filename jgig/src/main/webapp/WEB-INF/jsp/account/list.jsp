@@ -253,10 +253,10 @@
 						</table>
 						<br>
 						<nav aria-label="Page navigation example" class="nav justify-content-center">
-						    <ul class="pagination_account">
+						    <ul class="pagination">
 						        <c:if test="${hasPrevious}">
 								    <li class="page-item">
-								        <a class="page-link_account" href="/jgig/account_list?currentPage=${currentPage - 1}" aria-label="Previous">
+								        <a class="page-link" href="/jgig/account_list?currentPage=${currentPage - 1}" aria-label="Previous">
 								            <span aria-hidden="true">이전</span>
 								        </a>
 								    </li>
@@ -266,12 +266,12 @@
 						            <c:choose>
 						                <c:when test="${page == currentPage}">
 						                    <li class="page-item active">
-						                        <span class="page-link_account_choice">${page} <span class="sr-only">(current)</span></span>
+						                        <span class="page-link">${page} <span class="sr-only">(current)</span></span>
 						                    </li>
 						                </c:when>
 						                <c:otherwise>
 						                    <li class="page-item">
-						                        <a class="page-link_account" href="/jgig/account_list?currentPage=${page}">${page}</a>
+						                        <a class="page-link" href="/jgig/account_list?currentPage=${page}">${page}</a>
 						                    </li>
 						                </c:otherwise>
 						            </c:choose>
@@ -279,7 +279,7 @@
 						
 						        <c:if test="${hasNext}">
 								    <li class="page-item">
-								        <a class="page-link_account" href="/jgig/account_list?currentPage=${currentPage + 1}" aria-label="Next">
+								        <a class="page-link" href="/jgig/account_list?currentPage=${currentPage + 1}" aria-label="Next">
 								            <span aria-hidden="true">다음</span>
 								        </a>
 								    </li>

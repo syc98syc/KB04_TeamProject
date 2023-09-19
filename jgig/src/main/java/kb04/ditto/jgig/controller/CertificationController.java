@@ -5,13 +5,20 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import kb04.ditto.jgig.mapper.CardMapper;
+
 @Controller
 public class CertificationController {
+	
+	@Autowired
+	private CardMapper cardMapper;
 	
 	@GetMapping("/jgig/certification")
 	public String certification(HttpSession session) {
@@ -57,16 +64,21 @@ public class CertificationController {
 	}
 	
 	@PostMapping("/jgig/certification_action")
-	public String certification_action(HttpSession session) {
+	public String certification_action(HttpSession session,Model model) {
 
 		String returnVal = login_check(session);
 		if (returnVal.equals("redirect:/jgig/login"))
 			return returnVal;
 		String mem_id = returnVal;
 
-		// test
-		System.out.println("로그인 아이디3 : " + mem_id);
-		System.out.println("action "+session.getAttribute("isARS"));
+		int countDailyCheckIn = cardMapper.countDailyCheckIn(mem_id, "인증서");
+		if(countDailyCheckIn==0) {
+			cardMapper.checkPoint(mem_id, 10, "인증서");
+			cardMapper.updatePoint(mem_id, 10); //멤버 포인트 업데이트
+			model.addAttribute("certifi_issu_point", "10 포인트가 적립되었습니다.");
+		}else {
+			model.addAttribute("certifi_issu_point", "이미 포인트가 지급되었습니다.");
+		}
 
 		return "certification/certifi_ok";
 	}

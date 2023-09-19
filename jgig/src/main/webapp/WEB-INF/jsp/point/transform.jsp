@@ -73,7 +73,7 @@
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                       	<li class="nav-item dropdown">
-                        	<a class="nav-link " href="/jgig/open_account1"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        	<a class="nav-link " role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             금융거래연습
                         	</a>
                         	<ul class="dropdown-menu">
@@ -88,28 +88,28 @@
                         	</ul>
                     	</li>
                         <li class="nav-item dropdown">
-                        	<a class="nav-link " href="/jgig/searchWord"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        	<a class="nav-link " role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             금융교육
                         	</a>
                         	<ul class="dropdown-menu">
                            	  <li><a class="dropdown-item" href="/jgig/searchWord">금융 용어 검색</a></li>
-                             <li><a class="dropdown-item" href="#">금융 상식 퀴즈</a></li>
+                             <li><a class="dropdown-item" href="/jgig/quiz">금융 상식 퀴즈</a></li>
                              <hr>
-                             <li><a class="dropdown-item" href="#">이용 가이드</a></li>
+                             <li><a class="dropdown-item" href="/jgig/guide">이용 가이드</a></li>
                         	</ul>
                     	</li>
                     	<li class="nav-item dropdown">
-                        	<a class="nav-link " href="#공지사항링크"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        	<a class="nav-link " role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             커뮤니티
                         	</a>
                         	<ul class="dropdown-menu">
-                           	 <li><a class="dropdown-item" href="#">공지사항</a></li>
+                           	 <li><a class="dropdown-item" href="/jgig/notice_list">공지사항</a></li>
                              <li><a class="dropdown-item" href="/jgig/board_list">게시판</a></li>
-                             <li><a class="dropdown-item" href="#">내가 쓴 글</a></li>
+                             <li><a class="dropdown-item" href="/jgig/board_my_list_action">내가 쓴 글</a></li>
                         	</ul>
                     	</li>
                     	<li class="nav-item dropdown">
-                        	<a class="nav-link " href="/jgig/findStore"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        	<a class="nav-link " role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             지점찾기
                         	</a>
                         	<ul class="dropdown-menu">
@@ -118,7 +118,7 @@
                         	</ul>
                     	</li>
                     	<li class="nav-item dropdown">
-                        	<a class="nav-link " href="/jgig/point_list"   role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        	<a class="nav-link " role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             마이포인트
                         	</a>
                         	<ul class="dropdown-menu">
@@ -143,7 +143,7 @@
 						<c:if test="${not empty sessionScope.mem_id}">
 							<li class="nav-item dropdown">
 								<a class="nav-icon position-relative text-decoration-none nav-link"
-									href="/jgig/member_detail" role="button" data-bs-toggle="dropdown"
+									 role="button" data-bs-toggle="dropdown"
 									aria-haspopup="true" aria-expanded="false"> <i
 										class="fa fa-fw fa-user text-dark mr-3"></i>
 									${sessionScope.mem_nm}님 <!--session값으로 받아오기 -->
