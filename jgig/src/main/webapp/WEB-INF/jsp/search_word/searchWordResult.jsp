@@ -216,18 +216,20 @@
 							<nav aria-label="Page navigation example">
 							  <ul class="pagination">
 							    <li class="page-item">
-							      <a class="page-link" onclick="ajaxPagination('1')" aria-label="Previous">
+							      <a class="page-link" onclick="prevBtnHandler()" aria-label="Previous">
 							        <span aria-hidden="true">&laquo;</span>
 							      </a>
 							    </li>
 							    
 							    <c:set var="pageCount" value="${Math.ceil(totalCount / 10)}" />
 								<c:forEach begin="1" end="${pageCount}" var="pageNum">
-								    <li class="page-item page-items"><a class="page-link">${pageNum}</a></li>
+								    <li class="page-item page-items ${currentPage == pageNum ? 'active' : ''}" id="page${pageNum}" >
+								    	<a class="page-link">${pageNum}</a>
+								    </li>
 								</c:forEach>
 								
 							    <li class="page-item">
-							      <a class="page-link" onclick="ajaxPagination(${pageCount})" aria-label="Next">
+							      <a class="page-link" onclick="nextBtnHandler()" aria-label="Next">
 							        <span aria-hidden="true">&raquo;</span>
 							      </a>
 							    </li>
@@ -284,6 +286,11 @@
 				var word = "${word}";
 				var pageNo = page.querySelector("a").innerText;
 				ajaxPagination(pageNo);
+				
+				pages.forEach(item => {
+					item.classList.remove("active");
+				});
+				page.classList.add("active");
 			});
 		});
 	}
@@ -308,6 +315,29 @@
 			}
 		}
 		$.ajax(options);
+	}
+	
+	function prevBtnHandler() {
+		ajaxPagination('1');
+		
+		var pages = document.querySelectorAll(".page-items");
+		pages.forEach(item => {
+			item.classList.remove("active");
+		});
+		var firstPageBtn = document.querySelector("#page1");
+	    firstPageBtn.classList.add("active");
+	}
+	
+	function nextBtnHandler() {
+		var endPage = parseInt('${Math.ceil(totalCount / 10)}');
+		ajaxPagination(endPage);
+		
+		var pages = document.querySelectorAll(".page-items");
+		pages.forEach(item => {
+			item.classList.remove("active");
+		});
+		var lastPageBtn = document.querySelector('#page'+endPage);
+	    lastPageBtn.classList.add("active");
 	}
 
 	</script>
