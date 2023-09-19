@@ -54,7 +54,6 @@ public class AccountController {
 	public String open_form1(HttpSession session) {
 		
 		String returnVal = login_check(session);
-		System.out.println(returnVal);
 		if (returnVal.equals("redirect:/jgig/login"))
 			return "redirect:/jgig/login";
 		
@@ -103,9 +102,6 @@ public class AccountController {
 		String mem_phone_num = (String) session.getAttribute("phone_num");
 		String mem_ssn = (String) session.getAttribute("ssn");
 		
-		
-		System.out.println(mem_phone_num);
-		System.out.println(phone_num);
 		if (mem_id != null) {
             // 사용자 정보 가져오기
             String mem_name = accountMapper.findById(mem_id);
