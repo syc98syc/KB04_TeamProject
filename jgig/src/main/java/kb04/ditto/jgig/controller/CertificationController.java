@@ -29,9 +29,6 @@ public class CertificationController {
 		String mem_id = returnVal;
 		session.setAttribute("isARS", false); //ARS 미확인
 
-		// test
-		System.out.println("로그인 아이디 : " + mem_id);
-		System.out.println("issu1 "+session.getAttribute("isARS"));
 
 		return "certification/certifi_form1";
 	}
@@ -43,9 +40,6 @@ public class CertificationController {
 			return returnVal;
 		String mem_id = returnVal;
 
-		// test
-		System.out.println("로그인 아이디 : " + mem_id);
-		System.out.println("issu2 "+session.getAttribute("isARS"));
 
 		return "certification/certifi_form2";
 	}
@@ -57,8 +51,6 @@ public class CertificationController {
 			return returnVal;
 		String mem_id = returnVal;
 
-		// test
-		System.out.println("로그인 아이디3 : " + mem_id);
 
 		return "certification/certifi_form3";
 	}
@@ -91,17 +83,12 @@ public class CertificationController {
 			return returnVal;
 		String mem_id = returnVal;
 		
-		
-
-		// test
-		System.out.println("로그인 아이디 : " + mem_id);
 
 		return "certification/ars";
 	}
 	
 	 @PostMapping("/jgig/ars_action")
 	    public void ars_action(@RequestParam("isARS") boolean isARS, HttpSession session, HttpServletResponse response) throws IOException {
-		 System.out.println("isARS : "+ isARS);   
 		 session.setAttribute("isARS", true);
 		 
 		 	response.setContentType("text/html;charset=UTF-8");
