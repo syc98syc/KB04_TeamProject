@@ -70,7 +70,7 @@
 #placeDetail .wt-table .tit {font-weight: 400; background-color: #f2f2f2;}
 #placeDetail .wt-table tbody tr:last-child {border-bottom: 1px solid #71675D;}
 #placeDetail .wtBtn-wrap {display:flex; justify-content: center;}
-#placeDetail #wtBtn {padding: 5px 10px;}
+#placeDetail #wtBtn {padding: 5px 10px;background-color: #FFD64A;}
 #placeDetail .detail-close {display: flex; justify-content: flex-end; cursor: pointer;}
 </style>
 </head>
@@ -295,16 +295,15 @@
 <script>
 	// 현재 위치
 	// 맥에서 위치정보 못받아서 와서 임시로 지정해둠 
-	const testLat = 37.502976;
-	const testLon = 127.0480896;
+	let testLat = 37.502976;
+	let testLon = 127.0480896;
 	function currentLocation() {
 		if(navigator.geoloaction){
-		console.log("위치정보 지원가능 ")
+			console.log("위치정보 지원가능 ")
 			navigator.geoloaction.getCurrentPosition((position)=>{
 				console.log(position);
-				const lat = position.coords.latitude; // 위도 
-				const lon = position.coords.longitude; // 경도 
-				console.log(lat, lon);
+				testLat = position.coords.latitude; // 위도 
+				testLon = position.coords.longitude; // 경도 
 			})
 		}
 		if(!navigator.geoloaction){
@@ -364,10 +363,6 @@
 	function placesSearchCB(data, status, pagination) {
 		if (status === kakao.maps.services.Status.OK) {
 
-			//console.log(data);
-			//var pdata = data.filter(place => place.place_name.indexOf('ATM') == -1);
-			// console.log(pdata);
-			
 			// 정상적으로 검색이 완료됐으면
 			// 검색 목록과 마커를 표출합니다
 			displayPlaces(data);
@@ -626,7 +621,7 @@
 							var btn = document.createElement('button');
 							btn.innerHTML = "번호표 발행";
 							btn.setAttribute("id", "wtBtn");
-							btn.setAttribute("class","btn btn-outline-dark");
+							btn.setAttribute("class","btn");
 							btn.onclick = function() {
 								 waitingHandler();
 							}

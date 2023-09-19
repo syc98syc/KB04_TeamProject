@@ -217,7 +217,7 @@
 									<hr>
 									<span style="font-size: 14px; margin-bottom: 40px;">* 예상대기시간은 참고사항으로 지점 상황에 따라 실제 대기시간과 다를 수 있는 점 양해부탁드립니다.</span>
 									<div class="ccBtn-wrap">
-										<button class="btn btn-outline-dark" onclick="waitingCancleHandler('${dto.wt_seq}')">번호표 취소</button>
+										<button class="btn ccBtn" onclick="waitingCancleHandler('${dto.wt_seq}')">번호표 취소</button>
 									</div>
 								</div>
 							</c:if>

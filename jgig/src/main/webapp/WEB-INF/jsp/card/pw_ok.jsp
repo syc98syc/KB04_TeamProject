@@ -21,6 +21,38 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+<script src="/assets/js/jquery-1.11.0.min.js"></script>
+	<script src="/assets/js/jquery-migrate-1.2.1.min.js"></script>
+	<script src="/assets/js/bootstrap.bundle.min.js"></script>
+	<script src="/assets/js/templatemo.js"></script>
+	<script src="/assets/js/custom.js"></script>
+<script>
+       
+
+        // 페이지 로딩시 초기에 실행되는 JavaScript 코드
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            // 모달 창닫기
+            $(function() {
+                $('#modalClose').click(function() {
+                    $('#myModal').modal('hide');
+                });
+            });
+
+            // 모달창 띄우기
+            function openModal(title, body) {
+                var modalTitle = document.getElementById("modal-title");
+                modalTitle.innerHTML = title; // 모달 제목
+                var modalBody = document.getElementById("modal-body");
+                modalBody.innerHTML = body; // 모달 내용
+                $("#myModal").modal('show');
+            }
+            
+            openModal("카드 비밀번호 변경","${card_pw_point}");
+        
+            
+        });
+    </script>
 </head>
 <body>
     <!-- Header -->
@@ -137,22 +169,24 @@
     </nav>
     <!-- Close Header -->
 
-	<!-- Modal -->
-	<div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="w-100 pt-1 mb-5 text-right">
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
-			<form action="" method="get" class="modal-content modal-body border-0 p-0">
-				<div class="input-group mb-2">
-					<input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
-					<button type="submit" class="input-group-text bg-success text-light">
-						<i class="fa fa-fw fa-search text-white"></i>
-					</button>
+		<!-- Start 모달  -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="modal-title"></h4>
 				</div>
-			</form>
+				<div class="modal-body" id="modal-body">
+					<p></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal" id="modalClose">Close</button>
+				</div>
+			</div>
 		</div>
 	</div>
+<!-- End 모달  -->
 
 	<!-- Start Content -->
 	<div class="container py-5">
@@ -231,15 +265,7 @@
 	</footer>
 	<!-- End Footer -->
 
-	<!-- Start Script -->
-	<script src="/assets/js/jquery-1.11.0.min.js"></script>
-	<script src="/assets/js/jquery-migrate-1.2.1.min.js"></script>
-	<script src="/assets/js/bootstrap.bundle.min.js"></script>
-	<script src="/assets/js/templatemo.js"></script>
-	<script src="/assets/js/custom.js"></script>
-
-
-	<!-- End Script -->
+	
 
 </body>
 </html>

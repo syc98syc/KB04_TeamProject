@@ -209,17 +209,12 @@
 						<!-- 여기에 넣으시며 됩니당 -->
 						<div id="content">
 							<table class="table table-hover">
-								<caption>공지사항
-									-------------------------------------------------- 총 게시글:
-									${requestScope.total }
-									--------------------------------------------------- 총 페이지:
-									${criteria.totalPage }</caption>
-								<tr>
-									<th>번호</th>
+								<tr style="background: #FFD64A;">
+									<th style="border-top-left-radius: 15px;">번호</th>
 									<th>제목</th>
 									<th>작성자</th>
 									<th>작성일</th>
-									<th>조회수</th>
+									<th style="border-top-right-radius: 15px; ">조회수</th>
 									<c:forEach items="${notice_list}" var="ntc">
 										<tr onclick="goToNoticeDetail(${ntc.ntc_id})">
 											<td>${ntc.ntc_id }</td>
@@ -229,7 +224,11 @@
 											<td>${ntc.ntc_view }</td>
 										</tr>
 									</c:forEach>
+									<th colspan="2" style="text-align: center;">총 게시글: ${requestScope.total }</th>
+									<th style="text-align: center;">총 페이지: ${criteria.totalPage }</th>
+									<th colspan="2" style="text-align: center;">공지사항</th>
 							</table>
+							
 
 							<script>
 							  function goToNoticeDetail(noticeId) {

@@ -60,7 +60,13 @@ public interface PointMapper {
             "VALUES (POINT_SEQ.NEXTVAL, #{point, jdbcType=NUMERIC}, SYSDATE, '출석', #{memId, jdbcType=VARCHAR})")
     int checkPoint(@Param("memId") String memId, @Param("point") int point);
     
+    //멤버 포인트 업데이트
+    @Update("update member set score=score+#{point} where mem_id=#{memId}")
+    int updatePoint(@Param("memId") String memId, @Param("point") int point);
+    
     //출석체크 중복확인!
-    @Select("SELECT COUNT(*) FROM POINT WHERE MEM_ID = #{memId} AND TRUNC(POINT_DATE) = TRUNC(SYSDATE)")
+    @Select("SELECT COUNT(*) FROM POINT WHERE MEM_ID = #{memId} AND TRUNC(POINT_DATE) = TRUNC(SYSDATE) AND DIVISION='출석' ")
     int countDailyCheckIn(@Param("memId") String memId);
+    
+    
 }

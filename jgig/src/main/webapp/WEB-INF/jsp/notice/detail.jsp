@@ -221,7 +221,7 @@
 								<td>${dto.ntc_view+1}</td>
 							</tr>
 							<tr>
-								<td colspan="10">${dto.ntc_content}</td>
+								<td colspan="10" style="height:250px;">${dto.ntc_content}</td>
 							</tr>
 
 						</table>
