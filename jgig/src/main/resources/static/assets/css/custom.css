@@ -157,7 +157,7 @@ body, ul, li, p, a, label, input, div {
 
 .cardlistbtn {
 	font-size: 15px;
-	background-color: #FFD64B;
+	background-color: ##FFD64A;
 	border: none;
 	border-radius: 5px;
 	padding: 0.3rem;
@@ -240,7 +240,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 .card-sumit-btn {
 	font-size: 18px;
 	width: 20%;
-	background-color: #FFD64B;
+	background-color: ##FFD64A;
 	border: none;
 	border-radius: 5px;
 	padding: 0.3rem;
@@ -248,7 +248,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 .card-vaild-btn {
 	font-size: 18px;
-	background-color: #FFD64B;
+	background-color: ##FFD64A;
 	border: none;
 	border-radius: 5px;
 	padding: 0.3rem 0.5rem;
@@ -488,7 +488,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 #ars-hr {
 	border: 0;
 	height: 5px;
-	background: #FFD64B;
+	background: ##FFD64A;
 }
 
 .ars-table {
@@ -907,7 +907,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 .page_span_cd{
-	background-color: #ffcc00 !important;
+	background-color: ##FFD64A !important;
 }
 /*******************************다윤********************************/
 
