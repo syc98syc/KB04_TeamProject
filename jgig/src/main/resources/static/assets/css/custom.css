@@ -896,8 +896,18 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 	padding-right: 10%;
 }
 
-.cardlistcss table thead th{
+.cardlistcss table thead th {
 	font-size: 15px;
+}
+
+.page_num_cd {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.page_span_cd{
+	background-color: #ffcc00 !important;
 }
 /*******************************다윤********************************/
 
