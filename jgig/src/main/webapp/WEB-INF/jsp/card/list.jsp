@@ -232,7 +232,7 @@ https://templatemo.com/tm-559-zay-shop
 						</table>
 						
 						
-						<div id="page_control " class="text-center pt-2">
+						<div id="page_control " class="text-center pt-2 page_num_cd">
 							
 							<c:choose>
 								<c:when test="${page<=1}">
@@ -240,18 +240,18 @@ https://templatemo.com/tm-559-zay-shop
 								</c:when>
 
 								<c:otherwise>
-									<a class="none-a" href="/jgig/card_list?pageNum=${page-1}">[이전]</a>
+									<a class="none-a page-link" href="/jgig/card_list?pageNum=${page-1}">[이전]</a>
 								</c:otherwise>
 							</c:choose>
 
 							<c:forEach begin="${startPage}" end="${endPage}" var="i" step="1">
 								<c:choose>
 									<c:when test="${i eq page}">
-										<span>${i}</span>
+										<span class="page-link page_span_cd">${i}</span>
 									</c:when>
 
 									<c:otherwise>
-										<a class="none-a" href="/jgig/card_list?pageNum=${i}">${i}</a>
+										<a class="none-a page-link" href="/jgig/card_list?pageNum=${i}">${i}</a>
 									</c:otherwise>
 
 								</c:choose>
@@ -262,7 +262,7 @@ https://templatemo.com/tm-559-zay-shop
 									
 								</c:when>
 								<c:otherwise>
-									<a class="none-a" href="/jgig/card_list?pageNum=${page+1}">[다음]</a>
+									<a class="none-a page-link" href="/jgig/card_list?pageNum=${page+1}">[다음]</a>
 								</c:otherwise>
 							</c:choose>
 
