@@ -23,7 +23,7 @@ public interface MainMapper {
 	@Select("select * from(select * from notice order  by ntc_id desc) where rownum<=7")
 	public List<NoticeDto> notice_list();
 	
-	@Select("SELECT nickname,score FROM (SELECT RANK() OVER (ORDER BY score DESC) AS ranking, nickname, score FROM member)WHERE ranking <= 10")
+	@Select("SELECT nickname,score FROM (SELECT ROW_NUMBER() OVER (ORDER BY score DESC) AS ranking, nickname, score FROM member)WHERE ranking <= 10")
 	public List<MemberDto> point_rank();
 	
 	@Select("select * from point where mem_id=#{mem_id}  AND DIVISION='출석' AND  extract(month from to_date(point_date))=extract(month from sysdate) order by point_date")
