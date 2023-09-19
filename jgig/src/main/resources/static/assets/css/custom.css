@@ -1330,7 +1330,7 @@ input[id = "input_text"] {
 	/* 세 번째 말풍선의 스타일 */
 	background-color: #dee2e6;
 	top: 685px;
-	left: 1100px;
+	left: 55%;
 }
 
  .advice-balloon4:after{ /* 왼쪽 꼬리만들기 */
@@ -1359,7 +1359,7 @@ input[id = "input_text"] {
 	/* 세 번째 말풍선의 스타일 */
 	background-color: #dee2e6;
 	top: 300px;
-	left: 1280px;
+	left: 70%;
 }
 .advice-balloon1_account2:after{ /* 왼쪽 꼬리만들기 */
 	display: block;
@@ -1378,7 +1378,7 @@ input[id = "input_text"] {
 	/* 세 번째 말풍선의 스타일 */
 	background-color: #dee2e6;
 	top: 530px;
-	left: 1280px;
+	left: 70%;
 }
 .advice-balloon2_account2:after{ /* 왼쪽 꼬리만들기 */
 	display: block;
@@ -1397,7 +1397,7 @@ input[id = "input_text"] {
 	/* 세 번째 말풍선의 스타일 */
 	background-color: #f5dc8c;
 	top: 675px;
-	left: 1100px;
+	left: 57%;
 }
 
  .advice-balloon3_account2:after{ /* 왼쪽 꼬리만들기 */
@@ -1423,8 +1423,8 @@ input[id = "input_text"] {
 .advice-balloon1_accountList {
 	/* 첫 번째 말풍선의 스타일 */
 	background-color: #f5dc8c;
-	top: 350px;
-	left: 1030px;
+	top: 335px;
+	left: 53%;
 }
 
 .advice-balloon1_accountList:after{ /* 위쪽 꼬리만들기 */
@@ -1446,7 +1446,7 @@ input[id = "input_text"] {
 .advice-balloon1_accountManage{
 	background-color: #f5dc8c;
 	top: 510px;
-	left: 1065px;
+	left: 55%;
 }
 .advice-balloon1_accountManage:after{ /* 위쪽 꼬리만들기 */
      display: block; 
@@ -1467,7 +1467,7 @@ input[id = "input_text"] {
 .advice-balloon1_update-password{
 	background-color: #dee2e6;
 	top: 395px;
-	left: 985px;
+	left: 50%;
 }
 .advice-balloon1_update-password:after{ /* 위쪽 꼬리만들기 */
      display: block; 
@@ -1485,7 +1485,7 @@ input[id = "input_text"] {
 .advice-balloon2_update-password{
 	background-color: #dee2e6;
 	top: 460px;
-	left: 1360px;
+	left: 70%;
 }
 .advice-balloon2_update-password:after{ /* 위쪽 꼬리만들기 */
      display: block; 
@@ -1503,7 +1503,7 @@ input[id = "input_text"] {
 .advice-balloon1_accountPassword_ok{
 	background-color: #dee2e6;
 	top: 510px;
-	left: 1105px;
+	left: 57%;
 }
 .advice-balloon1_accountPassword_ok:after{ /* 위쪽 꼬리만들기 */
      display: block; 
@@ -1546,7 +1546,7 @@ input[id = "input_text"] {
 .advice-balloon1_accountStop{
 	background-color: #f5dc8c;
 	top: 180px;
-	left: 850px;
+	left: 40%;
 }
 .advice-balloon1_accountStop:after{ /* 왼쪽 꼬리만들기 */
 	display: block;
@@ -1564,7 +1564,7 @@ input[id = "input_text"] {
 .advice-balloon2_accountStop{
 	background-color: #dee2e6;
 	top: 459px;
-	left: 1200px;
+	left: 60%;
 } 
 .advice-balloon2_accountStop:after{ /* 왼쪽 꼬리만들기 */
 	display: block;
@@ -1581,7 +1581,7 @@ input[id = "input_text"] {
 .advice-balloon3_accountStop{
 	background-color: #dee2e6;
 	top: 620px;
-	left: 580px;
+	left: 30.3%;
 } .advice-balloon3_accountStop:after{ /* 위쪽 꼬리만들기 */
     display: block; 
     content: ''; 
@@ -1597,8 +1597,8 @@ input[id = "input_text"] {
 }
 .advice-balloon4_accountStop{
 	background-color: #dee2e6;
-	top: 620px;
-	left: 1200px;
+	top: 600px;
+	left: 63%;
 } 
 .advice-balloon4_accountStop:after{ /* 위쪽 꼬리만들기 */
    display: block;
@@ -1615,7 +1615,7 @@ input[id = "input_text"] {
 .advice-balloon1_accountStopOk{
 	background-color: #dee2e6;
 	top: 420px;
-	left: 1155px;
+	left: 60%;
 }
 .advice-balloon1_accountStopOk:after{ /* 위쪽 꼬리만들기 */
     display: block; 
@@ -1636,7 +1636,7 @@ input[id = "input_text"] {
 .advice-balloon1_transferform{ /* 두 번째 말풍선의 스타일 */
 	background-color: #f5dc8c;
 	top: 240px;
-	left: 750px;
+	left: 40%;
 }
 .advice-balloon1_transferform:after{ /* 왼쪽 꼬리만들기 */
 	display: block;
@@ -1654,7 +1654,7 @@ input[id = "input_text"] {
 .advice-balloon2_transferform{ /* 두 번째 말풍선의 스타일 */
 	background-color: #dee2e6;
 	top: 360px;
-	left: 1250px;
+	left: 60%;
 }
 .advice-balloon2_transferform:after{ /* 왼쪽 꼬리만들기 */
 	display: block;
@@ -1671,7 +1671,7 @@ input[id = "input_text"] {
 .advice-balloon3_transferform{ /* 두 번째 말풍선의 스타일 */
 	background-color: #dee2e6;
 	top: 410px;
-	left: 1250px;
+	left: 60%;
 }
 .advice-balloon3_transferform:after{ /* 왼쪽 꼬리만들기 */
 	display: block;
@@ -1688,7 +1688,7 @@ input[id = "input_text"] {
 .advice-balloon4_transferform{ /* 두 번째 말풍선의 스타일 */
 	background-color: #dee2e6;
 	top: 455px;
-	left: 1250px;
+	left: 60%;
 }
 .advice-balloon4_transferform:after{ /* 왼쪽 꼬리만들기 */
 	display: block;
@@ -1705,7 +1705,7 @@ input[id = "input_text"] {
 .advice-balloon5_transferform{ /* 두 번째 말풍선의 스타일 */
 	background-color: #dee2e6;
 	top: 502px;
-	left: 1250px;
+	left: 60%;
 }
 .advice-balloon5_transferform:after{ /* 왼쪽 꼬리만들기 */
 	display: block;
@@ -1723,7 +1723,7 @@ input[id = "input_text"] {
 .advice-balloon6_transferform{ /* 두 번째 말풍선의 스타일 */
 	background-color: #dee2e6;
 	top: 550px;
-	left: 1250px;
+	left: 60%;
 }
 .advice-balloon6_transferform:after{ /* 왼쪽 꼬리만들기 */
 	display: block;
@@ -1740,7 +1740,7 @@ input[id = "input_text"] {
 .advice-balloon7_transferform{ /* 두 번째 말풍선의 스타일 */
 	background-color: #dee2e6;
 	top: 620px;
-	left: 1250px;
+	left: 60%;
 }
 .advice-balloon7_transferform:after{ /* 왼쪽 꼬리만들기 */
     display: block;
@@ -1757,7 +1757,7 @@ input[id = "input_text"] {
 .advice-balloon1_transferform2{
 	background-color: #dee2e6;
 	top: 550px;
-	left: 1300px;
+	left: 68%;
 }
 
 .advice-balloon1_transferform2:after { /* 위쪽 꼬리만들기 */
@@ -1776,7 +1776,7 @@ input[id = "input_text"] {
 .advice-balloon2_transferform2{
 	background-color: #dee2e6;
 	top: 550px;
-	left: 1500px;
+	left: 78%;
 }
 
 .advice-balloon2_transferform2:after { /* 위쪽 꼬리만들기 */
