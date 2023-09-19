@@ -207,6 +207,11 @@
 				<div class="row">
 					<div id="service-content">
 						<!-- 여기에 넣으시며 됩니당 -->
+						<script>
+									alert('댓글을 삭제하면 복구되지 않습니다. \n그래도 삭제하고싶으시면 오른쪽 아래 삭제 버튼을 눌러주세요.');
+								</script>
+						
+						
 						<h1>댓글 삭제</h1>
 						<form action="comment_delete_action" method="post">
 							<fieldset>
@@ -219,9 +224,6 @@
 								<!--
 									<input type="submit" value="댓글 삭제">
 									-->
-								<h2 style="color: red;">
-									댓글을 삭제하면 복구되지 않습니다. <br> 그래도 삭제하고싶으시면 오른쪽 삭제 버튼을 눌러주세요.
-								</h2>
 								<a href="comment_delete_action?brd_id=${dto.brd_id}"><button
 										class="btn btn-outline-warning" style="float: right;">댓글 삭제</button></a><br>
 								<br>
@@ -231,6 +233,8 @@
 						<a href="board_detail?no=${dto.brd_id}"><button
 								class="btn btn-outline-warning">보던 글</button></a> <a href="board_list"><button
 								class="btn btn-outline-warning">게시판 목록</button></a>
+								
+								
 					</div>
 				</div>
 			</div>

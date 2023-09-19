@@ -205,6 +205,10 @@
 				<div class="row">
 					<div id="service-content">
 						<!-- 여기에 넣으시며 됩니당 -->
+						<script>
+									alert('게시글을 삭제하면 게시글과 댓글이 복구되지 않습니다. \n그래도 삭제하고싶으시면 오른쪽 삭제 버튼을 눌러주세요.');
+								</script>
+								
 						<h1>게시물 삭제</h1>
 						<form action="board_delete_action" method="post">
 							<fieldset>
@@ -217,10 +221,6 @@
 								<!--
 									<input type="submit" value="게시물 삭제">
 									-->
-								<h2 style="color: red;">
-									게시글을 삭제하면 게시글과 댓글이 복구되지 않습니다. <br> 그래도 삭제하고싶으시면 오른쪽 삭제 버튼을
-									눌러주세요.
-								</h2>
 								<a href="/jgig/board_delete_action"><button
 										class="btn btn-outline-warning" style="float: right;">게시물 삭제</button></a><br>
 								<br>
