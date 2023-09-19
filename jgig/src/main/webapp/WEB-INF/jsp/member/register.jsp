@@ -156,7 +156,7 @@
 		        <br>
 		        
 		        <button type="submit"class="submit-btn">회원가입</button>
-		        <button type="button" onclick="location.href='/jgig'" class="submit-btn">메인페이지로</button>
+		        <button type="button" onclick="location.href='/jgig/'" class="submit-btn">메인페이지로</button>
 		        
 		    	</form>
 	    	</div>
