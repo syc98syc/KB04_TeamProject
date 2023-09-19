@@ -1107,6 +1107,9 @@ ul.word-list>li .inner {
 	justify-content: center;
 }
 
+.ccBtn-wrap .ccBtn {
+	background-color: #FFD64A;
+}
 .noinfo-wrap {
 	display: flex;
 	flex-direction: column;
@@ -1117,6 +1120,7 @@ ul.word-list>li .inner {
 .noinfo-wrap>span {
 	font-size: 60px;
 }
+
 /*******************************희주********************************/
 .check_user{
 	background-color: #EEEEEE;	
