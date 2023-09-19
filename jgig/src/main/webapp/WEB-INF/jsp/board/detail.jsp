@@ -221,7 +221,7 @@
 								<th>조회수</th>
 								<td>${dto.brd_view+1}</td>
 							</tr>
-							<tr>
+							<tr style="height:250px;">
 								<td colspan="12"><text rows="3" cols="60">${dto.brd_content}</text></td>
 							</tr>
 							<tr align="center">
