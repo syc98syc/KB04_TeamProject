@@ -226,9 +226,11 @@
 							<h5 class="fw-bold mb-sm-3"><i class="bi bi-cash-coin"></i> 계좌</h5>
 								<ul>
 									<li><a href="#account_issu">계좌 개설 방법</a></li>
-									<li><a href="#">계좌 이체 방법</a></li>
-									<li><a href="#">계좌 조회 방법</a></li>
-									<li><a href="#">이외</a></li>
+									<li><a href="#account_send">계좌 이체 방법</a></li>
+									<li><a href="#account_list">계좌 거래 내역 조회 방법</a></li>
+									<li><a href="#account_pw">계좌 비밀번호 변경 방법</a></li>
+									<li><a href="#account_cancel">계좌 해지 방법</a></li>
+									
 								</ul>
 								<hr>
 								<h5 class="fw-bold mb-sm-3"><i class="bi bi-credit-card"></i> 카드</h5>
@@ -259,6 +261,23 @@
 							<p id="account_issu" class="guid-subtitle">- 계좌 개설 방법</p>
 								<video controls src="/assets/video/계좌 개설.mp4" width="90%"></video>
 							</div>
+							<div class="subcontent">
+							<p id="account_list" class="guid-subtitle">- 계좌 거래 내역 조회 방법</p>
+								<video controls src="/assets/video/계좌 거래내역조회.mp4" width="90%"></video>
+							</div>
+							<div class="subcontent">
+							<p id="account_send" class="guid-subtitle">- 계좌 이체 방법</p>
+								<video controls src="/assets/video/계좌이체.mp4" width="90%"></video>
+							</div>
+							<div class="subcontent">
+							<p id="account_pw" class="guid-subtitle">- 계좌 비밀번호 수정 방법</p>
+								<video controls src="/assets/video/계좌비밀번호수정.mp4" width="90%"></video>
+							</div>
+							<div class="subcontent">
+							<p id="account_cancel" class="guid-subtitle">- 계좌 해지 방법</p>
+								<video controls src="/assets/video/계좌해지.mp4" width="90%"></video>
+							</div>
+							
 						</div>
 <hr>
 						<div class="subcontent">

@@ -374,7 +374,6 @@
 			var detailWrap = document.querySelector("#placeDetail");
 			detailWrap.innerHTML = "";
 			detailWrap.style.display = "none";
-			
 
 		} else if (status === kakao.maps.services.Status.ZERO_RESULT) {
 
@@ -568,8 +567,14 @@
 	function displayDetail(store){
 		var detailWrap = document.querySelector("#placeDetail");
 		detailWrap.innerHTML = "";
-		detailWrap.style.display = "block";	
+		detailWrap.style.display = "flex";	
+		detailWrap.style.justifyContent = "center";
+		detailWrap.style.alignItems = "center";
 		//console.log(store);
+		
+		var spinner = document.createElement('div');
+		spinner.setAttribute("id","spinner");
+		detailWrap.append(spinner);
 		
 		// 테스트 중 
 		var storeCodeInfo = [
@@ -596,6 +601,9 @@
 				url : "/jgig/waitingClient",
 				data: data,
 				success : function(data) {
+					var spinner = document.querySelector("#spinner");
+					spinner.style.display = "none";	
+					detailWrap.style.display = "block";	
 					// console.log(data);
 					placeInfo = data;
 					
