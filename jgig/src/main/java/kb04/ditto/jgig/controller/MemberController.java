@@ -100,7 +100,7 @@ public class MemberController {
     @GetMapping("/jgig/logout")
     public String logout(HttpSession session) { // 로그아웃
         session.invalidate();
-        return "redirect:/jgig/login";
+        return "redirect:/jgig/";
     }
     
 //    @PostMapping("/jgig/logout")
