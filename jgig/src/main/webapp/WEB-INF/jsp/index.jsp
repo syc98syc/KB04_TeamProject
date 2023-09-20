@@ -269,7 +269,7 @@ https://templatemo.com/tm-559-zay-shop
 								<li class="is_on"><a class="main-brd-a" onclick="showTab('tab1', this)">공지사항</a></li>
 								<li><a class="main-brd-a" onclick="showTab('tab2', this)">게시판</a></li>
 								<li><a class="main-brd-a" onclick="showTab('tab3', this)">Q&A</a></li>
-								<li class="main-brd-plus"><a class="main-brd-a" href="/jgig/add_notice">+</a></li>
+								<li class="main-brd-plus"><a class="main-brd-a" href="/jgig/notice_list">+</a></li>
 							</ul>
 							<br>
 							<div id="tab1" class="cont">
@@ -411,7 +411,7 @@ https://templatemo.com/tm-559-zay-shop
 			if (plusButton) {
 				switch (tabId) {
 				case 'tab1':
-					plusButton.href = '/jgig/add_notice'; // 공지사항 탭인 경우
+					plusButton.href = '/jgig/notice_list'; // 공지사항 탭인 경우
 					break;
 				case 'tab2':
 					plusButton.href = '/jgig/board_list'; // 자유게시판 탭인 경우
