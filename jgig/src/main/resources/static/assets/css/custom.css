@@ -2150,6 +2150,11 @@ input[id = "input_text"] {
     width: 100%;
 }
 
+.mypage_table {
+    width: 40%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+    }
 .find-btn {
     text-align: center;
 }
