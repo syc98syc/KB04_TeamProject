@@ -256,7 +256,8 @@
 						        <ul id="placesList"></ul>
 						        <div id="pagination"></div>
 						    </div>
-					        <div id="placeDetail"></div>
+					        <div id="placeDetail">
+					        </div>
 						</div>
 					</div>
 				</div>

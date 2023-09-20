@@ -256,7 +256,8 @@
 						        <ul id="placesList"></ul>
 						        <div id="pagination"></div>
 						    </div>
-					        <div id="placeDetail"></div>
+					        <div id="placeDetail">
+					        </div>
 						</div>
 					</div>
 				</div>
@@ -575,6 +576,7 @@
 		var spinner = document.createElement('div');
 		spinner.setAttribute("id","spinner");
 		detailWrap.append(spinner);
+		//var spinner = document.querySelector("#spinner");
 		
 		// 테스트 중 
 		var storeCodeInfo = [
