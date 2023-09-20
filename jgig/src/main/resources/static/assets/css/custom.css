@@ -909,6 +909,35 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 .page_span_cd{
 	background-color: #ffcc00 !important;
 }
+
+/**이용 가이드**/
+.guid-subtitle{
+	    font-size: 20px !important;
+    font-weight: 400 !important;
+}
+.guid-summ{
+	padding: 2rem;
+    background-color: #ECECEC;
+    border-radius: 20px;
+}
+.guid-summ a{
+	color: black;
+	font-size: 20px !important;
+	text-decoration: none;
+	padding:0.2rem;
+	font-weight: 400 !important;
+}
+
+.guid-summ a:hover{
+	background-color: white;
+	padding:0.2rem;
+	border-radius: 30px;
+	
+}
+
+.guid-summ>ul{
+	   list-style: none;
+}
 /*******************************다윤********************************/
 
 /* 퀴즈 */
