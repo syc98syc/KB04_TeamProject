@@ -26,7 +26,7 @@ public interface AccountMapper {
 			+ "#{act_password}, 500000, sysdate, #{mem_nm}, #{ssn}, #{phone_num}, #{job}, #{pur_trans}, #{sor_fund}, #{mem_id})")
 	public int insert(AccountDto dto);
 	
-	@Select("select * from (select rownum num, account from (select * from account a where mem_nm = #{mem_id} order by regdate desc)) where num = 1;")
+	@Select("select account from (select rownum num, account from (select * from account a where mem_nm = #{mem_nm} order by regdate desc)) where num = 1")
 	public long account_num(AccountDto dto);
 	
 	@Select("select act_name, account, regdate, balance, act_password from account where account = #{account}")
