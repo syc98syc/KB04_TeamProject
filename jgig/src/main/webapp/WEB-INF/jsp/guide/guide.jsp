@@ -314,9 +314,8 @@
 								</colgroup>
 								<tr>
 									<td scope="col"><a href="#findStore"><img
-											src="/assets/img/인증서발급사진.png" height="88px"></a><br>지점찾기/번호표 발행 방법</td>
-									<td scope="col"><a href="#listStore"><img
-											src="/assets/img/번호표사진.png" height="88px"></a><br>번호표 조회 및 취소</td>
+											src="/assets/img/지점찾기사진.png" height="88px"></a><br>지점찾기/번호표 발행 방법</td>
+									<td scope="col"></td>
 									<td scope="col"></td>
 									<td scope="col"></td>
 									<td scope="col"></td>
@@ -385,12 +384,9 @@
 								<h3 class="h3-subtitle">지점찾기 및 번호표 발행</h3>
 								<div class="subcontent">
 									<p id="findStore" class="guid-subtitle">- 지점찾기 및 번호표 발행 방법</p>
-									<video controls src="/assets/video/.mp4" width="90%"></video>
+									<video controls src="/assets/video/지점찾기 및 번호표 발행.mp4" width="90%"></video>
 								</div>
-								<div class="subcontent">
-									<p id="listStore" class="guid-subtitle">- 번호표 조회 및 취소</p>
-									<video controls src="/assets/video/.mp4" width="90%"></video>
-								</div>
+								
 							</div>
 						</div>
 					</div>
