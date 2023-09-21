@@ -160,7 +160,6 @@ public class AccountController {
 		int size = 3;
 		
 		int total = accountMapper.list(mem_id);
-		System.out.println(total);
 	    int pagingCount = 2;
 	    
 	    int totalPages = total/size;
@@ -179,7 +178,7 @@ public class AccountController {
 	    }
 	    
 	    List<AccountDto> list = accountMapper.listWithPaging(mem_id, currentPage*size-size+1, currentPage*size);
-	    System.out.println(list);
+	    
 		if(list.size() == 0 ) {
 			return "account/no_account";
 		}
