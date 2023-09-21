@@ -60,7 +60,7 @@
 #pagination {margin:10px auto;text-align: center;}
 #pagination a {display:inline-block;margin-right:10px;}
 #pagination .on {font-weight: bold; cursor: default;color:#777;}
-#searchBtn {padding: 1px 4px; font-size: 16px}
+#searchBtn {padding: 1px 4px; font-size: 12px}
 #formWrap {display: flex;align-items: center;}
 #placeDetail {display:none; position:absolute;top:0;left:251px;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.9);z-index: 1;font-size:12px;border-radius: 10px;}
 #placeDetail .detail-wrap {padding: 12px;}
@@ -72,6 +72,7 @@
 #placeDetail .wtBtn-wrap {display:flex; justify-content: center;}
 #placeDetail #wtBtn {padding: 5px 10px;background-color: #FFD64A;}
 #placeDetail .detail-close {display: flex; justify-content: flex-end; cursor: pointer;}
+#keyword {width: 110px;}
 </style>
 </head>
 <body>
