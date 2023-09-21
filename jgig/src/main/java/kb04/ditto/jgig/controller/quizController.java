@@ -30,7 +30,7 @@ public class quizController {
 	int dayOfMonth = now.getDayOfMonth();
 	int ans = dayOfMonth % 4;
 	//int ans = 3; // 정답 
-	String question = Integer.toString(dayOfMonth * dayOfMonth % 160);
+	// String question = Integer.toString(dayOfMonth * dayOfMonth % 160);
 	
 	@Autowired
 	private QuizMapper quizMapper;
@@ -55,7 +55,7 @@ public class quizController {
 		
 		
 		String URL = "https://m.kbcapital.co.kr/cstmrPtct/fnncInfoSqre/fnncTmng.kbc";
-		Document doc = Jsoup.connect(URL).data("targetRow", question).data("rowSize","4").get();
+		Document doc = Jsoup.connect(URL).data("targetRow", "127").data("rowSize","4").get();
 		Elements el = doc.select("ul[class=\"sp-accord nospace\"]");
 		
 		List<Map<String, String>> resultList = new LinkedList<Map<String, String>>();
