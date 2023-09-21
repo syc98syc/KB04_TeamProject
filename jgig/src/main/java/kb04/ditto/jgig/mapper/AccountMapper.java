@@ -15,7 +15,7 @@ public interface AccountMapper {
 	@Select("select count(*) from account where mem_id = #{mem_id} order by regdate desc, account")
 	public int list(String mem_id);
 	
-	@Select("select rownum num, account, act_name, act_password, balance, regdate, mem_nm, ssn, phone_num, job, pur_trans, sor_fund, mem_id from (select rownum num, a.*from ( select * from account  where mem_id = #{mem_id} order by regdate desc, balance desc) a )where mem_id = 'kk12345' and num between #{startPage} and #{endPage}")
+	@Select("select rownum num, account, act_name, act_password, balance, regdate, mem_nm, ssn, phone_num, job, pur_trans, sor_fund, mem_id from (select rownum num, a.*from ( select * from account  where mem_id = #{mem_id} order by regdate desc, balance desc) a )where mem_id = '#{mem_id}' and num between #{startPage} and #{endPage}")
 	public List<AccountDto> listWithPaging(String mem_id, int startPage, int endPage);
 	
 	@Select("select count(*) from point where TO_CHAR(point_date, 'YYYY-MM-DD')= #{str_regdate} and mem_id = #{mem_id} and division = #{division}")
