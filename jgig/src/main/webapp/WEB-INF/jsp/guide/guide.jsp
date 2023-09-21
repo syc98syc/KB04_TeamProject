@@ -28,7 +28,8 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400&display=swap"
 	rel="stylesheet">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
 </head>
 
 <body>
@@ -218,68 +219,141 @@
 				<div class="row">
 					<div id="service-content">
 						<!-- 여기에 넣으시며 됩니당 -->
+													<p class="ps-3">*궁금한 주제를 클릭하면 해당 영상으로 이동합니다</p>
+						
 						<div class="subcontent">
+							<h5 ><i class="bi bi-cash-coin"></i> 계좌</h5>
+							<table class="guid-table-size">
+								<colgroup>
+									<col width="20%">
+									<col width="20%">
+									<col width="20%">
+									<col width="20%">
+									<col width="20%">
+								</colgroup>
+								<tr>
+									<td scope="col"><a href="#account_issu"><img
+											src="/assets/img/계좌개설사진.png" height="80px"></a><br>계좌
+										개설</td>
+									<td scope="col"><a href="#account_send"><img
+											src="/assets/img/계좌이체사진.png" height="88px"></a><br>계좌
+										이체 방법</td>
+									<td scope="col"><a href="#account_list"><img
+											src="/assets/img/계좌내역사진.png" height="88px"></a><br>계좌
+										거래 내역 조회 방법</td>
+									<td scope="col"><a href="#account_pw"><img
+											src="/assets/img/계좌비번사진.png" height="88px"></a><br>계좌
+										비밀번호 변경 방법</td>
+									<td scope="col"><a href="#account_cancel"><img
+											src="/assets/img/계좌해지사진.png" height="88px"></a><br>계좌
+										해지 방법</td>
 
-							<p class="ps-3">*궁금한 주제를 클릭하면 해당 영상으로 이동합니다</p>
-							<div class="subcontent">
-							<div class=" guid-summ">
-							<h5 class="fw-bold mb-sm-3"><i class="bi bi-cash-coin"></i> 계좌</h5>
-								<ul>
-									<li><a href="#account_issu">계좌 개설 방법</a></li>
-									<li><a href="#account_send">계좌 이체 방법</a></li>
-									<li><a href="#account_list">계좌 거래 내역 조회 방법</a></li>
-									<li><a href="#account_pw">계좌 비밀번호 변경 방법</a></li>
-									<li><a href="#account_cancel">계좌 해지 방법</a></li>
-									
-								</ul>
-								<hr>
-								<h5 class="fw-bold mb-sm-3"><i class="bi bi-credit-card"></i> 카드</h5>
-								<ul>
-									<li><a href="#card_issu">카드 발급 방법</a></li>
-									<li><a href="#card_status">카드 분실신고/취소 방법</a></li>
-									<li><a href="#card_pw">카드 발급 방법</a></li>
-									<li><a href="#card_cancel">카드 분실신고/취소 방법</a></li>
-								</ul>
-								<hr>
-								<h5 class="fw-bold mb-sm-3"><i class="bi bi-file-earmark-lock"></i> 인증서</h5>
-								<ul>
-									<li><a href="#certifi_issu">인증서 발급 방법</a></li>
-								</ul>
-								<hr>
-								<h5 class="fw-bold mb-sm-3"><i class="bi bi-bank2"></i> 지점찾기 및 번호표 발행</h5>
-								<ul>
-									<li><a href="#">지점찾기 및 번호표 발행 방법</a></li>
-								</ul>
-							</div>
-							</div>
+								</tr>
+							</table>
 						</div>
+						
+						<hr>
+						<div class="subcontent">
+							<h5 ><i class="bi bi-credit-card"></i> 카드</h5>
+							<table class="guid-table-size">
+								<colgroup>
+									<col width="20%">
+									<col width="20%">
+									<col width="20%">
+									<col width="20%">
+									<col width="20%">
+								</colgroup>
+								<tr>
+									<td scope="col"><a href="#card_issu"><img
+											src="/assets/img/카드발급사진.png" height="88px"></a><br>카드 발급 방법</td>
+									<td scope="col"><a href="#card_status"><img
+											src="/assets/img/카드정지사진.png" height="88px"></a><br>카드 분실신고/취소 방법</td>
+									<td scope="col"><a href="#card_pw"><img
+											src="/assets/img/카드비번사진.png" height="88px"></a><br>카드 비밀번호 변경 방법</td>
+									<td scope="col"><a href="#card_cancel"><img
+											src="/assets/img/카드해지사진.png" height="88px"></a><br>카드 해지 방법</td>
+									<td scope="col"></td>
 
-<hr>
+								</tr>
+							</table>
+						</div>
+						
+						<hr>
+						<div class="subcontent">
+							<h5 ><i class="bi bi-file-earmark-lock"></i> 인증서</h5>
+							<table class="guid-table-size">
+								<colgroup>
+									<col width="20%">
+									<col width="20%">
+									<col width="20%">
+									<col width="20%">
+									<col width="20%">
+								</colgroup>
+								<tr>
+									<td scope="col"><a href="#certifi_issu"><img
+											src="/assets/img/인증서발급사진.png" height="88px"></a><br>인증서 발급 방법</td>
+									<td scope="col"></td>
+									<td scope="col"></td>
+									<td scope="col"></td>
+									<td scope="col"></td>
+
+								</tr>
+							</table>
+						</div>
+						
+						<hr>
+						<div class="subcontent">
+							<h5 ><i class="bi bi-file-earmark-lock"></i> 지점찾기 및 번호표 발행</h5>
+							<table class="guid-table-size">
+								<colgroup>
+									<col width="20%">
+									<col width="20%">
+									<col width="20%">
+									<col width="20%">
+									<col width="20%">
+								</colgroup>
+								<tr>
+									<td scope="col"><a href="#findStore"><img
+											src="/assets/img/인증서발급사진.png" height="88px"></a><br>지점찾기/번호표 발행 방법</td>
+									<td scope="col"><a href="#listStore"><img
+											src="/assets/img/번호표사진.png" height="88px"></a><br>번호표 조회 및 취소</td>
+									<td scope="col"></td>
+									<td scope="col"></td>
+									<td scope="col"></td>
+
+								</tr>
+							</table>
+						</div>
+						
+
+						<hr>
+						<br>
+<br>
 						<div class="subcontent">
 							<h3 class="h3-subtitle">계좌</h3>
 							<div class="subcontent">
-							<p id="account_issu" class="guid-subtitle">- 계좌 개설 방법</p>
+								<p id="account_issu" class="guid-subtitle">- 계좌 개설 방법</p>
 								<video controls src="/assets/video/계좌 개설.mp4" width="90%"></video>
 							</div>
 							<div class="subcontent">
-							<p id="account_list" class="guid-subtitle">- 계좌 거래 내역 조회 방법</p>
+								<p id="account_list" class="guid-subtitle">- 계좌 거래 내역 조회 방법</p>
 								<video controls src="/assets/video/계좌 거래내역조회.mp4" width="90%"></video>
 							</div>
 							<div class="subcontent">
-							<p id="account_send" class="guid-subtitle">- 계좌 이체 방법</p>
+								<p id="account_send" class="guid-subtitle">- 계좌 이체 방법</p>
 								<video controls src="/assets/video/계좌이체.mp4" width="90%"></video>
 							</div>
 							<div class="subcontent">
-							<p id="account_pw" class="guid-subtitle">- 계좌 비밀번호 수정 방법</p>
+								<p id="account_pw" class="guid-subtitle">- 계좌 비밀번호 수정 방법</p>
 								<video controls src="/assets/video/계좌비밀번호수정.mp4" width="90%"></video>
 							</div>
 							<div class="subcontent">
-							<p id="account_cancel" class="guid-subtitle">- 계좌 해지 방법</p>
+								<p id="account_cancel" class="guid-subtitle">- 계좌 해지 방법</p>
 								<video controls src="/assets/video/계좌해지.mp4" width="90%"></video>
 							</div>
-							
+
 						</div>
-<hr>
+						<hr>
 						<div class="subcontent">
 							<h3 class="h3-subtitle">카드</h3>
 							<div class="subcontent">
@@ -303,21 +377,25 @@
 						<div class="subcontent">
 							<h3 class="h3-subtitle">인증서</h3>
 							<div class="subcontent">
-							<p id="certifi_issu" class="guid-subtitle">- 인증서 발급 방법</p>
+								<p id="certifi_issu" class="guid-subtitle">- 인증서 발급 방법</p>
 								<video controls src="/assets/video/인증서 발급.mp4" width="90%"></video>
 							</div>
-<hr>							
+							<hr>
 							<div class="subcontent">
-							<h3 class="h3-subtitle">지점찾기 및 번호표 발행</h3>
-							<div class="subcontent">
-							<p id="findStore" class="guid-subtitle">- 지점찾기 및 번호표 발행 방법</p>
-								<video controls src="/assets/video/.mp4" width="90%"></video>
+								<h3 class="h3-subtitle">지점찾기 및 번호표 발행</h3>
+								<div class="subcontent">
+									<p id="findStore" class="guid-subtitle">- 지점찾기 및 번호표 발행 방법</p>
+									<video controls src="/assets/video/.mp4" width="90%"></video>
+								</div>
+								<div class="subcontent">
+									<p id="listStore" class="guid-subtitle">- 번호표 조회 및 취소</p>
+									<video controls src="/assets/video/.mp4" width="90%"></video>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-</div>
 		</div>
 	</div>
 	<!-- End Content -->
