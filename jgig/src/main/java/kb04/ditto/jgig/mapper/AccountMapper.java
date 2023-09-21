@@ -15,18 +15,17 @@ public interface AccountMapper {
 	@Select("select count(*) from account where mem_id = #{mem_id} order by regdate desc, account")
 	public int list(String mem_id);
 	
-	@Select("select rownum num, account, act_name, act_password, balance, regdate, mem_nm, ssn, phone_num, job, pur_trans, sor_fund, mem_id from (select rownum num, a.*from ( select * from account  where mem_id = #{mem_id} order by regdate desc, balance desc) a )where num between #{startPage} and #{endPage}")
+	@Select("select rownum num, account, act_name, act_password, balance, regdate, mem_nm, ssn, phone_num, job, pur_trans, sor_fund, mem_id from (select rownum num, a.*from ( select * from account  where mem_id = #{mem_id} order by regdate desc, balance desc) a )where  num between #{startPage} and #{endPage}")
 	public List<AccountDto> listWithPaging(String mem_id, int startPage, int endPage);
 	
 	@Select("select count(*) from point where TO_CHAR(point_date, 'YYYY-MM-DD')= #{str_regdate} and mem_id = #{mem_id} and division = #{division}")
 	public int check_practice(String str_regdate, String mem_id, String division);
-	
-	
+
 	@Insert("insert into Account(account, act_name, act_password, balance, regdate, mem_nm, ssn, phone_num, job, pur_trans, sor_fund, mem_id) values(account_seq.nextval, #{act_name}, "
 			+ "#{act_password}, 500000, sysdate, #{mem_nm}, #{ssn}, #{phone_num}, #{job}, #{pur_trans}, #{sor_fund}, #{mem_id})")
 	public int insert(AccountDto dto);
 	
-	@Select("select account from (select rownum num, account from (select * from account a where mem_nm = #{mem_nm} order by regdate desc)) where num = 1")
+	@Select("select account from(select * from account order by account desc) where mem_nm = #{mem_nm} and rownum = 1 ")
 	public long account_num(AccountDto dto);
 	
 	@Select("select act_name, account, regdate, balance, act_password from account where account = #{account}")
