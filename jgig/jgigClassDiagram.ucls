@@ -40,7 +40,7 @@
   </class>  
   <class id="5" language="java" name="kb04.ditto.jgig.controller.guideController" project="jgig" 
     file="/jgig/src/main/java/kb04/ditto/jgig/controller/guideController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2395" y="2454"/>    
+    <position height="-1" width="-1" x="2395" y="2460"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -354,115 +354,171 @@
     </display>  
   </class>  
   <association id="40">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="41" name="memberMapper"/>      
-      <multiplicity id="42" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="31" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="43">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="44" name="memberMapper"/>      
-      <multiplicity id="45" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="31" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="46">    
     <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="47" name="waitingMapper"/>      
-      <multiplicity id="48" minimum="0" maximum="1"/>    
+      <attribute id="41" name="waitingMapper">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="42" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="36" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="49">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="50" name="boardMapper"/>      
-      <multiplicity id="51" minimum="0" maximum="1"/>    
+  <association id="43">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="44" name="noticeMapper">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="45" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="30" navigable="true"/>    
+    <end type="TARGET" refId="33" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="52">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="53" name="pointMapper"/>      
-      <multiplicity id="54" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="32" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="55">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="56" name="searchWordMapper"/>      
-      <multiplicity id="57" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="35" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="58">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="59" name="mainMapper"/>      
-      <multiplicity id="60" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="38" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="61">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="62" name="transferMapper"/>      
-      <multiplicity id="63" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="28" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="64">    
+  <association id="46">    
     <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="65" name="pointMapper"/>      
-      <multiplicity id="66" minimum="0" maximum="1"/>    
+      <attribute id="47" name="memberMapper">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="48" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="32" navigable="true"/>    
+    <end type="TARGET" refId="31" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="67">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="68" name="commentMapper"/>      
-      <multiplicity id="69" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="37" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="70">    
+  <association id="49">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="71" name="cardMapper"/>      
-      <multiplicity id="72" minimum="0" maximum="1"/>    
+      <attribute id="50" name="cardMapper">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="51" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="29" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <association id="52">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="53" name="transferMapper">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="54" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="55">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="56" name="memberMapper">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="57" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="58">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="59" name="searchWordMapper">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="60" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="61">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="62" name="accountMapper">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="63" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="27" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="64">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="65" name="boardMapper">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="66" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="67">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="68" name="mainMapper">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="69" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="70">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="71" name="pointMapper">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="72" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <association id="73">    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="74" name="quizMapper"/>      
-      <multiplicity id="75" minimum="0" maximum="1"/>    
+      <attribute id="74" name="quizMapper">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="75" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="34" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="76">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="77" name="accountMapper"/>      
-      <multiplicity id="78" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="77" name="pointMapper">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="78" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="27" navigable="true"/>    
+    <end type="TARGET" refId="32" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="79">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="80" name="noticeMapper"/>      
-      <multiplicity id="81" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="80" name="commentMapper">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="81" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="33" navigable="true"/>    
+    <end type="TARGET" refId="37" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
