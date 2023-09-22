@@ -28,8 +28,8 @@ import kb04.ditto.jgig.mapper.QuizMapper;
 public class quizController {
 	LocalDate now = LocalDate.now();
 	int dayOfMonth = now.getDayOfMonth();
-	int ans = dayOfMonth % 4;
-	//int ans = 3; // 정답 
+	// int ans = dayOfMonth % 4;
+	int ans = 1; // 정답 
 	// String question = Integer.toString(dayOfMonth * dayOfMonth % 160);
 	
 	@Autowired

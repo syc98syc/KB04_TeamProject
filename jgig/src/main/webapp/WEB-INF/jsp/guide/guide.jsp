@@ -303,7 +303,7 @@
 						
 						<hr>
 						<div class="subcontent">
-							<h5 ><i class="bi bi-file-earmark-lock"></i> 지점찾기 및 번호표 발행</h5>
+							<h5 ><i class="bi bi-bank"></i> 지점찾기 및 번호표 발행</h5>
 							<table class="guid-table-size">
 								<colgroup>
 									<col width="20%">
