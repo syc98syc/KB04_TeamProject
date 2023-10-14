@@ -224,9 +224,11 @@
 											<td>${ntc.ntc_view }</td>
 										</tr>
 									</c:forEach>
-									<th colspan="2" style="text-align: center;">총 게시글: ${requestScope.total }</th>
-									<th style="text-align: center;">총 페이지: ${criteria.totalPage }</th>
-									<th colspan="2" style="text-align: center;">공지사항</th>
+									<tr>
+										<th colspan="2" style="text-align: center;">총 게시글: ${requestScope.total }</th>
+										<th style="text-align: center;">총 페이지: ${criteria.totalPage }</th>
+										<th colspan="2" style="text-align: center;">공지사항</th>
+									</tr>
 							</table>
 							
 

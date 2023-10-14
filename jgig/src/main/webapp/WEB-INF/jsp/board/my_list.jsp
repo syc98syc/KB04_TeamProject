@@ -227,9 +227,11 @@
 											<td>${brd.brd_view }</td>
 										</tr>
 									</c:forEach>
-									<th colspan="2" style="text-align: center;">총 게시글: ${requestScope.total }</th>
-									<th colspan="2" style="text-align: center;">총 페이지: ${criteria.totalPage }</th>
-									<th colspan="2" style="text-align: center;">내가 쓴 글</th>
+									<tr>
+										<th colspan="2" style="text-align: center;">총 게시글: ${requestScope.total }</th>
+										<th colspan="2" style="text-align: center;">총 페이지: ${criteria.totalPage }</th>
+										<th colspan="2" style="text-align: center;">내가 쓴 글</th>
+									</tr>
 							</table>
 
 							<script>
