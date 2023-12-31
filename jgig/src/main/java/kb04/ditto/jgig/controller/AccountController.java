@@ -24,7 +24,6 @@ import kb04.ditto.jgig.mapper.AccountMapper;
 
 @Controller
 public class AccountController {
-
 	@Autowired
 	AccountMapper accountMapper;
 	
@@ -32,7 +31,6 @@ public class AccountController {
 	String ssn, phone_num, actName, memName, mem_id;
 	public final int point = 5;
 	
-
 	// 로그인 체크 함수
 	public String login_check(HttpSession session) {
 		// 세션에서 로그인 정보를 확인
@@ -48,7 +46,6 @@ public class AccountController {
 		return mem_id;
 	}
 	
-
 	// 계좌개설폼1단계
 	@GetMapping("/jgig/open_account1")
 	public String open_form1(HttpSession session) {
